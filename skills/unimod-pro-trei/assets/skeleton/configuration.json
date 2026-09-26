@@ -1,0 +1,137 @@
+{
+    "controllers": [
+        {
+            "_name": "PLC_1",
+            "comment": "",
+            "communicationLines": [
+                {
+                    "answerTimeout": 1,
+                    "ethDstAddr": "0.0.0.0",
+                    "ethDstPort": 1911,
+                    "ethLocalPort": 0,
+                    "interactionMode": 0,
+                    "interface": 5,
+                    "modilesIO": [
+                    ],
+                    "name": "Линия связи (порт ST-BUS 1)",
+                    "offsetAddr": 0,
+                    "protocol": 1,
+                    "repeat": 0,
+                    "serialSpeed": 5000000,
+                    "transmitTimeout": 0
+                }
+            ],
+            "ethComponents": [
+                {
+                    "frame": 8192,
+                    "port": 6000,
+                    "priority": 3,
+                    "privateCert": "",
+                    "privateKey": "",
+                    "publicCert": "",
+                    "type": 0
+                }
+            ],
+            "iec104": [
+            ],
+            "isTreinet": false,
+            "modbus_tcpSlaveMaxConnectOnOnePort": 10,
+            "modbus_tcpSlaveTimeoutRetention": 15000,
+            "name": "PLC_1",
+            "net_eth1": "192.168.1.1",
+            "net_eth1_1": "192.168.1.1",
+            "net_eth1_res": "192.168.1.2",
+            "net_eth1_res1": "192.168.1.2",
+            "net_eth2": "192.168.2.1",
+            "net_eth2_1": "192.168.2.1",
+            "net_eth2_res": "192.168.2.2",
+            "net_eth2_res1": "192.168.2.2",
+            "net_eth3": "192.168.3.1",
+            "net_eth3_1": "192.168.3.1",
+            "net_eth3_res": "192.168.3.2",
+            "net_eth3_res1": "192.168.3.2",
+            "net_eth4": "192.168.4.1",
+            "net_eth4_1": "192.168.4.1",
+            "net_eth4_res": "192.168.4.2",
+            "net_eth4_res1": "192.168.4.2",
+            "net_gateway": "0.0.0.0",
+            "net_mode": 3,
+            "net_mrpWakeup": 10,
+            "net_netMask1": "255.255.255.0",
+            "net_netMask1_1": "255.255.255.0",
+            "net_netMask2": "255.255.255.0",
+            "net_netMask2_1": "255.255.255.0",
+            "net_netMask3": "255.255.255.0",
+            "net_netMask3_1": "255.255.255.0",
+            "net_netMask4": "255.255.255.0",
+            "net_netMask4_1": "255.255.255.0",
+            "ntp_mode": 0,
+            "ntp_on": false,
+            "ntp_ta": 16000,
+            "ntp_td": 64000,
+            "opcServerController_criticalIsStop": false,
+            "opcServerController_enableTrei": true,
+            "opcServerController_enableTreis": true,
+            "opcServerController_expandArrays": false,
+            "opcServerController_kernelPriority": false,
+            "opcServerController_on": false,
+            "opcServerController_separateHighLow": false,
+            "opcServerController_separateWarningCritical": false,
+            "remoteAccess_ftp": 0,
+            "remoteAccess_telnet": 0,
+            "remoteAccess_web": 2,
+            "remoteAccess_webProtocol": 0,
+            "reservParam_components": 0,
+            "reservParam_extSwitch": 0,
+            "reservParam_files": [
+            ],
+            "reservParam_frame": 8000,
+            "reservParam_mode": 0,
+            "reservParam_output": 0,
+            "reservParam_sync": 0,
+            "runModeParam_ftt": 1500,
+            "runModeParam_isEnergySaving": false,
+            "runModeParam_maxSystemEvents": 1000,
+            "runModeParam_maxTimeoutRequest": 3000,
+            "runModeParam_saveRes": 0,
+            "serialPort1Tune": 0,
+            "serialPort2Tune": 0,
+            "serialPortMode": 0,
+            "stBus1Mode": 2,
+            "stBus1Tune": 0,
+            "stBus2Mode": 2,
+            "treinetFrame": 8000,
+            "typeMaster": 77,
+            "unit1Mode": 0,
+            "unit1Type": 0,
+            "unit2Mode": 0,
+            "unit2Type": 0,
+            "unit3Mode": 0,
+            "unit3Type": 0,
+            "unit4Mode": 0,
+            "unit4Type": 0,
+            "watchdogTime": 1700
+        }
+    ],
+    "iec104": {
+        "ASDUAddr": 1
+    },
+    "mko": [
+    ],
+    "modbus": [
+    ],
+    "opc": [
+        {
+            "address": "127.0.0.1",
+            "ansverTimeout": 3000,
+            "mtu": 16384,
+            "name": "Новый OPC-сервер 1",
+            "port": 5001,
+            "privateCert": "C:/Claude Unimode PRO 2/opc/config/keys/client/client_cert.pem",
+            "privateKey": "C:/Claude Unimode PRO 2/opc/config/keys/client/private/client_key.pem",
+            "publicCertNode": "C:/Claude Unimode PRO 2/opc/config/keys/ca",
+            "repeatCount": 3,
+            "typeSocket": 2
+        }
+    ]
+}

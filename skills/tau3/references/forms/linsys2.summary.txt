@@ -1,0 +1,140 @@
+// ===== TABOUTFORM =====
+  ProductName: TLabel  Caption = '- ТАУ -'
+  Version: TLabel  Caption = 'Версия 3.0'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TANALFNFORM =====
+AnalFnForm: TAnalFnForm  Caption = 'Переходный процесс - аналитические формулы'
+    N1: TMenuItem  Caption = 'В файл / на принтер'
+    N2: TMenuItem  Caption = '-'
+    N3: TMenuItem  Caption = 'Закрыть'
+
+// ===== TAPPRFORM =====
+ApprForm: TApprForm  Caption = 'Аппроксимация запаздывания'
+  RadioButton1: TRadioButton  Caption = '  1  '
+  RadioButton2: TRadioButton  Caption = '  2  '
+  RadioButton3: TRadioButton  Caption = '  3  '
+  RadioButton4: TRadioButton  Caption = '  4  '
+  RadioButton5: TRadioButton  Caption = '  1  '
+  RadioButton6: TRadioButton  Caption = '  2  '
+  RadioButton7: TRadioButton  Caption = '  3  '
+  RadioButton8: TRadioButton  Caption = '  4  '
+  Button1: TButton  Caption = 'OK'
+
+// ===== TCHOICFNFORM =====
+ChoicFnForm: TChoicFnForm  Caption = ' Выберите функции'
+  Label1: TLabel  Caption = 'для отображения на графике'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TDOCFORM =====
+DocForm: TDocForm  Caption = ' Расположение рисунка на листе'
+  Label2: TLabel  Caption = 'Слева'
+  Label3: TLabel  Caption = 'Ширина'
+  Label4: TLabel  Caption = 'Сверху'
+  Label5: TLabel  Caption = 'Высота'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TELEMFORM =====
+ElemForm: TElemForm  Caption = ' Элемент схемы'
+  Button1: TButton  Hint = 'Кнопка выбора'
+  Button1: TButton  Caption = 'OK'
+  UpDown1: TUpDown  Hint = 'Просмотр  библиотеки'
+
+// ===== TFRQFORM =====
+FrqForm: TFrqForm  Caption = 'Таблица частот'
+    N1: TMenuItem  Caption = 'В файл / на принтер'
+    N4: TMenuItem  Caption = 'Повторить'
+    N2: TMenuItem  Caption = '-'
+    N3: TMenuItem  Caption = 'Закрыть'
+
+// ===== TGRAFORM =====
+  Button1: TButton  Hint = 'Выбор значений'
+  Button1: TButton  Caption = 'OK'
+  SpinButton1: TSpinButton  Hint = 'Сдвиг графика'
+  SpinButton2: TSpinButton  Hint = 'Сдвиг графика'
+    N1: TMenuItem  Caption = 'Выбор области'
+    N2: TMenuItem  Caption = 'Таблица корней'
+    N8: TMenuItem  Caption = 'Таблица коэфф.'
+    N9: TMenuItem  Caption = 'Аппроксимация'
+    N3: TMenuItem  Caption = 'Повторить'
+    N4: TMenuItem  Caption = '-'
+    N5: TMenuItem  Caption = 'Закрыть'
+    N6: TMenuItem  Caption = '-'
+    N7: TMenuItem  Caption = 'Главное окно'
+
+// ===== TMASFORM =====
+MasForm: TMasForm  Caption = 'Размер клеток'
+  Label1: TLabel  Caption = 'По оси ординат в одной клетке'
+  ListBox1: TListBox  Items.Strings = ('10' '20' '30' '40')
+  Button1: TButton  Caption = 'OK'
+
+// ===== TMFORM =====
+MForm: TMForm  Caption = 'Линейные системы с запаздыванием'
+    N1: TMenuItem  Caption = 'Формирование элементов схемы'
+    N2: TMenuItem  Caption = 'Просмотр параметров'
+    N13: TMenuItem  Caption = 'Выбор аппроксимации'
+    N3: TMenuItem  Caption = 'Исследование замкнутой системы'
+      N7: TMenuItem  Caption = 'Корневой годограф'
+      N14: TMenuItem  Caption = 'Траектории  корней'
+      N8: TMenuItem  Caption = 'Критерий Найквиста'
+      N9: TMenuItem  Caption = 'График  ЛАЧХ'
+      N10: TMenuItem  Caption = 'График  ЛФЧХ'
+    N4: TMenuItem  Caption = 'Процесс регулирования'
+    N5: TMenuItem  Caption = 'Переходный процесс'
+    N12: TMenuItem  Caption = '-'
+    N6: TMenuItem  Caption = 'Выход из программы'
+
+// ===== TPARAMFORM =====
+ParamForm: TParamForm  Caption = ' Параметры'
+
+// ===== TSCHTFORM =====
+SchtForm: TSchtForm  Caption = ' Параметры счета'
+  Label2: TLabel  Caption = 'Шаг счета кривых'
+  Label3: TLabel  Caption = 'Число дес. знаков в таблицах'
+  Label1: TLabel  Caption = 'Корни квазиполинома'
+  Label6: TLabel  Caption = 'Радиус круга'
+  Label7: TLabel  Caption = 'Число корней'
+  Label8: TLabel  Caption = 'Label8'
+  Label9: TLabel  Caption = 'Label9'
+
+// ===== TSHIRMFORM =====
+ShirmForm: TShirmForm  Caption = 'Ширма'
+
+// ===== TTABFORM =====
+  BitBtn1: TBitBtn  Hint = 'Уточнить значение'
+    N1: TMenuItem  Caption = 'В файл / на принтер'
+    N5: TMenuItem  Caption = 'Размер шрифта'
+      N6: TMenuItem  Caption = 'крупный'
+      N7: TMenuItem  Caption = 'нормальный'
+      N8: TMenuItem  Caption = 'мелкий'
+    N2: TMenuItem  Caption = 'Повторить'
+    N3: TMenuItem  Caption = '-'
+    N4: TMenuItem  Caption = 'Закрыть'
+
+// ===== TUSTFORM =====
+UstForm: TUstForm  Caption = ' Проверрьте установки'
+  RadioGroup1: TRadioGroup  Items.Strings = (' в файл ' ' на принтер ')
+  RadioGroup2: TRadioGroup  Items.Strings = (' перезаписать ' ' дописать ')
+  Button1: TButton  Caption = 'OK'
+  Button2: TButton  Caption = 'Отмена'
+
+// ===== TVALFORM =====
+ValForm: TValForm  Caption = ' Значения'
+  Button1: TButton  Hint = 'Конец ввода'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TWFORM =====
+WForm: TWForm  Caption = ' Частоты'
+  Button1: TButton  Hint = 'Конец ввода'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TZOOMFORM =====
+ZoomForm: TZoomForm  Caption = ' Выбор области'
+  Label1: TLabel  Caption = 'По горизонтали'
+  Label2: TLabel  Caption = 'от'
+  Label3: TLabel  Caption = 'до'
+  Label4: TLabel  Caption = 'По вертикали'
+  Label5: TLabel  Caption = 'от'
+  Label6: TLabel  Caption = 'до'
+  Button1: TButton  Hint = 'Конец ввода'
+  Button1: TButton  Caption = 'OK'

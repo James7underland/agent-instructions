@@ -6,3 +6,14 @@
 *.yaml text eol=lf
 *.json text eol=lf
 *.sh text eol=lf
+
+# Binary files
+*.skill binary
+*.vsdx binary
+*.vssx binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.bin binary
+*.var binary
+*.uprj binary

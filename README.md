@@ -28,6 +28,11 @@ graph TD
         TA["doc_tech_audit.md<br/>(Аудит физики, вывода формул и невязок)"]
         DR["diagram_drawio.md<br/>(Проектирование диаграмм Draw.io XML)"]
         SL["model_simulink.md<br/>(Моделирование в Simulink, MBD, MCP Toolkit)"]
+        MC["model_mathcad.md<br/>(Расчеты в Mathcad 13, COM, XML .xmcd)"]
+        TR["model_unimod_trei.md<br/>(ПЛК TREI-5B, Unimod PRO 2, FBD, ST)"]
+        FSA["diagram_fsa_visio.md<br/>(ФСА по ГОСТ 21.208/21.408 в MS Visio)"]
+        TL["lab_tau_reports.md<br/>(Отчеты по ТАУ, миллиметровка, OMML)"]
+        T3["model_tau3.md<br/>(Пакет программ ТАУ-3, Win32 GUI, VRT)"]
         LOG["chat_logging.md<br/>(Ведение лога переписки с AI)"]
     end
 
@@ -113,6 +118,11 @@ sequenceDiagram
 | [`doc_tech_audit.md`](doc_tech_audit.md) | **Рецензирование инженерного смысла и физики** | Проверка непрерывности математического вывода, физической адекватности допущений, законов сохранения, размерностей величин и масштабов невязок численных методов. |
 | [`diagram_drawio.md`](diagram_drawio.md) | **Проектирование диаграмм Draw.io (XML)** | Создание и редактирование схем в формате валидного XML (`.drawio` / `*.drawio.svg`). Стабильные ID, контейнеры, стили, аккуратная маршрутизация связей без пересечений. |
 | [`model_simulink.md`](model_simulink.md) | **Моделирование в Simulink и MBD** | Архитектура SATK/MCP, 9 инструментов, регламент `model_edit`, Guardrails (безопасные SID `Simulink.ID.getFullName`, автолейаут, защита от `StopTime=inf`), неразрушающая симуляция (`SimulationInput`), V&V тесты (Gherkin/`model_test`). |
+| [`model_mathcad.md`](model_mathcad.md) | **Инженерные расчеты в Mathcad 13** | Автоматизация Mathcad 13: XML `.xmcd`, COM-драйвер `mc.ps1`, генерация листов из текста, графики `mcplot`, отчеты Word по ГОСТ. Скилл [`skills/mathcad13/`](skills/mathcad13/SKILL.md). |
+| [`model_unimod_trei.md`](model_unimod_trei.md) | **Программирование ПЛК TREI-5B в Unimod PRO 2** | Разработка проектов Unimod PRO 2 (МЭК 61131-3: FBD, ST, LD), реверс-инжиниринг формата, генерация схем FBD (`prog.json`), UI Automation. Скилл [`skills/unimod-pro-trei/`](skills/unimod-pro-trei/SKILL.md). |
+| [`diagram_fsa_visio.md`](diagram_fsa_visio.md) | **Схемы автоматизации (ФСА, P&ID) в MS Visio** | Проектирование ФСА по ГОСТ 21.208-2013 и 21.408-2013, трафарет `ГОСТ_21.208_КИП.vssx`, контуры регулирования, подвал ПЛК/АРМ, Visio COM. Скилл [`skills/fsa-gost/`](skills/fsa-gost/SKILL.md). |
+| [`lab_tau_reports.md`](lab_tau_reports.md) | **Оформление лабораторных отчетов по ТАУ** | Расчеты линейных систем (практикум Губкин, АТП), индивидуализация вариантов, прецизионные графики на миллиметровке, формулы Word OMML. Скилл [`skills/tau-labs/`](skills/tau-labs/SKILL.md). |
+| [`model_tau3.md`](model_tau3.md) | **Моделирование в комплексе ТАУ-3** | Управление 24 Delphi-программами ТАУ-3 через Win32 API, файлы вариантов `.VRT`, справочная база (111 тем WinHelp), верификация NumPy. Скилл [`skills/tau3/`](skills/tau3/SKILL.md). |
 | [`chat_logging.md`](chat_logging.md) | **Ведение лога диалога с AI** | Фиксация хода работы в `docs/<lab>/<chat>-chat-log.md`. Сквозная нумерация реплик, временные метки, защита от затирания чужих чатов, исключение служебных тегов. |
 
 ---
@@ -130,6 +140,11 @@ sequenceDiagram
 - **Схемы и архитектурные диаграммы:** [`diagram_drawio.md`](diagram_drawio.md) + [`doc_markdown.md`](doc_markdown.md)
 - **Моделирование и системы управления в Simulink:** [`model_simulink.md`](model_simulink.md) + [`agentic_workflow.md`](agentic_workflow.md) + [`chat_logging.md`](chat_logging.md)
 - **Комплексный проект (C++ солвер + Simulink S-Function/C-Caller):** [`code_cpp.md`](code_cpp.md) + [`model_simulink.md`](model_simulink.md) + [`doc_tech_audit.md`](doc_tech_audit.md)
+- **Инженерные расчеты в Mathcad 13:** [`model_mathcad.md`](model_mathcad.md) + [`doc_word_gost.md`](doc_word_gost.md) + [`skills/mathcad13/`](skills/mathcad13/SKILL.md)
+- **Программирование ПЛК TREI-5B (Unimod PRO 2):** [`model_unimod_trei.md`](model_unimod_trei.md) + [`agentic_workflow.md`](agentic_workflow.md) + [`skills/unimod-pro-trei/`](skills/unimod-pro-trei/SKILL.md)
+- **Функциональные схемы автоматизации (ФСА в Visio):** [`diagram_fsa_visio.md`](diagram_fsa_visio.md) + [`skills/fsa-gost/`](skills/fsa-gost/SKILL.md)
+- **Лабораторные работы и отчеты по ТАУ:** [`lab_tau_reports.md`](lab_tau_reports.md) + [`model_mathcad.md`](model_mathcad.md) + [`skills/tau-labs/`](skills/tau-labs/SKILL.md)
+- **Исследование систем управления в ТАУ-3:** [`model_tau3.md`](model_tau3.md) + [`skills/tau3/`](skills/tau3/SKILL.md)
 
 ---
 

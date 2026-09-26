@@ -1,0 +1,94 @@
+// ===== TABOUTFORM =====
+  ProductName: TLabel  Caption = '- ТАУ -'
+  Version: TLabel  Caption = 'Версия 3.0'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TCHOICFNFORM =====
+  Label1: TLabel  Caption = 'для отображения на графике'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TDOCFORM =====
+DocForm: TDocForm  Caption = ' Расположение рисунка на листе'
+  Label2: TLabel  Caption = 'Слева'
+  Label3: TLabel  Caption = 'Ширина'
+  Label4: TLabel  Caption = 'Сверху'
+  Label5: TLabel  Caption = 'Высота'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TGRAFORM =====
+  Button1: TButton  Hint = 'Выбор значений'
+  Button1: TButton  Caption = 'OK'
+  SpinButton1: TSpinButton  Hint = 'Сдвиг графика'
+    N1: TMenuItem  Caption = 'Выбор области'
+    N2: TMenuItem  Caption = 'Продолжить'
+    N8: TMenuItem  Caption = 'Резерв'
+    N3: TMenuItem  Caption = 'Повторить'
+    N4: TMenuItem  Caption = '-'
+    N5: TMenuItem  Caption = 'Закрыть'
+    N6: TMenuItem  Caption = '-'
+    N7: TMenuItem  Caption = 'Главное окно'
+
+// ===== TLINFORM =====
+LinForm: TLinForm  Caption = 'Линеаризованная система'
+
+// ===== TMFORM =====
+MForm: TMForm  Caption = 'Система авторегулированя Уатта'
+    N1: TMenuItem  Caption = 'Модель системы'
+    N4: TMenuItem  Caption = 'Задание параметров'
+    N3: TMenuItem  Caption = 'Фазовый портрет'
+    N2: TMenuItem  Caption = 'Процесс регулирования'
+    N5: TMenuItem  Caption = 'Линеаризованная система'
+    N9: TMenuItem  Caption = '-'
+    N8: TMenuItem  Caption = 'Задача Вышнеградского'
+    N7: TMenuItem  Caption = '-'
+    N6: TMenuItem  Caption = 'Выход из программы'
+
+// ===== TMODFORM =====
+ModForm: TModForm  Caption = 'Модель стстемы'
+
+// ===== TPARAMFORM =====
+ParamForm: TParamForm  Caption = 'Классическая система авторегулирования Уатта'
+  Label9: TLabel  Caption = 'Шаг счета кривых'
+    Label1: TLabel  Caption = 'Задайте параметры'
+    Label2: TLabel  Caption = 'K = '
+    Label3: TLabel  Caption = 'a = '
+    Label4: TLabel  Caption = '(0 < a <1 )'
+  Button1: TButton  Hint = 'Конец ввода'
+  Button1: TButton  Caption = 'OK'
+    Label6: TLabel  Caption = 'q = '
+    Label8: TLabel  Caption = 'Время регулирования'
+
+// ===== TSHIRMFORM =====
+ShirmForm: TShirmForm  Caption = 'Ширма'
+
+// ===== TUSTFORM =====
+UstForm: TUstForm  Caption = ' Проверрьте установки'
+  RadioGroup1: TRadioGroup  Items.Strings = (' в файл ' ' на принтер ')
+  RadioGroup2: TRadioGroup  Items.Strings = (' перезаписать ' ' дописать ')
+  Button1: TButton  Caption = 'OK'
+  Button2: TButton  Caption = 'Отмена'
+
+// ===== TVALFORM =====
+ValForm: TValForm  Caption = ' Значения'
+  Button1: TButton  Hint = 'Конец ввода'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TVYSHFORM =====
+VyshForm: TVyshForm  Caption = 'Задача Вышнеградского'
+    Label1: TLabel  Caption = 'Задайте параметры'
+    Label2: TLabel  Caption = 'Начальное состояние'
+    Label3: TLabel  Caption = 'Время регулирования'
+    Label4: TLabel  Caption = 'A'
+    Label5: TLabel  Caption = 'B'
+    Label6: TLabel  Caption = 'C'
+
+// ===== TZOOMFORM =====
+ZoomForm: TZoomForm  Caption = ' Выбор области'
+  Label1: TLabel  Caption = 'По горизонтали'
+  Label2: TLabel  Caption = 'от'
+  Label3: TLabel  Caption = 'до'
+  Label4: TLabel  Caption = 'По вертикали'
+  Label5: TLabel  Caption = 'от'
+  Label6: TLabel  Caption = 'до'
+  Button1: TButton  Hint = 'Конец ввода'
+  Button1: TButton  Caption = 'OK'

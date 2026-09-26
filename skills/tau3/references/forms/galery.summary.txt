@@ -1,0 +1,29 @@
+// ===== TABOUTFORM =====
+  ProductName: TLabel  Caption = '- ТАУ -'
+  Version: TLabel  Caption = 'Версия 3.0'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TDOCFORM =====
+DocForm: TDocForm  Caption = ' Расположение рисунка на листе'
+  Label2: TLabel  Caption = 'Слева'
+  Label3: TLabel  Caption = 'Ширина'
+  Label4: TLabel  Caption = 'Сверху'
+  Label5: TLabel  Caption = 'Высота'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TMFORM =====
+MForm: TMForm  Caption = 'История авторегулирования в портретах'
+  Button1: TButton  Caption = 'Выход'
+  Button2: TButton  Caption = 'Вперед'
+  Button3: TButton  Caption = 'Назад'
+    Memo1: TMemo  Lines.Strings = ('')
+
+// ===== TSHIRMFORM =====
+ShirmForm: TShirmForm  Caption = 'Ширма'
+
+// ===== TUSTFORM =====
+UstForm: TUstForm  Caption = ' Проверрьте установки'
+  RadioGroup1: TRadioGroup  Items.Strings = (' в файл ' ' на принтер ')
+  RadioGroup2: TRadioGroup  Items.Strings = (' перезаписать ' ' дописать ')
+  Button1: TButton  Caption = 'OK'
+  Button2: TButton  Caption = 'Отмена'

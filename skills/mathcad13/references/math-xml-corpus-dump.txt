@@ -1,0 +1,515 @@
+﻿# files total=436 v20=214 parse_errors=0
+## top-level children: ws:metadata=214, ws:settings=214, ws:regions=214, ws:binaryContent=214
+## region kinds
+- ws:text = 6006   [qsheet\Applications\inelastic.xmcd]
+    <ws:text use-page-width="false" push-down="false" lock-width="true"><ws:p style="Normal" margin-left="0" margin-right="0" text-indent="0" text-align="left" list-style-type="none" tabs="inherit">W16x26</ws:p></ws:text>
+- ws:rendering = 5738   [qsheet\about_qs.xmcd]
+    <ws:rendering item-idref="2"/>
+- ws:math = 4485   [qsheet\symbols.xmcd]
+    <ws:math optimize="false" disable-calc="false"><ml:id>ℵ</ml:id></ws:math>
+- ws:indexes = 899   [qsheet\Applications\f060.xmcd]
+    <ws:indexes><ws:phrase>DFT</ws:phrase></ws:indexes>
+- ws:link = 816   [qsheet\tutorial\Features\feat_15.xmcd]
+    <ws:link href=".\..\newfeat\metadata.xmcd"/>
+- ws:png = 769   [qsheet\tutorial\Primers\tu_09.xmcd]
+    <ws:png item-idref="8" display-width="15" display-height="15"/>
+- ws:pageBreak = 691   [qsheet\about_qs.xmcd]
+    <ws:pageBreak/>
+- ws:component = 234   [qsheet\Solving\nonlinop.xmcd]
+    <ws:component hide-arguments="false" clsid-buddy="62e334b8-fdda-4b2b-9bb4-48def95f2af1" item-idref="7" disable-calc="false"><ws:inputs><ml:id>f</ml:id></ws:inputs><ws:outputs/></ws:component>
+- ws:plot = 231   [qsheet\Calculus_DEs\curv.xmcd]
+    <ws:plot disable-calc="false" item-idref="9"/>
+- ws:ole = 55   [qsheet\tutorial\Features\feat_05.xmcd]
+    <ws:ole clsid="{00042F6F-0000-0000-C000-000000000046}" type="static" item-idref="28"/>
+- ws:area = 9   [qsheet\tutorial\newfeat\menus.xmcd]
+    <ws:area is-collapsed="true" name="An area with an exceedingly long name that would not be accepted in an older version of Mathcad" show-name="true" show-border="true" show-icon="true" show-timestamp="true" allow-expand="false" is-locked="false" timestamp="" top-lock-id="932" bottom-lock-id="933"><ws:region region-id="1010" left="18" top="12.75" width="30" height="15.75" align-x="31.5" align-y="24" show-border="false" show-highlight="false" is-protected="true" z-order="0" background-color="inherit" tag=""><ws:math optimize="false" disable-calc="false"><ml:define><ml:id>x</ml:id><ml:real>2</ml:
+- ws:metafile = 2   [qsheet\tutorial\Primers\tu_10.xmcd]
+    <ws:metafile mapping-mode="8" x-extent="110.2394" y-extent="41.24409" item-idref="27"/>
+- ws:reference = 1   [qsheet\tutorial\Features\feat_15.xmcd]
+    <ws:reference><p:originRef doc-id="85ea0861-6085-4559-87cc-e68066668a4a" version-id="a27d786e-74de-405c-a334-cced2e471003" branch-id="00000000-0000-0000-0000-000000000000" revision-num="4" is-modified="true" region-id="0" href="C:\Mathcad 13\Documentation\ResourceCenter\EN\qsheet\tutorial\newfeat\metadata.xmcd"><p:hash/></p:originRef><p:parentRef doc-id="00000000-0000-0000-0000-000000000000" version-id="00000000-0000-0000-0000-000000000000" branch-id="00000000-0000-0000-0000-000000000000" revision-num="0" is-modified="false" region-id="0"><p:hash/></p:parentRef><p:comment/><p:originComment/></
+## math elements
+### ml:real  n=107968
+  attrs: base=10(96), base=16(11), base=2(4)
+  parents: ml:matrix(100014), ml:apply(5349), ml:sequence(685), ml:result(514)
+  ex: <ml:real>1</ml:real>
+  src: qsheet\tutorial\Features\feat_02.xmcd
+### ml:id  n=16253
+  attrs: http://www.w3.org/XML/1998/namespace:space=preserve(16252), subscript=A(153), font=0(124), subscript=B(85), subscript=3(66), subscript=1(63)
+  parents: ml:apply(9985), ml:define(1609), ml:sequence(1554), ml:boundVars(1010)
+  ex: <ml:id>ℵ</ml:id>
+  src: qsheet\symbols.xmcd
+### ml:apply  n=12590
+  attrs: unpaired=false(87), fixity=postfix(26), fixity=infix(15), fixity=prefix(2), fixity=tree(1)
+  parents: ml:apply(6903), ml:define(1510), ml:eval(724), ml:parens(597)
+  ex: <ml:apply><ml:sqrt/><ml:id>x</ml:id></ml:apply>
+  src: qsheet\tutorial\Features\feat_04a.xmcd
+### ml:mult  n=2895
+  attrs: style=default(2609), style=auto-select(263), style=dot(15), style=x(5), style=narrow-dot(3)
+  parents: ml:apply(2895)
+  ex: <ml:apply><ml:mult style="x"/><ml:real>2</ml:real><ml:id>d</ml:id></ml:apply>
+  src: qsheet\tutorial\Features\feat_13.xmcd
+### ml:define  n=2228
+  attrs: warning=WarnRedefinedUDScalar(327), warning=WarnRedefinedBIUnit(194), warning=WarnRedefinedUDFunction(37), style=default(19), warning=WarnRedefinedBIFunction(17), style=equal(3)
+  parents: ws:math(2161), ml:provenance(67)
+  ex: <ml:define><ml:id>b</ml:id><ml:id>a</ml:id></ml:define>
+  src: qsheet\Calculus_DEs\heat.xmcd
+### ml:pow  n=1345
+  attrs: 
+  parents: ml:apply(1345)
+  ex: <ml:apply><ml:pow/><ml:real>2</ml:real><ml:id>m</ml:id></ml:apply>
+  src: qsheet\Applications\f060.xmcd
+### ml:eval  n=1268
+  attrs: 
+  parents: ws:math(1268)
+  ex: <ml:eval><ml:id>T</ml:id></ml:eval>
+  src: qsheet\Programming\recursv.xmcd
+### ml:div  n=1232
+  attrs: inline=false(10), inline=true(3)
+  parents: ml:apply(1232)
+  ex: <ml:apply><ml:div/><ml:real>1</ml:real><ml:id>N0</ml:id></ml:apply>
+  src: qsheet\Applications\f060.xmcd
+### ml:plus  n=1132
+  attrs: split=false(5)
+  parents: ml:apply(1132)
+  ex: <ml:apply><ml:plus/><ml:id>M</ml:id><ml:id>N</ml:id></ml:apply>
+  src: qsheet\Techniques\performance.xmcd
+### ml:sequence  n=1067
+  attrs: 
+  parents: ml:apply(865), ml:command(121), ml:range(61), ml:parens(14)
+  ex: <ml:sequence><ml:id>rdog</ml:id><ml:id>gdog</ml:id><ml:id>bdog</ml:id></ml:sequence>
+  src: qsheet\tutorial\Features\feat_12.xmcd
+### ml:indexer  n=1010
+  attrs: 
+  parents: ml:apply(1010)
+  ex: <ml:apply><ml:indexer/><ml:id>V</ml:id><ml:id>n</ml:id></ml:apply>
+  src: qsheet\tutorial\Features\feat_03.xmcd
+### ml:result  n=981
+  attrs: 
+  parents: ml:eval(981)
+  ex: <ml:eval><ml:id>T</ml:id><ml:result><ml:real>3</ml:real></ml:result></ml:eval>
+  src: qsheet\Calculus_DEs\PDE.xmcd
+### ml:minus  n=965
+  attrs: 
+  parents: ml:apply(965)
+  ex: <ml:apply><ml:minus/><ml:real>3</ml:real><ml:id>y</ml:id></ml:apply>
+  src: qsheet\tutorial\Primers\tu_05.xmcd
+### ml:boundVars  n=754
+  attrs: 
+  parents: ml:function(438), ml:lambda(316)
+  ex: <ml:apply><ml:derivative/><ml:lambda><ml:boundVars><ml:placeholder/></ml:boundVars><ml:placeholder/></ml:lambda></ml:apply>
+  src: qsheet\tutorial\Features\feat_08.xmcd
+### ml:matrix  n=642
+  attrs: cols=1(479), rows=3(216), rows=2(192), cols=3(77), rows=4(76), rows=1(66)
+  parents: ml:result(267), ml:define(191), ml:symResult(39), ml:apply(36)
+  ex: <ml:matrix rows="2" cols="1"><ml:real>0</ml:real><ml:real>4</ml:real></ml:matrix>
+  src: qsheet\tutorial\Features\feat_01.xmcd
+### ml:parens  n=640
+  attrs: unpaired=false(7)
+  parents: ml:apply(595), ml:lambda(28), ml:define(7), ml:sequence(5)
+  ex: <ml:eval><ml:apply fixity="postfix"><ml:id>°F</ml:id><ml:parens><ml:real>-10</ml:real></ml:parens></ml:apply></ml:eval>
+  src: qsheet\tutorial\newfeat\units.xmcd
+### p:hash  n=578
+  attrs: 
+  parents: p:originRef(289), p:parentRef(289)
+  ex: 
+  src: 
+### ml:function  n=438
+  attrs: unpaired=false(8)
+  parents: ml:define(429), ml:globalDefine(5), ml:localDefine(4)
+  ex: <ml:define><ml:function><ml:id>d</ml:id><ml:boundVars><ml:id>x</ml:id></ml:boundVars></ml:function><ml:id>x</ml:id></ml:define>
+  src: qsheet\Calculus_DEs\opsfig9.xmcd
+### ml:equal  n=393
+  attrs: style=equal(39), style=bold-equal(1)
+  parents: ml:apply(393)
+  ex: <ml:apply><ml:equal/><ml:id>Grad</ml:id><ml:id>∇</ml:id></ml:apply>
+  src: qsheet\Calculus_DEs\vctrdiff.xmcd
+### ml:localDefine  n=320
+  attrs: 
+  parents: ml:program(251), ml:for(45), ml:ifThen(11), ml:while(6)
+  ex: <ml:define><ml:apply><ml:indexer/><ml:id>X</ml:id><ml:id>k</ml:id></ml:apply><ml:localDefine><ml:id>k</ml:id><ml:real>2</ml:real></ml:localDefine></ml:define>
+  src: qsheet\tutorial\migration\mg_programming.xmcd
+### ml:lambda  n=316
+  attrs: 
+  parents: ml:apply(316)
+  ex: <ml:apply><ml:derivative/><ml:lambda><ml:boundVars><ml:placeholder/></ml:boundVars><ml:placeholder/></ml:lambda></ml:apply>
+  src: qsheet\tutorial\Features\feat_08.xmcd
+### ml:provenance  n=289
+  attrs: expr-id=1(227), expr-id=2(1)
+  parents: ws:math(276), ml:eval(9), ml:apply(2), ml:define(2)
+  ex: 
+  src: 
+### p:comment  n=289
+  attrs: 
+  parents: ml:provenance(289)
+  ex: 
+  src: 
+### p:contentHash  n=289
+  attrs: 
+  parents: ml:provenance(289)
+  ex: 
+  src: 
+### p:originComment  n=289
+  attrs: 
+  parents: ml:provenance(289)
+  ex: 
+  src: 
+### p:originRef  n=289
+  attrs: doc-id(289), version-id(289), branch-id(289), region-id=0(285), is-modified=false(274), revision-num=0(270)
+  parents: ml:provenance(289)
+  ex: 
+  src: 
+### p:parentRef  n=289
+  attrs: doc-id(289), version-id(289), branch-id(289), region-id=0(286), is-modified=false(279), revision-num=0(270)
+  parents: ml:provenance(289)
+  ex: 
+  src: 
+### ml:range  n=283
+  attrs: 
+  parents: ml:define(192), ml:for(89), ws:math(2)
+  ex: <ml:range><ml:placeholder/><ml:placeholder/></ml:range>
+  src: qsheet\tutorial\Primers\tu_03a.xmcd
+### ml:symEval  n=256
+  attrs: hide-lhs=false(254), style=default(252), hide-keywords=false(252), style=equals(4), hide-keywords=true(4), hide-lhs=true(2)
+  parents: ws:math(217), ml:define(29), ml:eval(9), ml:symEval(1)
+  ex: <ml:symEval style="default" hide-keywords="false" hide-lhs="false"><ml:apply><ml:id>f</ml:id><ml:id>y</ml:id></ml:apply><ml:symResult><ml:real>6.25</ml:real></ml:symResult></ml:symEval>
+  src: qsheet\tutorial\Primers\tu_07a.xmcd
+### ml:symResult  n=256
+  attrs: 
+  parents: ml:symEval(256)
+  ex: <ml:symEval style="default" hide-keywords="false" hide-lhs="false"><ml:apply><ml:id>f</ml:id><ml:id>y</ml:id></ml:apply><ml:symResult><ml:real>6.25</ml:real></ml:symResult></ml:symEval>
+  src: qsheet\tutorial\Primers\tu_07a.xmcd
+### ml:neg  n=224
+  attrs: 
+  parents: ml:apply(224)
+  ex: <ml:apply><ml:neg/><ml:apply><ml:id>f</ml:id><ml:id>x</ml:id></ml:apply></ml:apply>
+  src: qsheet\tutorial\Features\feat_04a.xmcd
+### ml:imag  n=198
+  attrs: symbol=i(98), symbol=j(1)
+  parents: ml:complex(99), ml:apply(85), ml:matrix(9), ws:math(3)
+  ex: <ml:imag symbol="i">3</ml:imag>
+  src: qsheet\tutorial\Features\feat_02.xmcd
+### ml:str  n=190
+  attrs: http://www.w3.org/XML/1998/namespace:space=preserve(174)
+  parents: ml:matrix(64), ml:sequence(43), ml:apply(34), ml:result(22)
+  ex: <ml:define><ml:id>cs</ml:id><ml:str>,</ml:str></ml:define>
+  src: qsheet\Techniques\charstr7.xmcd
+### ml:program  n=187
+  attrs: 
+  parents: ml:define(93), ml:for(27), ml:eval(23), ml:ifThen(13)
+  ex: <ml:eval><ml:program><ml:ifThen><ml:real>0</ml:real><ml:localDefine><ml:id>p</ml:id><ml:real>1</ml:real></ml:localDefine></ml:ifThen><ml:id>p</ml:id></ml:program><ml:result><ml:real>0</ml:real></ml:result></ml:eval>
+  src: qsheet\tutorial\migration\mg_programming.xmcd
+### ws:resultFormat  n=186
+  attrs: 
+  parents: ws:math(186)
+  ex: <ml:eval><ml:id>M</ml:id></ml:eval>
+  src: qsheet\Visualization\param2d.xmcd
+### ws:matrix  n=180
+  attrs: expand-nested-arrays=false(174), display-style=auto(161), display-style=matrix(17), expand-nested-arrays=true(6), display-style=table(2)
+  parents: ws:resultFormat(180)
+  ex: <ml:eval><ml:id>M</ml:id></ml:eval>
+  src: qsheet\Visualization\param2d.xmcd
+### ws:unit  n=180
+  attrs: format-units=false(99), simplify-units=false(96), simplify-units=true(84), format-units=true(81)
+  parents: ws:resultFormat(180)
+  ex: <ml:eval><ml:id>M</ml:id></ml:eval>
+  src: qsheet\Visualization\param2d.xmcd
+### ml:bounds  n=174
+  attrs: 
+  parents: ml:apply(174)
+  ex: <ml:apply><ml:integral auto-algorithm="true"/><ml:lambda><ml:boundVars><ml:placeholder/></ml:boundVars><ml:placeholder/></ml:lambda><ml:bounds><ml:placeholder/><ml:placeholder/></ml:bounds></ml:apply>
+  src: qsheet\tutorial\Features\feat_08.xmcd
+### ws:general  n=171
+  attrs: complex-threshold=10(170), show-trailing-zeros=false(166), radix=dec(160), exponential-threshold=3(138), precision=3(87), precision=15(36)
+  parents: ws:resultFormat(171)
+  ex: <ml:eval><ml:id>M</ml:id></ml:eval>
+  src: qsheet\Visualization\param2d.xmcd
+### u:unitReference  n=169
+  attrs: unit=pound_force(36), unit=meter(24), unit=foot(21), unit=second(20), unit=inch(19), power-numerator=2(9)
+  parents: u:unitMonomial(169)
+  ex: <ml:eval><ml:id>peak</ml:id><ml:result><ml:unitedValue><ml:real>131.23359580052494</ml:real><u:unitMonomial><u:unitReference unit="foot"/></u:unitMonomial></ml:unitedValue></ml:result></ml:eval>
+  src: qsheet\tutorial\migration\mg_units.xmcd
+### ml:command  n=154
+  attrs: 
+  parents: ml:symEval(154)
+  ex: <ml:symEval style="default" hide-keywords="false" hide-lhs="false"><ml:id>γ</ml:id><ml:command><ml:sequence><ml:id>float</ml:id><ml:real>25</ml:real></ml:sequence></ml:command><ml:symResult><ml:real>.5772156649015328606065121</ml:real></ml:symResult></ml:symEval>
+  src: qsheet\Symbolics\dilog.xmcd
+### ml:unitOverride  n=136
+  attrs: 
+  parents: ml:eval(136)
+  ex: <ml:eval><ml:id>F</ml:id><ml:unitOverride><ml:id>N</ml:id></ml:unitOverride></ml:eval>
+  src: qsheet\tutorial\overview.xmcd
+### ml:unitedValue  n=135
+  attrs: 
+  parents: ml:result(135)
+  ex: <ml:eval><ml:id>peak</ml:id><ml:result><ml:unitedValue><ml:real>131.23359580052494</ml:real><u:unitMonomial><u:unitReference unit="foot"/></u:unitMonomial></ml:unitedValue></ml:result></ml:eval>
+  src: qsheet\tutorial\migration\mg_units.xmcd
+### u:unitMonomial  n=135
+  attrs: 
+  parents: ml:unitedValue(135)
+  ex: <ml:eval><ml:id>peak</ml:id><ml:result><ml:unitedValue><ml:real>131.23359580052494</ml:real><u:unitMonomial><u:unitReference unit="foot"/></u:unitMonomial></ml:unitedValue></ml:result></ml:eval>
+  src: qsheet\tutorial\migration\mg_units.xmcd
+### ml:sqrt  n=126
+  attrs: 
+  parents: ml:apply(126)
+  ex: <ml:apply><ml:sqrt/><ml:id>x</ml:id></ml:apply>
+  src: qsheet\tutorial\Features\feat_04a.xmcd
+### ml:integral  n=118
+  attrs: auto-algorithm=true(96), algorithm=adaptive(53), auto-algorithm=false(13), algorithm=romberg(1), algorithm=limit-end-points(1), algorithm=infinite(1)
+  parents: ml:apply(118)
+  ex: <ml:apply><ml:integral/><ml:lambda><ml:boundVars><ml:id>A</ml:id></ml:boundVars><ml:apply><ml:id>f</ml:id><ml:sequence><ml:id>x</ml:id><ml:id>y</ml:id></ml:sequence></ml:apply></ml:lambda></ml:apply>
+  src: qsheet\Calculus_DEs\mntcarlo.xmcd
+### ml:matcol  n=118
+  attrs: 
+  parents: ml:apply(118)
+  ex: <ml:eval><ml:apply><ml:matcol/><ml:id>v</ml:id><ml:real>0</ml:real></ml:apply></ml:eval>
+  src: qsheet\Vector_and_Matrix\meigen32.xmcd
+### ml:vectorize  n=107
+  attrs: 
+  parents: ml:apply(107)
+  ex: <ml:apply><ml:vectorize/><ml:apply><ml:id>f</ml:id><ml:id>M</ml:id></ml:apply></ml:apply>
+  src: qsheet\Visualization\grayimg.xmcd
+### ml:derivative  n=106
+  attrs: style=derivative(4)
+  parents: ml:apply(106)
+  ex: <ml:apply><ml:derivative/><ml:lambda><ml:boundVars><ml:placeholder/></ml:boundVars><ml:placeholder/></ml:lambda></ml:apply>
+  src: qsheet\tutorial\Features\feat_08.xmcd
+### ml:complex  n=99
+  attrs: 
+  parents: ml:matrix(60), ml:result(38), ml:unitedValue(1)
+  ex: <ml:eval><ml:apply><ml:sqrt/><ml:real>-16</ml:real></ml:apply><ml:result><ml:complex><ml:imag>4</ml:imag></ml:complex></ml:result></ml:eval>
+  src: qsheet\tutorial\Features\feat_02.xmcd
+### ml:for  n=92
+  attrs: 
+  parents: ml:program(72), ml:for(13), ml:eval(4), ml:ifThen(3)
+  ex: <ml:eval><ml:for><ml:id>j</ml:id><ml:range><ml:real>0</ml:real><ml:real>3</ml:real></ml:range><ml:localDefine><ml:id>Q1</ml:id><ml:apply><ml:id>Q1</ml:id><ml:id>j</ml:id></ml:apply></ml:localDefine></ml:for></ml:eval>
+  src: qsheet\tutorial\migration\mg_programming.xmcd
+### ml:ifThen  n=91
+  attrs: 
+  parents: ml:program(84), ml:for(7)
+  ex: <ml:eval><ml:program><ml:ifThen><ml:real>0</ml:real><ml:localDefine><ml:id>p</ml:id><ml:real>1</ml:real></ml:localDefine></ml:ifThen><ml:id>p</ml:id></ml:program><ml:result><ml:real>0</ml:real></ml:result></ml:eval>
+  src: qsheet\tutorial\migration\mg_programming.xmcd
+### ml:lessThan  n=77
+  attrs: 
+  parents: ml:apply(77)
+  ex: <ml:apply><ml:lessThan/><ml:id>x</ml:id><ml:real>0</ml:real></ml:apply>
+  src: qsheet\Symbolics\shi.xmcd
+### ml:summation  n=67
+  attrs: 
+  parents: ml:apply(67)
+  ex: <ml:eval><ml:apply><ml:summation/><ml:lambda><ml:boundVars><ml:id>i</ml:id></ml:boundVars><ml:apply><ml:indexer/><ml:id>v</ml:id><ml:id>i</ml:id></ml:apply></ml:lambda></ml:apply><ml:result><ml:real>60</ml:real></ml:result></ml:eval>
+  src: qsheet\Vector_and_Matrix\mo60vop.xmcd
+### ml:lessOrEqual  n=63
+  attrs: 
+  parents: ml:apply(63)
+  ex: <ml:apply><ml:lessOrEqual/><ml:id>L</ml:id><ml:real>7</ml:real></ml:apply>
+  src: qsheet\Applications\wvlts.xmcd
+### ml:transpose  n=61
+  attrs: 
+  parents: ml:apply(61)
+  ex: <ml:define><ml:id>CARS</ml:id><ml:apply><ml:transpose/><ml:id>cars</ml:id></ml:apply></ml:define>
+  src: qsheet\Data_Analysis\lookup.xmcd
+### ml:greaterThan  n=54
+  attrs: 
+  parents: ml:apply(54)
+  ex: <ml:apply><ml:greaterThan/><ml:id>x</ml:id><ml:id>a</ml:id></ml:apply>
+  src: qsheet\Solving\s040cons.xmcd
+### ml:placeholder  n=50
+  attrs: 
+  parents: ml:matrix(27), ml:sequence(8), ml:range(4), ml:lambda(2)
+  ex: <ml:placeholder/>
+  src: qsheet\tutorial\Features\feat_11.xmcd
+### ml:absval  n=46
+  attrs: 
+  parents: ml:apply(46)
+  ex: <ml:define><ml:id>f12</ml:id><ml:apply><ml:absval/><ml:id>F12</ml:id></ml:apply></ml:define>
+  src: qsheet\samples\cad\smrtskch\4bar.xmcd
+### ml:vectorSum  n=45
+  attrs: 
+  parents: ml:apply(45)
+  ex: <ml:eval><ml:apply><ml:vectorSum/><ml:id>v</ml:id></ml:apply><ml:result><ml:real>60</ml:real></ml:result></ml:eval>
+  src: qsheet\Vector_and_Matrix\mo60vop.xmcd
+### ml:globalDefine  n=44
+  attrs: style=default(3), style=equal(1)
+  parents: ws:math(44)
+  ex: <ml:globalDefine><ml:id>L</ml:id><ml:real>6</ml:real></ml:globalDefine>
+  src: qsheet\Calculus_DEs\PDE.xmcd
+### ml:otherwise  n=38
+  attrs: 
+  parents: ml:program(38)
+  ex: <ml:define><ml:function><ml:id>f4</ml:id><ml:boundVars><ml:id>x</ml:id></ml:boundVars></ml:function><ml:program><ml:ifThen><ml:apply><ml:lessThan/><ml:id>x</ml:id><ml:real>0</ml:real></ml:apply><ml:id>sin</ml:id></ml:ifThen><ml:otherwise><ml:real>1</ml:real></ml:otherwise></ml:program></ml:define>
+  src: qsheet\tutorial\migration\mg_units.xmcd
+### ws:table  n=38
+  attrs: item-idref=18(6), item-idref=36(3), item-idref=14(3), item-idref=16(3), item-idref=24(2), item-idref=12(2)
+  parents: ws:resultFormat(38)
+  ex: <ml:eval><ml:id>M</ml:id></ml:eval>
+  src: qsheet\Visualization\param2d.xmcd
+### ml:return  n=36
+  attrs: 
+  parents: ml:program(30), ml:ifThen(3), ml:tryCatch(2), ml:otherwise(1)
+  ex: <ml:eval><ml:program><ml:localDefine><ml:id>x</ml:id><ml:apply><ml:mult style="dot"/><ml:real>6</ml:real><ml:real>34</ml:real></ml:apply></ml:localDefine><ml:return><ml:id>x</ml:id></ml:return></ml:program><ml:result><ml:real>204</ml:real></ml:result></ml:eval>
+  src: qsheet\tutorial\Features\feat_07a.xmcd
+### ml:Find  n=31
+  attrs: derivative-estimation=central(31), variable-estimation=tangent(31), linear-check=false(31), multistart=false(31), evolutionary=false(31), auto-method=true(24)
+  parents: ml:apply(31)
+  ex: <ml:eval><ml:apply><ml:Find auto-method="true" method="linear" derivative-estimation="central" variable-estimation="tangent" linear-check="false" multistart="false" evolutionary="false"/><ml:id>X</ml:id></ml:apply></ml:eval>
+  src: qsheet\Solving\solvline.xmcd
+### ml:greaterOrEqual  n=26
+  attrs: 
+  parents: ml:apply(26)
+  ex: <ml:apply><ml:greaterOrEqual/><ml:id>K</ml:id><ml:real>1</ml:real></ml:apply>
+  src: qsheet\Applications\inelastic.xmcd
+### ml:factorial  n=22
+  attrs: 
+  parents: ml:apply(22)
+  ex: <ml:apply><ml:factorial/><ml:real>30</ml:real></ml:apply>
+  src: qsheet\tutorial\Features\feat_02.xmcd
+### ml:degree  n=20
+  attrs: 
+  parents: ml:apply(20)
+  ex: <ml:eval><ml:apply><ml:derivative/><ml:lambda><ml:boundVars><ml:id>t</ml:id></ml:boundVars><ml:apply><ml:id>pos</ml:id><ml:id>t</ml:id></ml:apply></ml:lambda><ml:degree><ml:id>ord</ml:id></ml:degree></ml:apply></ml:eval>
+  src: qsheet\tutorial\migration\mg_units.xmcd
+### ml:and  n=14
+  attrs: 
+  parents: ml:apply(14)
+  ex: <ml:apply><ml:or/><ml:id>P</ml:id><ml:parens><ml:apply><ml:and/><ml:id>Q</ml:id><ml:id>R</ml:id></ml:apply></ml:parens></ml:apply>
+  src: qsheet\Programming\boole.xmcd
+### ml:limit  n=14
+  attrs: direction=left(3), direction=right(2)
+  parents: ml:apply(14)
+  ex: <ml:apply><ml:limit/><ml:lambda><ml:boundVars><ml:id>n</ml:id></ml:boundVars><ml:apply><ml:div/><ml:apply><ml:plus/><ml:id>n</ml:id><ml:real>1</ml:real></ml:apply><ml:id>n</ml:id></ml:apply></ml:lambda><ml:id>∞</ml:id></ml:apply>
+  src: qsheet\tutorial\Features\feat_02.xmcd
+### ml:or  n=11
+  attrs: 
+  parents: ml:apply(11)
+  ex: <ml:apply><ml:or/><ml:id>P</ml:id><ml:parens><ml:apply><ml:and/><ml:id>Q</ml:id><ml:id>R</ml:id></ml:apply></ml:parens></ml:apply>
+  src: qsheet\Programming\boole.xmcd
+### ml:product  n=11
+  attrs: 
+  parents: ml:apply(11)
+  ex: <ml:eval><ml:apply><ml:product/><ml:lambda><ml:boundVars><ml:id>i</ml:id></ml:boundVars><ml:apply><ml:indexer/><ml:id>y</ml:id><ml:id>i</ml:id></ml:apply></ml:lambda></ml:apply><ml:result><ml:real>0.12607755291714079</ml:real></ml:result></ml:eval>
+  src: qsheet\Vector_and_Matrix\osumprod.xmcd
+### ml:while  n=11
+  attrs: 
+  parents: ml:program(11)
+  ex: <ml:define><ml:function><ml:id>Fac</ml:id><ml:boundVars><ml:id>n</ml:id></ml:boundVars></ml:function><ml:program><ml:localDefine><ml:id>f</ml:id><ml:real>1</ml:real></ml:localDefine><ml:while><ml:localDefine><ml:id>n</ml:id><ml:apply><ml:minus/><ml:id>n</ml:id><ml:real>1</ml:real></ml:apply></ml:localDefine><ml:localDefine><ml:id>f</ml:id><ml:apply><ml:mult style="default"/><ml:id>f</ml:id><ml:parens><ml:apply><ml:plus/><ml:id>n</ml:id><ml:real>1</ml:real></ml:apply></ml:parens></ml:apply></ml:localDefine></ml:while><ml:id>f</ml:id></ml:program></ml:define>
+  src: qsheet\Programming\for_itr.xmcd
+### ml:Odesolve  n=9
+  attrs: method=stiff(4), method=fixed(4), method=adaptive(1)
+  parents: ml:apply(9)
+  ex: <ml:define><ml:id>y</ml:id><ml:apply><ml:Odesolve method="fixed"/><ml:sequence><ml:id>t</ml:id><ml:id>t1</ml:id></ml:sequence></ml:apply></ml:define>
+  src: qsheet\Calculus_DEs\odeqs1.xmcd
+### ml:tryCatch  n=9
+  attrs: 
+  parents: ml:define(4), ml:otherwise(3), ml:program(2)
+  ex: <ml:define><ml:function><ml:id>tu</ml:id><ml:boundVars><ml:id>x</ml:id></ml:boundVars></ml:function><ml:tryCatch><ml:apply><ml:plus/><ml:id>x</ml:id><ml:id>m</ml:id></ml:apply><ml:id>x</ml:id></ml:tryCatch></ml:define>
+  src: qsheet\tutorial\migration\mg_units.xmcd
+### ml:conjugate  n=8
+  attrs: 
+  parents: ml:apply(8)
+  ex: <ml:define><ml:id>z1c</ml:id><ml:apply><ml:conjugate/><ml:apply fixity="infix"><ml:id>∠</ml:id><ml:real>2.236</ml:real><ml:real>63.435</ml:real></ml:apply></ml:apply></ml:define>
+  src: qsheet\Techniques\complex.xmcd
+### ml:determinant  n=8
+  attrs: 
+  parents: ml:apply(8)
+  ex: <ml:eval><ml:apply><ml:determinant/><ml:id>M</ml:id></ml:apply><ml:result><ml:real>5361</ml:real></ml:result></ml:eval>
+  src: qsheet\about_qs.xmcd
+### ml:notEqual  n=8
+  attrs: 
+  parents: ml:apply(8)
+  ex: <ml:apply><ml:notEqual/><ml:id>x</ml:id><ml:real>0</ml:real></ml:apply>
+  src: qsheet\Symbolics\dilog.xmcd
+### ml:Minimize  n=7
+  attrs: derivative-estimation=central(7), variable-estimation=tangent(7), linear-check=false(7), multistart=false(7), evolutionary=false(7), auto-method=true(6)
+  parents: ml:apply(7)
+  ex: <ml:eval><ml:apply><ml:Minimize auto-method="false" method="conjugate" derivative-estimation="central" variable-estimation="tangent" linear-check="false" multistart="false" evolutionary="false"/><ml:sequence><ml:id>SSE</ml:id><ml:id>Ag</ml:id><ml:id>γg</ml:id></ml:sequence></ml:apply></ml:eval>
+  src: qsheet\tutorial\newfeat\newfunc.xmcd
+### ml:polyroots  n=7
+  attrs: method=laguerre(6), method=companion-matrix(1)
+  parents: ml:apply(7)
+  ex: <ml:define><ml:id>r</ml:id><ml:apply><ml:polyroots method="laguerre"/><ml:id>v</ml:id></ml:apply></ml:define>
+  src: qsheet\Solving\proot.xmcd
+### ml:Minerr  n=6
+  attrs: derivative-estimation=central(6), variable-estimation=tangent(6), linear-check=false(6), multistart=false(6), evolutionary=false(6), auto-method=false(5)
+  parents: ml:apply(6)
+  ex: <ml:define><ml:id>βMe</ml:id><ml:apply><ml:Minerr auto-method="false" method="levenberg" derivative-estimation="central" variable-estimation="tangent" linear-check="false" multistart="false" evolutionary="false"/><ml:sequence><ml:id>Ag</ml:id><ml:id>γg</ml:id></ml:sequence></ml:apply></ml:define>
+  src: qsheet\tutorial\newfeat\newfunc.xmcd
+### ml:crossProduct  n=6
+  attrs: 
+  parents: ml:apply(6)
+  ex: <ml:apply><ml:equal/><ml:id>Curl</ml:id><ml:apply><ml:crossProduct/><ml:id>∇</ml:id><ml:id>A</ml:id></ml:apply></ml:apply>
+  src: qsheet\Calculus_DEs\vctrdiff.xmcd
+### ml:genfit  n=6
+  attrs: method(6)
+  parents: ml:apply(6)
+  ex: <ml:define><ml:id>cg</ml:id><ml:apply><ml:genfit method="optimized levenberg-marquardt"/><ml:sequence><ml:id>X</ml:id><ml:id>Y</ml:id><ml:id>guess</ml:id><ml:id>f</ml:id></ml:sequence></ml:apply></ml:define>
+  src: qsheet\Data_Analysis\genfitpo.xmcd
+### ml:Maximize  n=4
+  attrs: auto-method=true(4), derivative-estimation=central(4), variable-estimation=tangent(4), linear-check=false(4), multistart=false(4), evolutionary=false(4)
+  parents: ml:apply(4)
+  ex: <ml:define warning="WarnRedefinedBIUnit"><ml:id>R</ml:id><ml:apply><ml:Maximize auto-method="true" method="conjugate" derivative-estimation="central" variable-estimation="tangent" linear-check="false" multistart="false" evolutionary="false"/><ml:sequence><ml:id>f</ml:id><ml:id>x</ml:id><ml:id>y</ml:id></ml:sequence></ml:apply></ml:define>
+  src: qsheet\Solving\nonlinop.xmcd
+### ml:nthRoot  n=4
+  attrs: 
+  parents: ml:apply(4)
+  ex: <ml:eval><ml:apply><ml:nthRoot/><ml:real>3</ml:real><ml:real>8</ml:real></ml:apply><ml:result><ml:real>2</ml:real></ml:result></ml:eval>
+  src: qsheet\tutorial\Primers\tu_02.xmcd
+### ws:decimal  n=3
+  attrs: radix=dec(3), complex-threshold=10(3), show-trailing-zeros=false(2), precision=7(1), precision=17(1), precision=3(1)
+  parents: ws:resultFormat(3)
+  ex: <ml:eval><ml:real>1324322</ml:real><ml:result><ml:real>1324322</ml:real></ml:result></ml:eval>
+  src: qsheet\tutorial\Features\feat_02.xmcd
+### ws:fraction  n=3
+  attrs: precision=12(3), radix=dec(3), complex-threshold=10(3), use-mixed-numbers=false(2), use-mixed-numbers=true(1)
+  parents: ws:resultFormat(3)
+  ex: <ml:eval><ml:id>Δ°F</ml:id></ml:eval>
+  src: qsheet\tutorial\newfeat\units.xmcd
+### ws:scientific  n=3
+  attrs: use-e-notation=false(3), precision=3(3), show-trailing-zeros=false(3), radix=dec(3), complex-threshold=10(3)
+  parents: ws:resultFormat(3)
+  ex: <ml:eval><ml:real>0.125</ml:real><ml:result><ml:real>0.125</ml:real></ml:result></ml:eval>
+  src: qsheet\tutorial\Features\feat_02.xmcd
+### ml:Pdesolve  n=2
+  attrs: method=5-pt-diff(2)
+  parents: ml:apply(2)
+  ex: <ml:define><ml:id>u</ml:id><ml:apply><ml:Pdesolve method="5-pt-diff"/><ml:sequence><ml:id>u</ml:id><ml:id>x</ml:id><ml:matrix rows="2" cols="1"><ml:real>0</ml:real><ml:id>L</ml:id></ml:matrix><ml:id>t</ml:id><ml:matrix rows="2" cols="1"><ml:real>0</ml:real><ml:id>T</ml:id></ml:matrix><ml:id>spacepts</ml:id><ml:id>timepts</ml:id></ml:sequence></ml:apply></ml:define>
+  src: qsheet\Calculus_DEs\PDE.xmcd
+### ml:break  n=2
+  attrs: 
+  parents: ml:ifThen(1), ml:program(1)
+  ex: 
+  src: 
+### ml:continue  n=2
+  attrs: 
+  parents: ml:ifThen(2)
+  ex: <ml:define><ml:function><ml:id>addOdd</ml:id><ml:boundVars><ml:id>n</ml:id></ml:boundVars></ml:function><ml:program><ml:localDefine><ml:id>s</ml:id><ml:real>0</ml:real></ml:localDefine><ml:for><ml:id>k</ml:id><ml:range><ml:real>0</ml:real><ml:id>n</ml:id></ml:range><ml:program><ml:ifThen><ml:apply><ml:equal/><ml:apply><ml:id>mod</ml:id><ml:sequence><ml:id>k</ml:id><ml:real>2</ml:real></ml:sequence></ml:apply><ml:real>0</ml:real></ml:apply><ml:continue/></ml:ifThen><ml:localDefine><ml:id>s</ml:id><ml:apply><ml:plus/><ml:id>s</ml:id><ml:id>k</ml:id></ml:apply></ml:localDefine></ml:program></ml:for><ml:id>s</ml:id></ml:program></ml:define>
+  src: qsheet\Programming\for_itr.xmcd
+### ml:denominator  n=2
+  attrs: 
+  parents: ml:mixed(2)
+  ex: <ml:mixed><ml:whole><ml:real>1</ml:real></ml:whole><ml:numerator><ml:real>2</ml:real></ml:numerator><ml:denominator><ml:real>5</ml:real></ml:denominator></ml:mixed>
+  src: qsheet\tutorial\Features\feat_13.xmcd
+### ml:mixed  n=2
+  attrs: 
+  parents: ws:math(1), ml:apply(1)
+  ex: <ml:mixed><ml:whole><ml:real>1</ml:real></ml:whole><ml:numerator><ml:real>2</ml:real></ml:numerator><ml:denominator><ml:real>5</ml:real></ml:denominator></ml:mixed>
+  src: qsheet\tutorial\Features\feat_13.xmcd
+### ml:not  n=2
+  attrs: 
+  parents: ml:apply(2)
+  ex: <ml:eval><ml:apply><ml:vectorize/><ml:parens><ml:apply><ml:not/><ml:id>P</ml:id></ml:apply></ml:parens></ml:apply><ml:result><ml:matrix rows="2" cols="1"><ml:real>1</ml:real><ml:real>0</ml:real></ml:matrix></ml:result></ml:eval>
+  src: qsheet\Programming\boole.xmcd
+### ml:numerator  n=2
+  attrs: 
+  parents: ml:mixed(2)
+  ex: <ml:mixed><ml:whole><ml:real>1</ml:real></ml:whole><ml:numerator><ml:real>2</ml:real></ml:numerator><ml:denominator><ml:real>5</ml:real></ml:denominator></ml:mixed>
+  src: qsheet\tutorial\Features\feat_13.xmcd
+### ml:whole  n=2
+  attrs: 
+  parents: ml:mixed(2)
+  ex: <ml:mixed><ml:whole><ml:real>1</ml:real></ml:whole><ml:numerator><ml:real>2</ml:real></ml:numerator><ml:denominator><ml:real>5</ml:real></ml:denominator></ml:mixed>
+  src: qsheet\tutorial\Features\feat_13.xmcd
+### ml:numol  n=1
+  attrs: method=5-pt-diff(1)
+  parents: ml:apply(1)
+  ex: <ml:define><ml:id>sol</ml:id><ml:apply><ml:numol method="5-pt-diff"/><ml:sequence><ml:matrix rows="2" cols="1"><ml:real>0</ml:real><ml:id>L</ml:id></ml:matrix><ml:real>30</ml:real><ml:matrix rows="2" cols="1"><ml:real>0</ml:real><ml:id>T</ml:id></ml:matrix><ml:real>20</ml:real><ml:id>num_pde</ml:id><ml:id>num_pae</ml:id><ml:id>rhs</ml:id><ml:id>init</ml:id><ml:id>bc_func</ml:id></ml:sequence></ml:apply></ml:define>
+  src: qsheet\Calculus_DEs\wave.xmcd

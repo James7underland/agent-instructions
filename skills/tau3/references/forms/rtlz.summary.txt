@@ -1,0 +1,107 @@
+// ===== TABOUTFORM =====
+  ProductName: TLabel  Caption = '- ТАУ -'
+  Version: TLabel  Caption = 'Версия 3.0'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TANALFNFORM =====
+AnalFnForm: TAnalFnForm  Caption = 'Переходный процесс - аналитические формулы'
+    N1: TMenuItem  Caption = 'В файл / на принтер'
+    N2: TMenuItem  Caption = '-'
+    N3: TMenuItem  Caption = 'Закрыть'
+
+// ===== TDOCFORM =====
+DocForm: TDocForm  Caption = ' Расположение рисунка на листе'
+  Label2: TLabel  Caption = 'Слева'
+  Label3: TLabel  Caption = 'Ширина'
+  Label4: TLabel  Caption = 'Сверху'
+  Label5: TLabel  Caption = 'Высота'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TFCHTASK =====
+FChTask: TFChTask  Caption = 'Выбор задачи'
+  RadioGroup1: TRadioGroup  Items.Strings = (' Обратное преобразование Лапласа ' ' Обратное Z-преобразование ')
+  Button1: TButton  Caption = 'OK'
+
+// ===== TGRAFORM =====
+    N1: TMenuItem  Caption = 'Выбор области'
+    N2: TMenuItem  Caption = 'Продолжить'
+    N8: TMenuItem  Caption = 'Аналитич. ф-ла'
+    N9: TMenuItem  Caption = 'Z-преобразование'
+    N3: TMenuItem  Caption = 'Повторить'
+    N4: TMenuItem  Caption = '-'
+    N5: TMenuItem  Caption = 'Закрыть'
+    N6: TMenuItem  Caption = '-'
+    N7: TMenuItem  Caption = 'Главное окно'
+
+// ===== TMFORM =====
+    N1: TMenuItem  Caption = 'Выбор задачи'
+    N4: TMenuItem  Caption = 'Задание коэффициентов'
+    N2: TMenuItem  Caption = 'Настройка параметров счета'
+    N3: TMenuItem  Caption = 'Обратное преобраз. Лапласа - формула'
+    N8: TMenuItem  Caption = 'Обратное преобраз. Лапласа - график'
+    N5: TMenuItem  Caption = 'Z-преобразование от преобраз. Лапласа'
+    N9: TMenuItem  Caption = 'Обратное Z-преобразование - формула'
+    N10: TMenuItem  Caption = 'Обратное Z-преобразование - график'
+    N7: TMenuItem  Caption = '-'
+    N6: TMenuItem  Caption = 'Выход из программы'
+
+// ===== TPARMFORM =====
+  Label5: TLabel  Caption = 'Ознакомьтесь с правилами заполнения таблиц - ключ F1'
+  BitBtn1: TBitBtn  Hint = 'Уточнить значение'
+  Button1: TButton  Hint = 'Конец ввода'
+  Button1: TButton  Caption = 'OK'
+  Button2: TButton  Hint = 'Конец ввода'
+  Button2: TButton  Caption = 'OK'
+    N10: TMenuItem  Caption = 'Ввод коэфф. многочлена'
+    N9: TMenuItem  Caption = 'Ввод корней многочлена'
+    N1: TMenuItem  Caption = 'В файл / на принтер'
+    N5: TMenuItem  Caption = 'Размер шрифта'
+      N6: TMenuItem  Caption = 'крупный'
+      N7: TMenuItem  Caption = 'нормальный'
+      N8: TMenuItem  Caption = 'мелкий'
+    N3: TMenuItem  Caption = '-'
+    N4: TMenuItem  Caption = 'Закрыть'
+
+// ===== TSCHTFORM =====
+SchtForm: TSchtForm  Caption = ' Параметры счета'
+  Label1: TLabel  Caption = 'Порядок аппроксимации Паде'
+  Label2: TLabel  Caption = 'Шаг счета кривых'
+  Label3: TLabel  Caption = 'Число дес. знаков в таблицах'
+
+// ===== TSHIRMFORM =====
+ShirmForm: TShirmForm  Caption = 'Ширма'
+
+// ===== TTABRFORM =====
+TabRForm: TTabRForm  Caption = '  Коэффициенты и корни Z-преобразования'
+  BitBtn1: TBitBtn  Hint = 'Уточнить значение'
+    N1: TMenuItem  Caption = 'В файл / на принтер'
+    N5: TMenuItem  Caption = 'Размер шрифта'
+      N6: TMenuItem  Caption = 'крупный'
+      N7: TMenuItem  Caption = 'нормальный'
+      N8: TMenuItem  Caption = 'мелкий'
+    N2: TMenuItem  Caption = 'Повторить'
+    N3: TMenuItem  Caption = '-'
+    N4: TMenuItem  Caption = 'Закрыть'
+
+// ===== TUSTFORM =====
+UstForm: TUstForm  Caption = ' Проверрьте установки'
+  RadioGroup1: TRadioGroup  Items.Strings = (' в файл ' ' на принтер ')
+  RadioGroup2: TRadioGroup  Items.Strings = (' перезаписать ' ' дописать ')
+  Button1: TButton  Caption = 'OK'
+  Button2: TButton  Caption = 'Отмена'
+
+// ===== TVALFORM =====
+ValForm: TValForm  Caption = ' Параметры'
+  Button1: TButton  Hint = 'Конец ввода'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TZOOMFORM =====
+ZoomForm: TZoomForm  Caption = ' Выбор области'
+  Label1: TLabel  Caption = 'По горизонтали'
+  Label2: TLabel  Caption = 'от'
+  Label3: TLabel  Caption = 'до'
+  Label4: TLabel  Caption = 'По вертикали'
+  Label5: TLabel  Caption = 'от'
+  Label6: TLabel  Caption = 'до'
+  Button1: TButton  Hint = 'Конец ввода'
+  Button1: TButton  Caption = 'OK'

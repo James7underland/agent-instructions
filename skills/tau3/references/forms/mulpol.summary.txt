@@ -1,0 +1,55 @@
+// ===== TABOUTFORM =====
+  ProductName: TLabel  Caption = '- ТАУ -'
+  Version: TLabel  Caption = 'Версия 3.0'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TDOCFORM =====
+DocForm: TDocForm  Caption = ' Расположение рисунка на листе'
+  Label2: TLabel  Caption = 'Слева'
+  Label3: TLabel  Caption = 'Ширина'
+  Label4: TLabel  Caption = 'Сверху'
+  Label5: TLabel  Caption = 'Высота'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TMFORM =====
+MForm: TMForm  Caption = 'Перемножение многочленов'
+    N1: TMenuItem  Caption = 'Ввод коэффициентов многочленов'
+    N2: TMenuItem  Caption = 'Назначение параметров счета'
+    N7: TMenuItem  Caption = '-'
+    N6: TMenuItem  Caption = 'Выход из программы'
+
+// ===== TPARMFORM =====
+ParmForm: TParmForm  Caption = 'Перемножение многочленов'
+  Panel1: TPanel  Caption = 'A'
+  Panel2: TPanel  Caption = 'B'
+  Panel3: TPanel  Caption = 'X = AB'
+  BitBtn1: TBitBtn  Hint = 'Уточнить значение'
+  Button1: TButton  Hint = 'Перемножить'
+  Button1: TButton  Caption = 'X'
+  Button2: TButton  Hint = 'Очистить A'
+  Button3: TButton  Hint = 'Очистить B'
+  Button4: TButton  Hint = 'X записать в A'
+  Button5: TButton  Hint = ' X записать в B'
+    N1: TMenuItem  Caption = 'В файл / на принтер'
+    N5: TMenuItem  Caption = 'Размер шрифта'
+      N6: TMenuItem  Caption = 'крупный'
+      N7: TMenuItem  Caption = 'нормальный'
+      N8: TMenuItem  Caption = 'мелкий'
+    N3: TMenuItem  Caption = '-'
+    N4: TMenuItem  Caption = 'Закрыть'
+
+// ===== TSCHTFORM =====
+SchtForm: TSchtForm  Caption = ' Параметры счета'
+  Label1: TLabel  Caption = 'Порядок аппроксимации Паде'
+  Label2: TLabel  Caption = 'Шаг счета кривых'
+  Label3: TLabel  Caption = 'Число дес. знаков в таблицах'
+
+// ===== TSHIRMFORM =====
+ShirmForm: TShirmForm  Caption = 'Ширма'
+
+// ===== TUSTFORM =====
+UstForm: TUstForm  Caption = ' Проверрьте установки'
+  RadioGroup1: TRadioGroup  Items.Strings = (' в файл ' ' на принтер ')
+  RadioGroup2: TRadioGroup  Items.Strings = (' перезаписать ' ' дописать ')
+  Button1: TButton  Caption = 'OK'
+  Button2: TButton  Caption = 'Отмена'

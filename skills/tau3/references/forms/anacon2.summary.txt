@@ -1,0 +1,91 @@
+// ===== TABOUTFORM =====
+  ProductName: TLabel  Caption = '- ТАУ -'
+  Version: TLabel  Caption = 'Версия 3.0'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TANCFORM =====
+AncForm: TAncForm  Caption = ' Вычисление матрицы R'
+  Label1: TLabel  Caption = 'Показатель сходимости процесса'
+  Label2: TLabel  Caption = 'Если счет затягивается или зацикливается, нажмите Esc'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TCHOICFNFORM =====
+ChoicFnForm: TChoicFnForm  Caption = ' Выберите функции'
+  Label1: TLabel  Caption = 'для отображения на графике'
+  Label2: TLabel  Caption = '1-я функция'
+  Label3: TLabel  Caption = '2-я функция'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TDIMFORM =====
+DimForm: TDimForm  Caption = 'Размеры задачи'
+  Label1: TLabel  Caption = '(не более 10)'
+  Label2: TLabel  Caption = 'вектор  x'
+  Label3: TLabel  Caption = 'вектор  u'
+  Label4: TLabel  Caption = 'вектор  y'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TDOCFORM =====
+DocForm: TDocForm  Caption = ' Расположение рисунка на листе'
+  Label2: TLabel  Caption = 'Слева'
+  Label3: TLabel  Caption = 'Ширина'
+  Label4: TLabel  Caption = 'Сверху'
+  Label5: TLabel  Caption = 'Высота'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TDRFORM =====
+  Label2: TLabel  Caption = 'Анализ'
+  Label3: TLabel  Caption = 'Пояснения'
+  Button1: TButton  Caption = '< Назад'
+  Button2: TButton  Caption = 'Вперед >'
+  Button3: TButton  Caption = 'Конец'
+
+// ===== TGRAFORM =====
+    N1: TMenuItem  Caption = 'Выбор области'
+    N2: TMenuItem  Caption = 'Продолжить'
+    N8: TMenuItem  Caption = 'Резерв'
+    N3: TMenuItem  Caption = 'Повторить'
+    N4: TMenuItem  Caption = '-'
+    N5: TMenuItem  Caption = 'Закрыть'
+    N6: TMenuItem  Caption = '-'
+    N7: TMenuItem  Caption = 'Главное окно'
+
+// ===== TMFORM =====
+MForm: TMForm  Caption = 'Аналитическое конструирование регуляторов'
+    N3: TMenuItem  Caption = 'Ввод данных'
+    N5: TMenuItem  Caption = 'Процесс управления'
+    N1: TMenuItem  Caption = 'Фазовый портрет'
+    N2: TMenuItem  Caption = 'Данные и результаты'
+    N7: TMenuItem  Caption = '-'
+    N6: TMenuItem  Caption = 'Выход из программы'
+
+// ===== TSCHTFORM =====
+SchtForm: TSchtForm  Caption = ' Параметры счета'
+  Label1: TLabel  Caption = 'Порядок аппроксимации Паде'
+  Label2: TLabel  Caption = 'Шаг счета кривых'
+  Label3: TLabel  Caption = 'Число дес. знаков в таблицах'
+
+// ===== TSHIRMFORM =====
+ShirmForm: TShirmForm  Caption = 'Ширма'
+
+// ===== TUSTFORM =====
+UstForm: TUstForm  Caption = ' Проверрьте установки'
+  RadioGroup1: TRadioGroup  Items.Strings = (' в файл ' ' на принтер ')
+  RadioGroup2: TRadioGroup  Items.Strings = (' перезаписать ' ' дописать ')
+  Button1: TButton  Caption = 'OK'
+  Button2: TButton  Caption = 'Отмена'
+
+// ===== TXFORM =====
+XForm: TXForm  Caption = ' Нач. значение  Xo'
+  Button1: TButton  Hint = 'Конец ввода'
+  Button1: TButton  Caption = 'OK'
+
+// ===== TZOOMFORM =====
+ZoomForm: TZoomForm  Caption = ' Выбор области'
+  Label1: TLabel  Caption = 'По горизонтали'
+  Label2: TLabel  Caption = 'от'
+  Label3: TLabel  Caption = 'до'
+  Label4: TLabel  Caption = 'По вертикали'
+  Label5: TLabel  Caption = 'от'
+  Label6: TLabel  Caption = 'до'
+  Button1: TButton  Hint = 'Конец ввода'
+  Button1: TButton  Caption = 'OK'
