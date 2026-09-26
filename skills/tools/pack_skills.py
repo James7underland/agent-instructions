@@ -111,6 +111,7 @@ def build_archive(skill_dir: Path, files: list[Path]) -> bytes:
         for f in files:
             info = zipfile.ZipInfo(f"{skill_dir.name}/{f.relative_to(skill_dir).as_posix()}", (1980, 1, 1, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
+            info.create_system = 0
             info.external_attr = 0o644 << 16
             z.writestr(info, archive_bytes(f))
     return buf.getvalue()
