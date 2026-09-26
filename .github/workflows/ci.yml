@@ -20,6 +20,11 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Run Verification Script
+      - name: Install dependencies
         run: |
-          python scripts/verify_instructions.py
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Run Pytest Suite
+        run: |
+          pytest
