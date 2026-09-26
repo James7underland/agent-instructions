@@ -11,7 +11,7 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 REQUIRED_CORE_FILES = [
     "AGENTS.md",
     "README.md",
-    "ai_persona_claude.md",
+    "ai_persona_agent.md",
     "text_humanizer_ru.md",
 ]
 

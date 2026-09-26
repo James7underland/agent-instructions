@@ -31,7 +31,7 @@ def test_agents_bootstrap_references_core_modules(repo_root: Path) -> None:
     content = agents_file.read_text(encoding="utf-8")
 
     # Assert: проверяем наличие прямых ссылок на модули ядра
-    assert "ai_persona_claude.md" in content, "AGENTS.md обязан ссылаться на ai_persona_claude.md"
+    assert "ai_persona_agent.md" in content, "AGENTS.md обязан ссылаться на ai_persona_agent.md"
     assert "text_humanizer_ru.md" in content, "AGENTS.md обязан ссылаться на text_humanizer_ru.md"
 
 
