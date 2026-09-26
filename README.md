@@ -103,8 +103,8 @@ sequenceDiagram
 | Файл модуля | Назначение и сфера ответственности | Ключевые аспекты |
 |---|---|---|
 | [`agentic_workflow.md`](agentic_workflow.md) | **Регламент агентной разработки** | Полный цикл: ТЗ (`*_tz.md`) → План (`*_plan.md`) → Реализация → Тесты → Коммит этапа. Запрет слепой генерации кода. Относительные ссылки. Роли (Designer, Implementer, Reviewer) и дневники решений. |
-| [`code_python.md`](code_python.md) | **Разработка и архитектура на Python** | Стандарты PEP 8/257, docstrings `"""`, `__all__`, аннотации типов, `__slots__`, Fail Fast (`kw_only=True`, валидация в `__post_init__`), DRY, ООП через `abc.ABC`, Юникод в комментариях, тестирование с `pytest` (AAA). |
-| [`code_cpp.md`](code_cpp.md) | **Разработка и архитектура на C++** | Модель «Параметры → Решатель → Результат», RAII, designated initializers (C++20), Fail Fast с `NaN`, Doxygen в `.h`, запрет `using namespace std;`, численные солверы, Google Test (AAA). |
+| [`code_python.md`](code_python.md) | **Разработка и архитектура на Python** | Стандарты PEP 8/257, docstrings `"""`, `__all__`, аннотации типов, `__slots__`, Fail Fast (`kw_only=True`, валидация в `__post_init__`), DRY, ООП через `abc.ABC`, Юникод в комментариях, тестирование с `pytest` (AAA, неприкосновенность тестов). |
+| [`code_cpp.md`](code_cpp.md) | **Разработка и архитектура на C++** | Модель «Параметры → Решатель → Результат», RAII, designated initializers (C++20), Fail Fast с `NaN`, Doxygen в `.h`, запрет `using namespace std;`, численные солверы, Google Test (AAA, запрет подгонки). |
 | [`code_review.md`](code_review.md) | **Методология и проведение код-ревью** | Проверка студенческих работ и Pull Request. Три режима: обучающий (наставнический), детальный аудит, production. Связка с универсальными чек-листами [`review_checklists/`](review_checklists/README.md). |
 | [`doc_markdown.md`](doc_markdown.md) | **Оформление документов в Markdown** | Верстка отчетов, ТЗ и планов. Адаптивные стили (Dark/Light mode без жесткого `#000` + печать по ГОСТ), формулы LaTeX, таблицы, рисунки `figure/figcaption`, относительные ссылки. |
 | [`doc_word_gost.md`](doc_word_gost.md) | **Оформление отчетов в Word по ГОСТ 7.32** | Полный стандарт ГОСТ 7.32-2017 и ГОСТ Р 7.0.5-2008 в `.docx` и PDF. Поля, шрифты, неразрывность блоков (`keepNext`, `cantSplit`, `tblHeader`), формулы OMML, автоматизация `python-docx` и Word COM. |
@@ -127,3 +127,17 @@ sequenceDiagram
 - **Схемы и архитектурные диаграммы:** [`diagram_drawio.md`](diagram_drawio.md) + [`doc_markdown.md`](doc_markdown.md)
 - **Моделирование и системы управления в Simulink:** [`model_simulink.md`](model_simulink.md) + [`agentic_workflow.md`](agentic_workflow.md) + [`chat_logging.md`](chat_logging.md)
 - **Комплексный проект (C++ солвер + Simulink S-Function/C-Caller):** [`code_cpp.md`](code_cpp.md) + [`model_simulink.md`](model_simulink.md) + [`doc_tech_audit.md`](doc_tech_audit.md)
+
+---
+
+## 5. Фундаментальные операционные принципы
+
+1. **🔒 Статус Read-Only библиотеки инструкций (`agent-instructions`):**
+   - Библиотека системных инструкций по умолчанию имеет для агента статус **строго только для чтения**.
+   - При любых запросах пользователя на изменение файлов библиотеки агент **обязан в обязательном порядке переспросить пользователя** (*«Вы действительно хотите внести изменения в библиотеку системных инструкций agent-instructions?»*) и приступать к правкам только после получения прямого подтверждения.
+
+2. **🛡️ Неприкосновенность упавших тестов (Python, C++):**
+   - При падении тестов категорически запрещено изменять сам тест или ослаблять проверки ради получения зеленого отчета.
+   - Ошибки локализуются и устраняются исключительно в коде реализации.
+   - Любое изменение тестов при вынужденных архитектурных решениях согласуется с пользователем в обязательном порядке.
+
