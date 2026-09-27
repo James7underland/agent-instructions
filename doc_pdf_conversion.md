@@ -62,12 +62,14 @@ graph TD
 1. Сборка документа выполняется в строгом соответствии с модулем [`doc_word_gost.md`](doc_word_gost.md):
    - Поля: левое 30 мм, правое 15 мм, верхнее 20 мм, нижнее 20 мм (ширина полосы набора 165 мм).
    - Шрифт основного текста: Times New Roman 14 пт, межстрочный интервал 1,5, абзацный отступ 1,25 см, выравнивание по ширине.
+   - Титульный лист: оформляется отдельной секцией (`different_first_page_header_footer = True`), строго обычным начертанием (`bold=False` / `w:b="0"`) — полужирный шрифт запрещен. Номер страницы не проставляется. Место и год выпуска размещаются в нижнем колонтитуле первой страницы.
    - Структура и разрывы страниц: каждая новая глава (ГЛАВА 1, ГЛАВА 2 и т.д.) и структурные разделы («ЦЕЛЬ РАБОТЫ», «ВЫВОДЫ», «СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ») начинаются строго с новой страницы (`page_break_before = True`). Подразделы идут подряд (`page_break_before = False`) с обязательным `keep_with_next = True`.
-   - Оглавление: строго 14 пт (Times New Roman, обычное прямое начертание, одинарный интервал), нативное динамическое поле Word `TOC \o "1-2" \h \z \u` со сквозной нумерацией со 2-й страницы.
+   - Оглавление: строго 14 пт (Times New Roman, обычное прямое начертание, одинарный интервал), нативное динамическое поле Word `TOC \o "1-2" \h \z \u` со сквозной нумерацией со 2-й страницы. Обязателен принудительный сброс отступа первой строки `FirstLineIndent = 0` у стилей и абзацев оглавления, чтобы исключить паразитный сдвиг вправо на 1,25 см, наследуемый от `Normal`.
    - Рисунки: масштабируются на максимально доступный размер полосы набора (ширина 165 мм, высота пропорционально до 155 мм) для максимальной четкости графиков; рисунок и подпись строго на одной странице с атрибутом `keep_with_next = True` на абзаце изображения.
    - Таблицы: шрифт строго 14 пт (Times New Roman), полное центрирование содержимого ячеек по вертикали и горизонтали, визуальный межабзацный отступ 12 пт после таблицы (`space_before = 12 pt` у следующего абзаца), обязательные свойства `tblHeader` (повтор шапки на каждой странице), `cantSplit` (запрет разрыва строк) и `keep_with_next = True` для первой строки (защита от отрыва шапки от таблицы).
    - Формулы: компилируются в нативные редактируемые формулы Word OMML (`m:oMath`) с сохранением математического наклона (курсива) переменных (*y*, *x*₁, *x*₂, *x*₃, *k*, *R*²), выравниванием по центру полосы и нумерацией у правого края; паразитное жирное начертание строго запрещено (в исходнике недопустимы `\boldsymbol`, `\mathbf` и заворачивание формул в `**...**`, на уровне Word OMML и COM гарантируется `Bold = False`).
-   - Списки и перечисления: в исходном Markdown перед каждым списком обязательна пустая строка во избежание слияния элементов в сплошной текст при компиляции; размер шрифта списков в Word — строго 14 пт.
+   - Списки и перечисления: в исходном Markdown перед каждым списком обязательна пустая строка во избежание слияния элементов в сплошной текст при компиляции; размер шрифта списков в Word — строго 14 пт. При вложенных списках обязательно учитывается `w:ilvl`: уровень 0 (внешние номера `1., 2.`) с отступом `left_indent = 1.25 см`, уровень 1 (вложенные маркеры) с отступом `left_indent = 2.00 см`. Сырые текстовые дефисы (`- `) категорически запрещены — используются круглые маркеры Word (•).
+   - Пошаговый алгоритм конвертации Markdown в Word через `pypandoc` и `python-docx` подробно документирован в [`doc_word_gost.md`](doc_word_gost.md).
 
 ### 2.2 Этап 2: Обязательная пауза и верификация пользователем
 > [!CAUTION]
@@ -80,41 +82,68 @@ graph TD
 
 ### 2.3 Этап 3: Экспорт Word в PDF (Microsoft Print to PDF / Word COM API)
 Экспорт выполняется через автоматизацию MS Word COM API (или печать на системный принтер «Microsoft Print to PDF»):
+- **Защита от зависания на кириллических путях:** метод `Documents.Open` в Word COM на Windows зависает при наличии кириллицы в пути к файлу. Документ обязательно копируется во временный каталог с ASCII-путем (`Path(tempfile.gettempdir())`), обрабатывается и сохраняется там, а затем готовый PDF и DOCX возвращаются в целевой каталог.
 - Перед сохранением принудительно обновляются все поля документа и оглавления: `doc.Fields.Update()`, `doc.TablesOfContents(1).Update()`.
 - Вызывается встроенный метод экспорта Word `ExportAsFixedFormat` с параметром `wdExportFormatPDF = 17` (обеспечивает качество виртуального принтера Microsoft Print to PDF с сохранением гиперссылок оглавления и векторных шрифтов).
 
 ```python
 """Эталонный экспорт Word в PDF через Word COM / Microsoft Print to PDF."""
+import shutil
+import tempfile
 from pathlib import Path
 import win32com.client as win32
 
 def export_word_to_pdf(docx_path: Path, pdf_path: Path | None = None) -> Path:
+    docx_path = docx_path.resolve()
     if pdf_path is None:
         pdf_path = docx_path.with_suffix(".pdf")
+    else:
+        pdf_path = pdf_path.resolve()
+    
+    # 0. Изоляция во временном ASCII-каталоге во избежание зависания Word COM на кириллице
+    temp_dir = Path(tempfile.gettempdir())
+    temp_docx = temp_dir / "_export_temp.docx"
+    temp_pdf = temp_dir / "_export_temp.pdf"
+    shutil.copy2(docx_path, temp_docx)
     
     word = win32.DispatchEx("Word.Application")
     word.Visible = False
     word.DisplayAlerts = 0
     try:
-        doc = word.Documents.Open(str(docx_path.resolve()))
-        # 1. Принудительное обновление полей и оглавления
+        doc = word.Documents.Open(str(temp_docx))
+        
+        # 1. Принудительный сброс отступа оглавления и обновление полей
+        for st_id in (-42, -43):  # wdStyleTOC1, wdStyleTOC2
+            try:
+                doc.Styles(st_id).ParagraphFormat.FirstLineIndent = 0
+            except Exception:
+                pass
         doc.Fields.Update()
         if doc.TablesOfContents.Count > 0:
-            doc.TablesOfContents(1).Update()
+            toc = doc.TablesOfContents(1)
+            toc.Update()
+            for p in toc.Range.Paragraphs:
+                p.FirstLineIndent = 0
         
         # 2. Экспорт в PDF (wdExportFormatPDF = 17)
-        # Соответствует качеству виртуального принтера Microsoft Print to PDF
         doc.ExportAsFixedFormat(
-            OutputFileName=str(pdf_path.resolve()),
+            OutputFileName=str(temp_pdf),
             ExportFormat=17,
             OpenAfterExport=False,
-            OptimizeFor=0,  # wdExportOptimizeForPrint (высокое качество печати)
+            OptimizeFor=0,      # wdExportOptimizeForPrint (высокое качество печати)
             CreateBookmarks=1,  # wdExportCreateWordBookmarks (кликабельное оглавление)
         )
         doc.Close(False)
+        shutil.copy2(temp_pdf, pdf_path)
         return pdf_path
     finally:
         word.Quit()
+        for p in (temp_docx, temp_pdf):
+            if p.exists():
+                try:
+                    p.unlink()
+                except Exception:
+                    pass
 ```
 
 ---
