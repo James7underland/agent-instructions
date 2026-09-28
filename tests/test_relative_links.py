@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 from urllib.parse import unquote
+
 import pytest
 from conftest import ROOT_DIR, get_all_markdown_paths, get_markdown_file_id
 

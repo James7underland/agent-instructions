@@ -52,14 +52,14 @@ ST-программы по префиксу и сама считает расх�
 
 | Скрипт | Зачем |
 |---|---|
-| `assets/scripts/fbd_gen.py` | собрать схему из описания и записать в `prog.json`: `expr()`/`fb_call()` сами раскладывают выражения по клеткам и проверяют типы; порядок выполнения — по правилу IDE; каталог системных ФБ; перед записью проверяет больше двадцати видов ошибок |
-| `assets/scripts/fbd_dump.py` | прочитать любую (в том числе чужую) схему: выражения в порядке выполнения, блоки, связи, замечания (включая порядок); `--check-st` — сверка с выводом IDE «Вывести код на ST» |
-| `assets/scripts/fbd_diff.py` | смысловой дифф двух версий схемы: блоки, связи, порядок выполнения, изменившиеся выражения |
-| `assets/scripts/ui/fbd_lib.ps1` | мышь в редакторе: геометрия поля, прокрутка, режимы, связи с проверкой, размещение блоков |
-| `assets/scripts/ui/fbd_do.ps1` | то же одиночными командами: `view`, `mode`, `link`, `place`, `save` (сначала фиксирует связи), `scroll`, `clear`, `st`, `menu`, `delete`, `unlink`, `move`, `undo`, `redo` |
+| `scripts/fbd_gen.py` | собрать схему из описания и записать в `prog.json`: `expr()`/`fb_call()` сами раскладывают выражения по клеткам и проверяют типы; порядок выполнения — по правилу IDE; каталог системных ФБ; перед записью проверяет больше двадцати видов ошибок |
+| `scripts/fbd_dump.py` | прочитать любую (в том числе чужую) схему: выражения в порядке выполнения, блоки, связи, замечания (включая порядок); `--check-st` — сверка с выводом IDE «Вывести код на ST» |
+| `scripts/fbd_diff.py` | смысловой дифф двух версий схемы: блоки, связи, порядок выполнения, изменившиеся выражения |
+| `scripts/ui/fbd_lib.ps1` | мышь в редакторе: геометрия поля, прокрутка, режимы, связи с проверкой, размещение блоков |
+| `scripts/ui/fbd_do.ps1` | то же одиночными командами: `view`, `mode`, `link`, `place`, `save` (сначала фиксирует связи), `scroll`, `clear`, `st`, `menu`, `delete`, `unlink`, `move`, `undo`, `redo` |
 
 ```python
-import sys; sys.path.insert(0, '<skill>/assets/scripts')
+import sys; sys.path.insert(0, '<skill>/scripts')
 from fbd_gen import Scheme, K
 s = Scheme(dict_csv='tasks/main/logic/prog.csv')     # типы и имена берутся из словаря
 s.expr('sum_real', ('+', 'a_real', 'b_real'), line=3)
@@ -565,7 +565,7 @@ k-й вывод   = поле.Y + sy·(line + k) − верт. прокрутка
 Скорость: связь ~1,5 с, размещение ~3 с (включая проверку).
 
 ```powershell
-. "<skill>/assets/scripts/ui/fbd_lib.ps1"
+. "<skill>/scripts/ui/fbd_lib.ps1"
 Set-UmTopmost | Out-Null
 $prog = Read-FbdProg "C:\prj\demo\tasks\main\logic\prog.json"
 Invoke-FbdLink -Src (Get-FbdBlock $prog -Name 'b_real') -Dst (Get-FbdBlock $prog -Name '+') -DstSlot 1

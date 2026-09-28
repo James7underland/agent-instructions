@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
-"""Проверка скиллов, сборка архивов .skill и таблицы в README.md.
+"""Проверка скиллов, сборка архивов .skill (опционально) и обновление таблицы в README.md.
 
 Запуск из корня репозитория:
-    python tools/pack_skills.py           # проверить, пересобрать .skill, обновить таблицу в README
-    python tools/pack_skills.py --check   # только проверить; код выхода 1, если что-то не так или устарело
+    python skills/tools/pack_skills.py                  # проверить скиллы и обновить таблицу в README
+    python skills/tools/pack_skills.py --check          # только проверить; код выхода 1, если что-то не так
+    python skills/tools/pack_skills.py --build-archives # собрать бинарные архивы .skill
 
 Скилл — это папка <Программа>/<имя-скилла>/ с файлом SKILL.md.
-Архив кладётся рядом: <Программа>/<имя-скилла>.skill, внутри <имя-скилла>/...
-Архивы детерминированные (фиксированные даты, сортировка), поэтому пересборка
-без изменений в скилле не даёт диффа.
 """
 from __future__ import annotations
 
@@ -150,6 +148,7 @@ def render_table(rows: list[tuple[str, str, int, str, str]]) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--check", action="store_true", help="ничего не записывать, только проверить")
+    ap.add_argument("--build-archives", action="store_true", help="собрать бинарные архивы .skill")
     args = ap.parse_args()
 
     errors: list[str] = []
@@ -194,14 +193,11 @@ def main() -> int:
                 if rx.search(data):
                     errors.append(f"{rel}: похоже на {what} — убрать перед коммитом")
 
-        archive = skill_dir.parent / f"{skill_dir.name}.skill"
-        fresh = build_archive(skill_dir, files)
-        if not archive.exists() or archive.read_bytes() != fresh:
-            if args.check:
-                errors.append(f"{archive.relative_to(ROOT).as_posix()}: устарел, запустите tools/pack_skills.py")
-            else:
-                archive.write_bytes(fresh)
-                print(f"собран {archive.relative_to(ROOT).as_posix()} ({len(files)} файлов)")
+        if args.build_archives:
+            archive = skill_dir.parent / f"{skill_dir.name}.skill"
+            fresh = build_archive(skill_dir, files)
+            archive.write_bytes(fresh)
+            print(f"собран {archive.relative_to(ROOT).as_posix()} ({len(files)} файлов)")
 
         rel_link = (skill_dir / "SKILL.md").relative_to(ROOT).as_posix()
         rows.append((prog, name or skill_dir.name, len(files), short_description(desc), rel_link))

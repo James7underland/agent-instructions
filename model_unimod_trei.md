@@ -11,9 +11,9 @@
 Модуль подключается при решении задач:
 - Разработка и редактирование проектов автоматизации на контроллерах концерна ТРЭИ (ТРЭИ-5В-04/05);
 - Создание программ, функций, функциональных блоков (POU) и пользовательских структур данных;
-- Проектирование и синтез схем на языке функциональных блоковых диаграмм (FBD) через генерацию структуры `prog.json` (`assets/scripts/fbd_gen.py`);
+- Проектирование и синтез схем на языке функциональных блоковых диаграмм (FBD) через генерацию структуры `prog.json` (`scripts/fbd_gen.py`);
 - Автоматизированное построение словарей переменных и импорт конфигурации задач через текстовые спецификации (`import.prj`, `*.import.csv`);
-- Управление средой разработки Unimod PRO 2 через скрипты автоматизации и Windows UI Automation (`assets/scripts/ui/`);
+- Управление средой разработки Unimod PRO 2 через скрипты автоматизации и Windows UI Automation (`scripts/ui/`);
 - Проверка синтаксиса, компиляция проекта (F9) и сборка исполняемого бинарного образа контроллера (`project.app`).
 
 ---
@@ -40,11 +40,11 @@
 | Компонент | Назначение |
 |---|---|
 | [`assets/skeleton/`](skills/unimod-pro-trei/assets/skeleton/) | Эталонная структура чистого проекта для быстрого развертывания с нуля |
-| [`assets/scripts/fbd_gen.py`](skills/unimod-pro-trei/assets/scripts/fbd_gen.py) | Программная генерация схем FBD: размещение блоков по сетке, трассировка связей, контроль типов |
-| [`assets/scripts/fbd_dump.py`](skills/unimod-pro-trei/assets/scripts/fbd_dump.py) | Декомпиляция и проверка логики FBD-схем, сопоставление со сгенерированным кодом ST |
-| [`assets/scripts/fbd_diff.py`](skills/unimod-pro-trei/assets/scripts/fbd_diff.py) | Смысловое сравнение двух версий схем FBD с локализацией изменений |
-| [`assets/scripts/manual.py`](skills/unimod-pro-trei/assets/scripts/manual.py) | Извлечение справочных разделов заводского руководства ТРЭИ по имени блока или функции |
-| [`assets/scripts/ui/`](skills/unimod-pro-trei/assets/scripts/ui/) | Набор сценариев управления интерфейсом IDE и эмуляцией контроллера через UI Automation |
+| [`scripts/fbd_gen.py`](skills/unimod-pro-trei/scripts/fbd_gen.py) | Программная генерация схем FBD: размещение блоков по сетке, трассировка связей, контроль типов |
+| [`scripts/fbd_dump.py`](skills/unimod-pro-trei/scripts/fbd_dump.py) | Декомпиляция и проверка логики FBD-схем, сопоставление со сгенерированным кодом ST |
+| [`scripts/fbd_diff.py`](skills/unimod-pro-trei/scripts/fbd_diff.py) | Смысловое сравнение двух версий схем FBD с локализацией изменений |
+| [`scripts/manual.py`](skills/unimod-pro-trei/scripts/manual.py) | Извлечение справочных разделов заводского руководства ТРЭИ по имени блока или функции |
+| [`scripts/ui/`](skills/unimod-pro-trei/scripts/ui/) | Набор сценариев управления интерфейсом IDE и эмуляцией контроллера через UI Automation |
 
 ---
 

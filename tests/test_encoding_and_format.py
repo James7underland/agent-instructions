@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
+
 import pytest
 from conftest import get_all_markdown_paths, get_markdown_file_id
 

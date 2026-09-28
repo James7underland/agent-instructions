@@ -25,6 +25,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
 
+      - name: Run Ruff Linter
+        run: |
+          ruff check tests/
+
       - name: Run Pytest Suite
         run: |
           pytest

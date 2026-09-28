@@ -7,19 +7,13 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+
 import pytest
 from conftest import ROOT_DIR
 
 SKILLS_DIR = ROOT_DIR / "skills"
 SKILL_DIRS = sorted([p.parent for p in SKILLS_DIR.glob("*/SKILL.md")])
 PYTHON_SCRIPT_PATHS = sorted(SKILLS_DIR.rglob("*.py"))
-SKILL_ARCHIVES = [
-    "mathcad13.skill",
-    "unimod-pro-trei.skill",
-    "fsa-gost.skill",
-    "tau-labs.skill",
-    "tau3.skill",
-]
 
 NAME_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 FRONTMATTER_PATTERN = re.compile(r"^---\r?\n(.*?)\r?\n---\r?\n", re.DOTALL)
@@ -74,7 +68,7 @@ def test_no_hardcoded_foreign_user_paths() -> None:
         if "Users\\MSI" in text or "Users/MSI" in text:
             violations.append(str(path.relative_to(ROOT_DIR)))
 
-    assert not violations, f"Обнаружены жестко заданные пути пользователей в файлах:\n" + "\n".join(f"  - {v}" for v in violations)
+    assert not violations, "Обнаружены жестко заданные пути пользователей в файлах:\n" + "\n".join(f"  - {v}" for v in violations)
 
 
 @pytest.mark.parametrize("script_path", PYTHON_SCRIPT_PATHS, ids=lambda p: str(p.relative_to(ROOT_DIR)).replace("\\", "/"))
@@ -85,14 +79,6 @@ def test_python_scripts_syntax(script_path: Path) -> None:
         ast.parse(source, filename=str(script_path))
     except SyntaxError as exc:
         pytest.fail(f"Синтаксическая ошибка в {script_path.name}: {exc}")
-
-
-@pytest.mark.parametrize("archive_name", SKILL_ARCHIVES)
-def test_skill_archives_exist_and_non_empty(archive_name: str) -> None:
-    """Проверяет наличие и ненулевой размер скомпонованных архивов .skill."""
-    archive_path = SKILLS_DIR / archive_name
-    assert archive_path.exists(), f"Архив {archive_name} не найден в {SKILLS_DIR}"
-    assert archive_path.stat().st_size > 1024, f"Архив {archive_name} пуст или поврежден"
 
 
 def test_pack_skills_verification() -> None:
