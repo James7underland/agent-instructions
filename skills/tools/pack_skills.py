@@ -126,6 +126,21 @@ PROGRAM_NAMES = {
     "c-core": "Язык C (микроконтроллеры)",
     "embedded-c": "Язык C (микроконтроллеры)",
     "esp8266-pio": "Язык C (микроконтроллеры)",
+    "using-superpowers": "Superpowers (методология)",
+    "brainstorming": "Superpowers (методология)",
+    "writing-plans": "Superpowers (методология)",
+    "executing-plans": "Superpowers (методология)",
+    "subagent-driven-development": "Superpowers (методология)",
+    "test-driven-development": "Superpowers (методология)",
+    "systematic-debugging": "Superpowers (методология)",
+    "verification-before-completion": "Superpowers (методология)",
+    "requesting-code-review": "Superpowers (методология)",
+    "receiving-code-review": "Superpowers (методология)",
+    "dispatching-parallel-agents": "Superpowers (методология)",
+    "finishing-a-development-branch": "Superpowers (методология)",
+    "using-git-worktrees": "Superpowers (методология)",
+    "writing-skills": "Superpowers (методология)",
+    "diagnosing-superpowers": "Superpowers (методология)",
 }
 
 

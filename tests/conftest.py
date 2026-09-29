@@ -14,6 +14,7 @@ REQUIRED_CORE_FILES = [
     "README.md",
     "ai_persona_agent.md",
     "text_humanizer_ru.md",
+    "superpowers_agent.md",
 ]
 
 

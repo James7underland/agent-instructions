@@ -104,6 +104,7 @@ def test_task_modules_link_to_skills() -> None:
         "lab_tau_reports.md": "skills/tau-labs/SKILL.md",
         "model_tau3.md": "skills/tau3/SKILL.md",
         "model_simulink.md": "skills/simulink/SKILL.md",
+        "superpowers_agent.md": "skills/using-superpowers/SKILL.md",
     }
     for mod_name, skill_rel in mappings.items():
         mod_path = ROOT_DIR / mod_name
