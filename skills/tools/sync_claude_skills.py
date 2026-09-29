@@ -33,16 +33,13 @@ PROTECTED_PATHS = [
     SKILLS_DIR / "fsa-gost" / "assets" / "example-k1",
 ]
 
-# Динамически сформированный паттерн для устранения персональных путей без совпадения с жестким тестом
-FOREIGN_USER_PATH_PATTERN = re.compile(
-    r"[a-zA-Z]:[/\\]Users[/\\]" + r"(?:MSI|[A-Za-z0-9_-]+)" + r"[/\\]",
-    re.IGNORECASE,
-)
-GENERIC_USER_PATH = "%USERPROFILE%\\"
 
 
 def normalize_file_content(file_path: Path) -> None:
-    """Нормализует окончания строк (LF) и устраняет жестко зашитые личные пути."""
+    """Нормализует окончания строк (LF для кроссплатформенности, UTF-8 с BOM строго для .ps1).
+    
+    Сохраняет 100% авторского содержимого без искажения строковых литералов, путей и логики.
+    """
     text_suffixes = {".md", ".py", ".json", ".txt", ".yaml", ".yml", ".ps1"}
     if file_path.suffix.lower() not in text_suffixes:
         return
@@ -57,17 +54,15 @@ def normalize_file_content(file_path: Path) -> None:
 
     text = data.decode("utf-8", errors="replace")
 
-    # Устранение жестко заданных путей пользователей
-    cleaned_text = FOREIGN_USER_PATH_PATTERN.sub(GENERIC_USER_PATH, text)
-
-    # Нормализация окончаний строк
+    # Нормализация окончаний строк с сохранением авторского кода и комментариев
     if file_path.suffix.lower() == ".ps1":
         # Скрипты PowerShell требуют UTF-8 с BOM в Windows PowerShell 5.1
         bom = b"\xef\xbb\xbf"
-        encoded = bom + cleaned_text.replace("\r\n", "\n").replace("\n", "\r\n").encode("utf-8")
+        clean = text.replace("\ufeff", "").replace("\r\n", "\n").replace("\n", "\r\n")
+        encoded = bom + clean.encode("utf-8")
     else:
         # Markdown, Python и остальные текстовые файлы нормализуются в строгий LF без BOM
-        cleaned_text = cleaned_text.replace("\ufeff", "")
+        cleaned_text = text.replace("\ufeff", "")
         encoded = cleaned_text.replace("\r\n", "\n").encode("utf-8")
 
     file_path.write_bytes(encoded)
