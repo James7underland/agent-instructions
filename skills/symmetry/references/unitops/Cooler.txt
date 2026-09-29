@@ -1,0 +1,64 @@
+# Cooler = Heater.Cooler("NumberSegments = 5; DeltaP.DP = None")
+
+## /X
+Operation: X = sim.unitop.Heater.Cooler
+Status: Not Solved
+Port: DeltaP = SigPort (Delta P)
+Port: DeltaT = SigPort (Delta T)
+Port: Diameter = SigPort
+Port: Elev = SigPort (Elevation)
+Port: HeatLoss = SigPort (Heat Loss)
+Port: In = MatPort
+Port: Length = SigPort
+Port: LevelSP = SigPort (Level SP)
+Port: Liq0Level = SigPort (Level)
+Port: Liq0Level% = SigPort (Percent Level)
+Port: Liq1Level = SigPort (Heavy Liq Level)
+Port: Liq1Level% = SigPort (Heavy Liq % Level)
+Port: Out = MatPort
+Port: OutQ = EnePort
+Port: OutT = SigPort (Out T)
+Port: Volume = SigPort
+Port: k = SigPort
+Param: HTCorr (Inner HTC Corr.) = Constant
+Param: HeatLossCalcType (Heat Loss Calc Type) = None
+Param: Ignored = None
+Param: NumberSegments (Number of Segments) = 5
+Param: Orientation = Horizontal
+Param: OutHTCorr (Outer HT Corr) = Constant
+Param: PFCalc (Phase Fraction Calc) = Simple
+Param: TrackPhaseChange (Track Phase Change) = 0
+Param: UAMode (UA Mode) = 0
+Param: UseSubCoolT (Calc Sub Cooling) = 0
+Param: UseSupHeatT (Calc Super Heating) = 0
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+DeltaT: sim.solver.Ports.Port_Signal
+OutT: sim.solver.Ports.Port_Signal
+HeatLoss: sim.solver.Ports.Port_Signal
+k: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+Liq0Level: sim.solver.Ports.Port_Signal
+Liq1Level: sim.solver.Ports.Port_Signal
+Liq0Level%: sim.solver.Ports.Port_Signal
+Liq1Level%: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+Diameter: sim.solver.Ports.Port_Signal
+LevelSP: sim.solver.Ports.Port_Signal
+HTCorr: HTCorr = Constant
+HeatLossCalcType: HeatLossCalcType = None
+Ignored: Ignored = None
+NumberSegments: NumberSegments = 5
+Orientation: Orientation = Horizontal
+OutHTCorr: OutHTCorr = Constant
+PFCalc: PFCalc = Simple
+TrackPhaseChange: TrackPhaseChange = 0
+UAMode: UAMode = False
+UseSubCoolT: UseSubCoolT = False
+UseSupHeatT: UseSupHeatT = False

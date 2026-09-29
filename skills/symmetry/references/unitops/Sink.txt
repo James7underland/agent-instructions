@@ -1,0 +1,12 @@
+# Sink = Node.Sink()
+
+## /X
+Operation: X = sim.unitop.Node.Sink
+Status: Not Solved
+Port: Sink = MatPort
+Param: Ignored = None
+
+## dir /X
+
+Sink: sim.solver.Ports.Port_Material
+Ignored: Ignored = None

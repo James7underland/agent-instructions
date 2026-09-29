@@ -1,0 +1,70 @@
+# ClausCondenser = ClausOperations.ClausCondenser("DeltaP = 0.25 psi")
+
+## /X
+Operation: X = vmgsim.unitop.ClausOperations.ClausCondenser
+Status: Not Solved
+Port: Cond_Recovery = SigPort (Cond Recovery) (/X.Separator.S_Recovery)
+Port: DeltaP = SigPort (Delta P)
+Port: DeltaT = SigPort (Delta T)
+Port: Diameter = SigPort
+Port: Elev = SigPort (Elevation)
+Port: H2SEqCorr = SigPort (H2S Eq Corr Factor)
+Port: H2SLiq = SigPort (H2S Liq)
+Port: H2SLiqContent = SigPort (H2S Liq Content)
+Port: H2SVap = SigPort (H2S Vap)
+Port: HRat = SigPort (Head Axis Ratio)
+Port: In = MatPort
+Port: Length = SigPort
+Port: LevelSP = SigPort (Level SP)
+Port: Liq = MatPort
+Port: Liq0Level = SigPort (Level)
+Port: Liq1Level = SigPort (Heavy Liq Level)
+Port: Liq1Level% = SigPort (Heavy Liq % Level)
+Port: LiqLevel% = SigPort (Percent Level)
+Port: OutQ = EnePort (Out Q)
+Port: OutT = SigPort (Out T)
+Port: S1EquivLiq = SigPort (S1 Equiv Liq)
+Port: S1EquivVap = SigPort (S1 Equiv Vap)
+Port: S1LiqEntrain = SigPort (S1 Liq Entrainment)
+Port: SAppToEq = SigPort (S Approach to Eq)
+Port: Stage_Recovery = SigPort (Stage Recovery)
+Port: Vap = MatPort
+Port: Volume = SigPort
+Port: k = SigPort
+Child: Cooler = vmgsim.unitop.ClausOperations.ClausCooler
+Child: Separator = vmgsim.unitop.ClausOperations.ClausSeparator
+Param: Ignored = None
+
+## dir /X
+
+Cooler: Cooler = vmgsim.unitop.ClausOperations.ClausCooler
+Separator: Separator = vmgsim.unitop.ClausOperations.ClausSeparator
+In: sim.solver.Ports.Port_Material
+Vap: sim.solver.Ports.Port_Material
+Liq: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+DeltaT: sim.solver.Ports.Port_Signal
+OutT: sim.solver.Ports.Port_Signal
+S1EquivLiq: sim.solver.Ports.Port_Signal
+S1EquivVap: sim.solver.Ports.Port_Signal
+S1LiqEntrain: sim.solver.Ports.Port_Signal
+H2SLiq: sim.solver.Ports.Port_Signal
+H2SVap: sim.solver.Ports.Port_Signal
+H2SLiqContent: sim.solver.Ports.Port_Signal
+SAppToEq: sim.solver.Ports.Port_Signal
+H2SEqCorr: sim.solver.Ports.Port_Signal
+Cond_Recovery: sim.solver.Ports.Port_Signal
+Stage_Recovery: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+Diameter: sim.solver.Ports.Port_Signal
+HRat: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+Liq0Level: sim.solver.Ports.Port_Signal
+Liq1Level: sim.solver.Ports.Port_Signal
+LiqLevel%: sim.solver.Ports.Port_Signal
+Liq1Level%: sim.solver.Ports.Port_Signal
+LevelSP: sim.solver.Ports.Port_Signal
+k: sim.solver.Ports.Port_Signal
+Ignored: Ignored = None

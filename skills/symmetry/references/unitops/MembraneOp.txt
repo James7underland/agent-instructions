@@ -1,0 +1,84 @@
+# MembraneOp = MembraneBase.MembraneOp()
+
+## /X
+Operation: X = vmgsim.unitop.MembraneBase.MembraneOp
+Status: Not Solved
+Port: DimensionlessArea = SigPort (Dimensionless Area)
+Port: Feed = MatPort
+Port: FeedDP = SigPort (Feed Side Delta P)
+Port: FiberInnerDiam = SigPort (Fiber Inner Diameter)
+Port: FiberOuterDiam = SigPort (Fiber Outer Diameter)
+Port: InQ = EnePort (In Q)
+Port: Length = SigPort (Active Length)
+Port: MembraneArea = SigPort (Total Area)
+Port: PermDP = SigPort (Permeate Side Delta P)
+Port: PermTRef = SigPort (Perm. Ref. T)
+Port: Permeate = MatPort
+Port: Retentate = MatPort
+Port: StageCut = SigPort (Stage Cut)
+Port: Thickness = SigPort
+Param: AddPermTDep (T Dependency for Permeability) = 0
+Param: AddPorousSupport (Add Porous Support Layer) = 0
+Param: AddSweep (Add Sweep) = 0
+Param: CalcTemperatureMode (Calc T Mode) = All T Equal
+(InternalVal = AllTEqual)
+Param: FeedSide (Feed Side) = Shell Side Feed
+(InternalVal = Shell)
+Param: Fibers (Number of Fibers / Module) = 1000
+Param: FlowPattern (Flow Pattern) = Cross Flow
+(InternalVal = CrossFlow)
+Param: HeatTransfer (Heat Transfer) = 0
+Param: Ignored = None
+Param: Integrator = Adaptive
+Param: MaxError (Tolerance) = 1e-06
+Param: MaxIter (Max. Iterations) = 200
+Param: MemApp (Application) = Gas-Gas Separation
+(InternalVal = 0)
+Param: MemType (Membrane Type) = Generic
+Param: Modules = 1
+Param: PermSpecType (Permeability Spec. Type) = As Permeability
+(InternalVal = Permeability)
+Param: PervapDewAtOutlet (Dew Point at Outlet) = 0
+Param: PorousLayerSide (Porous Layer Side) = Inside
+(InternalVal = In)
+Param: Segments (Number of Segments) = 10
+Param: SmallestFrac (Smallest Mole Fraction) = 1e-16
+Param: SmallestPerm (Smallest Permeability) = 1e-20
+
+## dir /X
+
+Feed: sim.solver.Ports.Port_Material
+Retentate: sim.solver.Ports.Port_Material
+Permeate: sim.solver.Ports.Port_Material
+InQ: sim.solver.Ports.Port_Energy
+PermTRef: sim.solver.Ports.Port_Signal
+MembraneArea: sim.solver.Ports.Port_Signal
+DimensionlessArea: sim.solver.Ports.Port_Signal
+StageCut: sim.solver.Ports.Port_Signal
+Thickness: sim.solver.Ports.Port_Signal
+FeedDP: sim.solver.Ports.Port_Signal
+PermDP: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+FiberInnerDiam: sim.solver.Ports.Port_Signal
+FiberOuterDiam: sim.solver.Ports.Port_Signal
+AddPermTDep: AddPermTDep = 0
+AddPorousSupport: AddPorousSupport = 0
+AddSweep: AddSweep = 0
+CalcTemperatureMode: CalcTemperatureMode = AllTEqual
+FeedSide: FeedSide = Shell
+Fibers: Fibers = 1000
+FlowPattern: FlowPattern = CrossFlow
+HeatTransfer: HeatTransfer = 0
+Ignored: Ignored = None
+Integrator: Integrator = Adaptive
+MaxError: MaxError = 1e-06
+MaxIter: MaxIter = 200
+MemApp: MemApp = 0
+MemType: MemType = Generic
+Modules: Modules = 1
+PermSpecType: PermSpecType = Permeability
+PervapDewAtOutlet: PervapDewAtOutlet = 0
+PorousLayerSide: PorousLayerSide = In
+Segments: Segments = 10
+SmallestFrac: SmallestFrac = 1e-16
+SmallestPerm: SmallestPerm = 1e-20

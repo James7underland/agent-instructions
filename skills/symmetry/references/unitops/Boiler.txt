@@ -1,0 +1,44 @@
+# Boiler = Boiler.Boiler()
+
+## /X
+Operation: X = sim.unitop.Boiler.Boiler
+Status: Not Solved
+Port: Air = MatPort
+Port: BFW = MatPort (Feed Water)
+Port: Blowdown = MatPort
+Port: Eff = SigPort (Thermal Efficiency)
+Port: Flue = MatPort (Flue Gas)
+Port: FlueDeltaP = SigPort (Flue Delta P)
+Port: Fuel = MatPort (Fuel Supply)
+Port: HeatingDuty = EnePort (Absorbed Energy)
+Port: SteamDeltaP = SigPort (Steam Delta P)
+Port: SteamOut = MatPort (Steam Out)
+Child: FlueSide = sim.unitop.Boiler.BurnerSide
+Child: SteamSide = sim.unitop.Boiler.ProcessSide
+Param: AirComposition (Air Composition) = Specify
+Param: Blowdown_T_Mode (Blowdown Condition) = Saturated Liquid
+(InternalVal = Sat Liq)
+Param: HasProcess (2nd Fuel Supply) = 0
+Param: Ignored = None
+Param: OutMode (Steam Condition) = Saturated Vap
+(InternalVal = Sat Vap)
+
+## dir /X
+
+FlueSide: FlueSide = sim.unitop.Boiler.BurnerSide
+SteamSide: SteamSide = sim.unitop.Boiler.ProcessSide
+Fuel: sim.solver.Ports.Port_Material
+Air: sim.solver.Ports.Port_Material
+BFW: sim.solver.Ports.Port_Material
+Flue: sim.solver.Ports.Port_Material
+SteamOut: sim.solver.Ports.Port_Material
+Blowdown: sim.solver.Ports.Port_Material
+HeatingDuty: sim.solver.Ports.Port_Energy
+Eff: sim.solver.Ports.Port_Signal
+SteamDeltaP: sim.solver.Ports.Port_Signal
+FlueDeltaP: sim.solver.Ports.Port_Signal
+AirComposition: AirComposition = Specify
+Blowdown_T_Mode: Blowdown_T_Mode = Sat Liq
+HasProcess: HasProcess = 0
+Ignored: Ignored = None
+OutMode: OutMode = Sat Vap

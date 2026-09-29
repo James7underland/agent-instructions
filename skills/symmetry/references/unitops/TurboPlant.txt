@@ -1,0 +1,18 @@
+# TurboPlant = Plants.TurboPlant()
+
+## /X
+Operation: X = sim.unitop.Plants.TurboPlant
+Status: Not Solved
+Port: Feed = MatPort (Feed Gas)
+Port: GasProd = MatPort (Sales Gas)
+Port: LiqProd = MatPort (NGL Product)
+Param: Ignored = None
+Param: NuSplits (Number of Splits) = 1
+
+## dir /X
+
+Feed: sim.solver.Ports.Port_Material
+GasProd: sim.solver.Ports.Port_Material
+LiqProd: sim.solver.Ports.Port_Material
+Ignored: Ignored = None
+NuSplits: NuSplits = 1

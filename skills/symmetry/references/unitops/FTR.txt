@@ -1,0 +1,138 @@
+# FTR = Reactors.FTR()
+
+## /X
+Operation: X = vmgsim.unitop.Reactors.FTR
+Status: Not Solved
+Port: ActualConversion = SigPort (Actual Conversion)
+Port: Alcohol = SigPort
+Port: Alpha = SigPort
+Port: AmbientHeatLoss = EnePort (Ambient Heat Loss)
+Port: BedHLMult = SigPort (Bed Heat Loss Multiplier)
+Port: CatalystActivity = SigPort (Catalyst Activity)
+Port: CatalystC2H3OHSelectivity = SigPort (C2H3OH Selectivity)
+Port: CatalystC2H4O2Selectivity = SigPort (C2H4O2 Selectivity)
+Port: CatalystC2H4Selectivity = SigPort (C2H4 Selectivity)
+Port: CatalystC2H5OHSelectivity = SigPort (C2H5OH Selectivity)
+Port: CatalystC2H6Selectivity = SigPort (C2H6 Selectivity)
+Port: CatalystC3H5OHSelectivity = SigPort (Aldehyde C3 Selectivity)
+Port: CatalystC3H6O2Selectivity = SigPort (Acid C3 Selectivity)
+Port: CatalystC3H6Selectivity = SigPort (C3H6 Selectivity)
+Port: CatalystC3H7OHSelectivity = SigPort (Alcohol C3 Selectivity)
+Port: CatalystC3H8Selectivity = SigPort (Paraffin C3 Selectivity)
+Port: CatalystC4H10Selectivity = SigPort (Paraffin C4 Selectivity)
+Port: CatalystC4H7OHSelectivity = SigPort (Aldehyde C4 Selectivity)
+Port: CatalystC4H8O2Selectivity = SigPort (Acid C4 Selectivity)
+Port: CatalystC4H8Selectivity = SigPort (Olefin C4 Selectivity)
+Port: CatalystC4H9OHSelectivity = SigPort (Alcohol C4 Selectivity)
+Port: CatalystC5H10Selectivity = SigPort (Olefin C5 Selectivity)
+Port: CatalystCH2O2Selectivity = SigPort (CH2O2 Selectivity)
+Port: CatalystCH3OHSelectivity = SigPort (CH3OH Selectivity)
+Port: CatalystCH4Selectivity = SigPort (CH4 Selectivity)
+Port: CatalystCHOHSelectivity = SigPort (CHOH Selectivity)
+Port: CatalystIsoC4H10Selectivity = SigPort (isoC4H10 Selectivity)
+Port: CatalystIsoC5H12Selectivity = SigPort (isoParaffin C5 Selectivity)
+Port: CatalystIsoC6H14Selectivity = SigPort (isoParaffin C6 Selectivity)
+Port: CatalystWGSSelectivity = SigPort (WGS Selectivity)
+Port: CoolingAppT = SigPort (Cooling Approach Temperature)
+Port: CoolingExchange = SigPort (Cooling Exchange)
+Port: CoolingIn = MatPort
+Port: CoolingOut = MatPort
+Port: CoolingPressureDrop = SigPort (Cooling Pressure Drop)
+Port: LiquidOut = MatPort
+Port: MainFeedIn = MatPort
+Port: Olefin = SigPort
+Port: OutletTemperature = SigPort (Product Temperature)
+Port: ProcessPressureDrop = SigPort (Process Pressure Drop)
+Port: ProductH2CORatio = SigPort (Product H2/CO Ratio)
+Port: RecycleIn = MatPort
+Port: SolutionError = SigPort (Solution Error)
+Port: SyngasH2CORatio = SigPort (Syngas H2/CO Ratio)
+Port: TargetConversion = SigPort (Target Conversion)
+Port: VaporOut = MatPort
+Port: WaxOut = MatPort
+Param: CalcPressureMode (Pressure Drop Mode) = SpecPressureDrop
+Param: CatalystEstimateMode (Estimate Kinetics) = 0
+Param: CatalystGeometry (Catalyst Geometry) = Trilobe
+Param: CatalystType (Catalyst Type) = Cobalt
+Param: DetailedSelectivityMode (Detailed Selectivity) = 0
+Param: DiffusivityMode (Diffusivity Mode) = OverallMode
+Param: Ignored = None
+Param: KineticsUnits (Kinetics Units) = UnitsPerMol
+Param: PIONAMode (PIONA Yields) = 1
+Param: Solve_AxialSegmentation (Axial Segmentation) = 300
+Param: Solve_Damping (Damping Factor) = 1.0
+Param: Solve_MaxError (Maximum Error) = 0.01
+Param: Solve_MaxIterations (Maximum Iterations) = 500
+Param: Solve_MinOutletPressure (Min Outlet Pressure [kPa]) = 50.0
+Param: Solve_OverlapVLS (VLS Overlap) = None
+Param: Solve_RadialSegmentation (Radial Segmentation) = 1
+Param: Solve_ReactionOrder (Reactor Order) = 0.0
+Param: Solve_SolutionMethod (Solution Method) = RungeKutta4
+
+## dir /X
+
+MainFeedIn: sim.solver.Ports.Port_Material
+RecycleIn: sim.solver.Ports.Port_Material
+CoolingIn: sim.solver.Ports.Port_Material
+WaxOut: sim.solver.Ports.Port_Material
+LiquidOut: sim.solver.Ports.Port_Material
+VaporOut: sim.solver.Ports.Port_Material
+CoolingOut: sim.solver.Ports.Port_Material
+AmbientHeatLoss: sim.solver.Ports.Port_Energy
+ProcessPressureDrop: sim.solver.Ports.Port_Signal
+CoolingPressureDrop: sim.solver.Ports.Port_Signal
+TargetConversion: sim.solver.Ports.Port_Signal
+OutletTemperature: sim.solver.Ports.Port_Signal
+Alpha: sim.solver.Ports.Port_Signal
+Olefin: sim.solver.Ports.Port_Signal
+Alcohol: sim.solver.Ports.Port_Signal
+CoolingExchange: sim.solver.Ports.Port_Signal
+ActualConversion: sim.solver.Ports.Port_Signal
+SolutionError: sim.solver.Ports.Port_Signal
+SyngasH2CORatio: sim.solver.Ports.Port_Signal
+ProductH2CORatio: sim.solver.Ports.Port_Signal
+CoolingAppT: sim.solver.Ports.Port_Signal
+CatalystWGSSelectivity: sim.solver.Ports.Port_Signal
+CatalystCH4Selectivity: sim.solver.Ports.Port_Signal
+CatalystActivity: sim.solver.Ports.Port_Signal
+CatalystC2H6Selectivity: sim.solver.Ports.Port_Signal
+CatalystC3H8Selectivity: sim.solver.Ports.Port_Signal
+CatalystC4H10Selectivity: sim.solver.Ports.Port_Signal
+CatalystIsoC4H10Selectivity: sim.solver.Ports.Port_Signal
+CatalystIsoC5H12Selectivity: sim.solver.Ports.Port_Signal
+CatalystIsoC6H14Selectivity: sim.solver.Ports.Port_Signal
+CatalystC2H4Selectivity: sim.solver.Ports.Port_Signal
+CatalystC3H6Selectivity: sim.solver.Ports.Port_Signal
+CatalystC4H8Selectivity: sim.solver.Ports.Port_Signal
+CatalystC5H10Selectivity: sim.solver.Ports.Port_Signal
+CatalystCH3OHSelectivity: sim.solver.Ports.Port_Signal
+CatalystC2H5OHSelectivity: sim.solver.Ports.Port_Signal
+CatalystC3H7OHSelectivity: sim.solver.Ports.Port_Signal
+CatalystC4H9OHSelectivity: sim.solver.Ports.Port_Signal
+CatalystCHOHSelectivity: sim.solver.Ports.Port_Signal
+CatalystC2H3OHSelectivity: sim.solver.Ports.Port_Signal
+CatalystC3H5OHSelectivity: sim.solver.Ports.Port_Signal
+CatalystC4H7OHSelectivity: sim.solver.Ports.Port_Signal
+CatalystCH2O2Selectivity: sim.solver.Ports.Port_Signal
+CatalystC2H4O2Selectivity: sim.solver.Ports.Port_Signal
+CatalystC3H6O2Selectivity: sim.solver.Ports.Port_Signal
+CatalystC4H8O2Selectivity: sim.solver.Ports.Port_Signal
+BedHLMult: sim.solver.Ports.Port_Signal
+CalcPressureMode: CalcPressureMode = SpecPressureDrop
+CatalystEstimateMode: CatalystEstimateMode = 0
+CatalystGeometry: CatalystGeometry = Trilobe
+CatalystType: CatalystType = Cobalt
+DetailedSelectivityMode: DetailedSelectivityMode = 0
+DiffusivityMode: DiffusivityMode = OverallMode
+Ignored: Ignored = None
+KineticsUnits: KineticsUnits = UnitsPerMol
+PIONAMode: PIONAMode = 1
+Solve_AxialSegmentation: Solve_AxialSegmentation = 300
+Solve_Damping: Solve_Damping = 1.0
+Solve_MaxError: Solve_MaxError = 0.01
+Solve_MaxIterations: Solve_MaxIterations = 500
+Solve_MinOutletPressure: Solve_MinOutletPressure = 50.0
+Solve_OverlapVLS: Solve_OverlapVLS = None
+Solve_RadialSegmentation: Solve_RadialSegmentation = 1
+Solve_ReactionOrder: Solve_ReactionOrder = 0.0
+Solve_SolutionMethod: Solve_SolutionMethod = RungeKutta4

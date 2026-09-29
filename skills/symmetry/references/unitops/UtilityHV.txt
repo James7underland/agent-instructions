@@ -1,0 +1,34 @@
+# UtilityHV = Tank.Tank()
+
+## /X
+Operation: X = sim.unitop.Tank.Tank
+Status: Not Solved
+Port: ChargingTime = SigPort (Charging Time)
+Port: In0 = MatPort
+Port: InQ = EnePort
+Port: Liq0 = MatPort
+Port: Liq1 = MatPort
+Port: TankMolarVolume = SigPort (Tank Molar Volume)
+Port: TankVolume = SigPort (Tank Volume)
+Port: Vap = MatPort
+Child: Mixer = sim.unitop.Mixer.Mixer
+Child: SimpleTank = sim.unitop.Tank.SimpleTank
+Child: h = sim.unitop.Heater.Heater
+Param: Ignored = None
+Param: NumberStreamsIn (Inlets) = 1
+
+## dir /X
+
+Mixer: Mixer = sim.unitop.Mixer.Mixer
+SimpleTank: SimpleTank = sim.unitop.Tank.SimpleTank
+h: h = sim.unitop.Heater.Heater
+In0: sim.solver.Ports.Port_Material
+Vap: sim.solver.Ports.Port_Material
+Liq0: sim.solver.Ports.Port_Material
+Liq1: sim.solver.Ports.Port_Material
+InQ: sim.solver.Ports.Port_Energy
+ChargingTime: sim.solver.Ports.Port_Signal
+TankVolume: sim.solver.Ports.Port_Signal
+TankMolarVolume: sim.solver.Ports.Port_Signal
+Ignored: Ignored = None
+NumberStreamsIn: NumberStreamsIn = 1

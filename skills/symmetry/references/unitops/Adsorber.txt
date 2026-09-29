@@ -1,0 +1,24 @@
+# Adsorber = PSA.AdsorptionSplitter()
+
+## /X
+Operation: X = sim.unitop.PSA.AdsorptionSplitter
+Status: Not Solved
+Port: Accumulation = MatPort
+Port: In = MatPort
+Port: Out = MatPort
+Port: PressureDrop = SigPort (Pressure Drop)
+Port: QLoss = EnePort (Ambient Heat Loss)
+Param: Ignored = None
+Param: ProcessType (Process Type) = Adsorption
+Param: SolveMode (Solve Mode) = Simplified
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+Accumulation: sim.solver.Ports.Port_Material
+QLoss: sim.solver.Ports.Port_Energy
+PressureDrop: sim.solver.Ports.Port_Signal
+Ignored: Ignored = None
+ProcessType: ProcessType = Adsorption
+SolveMode: SolveMode = Simplified

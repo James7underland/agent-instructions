@@ -1,0 +1,109 @@
+# ClausSulfurPit = ClausOperations.ClausSulfurPit("DeltaP = 0 psi; OutQ = 0 Btu/hr;")
+
+## /X
+Operation: X = vmgsim.unitop.ClausOperations.ClausSulfurPit
+Status: Not Solved
+Status: Info - Missing Reference Acid Gas Stream
+Port: CumRecovery_Stage1 = SigPort
+Port: CumRecovery_Stage2 = SigPort
+Port: CumRecovery_Stage3 = SigPort
+Port: CumRecovery_ThermalStage = SigPort
+Port: DeltaP = SigPort (Delta P)
+Port: Diameter = SigPort
+Port: Elev = SigPort (Elevation)
+Port: H2SEqCorr = SigPort (H2S Eq Corr Factor)
+Port: H2SLiq = SigPort (H2S Liq)
+Port: H2SLiqContent = SigPort (H2S Liq Content)
+Port: H2SVap = SigPort (H2S Vap)
+Port: HRat = SigPort (Head Axis Ratio)
+Port: In0 = MatPort
+Port: In1 = MatPort
+Port: In2 = MatPort
+Port: In3 = MatPort
+Port: Length = SigPort
+Port: Liq = MatPort
+Port: Liq0Level = SigPort (Level)
+Port: Liq0Level% = SigPort (Percent Level)
+Port: Liq1Level = SigPort (Heavy Liq Level)
+Port: Liq1Level% = SigPort (Heavy Liq % Level)
+Port: OutQ = EnePort
+Port: Recovery_Stage1 = SigPort
+Port: Recovery_Stage2 = SigPort
+Port: Recovery_Stage3 = SigPort
+Port: Recovery_ThermalStage = SigPort
+Port: S1EquivLiq = SigPort (S1 Equiv Liq)
+Port: S1EquivVap = SigPort (S1 Equiv Vap)
+Port: S1LiqEntrain = SigPort (S1 Liq Entrainment)
+Port: SAppToEq = SigPort (S Approach to Eq)
+Port: S_Recovery = SigPort
+Port: SweepGas = MatPort (/X.Mix2.In1)
+Port: Vap = MatPort
+Port: Volume = SigPort
+Child: Cooler = vmgsim.unitop.ClausOperations.ClausCooler
+Child: Mix = sim.unitop.Mixer.Mixer
+Child: Mix2 = sim.unitop.Mixer.Mixer
+Child: Separator = vmgsim.unitop.ClausOperations.ClausSeparator
+Param: CalcPressureMode = LowestPInOutlet
+Param: HTCorr (Inner HT Corr) = Constant
+Param: HeatLossCalcType (Heat Loss Calc Type) = None
+Param: Ignored = None
+Param: In0_StageName (In0 Stage Name) = ThermalStage
+Param: In1_StageName (In1 Stage Name) = Stage1
+Param: In2_StageName (In2 Stage Name) = Stage2
+Param: In3_StageName (In3 Stage Name) = Stage3
+Param: NumberStreamsIn (Inlets) = 4
+Param: Orientation = Horizontal
+Param: OutHTCorr (Outer HT Corr) = Constant
+
+## dir /X
+
+Cooler: Cooler = vmgsim.unitop.ClausOperations.ClausCooler
+Mix: Mix = sim.unitop.Mixer.Mixer
+Mix2: Mix2 = sim.unitop.Mixer.Mixer
+Separator: Separator = vmgsim.unitop.ClausOperations.ClausSeparator
+SweepGas: sim.solver.Ports.Port_Material
+In0: sim.solver.Ports.Port_Material
+In1: sim.solver.Ports.Port_Material
+In2: sim.solver.Ports.Port_Material
+In3: sim.solver.Ports.Port_Material
+Vap: sim.solver.Ports.Port_Material
+Liq: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+S1EquivLiq: sim.solver.Ports.Port_Signal
+S1EquivVap: sim.solver.Ports.Port_Signal
+S1LiqEntrain: sim.solver.Ports.Port_Signal
+H2SLiq: sim.solver.Ports.Port_Signal
+H2SVap: sim.solver.Ports.Port_Signal
+H2SLiqContent: sim.solver.Ports.Port_Signal
+SAppToEq: sim.solver.Ports.Port_Signal
+H2SEqCorr: sim.solver.Ports.Port_Signal
+S_Recovery: sim.solver.Ports.Port_Signal
+Recovery_ThermalStage: sim.solver.Ports.Port_Signal
+CumRecovery_ThermalStage: sim.solver.Ports.Port_Signal
+Recovery_Stage1: sim.solver.Ports.Port_Signal
+CumRecovery_Stage1: sim.solver.Ports.Port_Signal
+Recovery_Stage2: sim.solver.Ports.Port_Signal
+CumRecovery_Stage2: sim.solver.Ports.Port_Signal
+Recovery_Stage3: sim.solver.Ports.Port_Signal
+CumRecovery_Stage3: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+Diameter: sim.solver.Ports.Port_Signal
+HRat: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+Liq0Level: sim.solver.Ports.Port_Signal
+Liq1Level: sim.solver.Ports.Port_Signal
+Liq0Level%: sim.solver.Ports.Port_Signal
+Liq1Level%: sim.solver.Ports.Port_Signal
+CalcPressureMode: CalcPressureMode = LowestPInOutlet
+HTCorr: HTCorr = Constant
+HeatLossCalcType: HeatLossCalcType = None
+Ignored: Ignored = None
+In0_StageName: In0_StageName = ThermalStage
+In1_StageName: In1_StageName = Stage1
+In2_StageName: In2_StageName = Stage2
+In3_StageName: In3_StageName = Stage3
+NumberStreamsIn: NumberStreamsIn = 4
+Orientation: Orientation = Horizontal
+OutHTCorr: OutHTCorr = Constant

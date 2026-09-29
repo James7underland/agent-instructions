@@ -1,0 +1,135 @@
+# ClausHydrogenator = ClausReactors.ClausHydrogenator("DeltaP = 0.25 psi; OutQ = 0 Btu/hr")
+
+## /X
+Operation: X = vmgsim.unitop.ClausReactors.ClausHydrogenator
+Status: Not Solved
+Port: Area = SigPort
+Port: BedDensity = SigPort (Bed Density)
+Port: BedVoidFraction = SigPort (Bed Void Fraction)
+Port: CatalystActivity = SigPort (Catalyst Activity)
+Port: CatalystAspectRatio = SigPort (Aspect Ratio)
+Port: CatalystDensity = SigPort (Density)
+Port: CatalystDiameter = SigPort (Diameter)
+Port: CatalystHeatCapacity = SigPort (Cat. Heat Capacity)
+Port: CatalystHollowID = SigPort (Hollow ID)
+Port: CatalystThermalConductivity = SigPort (Thermal Conductivity)
+Port: DeltaP = SigPort (Delta P)
+Port: Diameter = SigPort
+Port: Elev = SigPort (Elevation)
+Port: ExternalT = SigPort (External T)
+Port: FricFacTune = SigPort (Friction Factor Tuning)
+Port: HeatLoss = SigPort (Heat Loss)
+Port: In = MatPort
+Port: Length = SigPort
+Port: Out = MatPort
+Port: OutQ = EnePort (/X.EneStream.Out)
+Port: ResidenceTime = SigPort
+Port: U = SigPort
+Port: UA = SigPort
+Port: Volume = SigPort
+Child: BalEneSensor = sim.unitop.Sensor.EnergySensor
+Child: EneBalance = sim.unitop.Balance.BalanceOp
+Child: EneSensor = sim.unitop.Sensor.EnergySensor
+Child: EneStream = sim.unitop.Stream.Stream_Energy
+Child: itnRxn = vmgsim.unitop.ClausReactors.InternalClausHydrogenator
+Param: BasisCUnitId = 285
+Param: BasisPUnitId = 40
+Param: COS_Model (COS Model) = Equilibrium
+Param: CO_Model (CO Model) = Equilibrium
+Param: CS2_Model (CS2 Model) = Equilibrium
+Param: CalculationBasis = 1
+Param: CalculationOption = 5
+Param: CatalystGeometry (Catalyst Shape) = Cylinder
+Param: CatalystPack (Packing) = Average
+Param: Duty_Damping (Duty Damping) = 0.9
+Param: Duty_LastConv (Duty Last Converged) = 1
+Param: Duty_MaxError (Duty Max Error) = 0.001
+Param: Duty_MaxIter (Duty Max Iter) = 150
+Param: Duty_MaxStep (Duty Max Step) = 5.0
+Param: HTCorr (Inner HTC Corr.) = Catalyst (Matsuura)
+Param: HeatLossCalcTypeGbl (Heat Loss Calc Type) = None
+Param: Ignored = None
+Param: Mercaptans_Model (Mercaptans Model) = Equilibrium
+Param: NumberRxn = 0
+Param: OutHTCorr (Outer HT Corr) = Free Conv. Air
+(InternalVal = FreeConvAir)
+Param: QExothermicIsPositive (Q Exothermic Is Positive) = 1
+Param: ReactionPhase = 0
+Param: Reg_K-T_Table = 1
+Param: ResTimeFromGeom = 0
+Param: RxnExt_Damping = 1.0
+Param: RxnExt_LastConv = 0
+Param: RxnExt_MaxError = 1e-05
+Param: RxnExt_MaxIter = 200
+Param: RxnExt_MaxStep = 10.0
+Param: RxnExt_MinimizeError = 1
+Param: SO2_Model (SO2 Model) = Equilibrium
+Param: S_Model (S Model) = Equilibrium
+Param: SystemPhase = 6
+Param: UseCmpAppT = 0
+
+## dir /X
+
+BalEneSensor: BalEneSensor = sim.unitop.Sensor.EnergySensor
+EneBalance: EneBalance = sim.unitop.Balance.BalanceOp
+EneSensor: EneSensor = sim.unitop.Sensor.EnergySensor
+EneStream: EneStream = sim.unitop.Stream.Stream_Energy
+itnRxn: itnRxn = vmgsim.unitop.ClausReactors.InternalClausHydrogenator
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+U: sim.solver.Ports.Port_Signal
+UA: sim.solver.Ports.Port_Signal
+Area: sim.solver.Ports.Port_Signal
+HeatLoss: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+ExternalT: sim.solver.Ports.Port_Signal
+Diameter: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+ResidenceTime: sim.solver.Ports.Port_Signal
+FricFacTune: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+BedVoidFraction: sim.solver.Ports.Port_Signal
+CatalystDensity: sim.solver.Ports.Port_Signal
+CatalystDiameter: sim.solver.Ports.Port_Signal
+CatalystAspectRatio: sim.solver.Ports.Port_Signal
+CatalystActivity: sim.solver.Ports.Port_Signal
+CatalystHollowID: sim.solver.Ports.Port_Signal
+CatalystThermalConductivity: sim.solver.Ports.Port_Signal
+BedDensity: sim.solver.Ports.Port_Signal
+CatalystHeatCapacity: sim.solver.Ports.Port_Signal
+BasisCUnitId: BasisCUnitId = 285
+BasisPUnitId: BasisPUnitId = 40
+COS_Model: COS_Model = Equilibrium
+CO_Model: CO_Model = Equilibrium
+CS2_Model: CS2_Model = Equilibrium
+CalculationBasis: CalculationBasis = 1
+CalculationOption: CalculationOption = 5
+CatalystGeometry: CatalystGeometry = Cylinder
+CatalystPack: CatalystPack = Average
+Duty_Damping: Duty_Damping = 0.9
+Duty_LastConv: Duty_LastConv = 1
+Duty_MaxError: Duty_MaxError = 0.001
+Duty_MaxIter: Duty_MaxIter = 150
+Duty_MaxStep: Duty_MaxStep = 5.0
+HTCorr: HTCorr = Catalyst (Matsuura)
+HeatLossCalcTypeGbl: HeatLossCalcTypeGbl = None
+Ignored: Ignored = None
+Mercaptans_Model: Mercaptans_Model = Equilibrium
+NumberRxn: NumberRxn = 0
+OutHTCorr: OutHTCorr = FreeConvAir
+QExothermicIsPositive: QExothermicIsPositive = 1
+ReactionPhase: ReactionPhase = 0
+Reg_K-T_Table: Reg_K-T_Table = 1
+ResTimeFromGeom: ResTimeFromGeom = 0
+RxnExt_Damping: RxnExt_Damping = 1.0
+RxnExt_LastConv: RxnExt_LastConv = 0
+RxnExt_MaxError: RxnExt_MaxError = 1e-05
+RxnExt_MaxIter: RxnExt_MaxIter = 200
+RxnExt_MaxStep: RxnExt_MaxStep = 10.0
+RxnExt_MinimizeError: RxnExt_MinimizeError = True
+SO2_Model: SO2_Model = Equilibrium
+S_Model: S_Model = Equilibrium
+SystemPhase: SystemPhase = 6
+UseCmpAppT: UseCmpAppT = 0

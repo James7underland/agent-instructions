@@ -1,0 +1,10 @@
+# OLGALink = OLGALink.OLGALink()
+
+## /X
+Operation: X = sim.unitop.OLGALink.OLGALink
+Status: Not Solved
+Param: Ignored = None
+
+## dir /X
+
+Ignored: Ignored = None

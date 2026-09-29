@@ -1,0 +1,58 @@
+# ElectricMotor = ElectricMotor.ElectricMotor()
+
+## /X
+Operation: X = sim.unitop.ElectricMotor.ElectricMotor
+Status: Not Solved
+Port: Amperage = SigPort
+Port: Design_Speed = SigPort (Synchronous Speed)
+Port: Efficiency = SigPort
+Port: Electrical_Power = SigPort (Electrical Power)
+Port: Elev = SigPort (Elevation)
+Port: FricA = SigPort (Fixed Friction Torq)
+Port: FricB = SigPort (Var. Friction Torq)
+Port: FullLoadAmperage = SigPort (Full Load Amperage)
+Port: FullLoadTorque = SigPort (Full Load Torque)
+Port: Gearbox_Ratio = SigPort (Gearbox Ratio)
+Port: Inertia = SigPort
+Port: Inertial_Mass = SigPort (Inertial Mass)
+Port: Mechanical_Loss = SigPort (Mechanical Loss)
+Port: Power = SigPort
+Port: Radius_Of_Gyration = SigPort (Radius of Gyration)
+Port: ShaftTorqIn = SigPort (Shaft Torque In)
+Port: ShaftTorqOut = SigPort (Shaft Torque Out)
+Port: Shaft_Power_In = SigPort (Shaft Power In)
+Port: Shaft_Power_Out = SigPort (Shaft Power Out)
+Port: Speed = SigPort
+Port: Torque = SigPort
+Port: Voltage = SigPort
+Param: Ignored = None
+Param: UseAmpCurve (Use Amperage Curve) = 0
+Param: UseTorqueCurve (Use Torque Curve) = 1
+
+## dir /X
+
+Efficiency: sim.solver.Ports.Port_Signal
+Amperage: sim.solver.Ports.Port_Signal
+Voltage: sim.solver.Ports.Port_Signal
+Torque: sim.solver.Ports.Port_Signal
+Speed: sim.solver.Ports.Port_Signal
+Design_Speed: sim.solver.Ports.Port_Signal
+Inertial_Mass: sim.solver.Ports.Port_Signal
+Radius_Of_Gyration: sim.solver.Ports.Port_Signal
+Inertia: sim.solver.Ports.Port_Signal
+Mechanical_Loss: sim.solver.Ports.Port_Signal
+Shaft_Power_In: sim.solver.Ports.Port_Signal
+Shaft_Power_Out: sim.solver.Ports.Port_Signal
+Gearbox_Ratio: sim.solver.Ports.Port_Signal
+Electrical_Power: sim.solver.Ports.Port_Signal
+Power: sim.solver.Ports.Port_Signal
+FullLoadTorque: sim.solver.Ports.Port_Signal
+FullLoadAmperage: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+ShaftTorqIn: sim.solver.Ports.Port_Signal
+ShaftTorqOut: sim.solver.Ports.Port_Signal
+FricA: sim.solver.Ports.Port_Signal
+FricB: sim.solver.Ports.Port_Signal
+Ignored: Ignored = None
+UseAmpCurve: UseAmpCurve = 0
+UseTorqueCurve: UseTorqueCurve = 1

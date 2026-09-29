@@ -1,0 +1,12 @@
+# DigitalLogic = DigitalLogic.DigitalLogic()
+
+## /X
+Operation: X = sim.unitop.DigitalLogic.DigitalLogic
+Status: Solved
+Param: HideConnections (Hide PFD Connections) = 0
+Param: Ignored = None
+
+## dir /X
+
+HideConnections: HideConnections = False
+Ignored: Ignored = None

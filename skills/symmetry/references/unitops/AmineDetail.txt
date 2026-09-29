@@ -1,0 +1,76 @@
+# AmineDetail = AmineOperations.AmineDetail()
+
+## /X
+Operation: X = vmgsim.unitop.AmineOperations.AmineDetail
+Status: Not Solved
+Port: AcidGas/Amine_(mol) = SigPort
+Port: AcidGas/Amine_(stdvol) = SigPort
+Port: AcidGas/Soln_(stdvol) = SigPort
+Port: AcidGas_MoleFlow = SigPort
+Port: AmineContent_(wt) = SigPort
+Port: Amine_MoleFlow = SigPort
+Port: CO2/Amine_(mol) = SigPort
+Port: CO2/Amine_(stdvol) = SigPort
+Port: CO2/Soln_(stdvol) = SigPort
+Port: CO2_MoleFlow = SigPort
+Port: Elev = SigPort (Elevation)
+Port: H2S/Amine_(mol) = SigPort
+Port: H2S/Amine_(stdvol) = SigPort
+Port: H2S/Soln_(stdvol) = SigPort
+Port: H2S_MoleFlow = SigPort
+Port: In = MatPort
+Port: Out = MatPort
+Param: AcidGas/Amine_(mol)_Active (AcidGas/Amine_(mol) Active) = 1
+Param: AcidGas/Amine_(stdvol)_Active (AcidGas/Amine_(stdvol) Active) = 1
+Param: AcidGas/Soln_(stdvol)_Active (AcidGas/Soln_(stdvol) Active) = 1
+Param: AcidGas_MoleFlow_Active (AcidGas_MoleFlow Active) = 1
+Param: ActIonCalc (Activate Ion Calcs) = 0
+Param: AmineContent_(wt)_Active (AmineContent_(wt) Active) = 1
+Param: Amine_MoleFlow_Active (Amine_MoleFlow Active) = 1
+Param: CO2/Amine_(mol)_Active (CO2/Amine_(mol) Active) = 1
+Param: CO2/Amine_(stdvol)_Active (CO2/Amine_(stdvol) Active) = 1
+Param: CO2/Soln_(stdvol)_Active (CO2/Soln_(stdvol) Active) = 1
+Param: CO2_MoleFlow_Active (CO2_MoleFlow Active) = 1
+Param: CalcNow (Update Calcs Now) = None
+Param: H2S/Amine_(mol)_Active (H2S/Amine_(mol) Active) = 1
+Param: H2S/Amine_(stdvol)_Active (H2S/Amine_(stdvol) Active) = 1
+Param: H2S/Soln_(stdvol)_Active (H2S/Soln_(stdvol) Active) = 1
+Param: H2S_MoleFlow_Active (H2S_MoleFlow Active) = 1
+Param: Ignored = None
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+AcidGas/Amine_(mol): sim.solver.Ports.Port_Signal
+AcidGas/Amine_(stdvol): sim.solver.Ports.Port_Signal
+AcidGas/Soln_(stdvol): sim.solver.Ports.Port_Signal
+CO2/Amine_(mol): sim.solver.Ports.Port_Signal
+CO2/Amine_(stdvol): sim.solver.Ports.Port_Signal
+CO2/Soln_(stdvol): sim.solver.Ports.Port_Signal
+H2S/Amine_(mol): sim.solver.Ports.Port_Signal
+H2S/Amine_(stdvol): sim.solver.Ports.Port_Signal
+H2S/Soln_(stdvol): sim.solver.Ports.Port_Signal
+AmineContent_(wt): sim.solver.Ports.Port_Signal
+Amine_MoleFlow: sim.solver.Ports.Port_Signal
+AcidGas_MoleFlow: sim.solver.Ports.Port_Signal
+CO2_MoleFlow: sim.solver.Ports.Port_Signal
+H2S_MoleFlow: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+AcidGas/Amine_(mol)_Active: AcidGas/Amine_(mol)_Active = True
+AcidGas/Amine_(stdvol)_Active: AcidGas/Amine_(stdvol)_Active = True
+AcidGas/Soln_(stdvol)_Active: AcidGas/Soln_(stdvol)_Active = True
+AcidGas_MoleFlow_Active: AcidGas_MoleFlow_Active = True
+ActIonCalc: ActIonCalc = 0
+AmineContent_(wt)_Active: AmineContent_(wt)_Active = True
+Amine_MoleFlow_Active: Amine_MoleFlow_Active = True
+CO2/Amine_(mol)_Active: CO2/Amine_(mol)_Active = True
+CO2/Amine_(stdvol)_Active: CO2/Amine_(stdvol)_Active = True
+CO2/Soln_(stdvol)_Active: CO2/Soln_(stdvol)_Active = True
+CO2_MoleFlow_Active: CO2_MoleFlow_Active = True
+CalcNow: CalcNow = None
+H2S/Amine_(mol)_Active: H2S/Amine_(mol)_Active = True
+H2S/Amine_(stdvol)_Active: H2S/Amine_(stdvol)_Active = True
+H2S/Soln_(stdvol)_Active: H2S/Soln_(stdvol)_Active = True
+H2S_MoleFlow_Active: H2S_MoleFlow_Active = True
+Ignored: Ignored = None

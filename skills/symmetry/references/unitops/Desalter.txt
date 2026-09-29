@@ -1,0 +1,36 @@
+# Desalter = Dehydrator.Desalter()
+
+## /X
+Operation: X = sim.unitop.Dehydrator.Desalter
+Status: Not Solved
+Port: BSWIn = SigPort (BS&W In)
+Port: BSWOut = SigPort (BS&W Out)
+Port: BrineOut = MatPort (Brine Out)
+Port: DeltaP = SigPort (Delta P)
+Port: InQ = EnePort (Duty)
+Port: OilIn = MatPort (Oil In) (/X.Mixer.In0)
+Port: OilOut = MatPort (Oil Out)
+Port: SaltIn = SigPort (Salt In [PTB])
+Port: SaltOut = SigPort (Salt Out [PTB])
+Port: WaterIn = MatPort (Water In) (/X.Mixer.In1)
+Child: Desalter = sim.unitop.Dehydrator.InnerDesalter
+Child: Heater = sim.unitop.Heater.Heater
+Child: Mixer = sim.unitop.Mixer.Mixer
+Param: Ignored = None
+
+## dir /X
+
+Desalter: Desalter = sim.unitop.Dehydrator.InnerDesalter
+Heater: Heater = sim.unitop.Heater.Heater
+Mixer: Mixer = sim.unitop.Mixer.Mixer
+OilIn: sim.solver.Ports.Port_Material
+WaterIn: sim.solver.Ports.Port_Material
+OilOut: sim.solver.Ports.Port_Material
+BrineOut: sim.solver.Ports.Port_Material
+InQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+SaltIn: sim.solver.Ports.Port_Signal
+SaltOut: sim.solver.Ports.Port_Signal
+BSWIn: sim.solver.Ports.Port_Signal
+BSWOut: sim.solver.Ports.Port_Signal
+Ignored: Ignored = None

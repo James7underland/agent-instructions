@@ -1,0 +1,200 @@
+# Controller = Controller.Controller()
+
+## /X
+Operation: X = sim.unitop.Controller.Controller
+Status: Not Solved
+Status: Info - Missing connected object in 'Target Variable (PV)'
+Port: AlarmDeadB = SigPort (Alarm Dead Band)
+Port: AutoGain = SigPort (AutoTune Loop Gain)
+Port: AutoKp = SigPort (AutoTune Kc)
+Port: AutoPeriod = SigPort (AutoTune Loop Period)
+Port: AutoPert = SigPort (AutoTune Pert. Size)
+Port: AutoTd = SigPort (AutoTune Td)
+Port: AutoTi = SigPort (AutoTune Ti)
+Port: CycleTime = SigPort (Cycle Time)
+Port: DeltaTime = SigPort (Delta Time)
+Port: DerCompFilt = SigPort (Deriv Compensating Filter)
+Port: ExtOP = SigPort (External OP)
+Port: FFwd = SigPort (FeedForward Input)
+Port: FFwdDelay = SigPort (FFwd Delay Time)
+Port: FFwdGain = SigPort (FFwd Gain)
+Port: FFwdLag = SigPort (FFwd Lag Time Const)
+Port: FFwdLead = SigPort (FFwd Lead Time Const)
+Port: FFwdMax = SigPort (FFwd Max)
+Port: FFwdMin = SigPort (FFwd Min)
+Port: In = SigPort (PV)
+Port: Kp = SigPort (Kc)
+Port: MaxInput = SigPort (PV Max)
+Port: Maximum = SigPort (OP Max)
+Port: MinInput = SigPort (PV Min)
+Port: Minimum = SigPort (OP Min)
+Port: NoiseMag = SigPort (Noise Magnitude)
+Port: NoiseTime = SigPort (Noise Decay Time)
+Port: OP = SigPort (OP%)
+Port: OP1 = SigPort (OP1%)
+Port: OP2 = SigPort (OP2%)
+Port: OP2Scaled = SigPort (OP2)
+Port: OPBias = SigPort (OP Bias)
+Port: OPBias1 = SigPort (OP 1 Bias)
+Port: OPBias2 = SigPort (OP 2 Bias)
+Port: OPDrift = SigPort (OP Drift)
+Port: OPFilter = SigPort (OP Filter)
+Port: OPMax2 = SigPort (OP 2 Max)
+Port: OPMaxStop = SigPort (OP Max Stop)
+Port: OPMin2 = SigPort (OP 2 Min)
+Port: OPMinStop = SigPort (OP Min Stop)
+Port: OPOver = SigPort (OP Over)
+Port: OPScale1 = SigPort (OP 1 Scale)
+Port: OPScale2 = SigPort (OP 2 Scale)
+Port: OPTarget = SigPort (OP Target)
+Port: Out = SigPort (OP)
+Port: PVBias = SigPort (PV Bias)
+Port: PVDrift = SigPort (PV Drift)
+Port: PVLead = SigPort (PV Lead Time Const)
+Port: PVOver = SigPort (PV Over)
+Port: PVSampVal = SigPort (PV Sample Value)
+Port: PV_Filter = SigPort (PV Filter)
+Port: PV_Filter_2 = SigPort (PV Filter 2)
+Port: Ramp_Time = SigPort (Ramp Time)
+Port: RateOfChange = SigPort (PV Rate Of Change)
+Port: SPFilter = SigPort (SP Filter)
+Port: SPRateLim = SigPort (Rate Limit)
+Port: SPTarget = SigPort (SP Target)
+Port: SampleHoldTime = SigPort (Sample And Hold Time)
+Port: SampleTimeRem = SigPort (Sample Time Remaining)
+Port: StepSize = SigPort (Max. Step Size)
+Port: Target = SigPort (SP)
+Port: Td = SigPort
+Port: Ti = SigPort
+Param: AcceptAuto (Accept AutoTuning Results) = 0
+Param: Action = Direct
+Param: Algorithm = Positional
+Param: AllowNotConv = 0
+Param: Anti_Reset_Windup (Anti Reset Windup) = Enabled
+Param: AutoTune (AutoTune Mode) = None
+Param: AvActions = Direct Reverse
+Param: AvModes = Off Indicator Manual Automatic Cascade
+Param: BackInit (Back Initialization) = 1
+Param: CtlEqnType (Control Eqn) = Dependent
+Param: DoFFwd (Feed Forward Control) = No
+Param: ExecMode (Execution Mode) = Internal
+Param: GainSched (Gain Scheduling Active) = 0
+Param: GainSchedType (Gain Scheduling Type) = PV
+Param: Ignored = None
+Param: IsAnalyzer (Is Analyzer) = 0
+Param: KeepHistory (Keep History) = 0
+Param: LockRamp (Lock Ramping) = 0
+Param: MinimizeError = 1
+Param: Mode = Off
+Param: NoiseActive (Noise Active) = 0
+Param: PVBiasActive (PV Bias Active) = 0
+Param: PVDriftActive (PV Drift Active) = 0
+Param: PVFailActive (PV Fail Active) = 0
+Param: PVFreezeActive (PV Freeze Active) = 0
+Param: Ramping_Active (Ramping Active) = 0
+Param: Remote_Setpoint_Type (Remote Setpoint Type) = Percent
+Param: SPMode (SP Mode) = Local
+Param: SSActive (St. State Active) = 1
+Param: Setpoint_Ramp_Mode (Ramp Mode) = Discrete
+Param: Setpoint_Tracking (Setpoint Tracking) = None
+Param: SplitRange (Split Range) = Off
+(InternalVal = False)
+Param: UseDirection (Use Direction) = 0
+
+## dir /X
+
+In: sim.solver.Ports.Port_Signal
+Out: sim.solver.Ports.Port_Signal
+Target: sim.solver.Ports.Port_Signal
+StepSize: sim.solver.Ports.Port_Signal
+Minimum: sim.solver.Ports.Port_Signal
+Maximum: sim.solver.Ports.Port_Signal
+MinInput: sim.solver.Ports.Port_Signal
+MaxInput: sim.solver.Ports.Port_Signal
+OP2Scaled: sim.solver.Ports.Port_Signal
+OP: sim.solver.Ports.Port_Signal
+OP2: sim.solver.Ports.Port_Signal
+NoiseMag: sim.solver.Ports.Port_Signal
+SPTarget: sim.solver.Ports.Port_Signal
+Ti: sim.solver.Ports.Port_Signal
+Td: sim.solver.Ports.Port_Signal
+Kp: sim.solver.Ports.Port_Signal
+PV_Filter: sim.solver.Ports.Port_Signal
+PVLead: sim.solver.Ports.Port_Signal
+PV_Filter_2: sim.solver.Ports.Port_Signal
+OPFilter: sim.solver.Ports.Port_Signal
+SPFilter: sim.solver.Ports.Port_Signal
+DerCompFilt: sim.solver.Ports.Port_Signal
+RateOfChange: sim.solver.Ports.Port_Signal
+SPRateLim: sim.solver.Ports.Port_Signal
+Ramp_Time: sim.solver.Ports.Port_Signal
+NoiseTime: sim.solver.Ports.Port_Signal
+PVOver: sim.solver.Ports.Port_Signal
+OPOver: sim.solver.Ports.Port_Signal
+OPMinStop: sim.solver.Ports.Port_Signal
+OPMaxStop: sim.solver.Ports.Port_Signal
+OP1: sim.solver.Ports.Port_Signal
+OPTarget: sim.solver.Ports.Port_Signal
+ExtOP: sim.solver.Ports.Port_Signal
+OPBias1: sim.solver.Ports.Port_Signal
+OPScale1: sim.solver.Ports.Port_Signal
+OPBias2: sim.solver.Ports.Port_Signal
+OPScale2: sim.solver.Ports.Port_Signal
+OPMin2: sim.solver.Ports.Port_Signal
+OPMax2: sim.solver.Ports.Port_Signal
+SampleHoldTime: sim.solver.Ports.Port_Signal
+SampleTimeRem: sim.solver.Ports.Port_Signal
+CycleTime: sim.solver.Ports.Port_Signal
+DeltaTime: sim.solver.Ports.Port_Signal
+PVSampVal: sim.solver.Ports.Port_Signal
+AlarmDeadB: sim.solver.Ports.Port_Signal
+OPBias: sim.solver.Ports.Port_Signal
+OPDrift: sim.solver.Ports.Port_Signal
+PVBias: sim.solver.Ports.Port_Signal
+PVDrift: sim.solver.Ports.Port_Signal
+AutoKp: sim.solver.Ports.Port_Signal
+AutoTi: sim.solver.Ports.Port_Signal
+AutoTd: sim.solver.Ports.Port_Signal
+AutoPert: sim.solver.Ports.Port_Signal
+AutoGain: sim.solver.Ports.Port_Signal
+AutoPeriod: sim.solver.Ports.Port_Signal
+FFwd: sim.solver.Ports.Port_Signal
+FFwdMax: sim.solver.Ports.Port_Signal
+FFwdMin: sim.solver.Ports.Port_Signal
+FFwdLag: sim.solver.Ports.Port_Signal
+FFwdLead: sim.solver.Ports.Port_Signal
+FFwdDelay: sim.solver.Ports.Port_Signal
+FFwdGain: sim.solver.Ports.Port_Signal
+AcceptAuto: AcceptAuto = 0
+Action: Action = Direct
+Algorithm: Algorithm = Positional
+AllowNotConv: AllowNotConv = False
+Anti_Reset_Windup: Anti_Reset_Windup = Enabled
+AutoTune: AutoTune = None
+AvActions: AvActions = Direct Reverse
+AvModes: AvModes = Off Indicator Manual Automatic Cascade
+BackInit: BackInit = 1
+CtlEqnType: CtlEqnType = Dependent
+DoFFwd: DoFFwd = No
+ExecMode: ExecMode = Internal
+GainSched: GainSched = 0
+GainSchedType: GainSchedType = PV
+Ignored: Ignored = None
+IsAnalyzer: IsAnalyzer = 0
+KeepHistory: KeepHistory = False
+LockRamp: LockRamp = 0
+MinimizeError: MinimizeError = True
+Mode: Mode = Off
+NoiseActive: NoiseActive = 0
+PVBiasActive: PVBiasActive = 0
+PVDriftActive: PVDriftActive = 0
+PVFailActive: PVFailActive = 0
+PVFreezeActive: PVFreezeActive = 0
+Ramping_Active: Ramping_Active = 0
+Remote_Setpoint_Type: Remote_Setpoint_Type = Percent
+SPMode: SPMode = Local
+SSActive: SSActive = True
+Setpoint_Ramp_Mode: Setpoint_Ramp_Mode = Discrete
+Setpoint_Tracking: Setpoint_Tracking = None
+SplitRange: SplitRange = False
+UseDirection: UseDirection = 0

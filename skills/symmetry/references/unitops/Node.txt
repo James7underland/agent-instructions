@@ -1,0 +1,22 @@
+# Node = Node.Node()
+
+## /X
+Operation: X = sim.unitop.Node.Node
+Status: Solved
+Param: BalanceType = 6
+Param: BalanceTypeName (Calc Pressure Mode) = Mole + Energy
+Param: Ignored = None
+Param: NumberStreamsInEne (Energy Inlets) = 0
+Param: NumberStreamsInMat (Inlets) = 0
+Param: NumberStreamsOutEne (Energy Outlets) = 0
+Param: NumberStreamsOutMat (Outlets) = 0
+
+## dir /X
+
+BalanceType: BalanceType = 6
+BalanceTypeName: BalanceTypeName = Mole + Energy
+Ignored: Ignored = None
+NumberStreamsInEne: NumberStreamsInEne = 0
+NumberStreamsInMat: NumberStreamsInMat = 0
+NumberStreamsOutEne: NumberStreamsOutEne = 0
+NumberStreamsOutMat: NumberStreamsOutMat = 0

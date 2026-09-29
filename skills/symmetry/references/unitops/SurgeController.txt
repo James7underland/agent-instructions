@@ -1,0 +1,101 @@
+# SurgeController = Controller.SurgeController()
+
+## /X
+Operation: X = sim.unitop.Controller.SurgeController
+Status: Not Solved
+Status: Info - Missing connected object in 'Target Variable (PV)'
+Port: BkupLineConst = SigPort (Backup Line Constant)
+Port: BkupLineSlope = SigPort (Backup Line Slope)
+Port: CtrlLineConst = SigPort (Control Line Constant)
+Port: CtrlLineSlope = SigPort (Control Line Slope)
+Port: In = SigPort (PV)
+Port: Kp = SigPort (Kc)
+Port: MaxInput = SigPort (PV Max)
+Port: Maximum = SigPort (OP Max)
+Port: MinInput = SigPort (PV Min)
+Port: Minimum = SigPort (OP Min)
+Port: NoiseMag = SigPort (Noise Magnitude)
+Port: NoiseTime = SigPort (Noise Decay Time)
+Port: OP = SigPort
+Port: OP2 = SigPort
+Port: OP2Scaled = SigPort
+Port: OPMaxStop = SigPort (OP Max Stop)
+Port: OPMinStop = SigPort (OP Min Stop)
+Port: Out = SigPort (OP)
+Port: PV_Filter = SigPort (PV Filter)
+Port: PV_Filter_2 = SigPort (PV Filter 2)
+Port: Ramp_Time = SigPort (Ramp Time)
+Port: SPLocal = SigPort (SP Local)
+Port: SPTarget = SigPort
+Port: SP_Target = SigPort (Sp Target)
+Port: StepSize = SigPort (Step Size)
+Port: SurgeFlow = SigPort (Calc Surge Flow)
+Port: Target = SigPort (VolumeFlow)
+Port: Td = SigPort
+Port: Ti = SigPort
+Param: Action = Direct
+Param: Algorithm = Positional
+Param: AllowNotConv = 0
+Param: Anti_Reset_Windup (Anti Reset Windup) = Enabled
+Param: AvActions = Direct Reverse
+Param: AvModes = Off Indicator Manual Automatic Cascade
+Param: Ignored = None
+Param: KeepHistory = 0
+Param: MinimizeError = 1
+Param: Mode = Off
+Param: Ramp = Normal
+Param: Ramping_Active (Ramping Active) = False
+Param: SPMode (SP Mode) = Local
+Param: SSActive = 1
+Param: Setpoint_Ramp_Mode (Setpoint Ramp Mode) = Discrete
+Param: Setpoint_Tracking (Setpoint Tracking) = None
+Param: UseDirection = 0
+
+## dir /X
+
+In: sim.solver.Ports.Port_Signal
+Out: sim.solver.Ports.Port_Signal
+Target: sim.solver.Ports.Port_Signal
+StepSize: sim.solver.Ports.Port_Signal
+Minimum: sim.solver.Ports.Port_Signal
+Maximum: sim.solver.Ports.Port_Signal
+MinInput: sim.solver.Ports.Port_Signal
+MaxInput: sim.solver.Ports.Port_Signal
+OP2Scaled: sim.solver.Ports.Port_Signal
+OP: sim.solver.Ports.Port_Signal
+OP2: sim.solver.Ports.Port_Signal
+NoiseMag: sim.solver.Ports.Port_Signal
+SPTarget: sim.solver.Ports.Port_Signal
+Ti: sim.solver.Ports.Port_Signal
+Td: sim.solver.Ports.Port_Signal
+Kp: sim.solver.Ports.Port_Signal
+SPLocal: sim.solver.Ports.Port_Signal
+PV_Filter: sim.solver.Ports.Port_Signal
+PV_Filter_2: sim.solver.Ports.Port_Signal
+SP_Target: sim.solver.Ports.Port_Signal
+Ramp_Time: sim.solver.Ports.Port_Signal
+CtrlLineConst: sim.solver.Ports.Port_Signal
+CtrlLineSlope: sim.solver.Ports.Port_Signal
+BkupLineConst: sim.solver.Ports.Port_Signal
+BkupLineSlope: sim.solver.Ports.Port_Signal
+SurgeFlow: sim.solver.Ports.Port_Signal
+OPMinStop: sim.solver.Ports.Port_Signal
+OPMaxStop: sim.solver.Ports.Port_Signal
+NoiseTime: sim.solver.Ports.Port_Signal
+Action: Action = Direct
+Algorithm: Algorithm = Positional
+AllowNotConv: AllowNotConv = False
+Anti_Reset_Windup: Anti_Reset_Windup = Enabled
+AvActions: AvActions = Direct Reverse
+AvModes: AvModes = Off Indicator Manual Automatic Cascade
+Ignored: Ignored = None
+KeepHistory: KeepHistory = False
+MinimizeError: MinimizeError = True
+Mode: Mode = Off
+Ramp: Ramp = Normal
+Ramping_Active: Ramping_Active = False
+SPMode: SPMode = Local
+SSActive: SSActive = True
+Setpoint_Ramp_Mode: Setpoint_Ramp_Mode = Discrete
+Setpoint_Tracking: Setpoint_Tracking = None
+UseDirection: UseDirection = 0

@@ -1,0 +1,244 @@
+# Visbreaker = Reactors.Visbreaker()
+
+## /X
+Operation: X = vmgsim.unitop.Reactors.Visbreaker
+Status: Not Solved
+Port: AcetyleneYield = SigPort (Acetylene Mass Yield)
+Port: AdditionalBoilerLength = SigPort (Additional Length)
+Port: BenzeneYield = SigPort (Benzene Mass Yield)
+Port: BiasErefT = SigPort (Kinetic AppT)
+Port: BoilerViewFactor = SigPort (View Factor)
+Port: ButadieneYield = SigPort (Butadiene Mass Yield)
+Port: ButeneYield = SigPort (Butene Mass Yield)
+Port: CALC_Area_Ratio = SigPort (Fin Area Ratio)
+Port: CALC_Fin_Efficiency = SigPort (Fin Efficiency)
+Port: COP_Tol = SigPort (Spec P Tolerance)
+Port: CarbonYield = SigPort (Carbon Mass Yield)
+Port: CokeGrowth = SigPort (Coke Growth)
+Port: CokeRoughFactor = SigPort (Coke Roughness Factor)
+Port: CokeThickness = SigPort (Out Coke Thickness)
+Port: CokeThicknessIn = SigPort (In Coke Thickness)
+Port: Conversion = SigPort
+Port: CustomK = SigPort (Custom Thermal Conductivity)
+Port: ETHANE_cmpSel = SigPort
+Port: EthyleneYield = SigPort (Ethylene Mass Yield)
+Port: FGSpeed = SigPort (Flue Gas Speed)
+Port: FGT = SigPort (Flue Gas T)
+Port: FinCCSpacing = SigPort (Fin Spacing (C-C))
+Port: FinHeight = SigPort (Fin Height)
+Port: FinOutsideDiameter = SigPort (Fin Outside Diameter)
+Port: FinPerLength = SigPort (Fins Per Length)
+Port: FinSpacing = SigPort (Fin Spacing)
+Port: FinThickness = SigPort (Fin Thickness)
+Port: FluxAdj = SigPort (Flux distribution)
+Port: In = MatPort
+Port: InitKineticDamp = SigPort (Initial Kinetic Damp)
+Port: InnerDiameter = SigPort (Inside Diameter)
+Port: KineticMaxC = SigPort (Kinetic Max C)
+Port: Length = SigPort (Total Length)
+Port: MERTPitch = SigPort (MERT Pitch [degree])
+Port: METHANE_cmpSel = SigPort
+Port: MaxCokeGrowth = SigPort (Max Coke Growth)
+Port: MaxTubeT = SigPort (Max Tube Temperature)
+Port: MethaneYield = SigPort (Methane Mass Yield)
+Port: MultCoatingAsym = SigPort (Mult Asymptotic)
+Port: MultCoatingCat = SigPort (Mult Catalytic)
+Port: MultErefT = SigPort (Kinetic MultT)
+Port: MultHTCIn = SigPort (Conv HTC In)
+Port: MultHTCOut = SigPort (Conv HTC Out)
+Port: MultInhibitAsym = SigPort (Mult Asymptotic)
+Port: MultInhibitCat = SigPort (Mult Catalytic)
+Port: MultTPassAdj = SigPort (Mult T Pass Adj)
+Port: Out = MatPort
+Port: OuterDiameter = SigPort (Outer Diameter)
+Port: OutletPressure = SigPort (Outlet Pressure)
+Port: OutletTemperature = SigPort (Outlet Temperature)
+Port: PROPANE_cmpSel = SigPort
+Port: ProcessDP = SigPort (Pressure Drop)
+Port: ProcessEmissivity = SigPort (Process Emissivity)
+Port: PropaneYield = SigPort (Propane Mass Yield)
+Port: PropyleneYield = SigPort (Propylene Mass Yield)
+Port: QExchange = SigPort (Q Exchange)
+Port: QIn = EnePort (In Q)
+Port: QLoss = EnePort (Ambient Heat Loss)
+Port: ResidenceTime = SigPort (Residence Time)
+Port: Roughness = SigPort (Roughness Factor)
+Port: ShellFilmCoefficient = SigPort (Shell Conv HTC)
+Port: SurfaceArea = SigPort (Bare Tube Surface Area)
+Port: TubeEmissivity = SigPort (Vessel Emissivity)
+Port: TubeMassCr = SigPort (Tube Cr wt)
+Port: TubeMassFe = SigPort (Tube Fe wt)
+Port: TubeMassNi = SigPort (Tube Ni wt)
+Port: WATER_cmpSel = SigPort
+Port: n-BUTANE_cmpSel = SigPort
+Port: n-PENTANE_cmpSel = SigPort
+Param: ActStateSpace (Activate Reduced Order Model) = 0
+Param: AdvHvyHeatFlux (Advanced Heat Flux) = 0
+Param: AutoAddComps (Add Missing Components) = 1
+Param: CoatingType (Tube Coating Type) = None
+Param: ConversionOpt (Conversion Options) = Molecular
+Param: CustomAlloy (Custom Alloy) = 0
+Param: DisableHeavyReactions (Disable Heavy Reactions) = 0
+Param: DisableInhibit (Disable Inhibitor) = 1
+Param: Fin_Metal_Type = HK40
+Param: Fin_Type (Fin Type) = No Fins
+(InternalVal = No_Fins)
+Param: HXMode (Heat Transfer Mode) = Constant T
+Param: HasA (A) = 1
+Param: HasI (I) = 1
+Param: HasN (N) = 1
+Param: HasO (O) = 1
+Param: HasP (P) = 1
+Param: Ignored = None
+Param: IncludeFe (Fe) = 0
+Param: IncludeN (N) = 0
+Param: IncludeNi (Ni) = 0
+Param: IncludeO (O) = 0
+Param: IncludeS (S) = 0
+Param: IncludeV (V) = 0
+Param: LoggedErr = 
+Param: PIONA_Lumping_Type (Speedup) = No
+(InternalVal = None)
+Param: PressureDropCorrelation (dP Correlation) = Colebrook
+Param: ReactionModel (Reaction Model) = Atm Resid (< C200)
+(InternalVal = AtmResidReaction)
+Param: ReactionVersion (Reaction Version) = 2020+
+(InternalVal = Version2020+)
+Param: RecKineticTuning (Recommended) = 0
+Param: RemoveCokeMass (Remove Coke Mass) = 1
+Param: ShowEInputs (Display E Inputs) = 0
+Param: Solve_DampingFactor (Damping Factor) = 0.5
+Param: Solve_MaxNumIterations (Max Iterations) = 50
+Param: Solve_MinOutletPressure (Min Outlet P [kPa]) = 50
+Param: Solve_Segments (Zone Segments) = 10
+Param: Solve_SolutionMethod (Solution Method) = Adaptive
+Param: Solve_StiffTolerance (Stiff Tolerance) = 0.0001
+Param: Solve_Tolerance (Tolerance) = 0.001
+Param: SpecCOP (Spec Outlet Pressure) = 0
+Param: SpecConv (Spec Conversion) = 0
+Param: SpecRes (Spec Residence Time) = 0
+Param: Speedup = 0
+Param: StateSpace (Reduced Order Model) = 0
+Param: TubeDirection (Orientation) = Horizontal
+Param: Tube_Metal_Type (Tube Material) = Chrome_Nickel_Steel
+Param: VaporPhase (All Vapor Phase) = 1
+Param: hasCustRxns (Custom reactions) = 0
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+QIn: sim.solver.Ports.Port_Energy
+QLoss: sim.solver.Ports.Port_Energy
+ProcessDP: sim.solver.Ports.Port_Signal
+Roughness: sim.solver.Ports.Port_Signal
+OutletTemperature: sim.solver.Ports.Port_Signal
+InnerDiameter: sim.solver.Ports.Port_Signal
+OuterDiameter: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+QExchange: sim.solver.Ports.Port_Signal
+CokeThickness: sim.solver.Ports.Port_Signal
+CokeThicknessIn: sim.solver.Ports.Port_Signal
+TubeEmissivity: sim.solver.Ports.Port_Signal
+FGSpeed: sim.solver.Ports.Port_Signal
+FGT: sim.solver.Ports.Port_Signal
+ProcessEmissivity: sim.solver.Ports.Port_Signal
+BoilerViewFactor: sim.solver.Ports.Port_Signal
+Conversion: sim.solver.Ports.Port_Signal
+EthyleneYield: sim.solver.Ports.Port_Signal
+MethaneYield: sim.solver.Ports.Port_Signal
+PropyleneYield: sim.solver.Ports.Port_Signal
+BenzeneYield: sim.solver.Ports.Port_Signal
+AcetyleneYield: sim.solver.Ports.Port_Signal
+PropaneYield: sim.solver.Ports.Port_Signal
+ButadieneYield: sim.solver.Ports.Port_Signal
+ButeneYield: sim.solver.Ports.Port_Signal
+CarbonYield: sim.solver.Ports.Port_Signal
+MaxTubeT: sim.solver.Ports.Port_Signal
+FinHeight: sim.solver.Ports.Port_Signal
+FinThickness: sim.solver.Ports.Port_Signal
+FinSpacing: sim.solver.Ports.Port_Signal
+FinCCSpacing: sim.solver.Ports.Port_Signal
+ResidenceTime: sim.solver.Ports.Port_Signal
+CokeGrowth: sim.solver.Ports.Port_Signal
+MaxCokeGrowth: sim.solver.Ports.Port_Signal
+AdditionalBoilerLength: sim.solver.Ports.Port_Signal
+ShellFilmCoefficient: sim.solver.Ports.Port_Signal
+FinOutsideDiameter: sim.solver.Ports.Port_Signal
+FinPerLength: sim.solver.Ports.Port_Signal
+CALC_Area_Ratio: sim.solver.Ports.Port_Signal
+CALC_Fin_Efficiency: sim.solver.Ports.Port_Signal
+SurfaceArea: sim.solver.Ports.Port_Signal
+MERTPitch: sim.solver.Ports.Port_Signal
+CustomK: sim.solver.Ports.Port_Signal
+MultHTCIn: sim.solver.Ports.Port_Signal
+MultHTCOut: sim.solver.Ports.Port_Signal
+MultTPassAdj: sim.solver.Ports.Port_Signal
+CokeRoughFactor: sim.solver.Ports.Port_Signal
+OutletPressure: sim.solver.Ports.Port_Signal
+COP_Tol: sim.solver.Ports.Port_Signal
+TubeMassNi: sim.solver.Ports.Port_Signal
+TubeMassFe: sim.solver.Ports.Port_Signal
+TubeMassCr: sim.solver.Ports.Port_Signal
+FluxAdj: sim.solver.Ports.Port_Signal
+InitKineticDamp: sim.solver.Ports.Port_Signal
+KineticMaxC: sim.solver.Ports.Port_Signal
+BiasErefT: sim.solver.Ports.Port_Signal
+MultErefT: sim.solver.Ports.Port_Signal
+MultInhibitCat: sim.solver.Ports.Port_Signal
+MultInhibitAsym: sim.solver.Ports.Port_Signal
+MultCoatingCat: sim.solver.Ports.Port_Signal
+MultCoatingAsym: sim.solver.Ports.Port_Signal
+METHANE_cmpSel: sim.solver.Ports.Port_Signal
+ETHANE_cmpSel: sim.solver.Ports.Port_Signal
+PROPANE_cmpSel: sim.solver.Ports.Port_Signal
+n-BUTANE_cmpSel: sim.solver.Ports.Port_Signal
+n-PENTANE_cmpSel: sim.solver.Ports.Port_Signal
+WATER_cmpSel: sim.solver.Ports.Port_Signal
+ActStateSpace: ActStateSpace = 0
+AdvHvyHeatFlux: AdvHvyHeatFlux = 0
+AutoAddComps: AutoAddComps = 1
+CoatingType: CoatingType = None
+ConversionOpt: ConversionOpt = Molecular
+CustomAlloy: CustomAlloy = 0
+DisableHeavyReactions: DisableHeavyReactions = 0
+DisableInhibit: DisableInhibit = 1
+Fin_Metal_Type: Fin_Metal_Type = HK40
+Fin_Type: Fin_Type = No_Fins
+HXMode: HXMode = Constant T
+HasA: HasA = 1
+HasI: HasI = 1
+HasN: HasN = 1
+HasO: HasO = 1
+HasP: HasP = 1
+Ignored: Ignored = None
+IncludeFe: IncludeFe = 0
+IncludeN: IncludeN = 0
+IncludeNi: IncludeNi = 0
+IncludeO: IncludeO = 0
+IncludeS: IncludeS = 0
+IncludeV: IncludeV = 0
+LoggedErr: LoggedErr = 
+PIONA_Lumping_Type: PIONA_Lumping_Type = None
+PressureDropCorrelation: PressureDropCorrelation = Colebrook
+ReactionModel: ReactionModel = AtmResidReaction
+ReactionVersion: ReactionVersion = Version2020+
+RecKineticTuning: RecKineticTuning = 0
+RemoveCokeMass: RemoveCokeMass = 1
+ShowEInputs: ShowEInputs = 0
+Solve_DampingFactor: Solve_DampingFactor = 0.5
+Solve_MaxNumIterations: Solve_MaxNumIterations = 50
+Solve_MinOutletPressure: Solve_MinOutletPressure = 50
+Solve_Segments: Solve_Segments = 10
+Solve_SolutionMethod: Solve_SolutionMethod = Adaptive
+Solve_StiffTolerance: Solve_StiffTolerance = 0.0001
+Solve_Tolerance: Solve_Tolerance = 0.001
+SpecCOP: SpecCOP = 0
+SpecConv: SpecConv = 0
+SpecRes: SpecRes = 0
+Speedup: Speedup = 0
+StateSpace: StateSpace = 0
+TubeDirection: TubeDirection = Horizontal
+Tube_Metal_Type: Tube_Metal_Type = Chrome_Nickel_Steel
+VaporPhase: VaporPhase = 1
+hasCustRxns: hasCustRxns = 0

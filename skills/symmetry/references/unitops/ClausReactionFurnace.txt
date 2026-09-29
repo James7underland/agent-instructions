@@ -1,0 +1,145 @@
+# ClausReactionFurnace = ClausReactors.ClausReactionFurnace("DeltaP = 0.5 psi; OutQ = 0 Btu/hr; COS_Model = SRE-VMG; CO_Model = SRE-VMG; CS2_Model = SRE-VMG; H2_Model = SRE-VMG; S2_Model = SRE-VMG; IgnoreAirInCorrelations = 1")
+
+## /X
+Operation: X = vmgsim.unitop.ClausReactors.ClausReactionFurnace
+Status: Not Solved
+Port: Area = SigPort (Inner Area)
+Port: DeltaP = SigPort (Delta P)
+Port: Diameter = SigPort
+Port: Elev = SigPort (Elevation)
+Port: ExternalT = SigPort (External T)
+Port: H2S:SO2_Ratio = SigPort ((H2S:SO2) Ratio)
+Port: H2S_Conversion = SigPort (H2S Conv)
+Port: HeatLoss = SigPort (Heat Loss)
+Port: In = MatPort
+Port: Length = SigPort
+Port: Out = MatPort
+Port: OutQ = EnePort (Out Q) (/X.EneStream.Out)
+Port: ResidenceTime = SigPort (Residence Time)
+Port: SConvEff = SigPort (S Conv Eff)
+Port: S_InCmps_Feed = SigPort (S In Cmps (Feed))
+Port: S_InCmps_Outlet = SigPort (S In Cmps (Outlet))
+Port: U = SigPort
+Port: UA = SigPort
+Port: Volume = SigPort
+Port: k = SigPort
+Child: BalEneSensor = sim.unitop.Sensor.EnergySensor
+Child: EneBalance = sim.unitop.Balance.BalanceOp
+Child: EneSensor = sim.unitop.Sensor.EnergySensor
+Child: EneStream = sim.unitop.Stream.Stream_Energy
+Child: itnRxn = vmgsim.unitop.ClausReactors.InternalClausReactionFurnace
+Param: AvIgnoreAirInCorrelationss = True False
+Param: BasisCUnitId = 285
+Param: BasisPUnitId = 40
+Param: BurnerType (Burner Type) = High Efficiency
+(InternalVal = HighEff)
+Param: COS_Model (COS Model) = SRE-VMG
+Param: CO_Model (CO Model) = SRE-VMG
+Param: CS2_Model (CS2 Model) = SRE-VMG
+Param: CalculationBasis = 1
+Param: CalculationOption = 5
+Param: Configuration = Straight Through
+(InternalVal = StraightThrough)
+Param: Duty_Damping (Duty Damping) = 0.9
+Param: Duty_LastConv (Duty Last Converged) = 1
+Param: Duty_MaxError (Duty Max Error) = 0.001
+Param: Duty_MaxIter (Duty Max Iter) = 150
+Param: Duty_MaxStep (Duty Max Step) = 5.0
+Param: FeedType (Feed Type) = Gas Plant
+(InternalVal = GasPlant)
+Param: H2_Model (H2 Model) = SRE-VMG
+Param: HTCorr (Inner HTC Corr.) = HTubeMix
+Param: HeatLossCalcTypeGbl (Heat Loss Calc Type) = None
+Param: IgnoreAirInCorrelations (Ignore Air) = 1
+Param: Ignored = None
+Param: NH3_Model (NH3 Model) = Equilibrium
+Param: NatGasCofire (Nat Gas Co-fire) = None
+Param: NumberRxn = 0
+Param: O2Enrichment (O2 Enrichment) = None
+Param: Orientation = Horizontal
+Param: OutHTCorr (Outer HT Corr) = Free Conv. Air
+(InternalVal = FreeConvAir)
+Param: OutTempSource (Outside Data) = Specify
+Param: QExothermicIsPositive = 1
+Param: ReactionPhase = 0
+Param: Reg_K-T_Table = 1
+Param: ResTimeFromGeom (Calc. Res. Time) = 0
+Param: RxnExt_Damping = 1.0
+Param: RxnExt_LastConv = 0
+Param: RxnExt_MaxError = 1e-05
+Param: RxnExt_MaxIter = 200
+Param: RxnExt_MaxStep = 10.0
+Param: RxnExt_MinimizeError = 1
+Param: S2_Model (S2 Model) = SRE-VMG
+Param: SystemPhase (System Phase) = Vapour
+(InternalVal = 0)
+Param: UseCmpAppT = 0
+
+## dir /X
+
+BalEneSensor: BalEneSensor = sim.unitop.Sensor.EnergySensor
+EneBalance: EneBalance = sim.unitop.Balance.BalanceOp
+EneSensor: EneSensor = sim.unitop.Sensor.EnergySensor
+EneStream: EneStream = sim.unitop.Stream.Stream_Energy
+itnRxn: itnRxn = vmgsim.unitop.ClausReactors.InternalClausReactionFurnace
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+SConvEff: sim.solver.Ports.Port_Signal
+H2S_Conversion: sim.solver.Ports.Port_Signal
+S_InCmps_Feed: sim.solver.Ports.Port_Signal
+S_InCmps_Outlet: sim.solver.Ports.Port_Signal
+DeltaP: sim.solver.Ports.Port_Signal
+U: sim.solver.Ports.Port_Signal
+UA: sim.solver.Ports.Port_Signal
+Area: sim.solver.Ports.Port_Signal
+HeatLoss: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+ExternalT: sim.solver.Ports.Port_Signal
+Diameter: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+ResidenceTime: sim.solver.Ports.Port_Signal
+H2S:SO2_Ratio: sim.solver.Ports.Port_Signal
+k: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+AvIgnoreAirInCorrelationss: AvIgnoreAirInCorrelationss = True False
+BasisCUnitId: BasisCUnitId = 285
+BasisPUnitId: BasisPUnitId = 40
+BurnerType: BurnerType = HighEff
+COS_Model: COS_Model = SRE-VMG
+CO_Model: CO_Model = SRE-VMG
+CS2_Model: CS2_Model = SRE-VMG
+CalculationBasis: CalculationBasis = 1
+CalculationOption: CalculationOption = 5
+Configuration: Configuration = StraightThrough
+Duty_Damping: Duty_Damping = 0.9
+Duty_LastConv: Duty_LastConv = 1
+Duty_MaxError: Duty_MaxError = 0.001
+Duty_MaxIter: Duty_MaxIter = 150
+Duty_MaxStep: Duty_MaxStep = 5.0
+FeedType: FeedType = GasPlant
+H2_Model: H2_Model = SRE-VMG
+HTCorr: HTCorr = HTubeMix
+HeatLossCalcTypeGbl: HeatLossCalcTypeGbl = None
+IgnoreAirInCorrelations: IgnoreAirInCorrelations = 1
+Ignored: Ignored = None
+NH3_Model: NH3_Model = Equilibrium
+NatGasCofire: NatGasCofire = None
+NumberRxn: NumberRxn = 0
+O2Enrichment: O2Enrichment = None
+Orientation: Orientation = Horizontal
+OutHTCorr: OutHTCorr = FreeConvAir
+OutTempSource: OutTempSource = Specify
+QExothermicIsPositive: QExothermicIsPositive = 1
+ReactionPhase: ReactionPhase = 0
+Reg_K-T_Table: Reg_K-T_Table = 1
+ResTimeFromGeom: ResTimeFromGeom = 0
+RxnExt_Damping: RxnExt_Damping = 1.0
+RxnExt_LastConv: RxnExt_LastConv = 0
+RxnExt_MaxError: RxnExt_MaxError = 1e-05
+RxnExt_MaxIter: RxnExt_MaxIter = 200
+RxnExt_MaxStep: RxnExt_MaxStep = 10.0
+RxnExt_MinimizeError: RxnExt_MinimizeError = True
+S2_Model: S2_Model = SRE-VMG
+SystemPhase: SystemPhase = 0
+UseCmpAppT: UseCmpAppT = 0

@@ -1,0 +1,44 @@
+# ClausOxygenCalculator = ClausOperations.ClausOxygenCalculator()
+
+## /X
+Operation: X = vmgsim.unitop.ClausOperations.ClausOxygenCalculator
+Status: Not Solved
+Port: AcidGasIn = MatPort (Acid Gas In)
+Port: AcidGasOut = MatPort (Acid Gas Out)
+Port: AirIn = MatPort (Air In)
+Port: AirOut = MatPort (Air Out)
+Port: Elev = SigPort (Elevation)
+Port: H2S_FractionToBurn = SigPort (H2S Fraction To Burn)
+Port: O2_FractionExcess = SigPort (O2 Fraction Excess)
+Port: O2_MoleFlow = SigPort (O2 Mole Flow)
+Param: Ignored = None
+Param: O2Calcs_IgnoreAlcohols (Ignore CxHyOm) = 0
+Param: O2Calcs_IgnoreC (Ignore C) = 0
+Param: O2Calcs_IgnoreCO (Ignore CO) = 0
+Param: O2Calcs_IgnoreH (Ignore H (H2)) = 0
+Param: O2Calcs_IgnoreH2S (Ignore H2S) = 0
+Param: O2Calcs_IgnoreMercaptans (Ignore Mercaptans) = 0
+Param: O2Calcs_IgnoreN (Ignore N (NH3, HCN, N2H4)) = 0
+Param: O2Calcs_IgnoreP (Ignore P (PH3)) = 0
+Param: O2Calcs_IgnoreS (Ignore S (Sx, CS2, COS)) = 0
+
+## dir /X
+
+AcidGasIn: sim.solver.Ports.Port_Material
+AirIn: sim.solver.Ports.Port_Material
+AcidGasOut: sim.solver.Ports.Port_Material
+AirOut: sim.solver.Ports.Port_Material
+H2S_FractionToBurn: sim.solver.Ports.Port_Signal
+O2_MoleFlow: sim.solver.Ports.Port_Signal
+O2_FractionExcess: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+Ignored: Ignored = None
+O2Calcs_IgnoreAlcohols: O2Calcs_IgnoreAlcohols = 0
+O2Calcs_IgnoreC: O2Calcs_IgnoreC = 0
+O2Calcs_IgnoreCO: O2Calcs_IgnoreCO = 0
+O2Calcs_IgnoreH: O2Calcs_IgnoreH = 0
+O2Calcs_IgnoreH2S: O2Calcs_IgnoreH2S = 0
+O2Calcs_IgnoreMercaptans: O2Calcs_IgnoreMercaptans = 0
+O2Calcs_IgnoreN: O2Calcs_IgnoreN = 0
+O2Calcs_IgnoreP: O2Calcs_IgnoreP = 0
+O2Calcs_IgnoreS: O2Calcs_IgnoreS = 0

@@ -1,0 +1,32 @@
+# RotaryDryer = Solids.Dryer()
+
+## /X
+Operation: X = sim.unitop.Solids.Dryer
+Status: Not Solved
+Port: DeltaPGas = SigPort (Delta P Gas Side)
+Port: DeltaPSolid = SigPort (Delta P Solid Side)
+Port: Diameter = SigPort
+Port: GasIn = MatPort
+Port: GasOut = MatPort
+Port: Length = SigPort
+Port: OutQ = EnePort (Ambient Heat Loss)
+Port: SolidIn = MatPort
+Port: SolidOut = MatPort
+Param: DPMethod (Pressure Drop Method) = Specify
+Param: FlowDirection (Flow Direction) = Counter-Current
+Param: Ignored = None
+
+## dir /X
+
+SolidIn: sim.solver.Ports.Port_Material
+GasIn: sim.solver.Ports.Port_Material
+SolidOut: sim.solver.Ports.Port_Material
+GasOut: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+Diameter: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+DeltaPGas: sim.solver.Ports.Port_Signal
+DeltaPSolid: sim.solver.Ports.Port_Signal
+DPMethod: DPMethod = Specify
+FlowDirection: FlowDirection = Counter-Current
+Ignored: Ignored = None

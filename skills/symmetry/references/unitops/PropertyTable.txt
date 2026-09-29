@@ -1,0 +1,58 @@
+# PropertyTable = Properties.PropertyTable()
+
+## /X
+Operation: X = sim.unitop.Properties.PropertyTable
+Status: Not Solved
+Port: In = MatPort
+Port: Out = MatPort
+Port: XMax = SigPort (X Maximum Val)
+Port: XMin = SigPort (X Minimum Val)
+Port: YMax = SigPort (Y Maximum Val)
+Port: YMin = SigPort (Y Minimum Val)
+Param: AvailableXAxisProps = PRESSURE TEMPERATURE ENTHALPY ENTROPY VF
+Param: AvailableYAxisProps = PRESSURE TEMPERATURE ENTHALPY ENTROPY VF
+Param: AvailableZAxisProps = CP CV DPDVT DVDTP ENTHALPY ENTROPY IGCP IGENTHALPY IGENTROPY IGFORMATION IGGIBBS ISOCOMPRESSIBILITY KINEMATICVISCOSITY MASSDENSITY MECHANICALZ MOLECULARWEIGHT PRESSURE PH RESIDUALCP RESIDUALCV RESIDUALENTHALPY RESIDUALENTROPY SPEEDOFSOUND STDLIQDENSITY STDLIQVOLUME SURFACETENSION TEMPERATURE THERMALCONDUCTIVITY VISCOSITY VOLUME VF ZFACTOR HMass SMass CpMass CvMass InterfacialTension CpCv IdealGasCpCv InternalEnergy JTCoefficient PseudoTc PseudoPc PseudoVc SpecificVolume SpeedOfSound ZFromDensity
+Param: DependentPropPhaseStatus (Dependent Prop Phase Status) = FEED LIQUID VAPOR LIQUID2
+Param: Ignored = None
+Param: NuLiqs = 2
+Param: Phase = None
+Param: PropTableAppType (Application) = Generic
+Param: SolveDuringFlowsheetIterations = 0
+Param: XPoints (Number of Points) = None
+Param: XProperty (X-Variable) = None
+Param: YPoints (Number of Points) = None
+Param: YProperty (Y-Variable) = None
+Param: ZProperty (Z_Property) = None
+Param: forceSolve = 1
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+XMin: sim.solver.Ports.Port_Signal
+XMax: sim.solver.Ports.Port_Signal
+YMin: sim.solver.Ports.Port_Signal
+YMax: sim.solver.Ports.Port_Signal
+AvailableXAxisProps: AvailableXAxisProps = PRESSURE TEMPERATURE ENTHALPY ENTROPY VF
+AvailableYAxisProps: AvailableYAxisProps = PRESSURE TEMPERATURE ENTHALPY ENTROPY VF
+AvailableZAxisProps: AvailableZAxisProps = CP CV DPDVT DVDTP ENTHALPY ENTROPY IGCP IGENTHALPY IGENTROPY IGFORMATION IGGIBBS ISOCOMPRESSIBILITY KINEMATICVISCOSITY MASSDENSITY MECHANICALZ MOLECULARWEIGHT PRESSURE PH RESIDUALCP RESIDUALCV RESIDUALENTHALPY RESIDUALENTROPY SPEEDOFSOUND STDLIQDENSITY STDLIQVOLUME SURFACETENSION TEMPERATURE THERMALCONDUCTIVITY VISCOSITY VOLUME VF ZFACTOR HMass SMass CpMass CvMass InterfacialTension CpCv IdealGasCpCv InternalEnergy JTCoefficient PseudoTc PseudoPc PseudoVc SpecificVolume SpeedOfSound ZFromDensity
+DependentPropPhaseStatus: DependentPropPhaseStatus = FEED LIQUID VAPOR LIQUID2
+Ignored: Ignored = None
+NuLiqs: NuLiqs = 2
+Phase: Phase = None
+PropTableAppType: PropTableAppType = Generic
+SolveDuringFlowsheetIterations: SolveDuringFlowsheetIterations = False
+XPoints: XPoints = None
+XProperty: XProperty = None
+YPoints: YPoints = None
+YProperty: YProperty = None
+ZProperty: ZProperty = None
+forceSolve: forceSolve = 1
+TableXY: [..
+None
+..]
+
+TableXYZ: [..
+None
+..]
+

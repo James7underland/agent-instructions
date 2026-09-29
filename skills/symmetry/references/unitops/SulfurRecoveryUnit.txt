@@ -1,0 +1,20 @@
+# SulfurRecoveryUnit = Plants.SulfurRecoveryUnit()
+
+## /X
+Operation: X = sim.unitop.Plants.SulfurRecoveryUnit
+Status: Not Solved
+Port: Air = MatPort
+Port: Feed = MatPort (Acid Gas)
+Port: Fuel = MatPort
+Port: GasProd = MatPort (Tail Gas)
+Port: SulfurProd = MatPort (Sulfur)
+Param: Ignored = None
+
+## dir /X
+
+Feed: sim.solver.Ports.Port_Material
+Fuel: sim.solver.Ports.Port_Material
+Air: sim.solver.Ports.Port_Material
+GasProd: sim.solver.Ports.Port_Material
+SulfurProd: sim.solver.Ports.Port_Material
+Ignored: Ignored = None

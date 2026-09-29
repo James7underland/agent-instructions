@@ -1,0 +1,14 @@
+# Stream_Energy = Stream.Stream_Energy()
+
+## /X
+Operation: X = sim.unitop.Stream.Stream_Energy
+Status: Not Solved
+Port: In = EnePort
+Port: Out = EnePort
+Param: Ignored = None
+
+## dir /X
+
+In: sim.solver.Ports.Port_Energy
+Out: sim.solver.Ports.Port_Energy
+Ignored: Ignored = None

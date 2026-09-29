@@ -1,0 +1,348 @@
+# Hydrotreater = Hydrotreater.Hydrotreater()
+
+## /X
+Operation: X = vmgsim.unitop.Hydrotreater.Hydrotreater
+Status: Not Solved
+Port: AccumulationOut = MatPort
+Port: AmbientHeatLoss = EnePort (Ambient Heat Loss)
+Port: AmbientTemperature = SigPort (Ambient Temperature)
+Port: BedDensity = SigPort (Bed Density)
+Port: BedVoidFraction = SigPort (Bed Void)
+Port: CatCokeMax = SigPort (Max Catalyst Coke)
+Port: CatMetalAcidRatio = SigPort (Metal Acid Ratio)
+Port: CatalystAspectRatio = SigPort (Aspect Ratio)
+Port: CatalystDensity = SigPort (Particle Density)
+Port: CatalystDiameter = SigPort (Diameter)
+Port: CatalystEndT = SigPort (Sintering T)
+Port: CatalystHollowID = SigPort (Hollow ID)
+Port: CatalystStartT = SigPort (Start Temperature)
+Port: CatalystThermCond = SigPort (Thermal Conductivity)
+Port: CatalystWeight = SigPort (Catalyst Weight)
+Port: Conversion = SigPort
+Port: CrudeIn = MatPort
+Port: CurrentActivity = SigPort (Final Activity)
+Port: CurrentTime = SigPort (Service Time)
+Port: Denitrogenation = SigPort
+Port: Desulfurization = SigPort
+Port: ETHANE_cmpSel = SigPort
+Port: FinalCokeAAct = SigPort (Final Acid Coking Act)
+Port: FinalCokeMAct = SigPort (Final Metal Coking Act)
+Port: FinalPoisAAct = SigPort (Final Acid Poisoning Act)
+Port: FinalPoisMAct = SigPort (Final Metal Poisoning Act)
+Port: FinalSintAAct = SigPort (Final Acid Sintering Act)
+Port: FinalSintMAct = SigPort (Final Metal Sintering Act)
+Port: ForcedCmpCount = SigPort (Forced Component Count)
+Port: H2OilRatio = SigPort (H2/Oil Ratio)
+Port: H2PartialPressure = SigPort (H2 Partial Pressure)
+Port: H2RecycleRatio = SigPort (H2 Ratio)
+Port: HydrogenIn = MatPort
+Port: InitCokeAAct = SigPort (Initial Acid Coking Act)
+Port: InitCokeMAct = SigPort (Initial Metal Coking Act)
+Port: InitPoisAAct = SigPort (Initial Acid Poisoning Act)
+Port: InitPoisMAct = SigPort (Initial Metal Poisoning Act)
+Port: InitSintAAct = SigPort (Initial Acid Sintering Act)
+Port: InitSintMAct = SigPort (Initial Metal Sintering Act)
+Port: InitialActivity = SigPort (Initial Activity)
+Port: LHSV = SigPort
+Port: METHANE_cmpSel = SigPort
+Port: Met% = SigPort
+Port: MultCatAdsorbAcid = SigPort (Adsorb Acid)
+Port: MultCatAdsorbMetal = SigPort (Adsorb Metal)
+Port: MultCokeDeact = SigPort (Mult Coke Deact)
+Port: MultHTCAmb = SigPort (Conv HTC Amb)
+Port: MultHTCCat = SigPort (Conv HTC Cat)
+Port: MultPoisDeact = SigPort (Mult Poison Deact)
+Port: MultSintDeact = SigPort (Mult Sinter Deact)
+Port: NitrogenMassIn = SigPort (Liquid N Mass In)
+Port: NitrogenMassOut = SigPort (Liquid N Mass Out)
+Port: OutletTemperature = SigPort (Outlet Temperature)
+Port: OverallU = SigPort (Overall U Value)
+Port: PROPANE_cmpSel = SigPort
+Port: PercentActivity = SigPort (Catalyst Activity)
+Port: PrNumber = SigPort (Pr Number)
+Port: PressureDrop = SigPort (Process Pressure Drop)
+Port: Prod1EBP = SigPort (Prod1 EBP)
+Port: Prod1IBP = SigPort (Prod1 IBP)
+Port: Prod2EBP = SigPort (Prod2 EBP)
+Port: Prod3EBP = SigPort (Prod3 EBP)
+Port: Prod4EBP = SigPort (Prod4 EBP)
+Port: ProductH2 = SigPort (Product H2 wt)
+Port: ProductOut = MatPort
+Port: ReNumber = SigPort (Re Number)
+Port: ReactorDiameter = SigPort (Reactor Diameter)
+Port: ReactorHeight = SigPort (Reactor Height)
+Port: ReactorVolume = SigPort (Reactor Volume)
+Port: RoughnessFactor = SigPort (Roughness Factor)
+Port: SWtBenzothiophene = SigPort (Benzothiophene wt)
+Port: SWtDisulfide = SigPort (Disulfide wt)
+Port: SWtMercaptan = SigPort (Mercaptan wt)
+Port: SWtSulfide = SigPort (Sulfide wt)
+Port: SWtThiophene = SigPort (Thiophene wt)
+Port: SulfurMassIn = SigPort (Liquid S Mass In)
+Port: SulfurMassOut = SigPort (Liquid S Mass Out)
+Port: VPSI = SigPort
+Port: VesselEmissivity = SigPort (Vessel Emissivity)
+Port: VesselVolume = SigPort (Vessel Volume)
+Port: WABT = SigPort
+Port: WATER_cmpSel = SigPort
+Port: WindSpeed = SigPort (Wind Speed)
+Port: YcFact = SigPort
+Port: aromaticsLV = SigPort (aromatics LV)
+Port: bParam = SigPort (b Parameter)
+Port: biasErefT = SigPort (Kinetic AppT)
+Port: gParam = SigPort (g Parameter)
+Port: multErefT = SigPort (Kinetic MultT)
+Port: n-BUTANE_cmpSel = SigPort
+Port: n-PENTANE_cmpSel = SigPort
+Port: naphthenesLV = SigPort (naphthenes LV)
+Port: olefinsLV = SigPort (olefins LV)
+Port: pParam = SigPort (p Parameter)
+Port: paramGA = SigPort (GA)
+Port: paramGB = SigPort (GB)
+Port: paramHform1 = SigPort (Hform1)
+Port: paramHform2 = SigPort (Hform2)
+Port: paramIncludeHypos = SigPort (IncludeHypos)
+Port: paramKinNA = SigPort (KinNA)
+Port: paramKinSA = SigPort (KinSA)
+Port: paramLE1 = SigPort (LE1)
+Port: paramLE2 = SigPort (LE2)
+Port: paramPA = SigPort (PA)
+Port: paramShiftA1 = SigPort (Shift A1)
+Port: paramShiftA2 = SigPort (Shift A2)
+Port: paramShiftI1 = SigPort (Shift I1)
+Port: paramShiftI2 = SigPort (Shift I2)
+Port: paramShiftN1 = SigPort (Shift N1)
+Port: paramShiftN2 = SigPort (Shift N2)
+Port: paramShiftO1 = SigPort (Shift O1)
+Port: paramShiftO2 = SigPort (Shift O2)
+Port: paramShiftP1 = SigPort (Shift P1)
+Port: paramShiftP2 = SigPort (Shift P2)
+Port: paramViscA = SigPort (ViscA)
+Port: paramViscB = SigPort (ViscB)
+Port: paramWetEff = SigPort (WetEff)
+Port: paramYCA = SigPort (YCA)
+Port: paramYCB = SigPort (YCB)
+Param: ActStateSpace (Activate Reduced Order Model) = 0
+Param: AutoAddComps (Add Missing Components) = 1
+Param: CH4Inert (Feed CH4 Inert) = 1
+Param: CalcH2Flow (Calc H2 Quench Flow) = 0
+Param: CalcPressureMode (Pressure Drop Mode) = Specified
+Param: CatDetailPerStg (Catalyst Detail Per Stage) = 0
+Param: CatSupport (Catalyst Support (Acid)) = Al2O3
+Param: CatalystGeometry (Catalyst Shape) = Cylinder
+Param: CatalystPack (Packing) = Average
+Param: CatalystType (Catalyst Metal) = Ni-Mo
+Param: ConversionOpt (Conversion Options) = Molecular
+Param: CrudeType (Crude Type) = Naphtha
+Param: DisableHeavyReactions (Disable Rxns) = 0
+Param: HasA (A) = 1
+Param: HasI (I) = 1
+Param: HasN (N) = 1
+Param: HasO (O) = 1
+Param: HasP (P) = 1
+Param: Ignored = None
+Param: IncludeFe (Fe) = 0
+Param: IncludeN (N) = 1
+Param: IncludeNi (Ni) = 0
+Param: IncludeO (O) = 0
+Param: IncludeS (S) = 1
+Param: IncludeV (V) = 0
+Param: LoggedErr = 
+Param: PIONA_Lumping_Type (Speedup) = Yes
+(InternalVal = None(spd))
+Param: ReactionModel (Reaction Model) = Heavy Gas Oil (< C80)
+(InternalVal = HeavyGasOilReaction)
+Param: ReactionPhase (Reaction Phase) = Overall
+(InternalVal = 6)
+Param: ReactionVersion (Reaction Version) = 2020+
+(InternalVal = Version2020+)
+Param: RecKineticTuning (Recommended) = 0
+Param: ServiceTimePerStg (Service Time Per Stage) = 0
+Param: ShiftIncludesLE (Shift Includes LE) = 0
+Param: SolveLastConv (Solve From Last Conv) = 1
+Param: Solve_DampingFactor (Damping Factor) = 0.8
+Param: Solve_EndTime (End Time [s]) = 0.0
+Param: Solve_MaxNumIterations (Max Iterations) = 50
+Param: Solve_MinOutletPressure (Min Outlet Pressure [kPa]) = 50.0
+Param: Solve_Segments (Profile Segments) = 60
+Param: Solve_StartTime (Start Time [s]) = 0.0
+Param: Solve_StiffTolerance (Stiff Tolerance) = 0.001
+Param: Solve_TimeSteps (Time Steps) = 0
+Param: Solve_Tolerance (Solve Tolerance) = 0.001
+Param: SpecInletT (Specify Bed T Inlets) = 1
+Param: Speedup = 1
+Param: StateSpace (Reduced Order Model) = 0
+Param: VaporPhase (All Vapor Phase) = 0
+Param: Vessel_Metal_Type (Vessel Material) = Carbon_Steel
+Param: catKinPerStg (Catalyst Kinetics Per Stage) = 0
+
+## dir /X
+
+CrudeIn: sim.solver.Ports.Port_Material
+HydrogenIn: sim.solver.Ports.Port_Material
+ProductOut: sim.solver.Ports.Port_Material
+AccumulationOut: sim.solver.Ports.Port_Material
+AmbientHeatLoss: sim.solver.Ports.Port_Energy
+PressureDrop: sim.solver.Ports.Port_Signal
+RoughnessFactor: sim.solver.Ports.Port_Signal
+OverallU: sim.solver.Ports.Port_Signal
+OutletTemperature: sim.solver.Ports.Port_Signal
+ReNumber: sim.solver.Ports.Port_Signal
+PrNumber: sim.solver.Ports.Port_Signal
+AmbientTemperature: sim.solver.Ports.Port_Signal
+ReactorDiameter: sim.solver.Ports.Port_Signal
+ReactorHeight: sim.solver.Ports.Port_Signal
+CatalystDensity: sim.solver.Ports.Port_Signal
+CatalystDiameter: sim.solver.Ports.Port_Signal
+CatalystAspectRatio: sim.solver.Ports.Port_Signal
+CatalystStartT: sim.solver.Ports.Port_Signal
+CatalystEndT: sim.solver.Ports.Port_Signal
+InitialActivity: sim.solver.Ports.Port_Signal
+CurrentActivity: sim.solver.Ports.Port_Signal
+PercentActivity: sim.solver.Ports.Port_Signal
+Desulfurization: sim.solver.Ports.Port_Signal
+Denitrogenation: sim.solver.Ports.Port_Signal
+SulfurMassIn: sim.solver.Ports.Port_Signal
+SulfurMassOut: sim.solver.Ports.Port_Signal
+NitrogenMassIn: sim.solver.Ports.Port_Signal
+NitrogenMassOut: sim.solver.Ports.Port_Signal
+ReactorVolume: sim.solver.Ports.Port_Signal
+BedDensity: sim.solver.Ports.Port_Signal
+CatalystWeight: sim.solver.Ports.Port_Signal
+BedVoidFraction: sim.solver.Ports.Port_Signal
+CatalystHollowID: sim.solver.Ports.Port_Signal
+CurrentTime: sim.solver.Ports.Port_Signal
+H2OilRatio: sim.solver.Ports.Port_Signal
+H2PartialPressure: sim.solver.Ports.Port_Signal
+pParam: sim.solver.Ports.Port_Signal
+bParam: sim.solver.Ports.Port_Signal
+gParam: sim.solver.Ports.Port_Signal
+Met%: sim.solver.Ports.Port_Signal
+YcFact: sim.solver.Ports.Port_Signal
+VPSI: sim.solver.Ports.Port_Signal
+LHSV: sim.solver.Ports.Port_Signal
+olefinsLV: sim.solver.Ports.Port_Signal
+naphthenesLV: sim.solver.Ports.Port_Signal
+aromaticsLV: sim.solver.Ports.Port_Signal
+paramViscA: sim.solver.Ports.Port_Signal
+paramViscB: sim.solver.Ports.Port_Signal
+paramKinSA: sim.solver.Ports.Port_Signal
+paramKinNA: sim.solver.Ports.Port_Signal
+paramGA: sim.solver.Ports.Port_Signal
+paramGB: sim.solver.Ports.Port_Signal
+paramYCA: sim.solver.Ports.Port_Signal
+paramYCB: sim.solver.Ports.Port_Signal
+paramPA: sim.solver.Ports.Port_Signal
+paramHform1: sim.solver.Ports.Port_Signal
+paramHform2: sim.solver.Ports.Port_Signal
+paramLE1: sim.solver.Ports.Port_Signal
+paramLE2: sim.solver.Ports.Port_Signal
+paramWetEff: sim.solver.Ports.Port_Signal
+paramIncludeHypos: sim.solver.Ports.Port_Signal
+paramShiftP1: sim.solver.Ports.Port_Signal
+paramShiftP2: sim.solver.Ports.Port_Signal
+paramShiftI1: sim.solver.Ports.Port_Signal
+paramShiftI2: sim.solver.Ports.Port_Signal
+paramShiftO1: sim.solver.Ports.Port_Signal
+paramShiftO2: sim.solver.Ports.Port_Signal
+paramShiftN1: sim.solver.Ports.Port_Signal
+paramShiftN2: sim.solver.Ports.Port_Signal
+paramShiftA1: sim.solver.Ports.Port_Signal
+paramShiftA2: sim.solver.Ports.Port_Signal
+WindSpeed: sim.solver.Ports.Port_Signal
+VesselEmissivity: sim.solver.Ports.Port_Signal
+VesselVolume: sim.solver.Ports.Port_Signal
+Conversion: sim.solver.Ports.Port_Signal
+WABT: sim.solver.Ports.Port_Signal
+CatMetalAcidRatio: sim.solver.Ports.Port_Signal
+H2RecycleRatio: sim.solver.Ports.Port_Signal
+CatalystThermCond: sim.solver.Ports.Port_Signal
+ProductH2: sim.solver.Ports.Port_Signal
+SWtMercaptan: sim.solver.Ports.Port_Signal
+SWtDisulfide: sim.solver.Ports.Port_Signal
+SWtSulfide: sim.solver.Ports.Port_Signal
+SWtThiophene: sim.solver.Ports.Port_Signal
+SWtBenzothiophene: sim.solver.Ports.Port_Signal
+CatCokeMax: sim.solver.Ports.Port_Signal
+MultHTCCat: sim.solver.Ports.Port_Signal
+MultHTCAmb: sim.solver.Ports.Port_Signal
+biasErefT: sim.solver.Ports.Port_Signal
+multErefT: sim.solver.Ports.Port_Signal
+MultCatAdsorbAcid: sim.solver.Ports.Port_Signal
+MultCatAdsorbMetal: sim.solver.Ports.Port_Signal
+MultCokeDeact: sim.solver.Ports.Port_Signal
+MultPoisDeact: sim.solver.Ports.Port_Signal
+MultSintDeact: sim.solver.Ports.Port_Signal
+Prod1IBP: sim.solver.Ports.Port_Signal
+Prod1EBP: sim.solver.Ports.Port_Signal
+Prod2EBP: sim.solver.Ports.Port_Signal
+Prod3EBP: sim.solver.Ports.Port_Signal
+Prod4EBP: sim.solver.Ports.Port_Signal
+InitPoisMAct: sim.solver.Ports.Port_Signal
+InitPoisAAct: sim.solver.Ports.Port_Signal
+InitSintMAct: sim.solver.Ports.Port_Signal
+InitSintAAct: sim.solver.Ports.Port_Signal
+InitCokeMAct: sim.solver.Ports.Port_Signal
+InitCokeAAct: sim.solver.Ports.Port_Signal
+FinalPoisMAct: sim.solver.Ports.Port_Signal
+FinalPoisAAct: sim.solver.Ports.Port_Signal
+FinalSintMAct: sim.solver.Ports.Port_Signal
+FinalSintAAct: sim.solver.Ports.Port_Signal
+FinalCokeMAct: sim.solver.Ports.Port_Signal
+FinalCokeAAct: sim.solver.Ports.Port_Signal
+ForcedCmpCount: sim.solver.Ports.Port_Signal
+METHANE_cmpSel: sim.solver.Ports.Port_Signal
+ETHANE_cmpSel: sim.solver.Ports.Port_Signal
+PROPANE_cmpSel: sim.solver.Ports.Port_Signal
+n-BUTANE_cmpSel: sim.solver.Ports.Port_Signal
+n-PENTANE_cmpSel: sim.solver.Ports.Port_Signal
+WATER_cmpSel: sim.solver.Ports.Port_Signal
+ActStateSpace: ActStateSpace = 0
+AutoAddComps: AutoAddComps = 1
+CH4Inert: CH4Inert = 1
+CalcH2Flow: CalcH2Flow = 0
+CalcPressureMode: CalcPressureMode = Specified
+CatDetailPerStg: CatDetailPerStg = 0
+CatSupport: CatSupport = Al2O3
+CatalystGeometry: CatalystGeometry = Cylinder
+CatalystPack: CatalystPack = Average
+CatalystType: CatalystType = Ni-Mo
+ConversionOpt: ConversionOpt = Molecular
+CrudeType: CrudeType = Naphtha
+DisableHeavyReactions: DisableHeavyReactions = 0
+HasA: HasA = 1
+HasI: HasI = 1
+HasN: HasN = 1
+HasO: HasO = 1
+HasP: HasP = 1
+Ignored: Ignored = None
+IncludeFe: IncludeFe = 0
+IncludeN: IncludeN = 1
+IncludeNi: IncludeNi = 0
+IncludeO: IncludeO = 0
+IncludeS: IncludeS = 1
+IncludeV: IncludeV = 0
+LoggedErr: LoggedErr = 
+PIONA_Lumping_Type: PIONA_Lumping_Type = None(spd)
+ReactionModel: ReactionModel = HeavyGasOilReaction
+ReactionPhase: ReactionPhase = 6
+ReactionVersion: ReactionVersion = Version2020+
+RecKineticTuning: RecKineticTuning = 0
+ServiceTimePerStg: ServiceTimePerStg = 0
+ShiftIncludesLE: ShiftIncludesLE = 0
+SolveLastConv: SolveLastConv = 1
+Solve_DampingFactor: Solve_DampingFactor = 0.8
+Solve_EndTime: Solve_EndTime = 0.0
+Solve_MaxNumIterations: Solve_MaxNumIterations = 50
+Solve_MinOutletPressure: Solve_MinOutletPressure = 50.0
+Solve_Segments: Solve_Segments = 60
+Solve_StartTime: Solve_StartTime = 0.0
+Solve_StiffTolerance: Solve_StiffTolerance = 0.001
+Solve_TimeSteps: Solve_TimeSteps = 0
+Solve_Tolerance: Solve_Tolerance = 0.001
+SpecInletT: SpecInletT = 1
+Speedup: Speedup = 1
+StateSpace: StateSpace = 0
+VaporPhase: VaporPhase = 0
+Vessel_Metal_Type: Vessel_Metal_Type = Carbon_Steel
+catKinPerStg: catKinPerStg = 0

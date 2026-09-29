@@ -1,0 +1,162 @@
+# Pump = Pump.PumpWithCurve("IgnoreCurve = 1; Efficiency = None")
+
+## /X
+Operation: X = sim.unitop.Pump.PumpWithCurve
+Status: Not Solved
+Port: AdiabaticExponent = SigPort (Adiabatic Exponent)
+Port: Bore = SigPort (Cylinder Bore)
+Port: Clearance = SigPort (Cylinder Clearance)
+Port: CompPower = SigPort (Power To Fluid)
+Port: DeltaP = SigPort (Delta P)
+Port: DesEfficiency = SigPort (Design Efficiency)
+Port: DesFlow = SigPort (Design Flow)
+Port: DesHead = SigPort (Design Head)
+Port: DesPower = SigPort (Design Power)
+Port: DesShearPower = SigPort (Design Shear Power)
+Port: DesSlipFlow = SigPort (Design Slip Flow)
+Port: DesSpeed = SigPort (Design Speed)
+Port: DesTorq = SigPort (Design Torque)
+Port: DesdP = SigPort (Design Delta P)
+Port: Displacement = SigPort
+Port: Efficiency = SigPort
+Port: Elev = SigPort (Elevation)
+Port: FldTorq = SigPort (Torque To Fluid)
+Port: FricA = SigPort (Fixed Friction Torq)
+Port: FricB = SigPort (Var. Friction Torq)
+Port: Gearbox_Ratio = SigPort (Gearbox Ratio)
+Port: GuideVaneAngle = SigPort (Guide Vane Angle)
+Port: Head = SigPort
+Port: In = MatPort
+Port: InQ = EnePort
+Port: Inertia = SigPort
+Port: Inertial_Mass = SigPort (Inertial Mass)
+Port: MaxHead = SigPort (Max Head (Zero Flow))
+Port: MechTorq = SigPort (Mech Torque)
+Port: Mechanical_Loss = SigPort (Mechanical Loss)
+Port: Out = MatPort
+Port: P_Ratio = SigPort (Pressure Ratio)
+Port: PolytropicEff = SigPort
+Port: PolytropicExponent = SigPort (Polytropic Exponent)
+Port: PolytropicHead = SigPort
+Port: PolytropicHeadFactor = SigPort (Polytropic Head Factor)
+Port: PumpSpeed = SigPort (Speed)
+Port: Radius_Of_Gyration = SigPort (Radius of Gyration)
+Port: RefVisc = SigPort (Reference Viscosity)
+Port: RefViscSSU = SigPort (Ref. Viscosity (SSU))
+Port: ShaftTorqIn = SigPort (Shaft Torque In)
+Port: ShaftTorqOut = SigPort (Shaft Torque Out)
+Port: Shaft_Power_In = SigPort (Shaft Power In)
+Port: Shaft_Power_Out = SigPort (Shaft Power Out)
+Port: ShearSpdExp = SigPort (Shear Power Spd Exp)
+Port: ShearViscExp = SigPort (Shear Power Visc Exp)
+Port: SlipViscExp = SigPort (Slip Visc Exponent)
+Port: SlipdPExp = SigPort (Slip dP Exponent)
+Port: Stroke = SigPort (Cylinder Stroke)
+Port: StrokeEff = SigPort (Stroke Efficiency)
+Port: TOutMax = SigPort (Max Temp Out)
+Port: TorqIn = SigPort (Torque In)
+Port: UnlClear = SigPort (Unloader Clearance)
+Port: Volume = SigPort
+Param: Action = Single
+Param: CurveFlowBasis (Curve Flow Basis) = Volume
+Param: Damping = 0.9
+Param: DoIsentropicCalcs (Do Isentropic Calcs) = 0
+Param: EfficiencyCurveType (Calculation Type) = Adiabatic
+Param: HeadCurveType = Head
+Param: IgnoreWarnings (Ignore Warnings) = 0
+Param: Ignored = None
+Param: LastConv = 1
+Param: MachineType (Machine Type) = Centrifugal
+Param: MaxError = 1e-05
+Param: MaxNumIterations = 150
+Param: NumberTables = 0
+Param: PlotNormalize (Normalize Curves) = 0
+Param: RefPhaseDens (Use Ref. Phase Dens) = Liquid
+Param: UseAngleCurves (Use Angle Curves) = 0
+Param: UseBuiltInMotor (Use Built-In Motor) = 0
+Param: UseChokeCurve = 0
+Param: UseDesignPoint (Use Simple Curve) = 0
+Param: UseMWCurves (Use MW Curves) = 0
+Param: UseSurgeCurve = 0
+Param: UseTorqCurves (Use Torque Curves) = 0
+Param: ViscCorr (Curves Visc. Correction) = 0
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+InQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+Head: sim.solver.Ports.Port_Signal
+PolytropicHead: sim.solver.Ports.Port_Signal
+Efficiency: sim.solver.Ports.Port_Signal
+PolytropicEff: sim.solver.Ports.Port_Signal
+AdiabaticExponent: sim.solver.Ports.Port_Signal
+PolytropicExponent: sim.solver.Ports.Port_Signal
+PolytropicHeadFactor: sim.solver.Ports.Port_Signal
+P_Ratio: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+PumpSpeed: sim.solver.Ports.Port_Signal
+DesdP: sim.solver.Ports.Port_Signal
+DesSlipFlow: sim.solver.Ports.Port_Signal
+RefVisc: sim.solver.Ports.Port_Signal
+RefViscSSU: sim.solver.Ports.Port_Signal
+SlipdPExp: sim.solver.Ports.Port_Signal
+SlipViscExp: sim.solver.Ports.Port_Signal
+DesShearPower: sim.solver.Ports.Port_Signal
+ShearViscExp: sim.solver.Ports.Port_Signal
+ShearSpdExp: sim.solver.Ports.Port_Signal
+Bore: sim.solver.Ports.Port_Signal
+Stroke: sim.solver.Ports.Port_Signal
+Displacement: sim.solver.Ports.Port_Signal
+Clearance: sim.solver.Ports.Port_Signal
+UnlClear: sim.solver.Ports.Port_Signal
+StrokeEff: sim.solver.Ports.Port_Signal
+DesSpeed: sim.solver.Ports.Port_Signal
+DesHead: sim.solver.Ports.Port_Signal
+DesFlow: sim.solver.Ports.Port_Signal
+DesEfficiency: sim.solver.Ports.Port_Signal
+MaxHead: sim.solver.Ports.Port_Signal
+TOutMax: sim.solver.Ports.Port_Signal
+Inertial_Mass: sim.solver.Ports.Port_Signal
+Radius_Of_Gyration: sim.solver.Ports.Port_Signal
+Inertia: sim.solver.Ports.Port_Signal
+Mechanical_Loss: sim.solver.Ports.Port_Signal
+Shaft_Power_In: sim.solver.Ports.Port_Signal
+Shaft_Power_Out: sim.solver.Ports.Port_Signal
+Gearbox_Ratio: sim.solver.Ports.Port_Signal
+CompPower: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+MechTorq: sim.solver.Ports.Port_Signal
+FldTorq: sim.solver.Ports.Port_Signal
+TorqIn: sim.solver.Ports.Port_Signal
+DesPower: sim.solver.Ports.Port_Signal
+ShaftTorqIn: sim.solver.Ports.Port_Signal
+ShaftTorqOut: sim.solver.Ports.Port_Signal
+DesTorq: sim.solver.Ports.Port_Signal
+GuideVaneAngle: sim.solver.Ports.Port_Signal
+FricA: sim.solver.Ports.Port_Signal
+FricB: sim.solver.Ports.Port_Signal
+Action: Action = Single
+CurveFlowBasis: CurveFlowBasis = Volume
+Damping: Damping = 0.9
+DoIsentropicCalcs: DoIsentropicCalcs = False
+EfficiencyCurveType: EfficiencyCurveType = Adiabatic
+HeadCurveType: HeadCurveType = Head
+IgnoreWarnings: IgnoreWarnings = 0
+Ignored: Ignored = None
+LastConv: LastConv = 1
+MachineType: MachineType = Centrifugal
+MaxError: MaxError = 1e-05
+MaxNumIterations: MaxNumIterations = 150
+NumberTables: NumberTables = 0
+PlotNormalize: PlotNormalize = 0
+RefPhaseDens: RefPhaseDens = Liquid
+UseAngleCurves: UseAngleCurves = 0
+UseBuiltInMotor: UseBuiltInMotor = 0
+UseChokeCurve: UseChokeCurve = False
+UseDesignPoint: UseDesignPoint = 0
+UseMWCurves: UseMWCurves = 0
+UseSurgeCurve: UseSurgeCurve = False
+UseTorqCurves: UseTorqCurves = 0
+ViscCorr: ViscCorr = 0

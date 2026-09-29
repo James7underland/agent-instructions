@@ -1,0 +1,108 @@
+# ReliefValve = Valve.ReliefValve()
+
+## /X
+Operation: X = sim.unitop.Valve.ReliefValve
+Status: Not Solved
+Port: %Opening = SigPort (% Opening)
+Port: BPrCorr = SigPort (Backpressure Correction)
+Port: BackPressure = SigPort (Expected Back P)
+Port: ChokePressure = SigPort (Choke Pressure)
+Port: CritPRatio = SigPort (Critical Pressure Ratio)
+Port: DeltaP = SigPort (Delta P)
+Port: DischargeCoefficient = SigPort (Disch Coeff)
+Port: DischargeCoefficientLiq = SigPort (Liq Disch Coeff)
+Port: DischargeCoefficientSz = SigPort (API Disch Coeff)
+Port: DischargeCoefficientVap = SigPort (Vap Disch Coeff)
+Port: Elev = SigPort (Elevation)
+Port: FullyOpenP = SigPort (Fully Open Pressure)
+Port: In = MatPort
+Port: Isentropic_Coeff = SigPort (Isentropic Coeff)
+Port: Kb = SigPort (Backpressure Correction)
+Port: LeakP = SigPort (Leak Pressure)
+Port: LeakPerc = SigPort (% Leak Before Opening)
+Port: MassFlux = SigPort (Mass Flux)
+Port: Noise = SigPort (Acoustic Vib. Power (dB))
+Port: Omega = SigPort
+Port: OrificeArea = SigPort (Orifice Area)
+Port: Out = MatPort
+Port: ReacForce = SigPort (Reaction Force)
+Port: ReseatP = SigPort (Reseat Pressure)
+Port: ReseatPerc = SigPort (Reseat Percent)
+Port: TailPipeDiam = SigPort (Tailpipe Diam)
+Param: CalcRatedFlow (Specify Orifice and Nozzle Sizes) = 0
+Param: CalcReqdSize (Calculate Min Orifice Size) = 1
+Param: DisCoefMethod (Discharge Coeff Method) = Choked
+Param: FilterPolyNomialOrder (Polynomial Order) = 0
+Param: FilterWindowLength (Window Length) = 0
+Param: Flow_Method (Flow Method) = DIERS_HEM
+Param: HideDiscontinuousProfileWarning (Hide Discontinuous Profile Warnings) = 0
+Param: Ignored = None
+Param: NoiseMethod (Noise Calc Method) = Energy Institute
+(InternalVal = AI)
+Param: NumberSections (Number of Sections) = 0
+Param: OutletConds (Outlet Conditions) = Isenthalpic
+Param: OutletPMode (Outlet P Mode) = Use Back P
+Param: PhaseKdMode (Phase Disch. Coeff. Mode) = Use Vap. Coeff. if Choked
+(InternalVal = UseVapIfChoked)
+Param: RFMethod (Reaction Force Method) = None
+Param: Size (Orifice Designation) = <Select>
+(InternalVal = None)
+Param: SizingUseBackP (Sizing/Rating Back P) = MABP
+Param: SolveProfile (Calculate Full Profile) = 0
+Param: SpecPLimits (Inlet P Spec.) = Max Allowable
+(InternalVal = 0)
+Param: Type = Pop
+Param: UseAPICorr (Use API Correction Factors) = 1
+Param: UseBPresCurve (Use Backpressure Curve) = 0
+Param: UseDataFilter (Smoothen Mass Flux Profile) = 0
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+BackPressure: sim.solver.Ports.Port_Signal
+ChokePressure: sim.solver.Ports.Port_Signal
+OrificeArea: sim.solver.Ports.Port_Signal
+DischargeCoefficientLiq: sim.solver.Ports.Port_Signal
+DischargeCoefficientVap: sim.solver.Ports.Port_Signal
+Kb: sim.solver.Ports.Port_Signal
+DischargeCoefficient: sim.solver.Ports.Port_Signal
+DischargeCoefficientSz: sim.solver.Ports.Port_Signal
+MassFlux: sim.solver.Ports.Port_Signal
+DeltaP: sim.solver.Ports.Port_Signal
+%Opening: sim.solver.Ports.Port_Signal
+CritPRatio: sim.solver.Ports.Port_Signal
+FullyOpenP: sim.solver.Ports.Port_Signal
+Isentropic_Coeff: sim.solver.Ports.Port_Signal
+Omega: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+ReseatP: sim.solver.Ports.Port_Signal
+LeakP: sim.solver.Ports.Port_Signal
+LeakPerc: sim.solver.Ports.Port_Signal
+ReseatPerc: sim.solver.Ports.Port_Signal
+BPrCorr: sim.solver.Ports.Port_Signal
+ReacForce: sim.solver.Ports.Port_Signal
+TailPipeDiam: sim.solver.Ports.Port_Signal
+Noise: sim.solver.Ports.Port_Signal
+CalcRatedFlow: CalcRatedFlow = False
+CalcReqdSize: CalcReqdSize = True
+DisCoefMethod: DisCoefMethod = Choked
+FilterPolyNomialOrder: FilterPolyNomialOrder = 0
+FilterWindowLength: FilterWindowLength = 0
+Flow_Method: Flow_Method = DIERS_HEM
+HideDiscontinuousProfileWarning: HideDiscontinuousProfileWarning = 0
+Ignored: Ignored = None
+NoiseMethod: NoiseMethod = AI
+NumberSections: NumberSections = 0
+OutletConds: OutletConds = Isenthalpic
+OutletPMode: OutletPMode = Use Back P
+PhaseKdMode: PhaseKdMode = UseVapIfChoked
+RFMethod: RFMethod = None
+Size: Size = None
+SizingUseBackP: SizingUseBackP = MABP
+SolveProfile: SolveProfile = 0
+SpecPLimits: SpecPLimits = 0
+Type: Type = Pop
+UseAPICorr: UseAPICorr = 1
+UseBPresCurve: UseBPresCurve = 0
+UseDataFilter: UseDataFilter = 0

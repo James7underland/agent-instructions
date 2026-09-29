@@ -1,0 +1,28 @@
+# WaterDewPoint = WaterDewPoint.WaterDewPoint("StartingT = 260.0 K; StepT = 20.0 K")
+
+## /X
+Operation: X = sim.unitop.WaterDewPoint.WaterDewPoint
+Status: Not Solved
+Port: DewPoint = SigPort (Dew Point)
+Port: Elev = SigPort (Elevation)
+Port: In = MatPort
+Port: Out = MatPort
+Port: StartingT = SigPort (Starting T)
+Port: StepT = SigPort (Step T)
+Param: CalcNow (Update Calcs Now) = None
+Param: Ignored = None
+Param: KeyCompIdx (Key Comp Idx) = -1
+Param: PhaseCriteria (Water Phase Criteria) = 0.5
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+StartingT: sim.solver.Ports.Port_Signal
+StepT: sim.solver.Ports.Port_Signal
+DewPoint: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+CalcNow: CalcNow = None
+Ignored: Ignored = None
+KeyCompIdx: KeyCompIdx = -1
+PhaseCriteria: PhaseCriteria = 0.5

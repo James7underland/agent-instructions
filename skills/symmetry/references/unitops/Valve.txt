@@ -1,0 +1,134 @@
+# Valve = Valve.Valve()
+
+## /X
+Operation: X = sim.unitop.Valve.Valve
+Status: Not Solved
+Port: %Opening = SigPort (% Opening)
+Port: Actual_Pos = SigPort (Actual Position)
+Port: Bias = SigPort
+Port: Cg = SigPort
+Port: CheckdP = SigPort (Check Vlv dP To Open)
+Port: CurCv = SigPort (Valve Cv At Opening)
+Port: Cv = SigPort
+Port: DeadBand = SigPort (Dead Band)
+Port: DeltaP = SigPort (Delta P)
+Port: Elev = SigPort (Elevation)
+Port: EqK = SigPort (Equiv K)
+Port: FL_Factor = SigPort (FL Factor)
+Port: High_Limit = SigPort (High Limit)
+Port: In = MatPort
+Port: Isentropic_Coeff = SigPort (Isentropic Coeff)
+Port: Linear_Speed = SigPort (Stroke Time)
+Port: Linear_Speed_Open = SigPort (Stroke Time Open)
+Port: Low_Limit = SigPort (Low Limit)
+Port: Noise = SigPort (Acoustic Vib. Power (dB))
+Port: Out = MatPort
+Port: RegP1 = SigPort (Regulator P1 (0%))
+Port: RegP2 = SigPort (Regulator P2 (100%))
+Port: RegdP1 = SigPort (Regulator dP1 (0%))
+Port: RegdP2 = SigPort (Regulator dP2 (100%))
+Port: SzDelP = SigPort (Sizing Delta Pres)
+Port: SzMassFlow = SigPort (Sizing Mass Flow)
+Port: SzPos = SigPort (Sizing Valve Pos)
+Port: SzUpsPres = SigPort (Sizing Upstream Pres)
+Port: SzVolFlow = SigPort (Sizing Vol Flow)
+Port: Time_Constant = SigPort (Time Constant)
+Port: Time_Constant_Open = SigPort (Time Constant Open)
+Port: Volume = SigPort
+Port: YFactor = SigPort (Y Factor)
+Port: xT_Factor = SigPort (xT Factor)
+Param: ActuatorDirection (Actuator Direction) = Normal
+Param: ActuatorFailPosition (Actuator Fail Position) = NoFailure
+Param: ActuatorType (Actuator Type) = Instantaneous
+Param: CalcFLFactor (FL Factor Calculation) = Est. From Type
+(InternalVal = FromType)
+Param: CalcLiquidChoke (Calc. Liquid Choke) = 0
+Param: CalcxTFactor (xT Factor Calculation) = Est. From Type
+(InternalVal = FromType)
+Param: Characteristic = Linear
+Param: CheckValve (Check Valve) = None
+Param: ChokeCalculation (Choke Calculation) = Use Critical P Ratio
+(InternalVal = UseCritPRatio)
+Param: ChokeVapOnly (Choke Vap. Only) = 0
+Param: Ignored = None
+Param: IsenCoefMethod (Choke Coef Calc) = Hybrid
+Param: NoiseMethod (Noise Calc Method) = Energy Institute
+(InternalVal = AI)
+Param: PvCalculationMethod (Vap P Calculation) = Simple
+Param: RegSide (Regulator Side) = Upstream
+Param: RegType (Regulator Type) = None
+Param: S2Debug (S2 Debug) = 0
+Param: SizeBasis (Sizing Basis) = Current
+Param: SizeNow (Size Valve Now) = None
+Param: SolveAsNetworkSource (Is Network Source) = 0
+Param: SzFlowBasis (Sizing Flow Basis) = Mass
+Param: SzLoadCur (Sizing Load Cur Vals) = None
+Param: Type (Valve Type) = Generic
+Param: UseCVCurve (Use Cv Curve) = None
+Param: UseFLCurve (Use FL Curve) = 0
+Param: UseShortReducer (Use Short Reducer) = 1
+Param: UsexTCurve (Use xT Curve) = None
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+DeltaP: sim.solver.Ports.Port_Signal
+Cv: sim.solver.Ports.Port_Signal
+%Opening: sim.solver.Ports.Port_Signal
+xT_Factor: sim.solver.Ports.Port_Signal
+FL_Factor: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+Cg: sim.solver.Ports.Port_Signal
+EqK: sim.solver.Ports.Port_Signal
+Time_Constant: sim.solver.Ports.Port_Signal
+Linear_Speed: sim.solver.Ports.Port_Signal
+Time_Constant_Open: sim.solver.Ports.Port_Signal
+Linear_Speed_Open: sim.solver.Ports.Port_Signal
+Low_Limit: sim.solver.Ports.Port_Signal
+High_Limit: sim.solver.Ports.Port_Signal
+Bias: sim.solver.Ports.Port_Signal
+Actual_Pos: sim.solver.Ports.Port_Signal
+RegP1: sim.solver.Ports.Port_Signal
+RegP2: sim.solver.Ports.Port_Signal
+RegdP1: sim.solver.Ports.Port_Signal
+RegdP2: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+CheckdP: sim.solver.Ports.Port_Signal
+DeadBand: sim.solver.Ports.Port_Signal
+SzVolFlow: sim.solver.Ports.Port_Signal
+SzMassFlow: sim.solver.Ports.Port_Signal
+SzUpsPres: sim.solver.Ports.Port_Signal
+SzDelP: sim.solver.Ports.Port_Signal
+SzPos: sim.solver.Ports.Port_Signal
+CurCv: sim.solver.Ports.Port_Signal
+Isentropic_Coeff: sim.solver.Ports.Port_Signal
+YFactor: sim.solver.Ports.Port_Signal
+Noise: sim.solver.Ports.Port_Signal
+ActuatorDirection: ActuatorDirection = Normal
+ActuatorFailPosition: ActuatorFailPosition = NoFailure
+ActuatorType: ActuatorType = Instantaneous
+CalcFLFactor: CalcFLFactor = FromType
+CalcLiquidChoke: CalcLiquidChoke = 0
+CalcxTFactor: CalcxTFactor = FromType
+Characteristic: Characteristic = Linear
+CheckValve: CheckValve = None
+ChokeCalculation: ChokeCalculation = UseCritPRatio
+ChokeVapOnly: ChokeVapOnly = 0
+Ignored: Ignored = None
+IsenCoefMethod: IsenCoefMethod = Hybrid
+NoiseMethod: NoiseMethod = AI
+PvCalculationMethod: PvCalculationMethod = Simple
+RegSide: RegSide = Upstream
+RegType: RegType = None
+S2Debug: S2Debug = 0
+SizeBasis: SizeBasis = Current
+SizeNow: SizeNow = None
+SolveAsNetworkSource: SolveAsNetworkSource = 0
+SzFlowBasis: SzFlowBasis = Mass
+SzLoadCur: SzLoadCur = None
+Type: Type = Generic
+UseCVCurve: UseCVCurve = None
+UseFLCurve: UseFLCurve = False
+UseShortReducer: UseShortReducer = 1
+UsexTCurve: UsexTCurve = None

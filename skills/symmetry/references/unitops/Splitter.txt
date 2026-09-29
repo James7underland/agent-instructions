@@ -1,0 +1,50 @@
+# Splitter = Split.Splitter("NumberStreamsOut = 2")
+
+## /X
+Operation: X = sim.unitop.Split.Splitter
+Status: Not Solved
+Port: BranchAngle = SigPort (Branch Angle)
+Port: Elev = SigPort (Elevation)
+Port: FeedScale = SigPort (Feed Scale)
+Port: FilletRadius = SigPort (Fillet Radius)
+Port: FlowFraction0 = SigPort
+Port: FlowFraction1 = SigPort
+Port: In = MatPort
+Port: K13 = SigPort (K13 Loss Coef)
+Port: K23 = SigPort (K23 Loss Coef)
+Port: Out0 = MatPort
+Port: Out1 = MatPort
+Port: ProdScale = SigPort (Prod Scale)
+Port: Volume = SigPort
+Param: DoPresRecovery (Do Pres. Recovery) = None
+Param: DpMethod (DP Method) = Default
+Param: DynMode (Dynamic Mode) = Normal
+Param: Ignored = None
+Param: NumberStreamsOut (Outlets) = 2
+Param: OpposingFlow (Opposing Flow) = 0
+Param: SplitMethod (Phase Split Method) = Equal
+Param: ZeroFlowSplitAsInactive (Neglect Zero Split Ports) = 0
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out0: sim.solver.Ports.Port_Material
+Out1: sim.solver.Ports.Port_Material
+FlowFraction0: sim.solver.Ports.Port_Signal
+FlowFraction1: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+FeedScale: sim.solver.Ports.Port_Signal
+ProdScale: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+BranchAngle: sim.solver.Ports.Port_Signal
+FilletRadius: sim.solver.Ports.Port_Signal
+K13: sim.solver.Ports.Port_Signal
+K23: sim.solver.Ports.Port_Signal
+DoPresRecovery: DoPresRecovery = None
+DpMethod: DpMethod = Default
+DynMode: DynMode = Normal
+Ignored: Ignored = None
+NumberStreamsOut: NumberStreamsOut = 2
+OpposingFlow: OpposingFlow = 0
+SplitMethod: SplitMethod = Equal
+ZeroFlowSplitAsInactive: ZeroFlowSplitAsInactive = False

@@ -1,0 +1,12 @@
+# RemoteConnector = RemoteConnector.RemoteConnector()
+
+## /X
+Operation: X = sim.unitop.RemoteConnector.RemoteConnector
+Status: Not Solved
+Port: Out = MatPort
+Param: Ignored = None
+
+## dir /X
+
+Out: sim.solver.Ports.Port_Material
+Ignored: Ignored = None

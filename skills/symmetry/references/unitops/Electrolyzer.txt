@@ -1,0 +1,42 @@
+# Electrolyzer = Electrolyzer.Electrolyzer()
+
+## /X
+Operation: X = vmgsim.unitop.Electrolyzer.Electrolyzer
+Status: Not Solved
+Port: AmbientHeatLoss = EnePort (Ambient Heat Loss)
+Port: FurnaceDP = SigPort (Utility Pressure Drop)
+Port: FurnaceExchange = SigPort (Cell Exchange)
+Port: FurnaceHeat = EnePort (Electrolyzer Furnace Heat)
+Port: In = MatPort
+Port: Out = MatPort
+Port: ProcessDP = SigPort (Process Pressure Drop)
+Port: TotalPower = EnePort (Total Electrical Power)
+Port: UtilityIn = MatPort
+Port: UtilityOut = MatPort
+Port: VoltageDC = EnePort
+Param: DecayType (Decay Type) = Voltage
+Param: ElectrolyzerMode (Electrolyzer Mode) = Design
+Param: HasUtility (Utility Stream) = 1
+Param: Ignored = None
+Param: OverrideDecayCurveCheck = 0
+Param: ReactionModel (Electrolyzer Type) = SOEC
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+UtilityIn: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+UtilityOut: sim.solver.Ports.Port_Material
+TotalPower: sim.solver.Ports.Port_Energy
+AmbientHeatLoss: sim.solver.Ports.Port_Energy
+FurnaceHeat: sim.solver.Ports.Port_Energy
+VoltageDC: sim.solver.Ports.Port_Energy
+ProcessDP: sim.solver.Ports.Port_Signal
+FurnaceDP: sim.solver.Ports.Port_Signal
+FurnaceExchange: sim.solver.Ports.Port_Signal
+DecayType: DecayType = Voltage
+ElectrolyzerMode: ElectrolyzerMode = Design
+HasUtility: HasUtility = 1
+Ignored: Ignored = None
+OverrideDecayCurveCheck: OverrideDecayCurveCheck = 0
+ReactionModel: ReactionModel = SOEC

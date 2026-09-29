@@ -1,0 +1,16 @@
+# TOP = Sensia.TOP_Prop()
+
+## /X
+Operation: X = sim.unitop.Sensia.TOP_Prop
+Status: Not Solved
+Port: Conditioned_0 = MatPort
+Port: In_0 = MatPort
+Port: Out = MatPort
+Param: Ignored = None
+
+## dir /X
+
+In_0: sim.solver.Ports.Port_Material
+Conditioned_0: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+Ignored: Ignored = None

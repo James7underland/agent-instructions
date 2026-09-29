@@ -1,0 +1,10 @@
+# OPCClient = OPCClient.OPCClientOp()
+
+## /X
+Operation: X = sim.unitop.OPCClient.OPCClientOp
+Status: Solved
+Param: Ignored = None
+
+## dir /X
+
+Ignored: Ignored = None

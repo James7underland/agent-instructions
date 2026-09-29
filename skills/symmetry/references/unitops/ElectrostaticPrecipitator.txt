@@ -1,0 +1,34 @@
+# ElectrostaticPrecipitator = Solids.ElectrostaticPrecip()
+
+## /X
+Operation: X = sim.unitop.Solids.ElectrostaticPrecip
+Status: Not Solved
+Port: ChargeField = SigPort (Charging Field)
+Port: CollectField = SigPort (Collecting Field)
+Port: DeltaP = SigPort (Delta P)
+Port: EffConfigFact = SigPort (Efficiency Config Factor)
+Port: ElectrodeArea = SigPort (Electrode Area)
+Port: Feed = MatPort
+Port: Gas = MatPort
+Port: OutQ = EnePort (Ambient Heat Loss)
+Port: Solids = MatPort
+Param: DPMethod (Pressure Drop Method) = Specify
+Param: Ignored = None
+Param: MigratVelMethod (Migration Velocity Method) = Calculate
+Param: PhasesSeparate (Phases to Separate) = Liq0/Liq1/Solid
+
+## dir /X
+
+Feed: sim.solver.Ports.Port_Material
+Gas: sim.solver.Ports.Port_Material
+Solids: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+ElectrodeArea: sim.solver.Ports.Port_Signal
+ChargeField: sim.solver.Ports.Port_Signal
+CollectField: sim.solver.Ports.Port_Signal
+EffConfigFact: sim.solver.Ports.Port_Signal
+DeltaP: sim.solver.Ports.Port_Signal
+DPMethod: DPMethod = Specify
+Ignored: Ignored = None
+MigratVelMethod: MigratVelMethod = Calculate
+PhasesSeparate: PhasesSeparate = Liq0/Liq1/Solid

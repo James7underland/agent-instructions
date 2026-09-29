@@ -1,0 +1,156 @@
+# BathHeater = EthyleneCracker.BathHeater()
+
+## /X
+Operation: X = vmgsim.unitop.EthyleneCracker.BathHeater
+Status: Not Solved
+Port: AmbientHeatLoss = EnePort (Heat Loss)
+Port: BathLength = SigPort (Bath Length)
+Port: CokeCond = SigPort (Coke Conductivity)
+Port: CokeRoughFactor = SigPort (Coke Roughness Factor)
+Port: CustomKFrn = SigPort (Fire Tube Custom Thermal Conductivity)
+Port: CustomKPro = SigPort (Process Custom Thermal Conductivity)
+Port: FlueGasOut = MatPort (Exhaust)
+Port: Frn_MaxCokeGrowth = SigPort (Max Coke Growth)
+Port: Frn_MultHTCIn = SigPort (Adj HTC In)
+Port: Frn_MultHTCOut = SigPort (Adj HTC Out)
+Port: FuelIn = MatPort (Fuel)
+Port: In = MatPort
+Port: InitKineticDamp = SigPort (Initial Kinetic Damp)
+Port: KineticMaxC = SigPort (Kinetic Max C)
+Port: MaxCokeGrowth = SigPort (Max Coke Growth)
+Port: Out = MatPort
+Port: OxidantIn = MatPort (Oxidant)
+Port: Pro_MaxCokeGrowth = SigPort (Max Coke Growth)
+Port: Pro_MultHTCIn = SigPort (Adj HTC In)
+Port: Pro_MultHTCOut = SigPort (Adj HTC Out)
+Port: ShapeFactor = SigPort (Shape factor)
+Param: CalcEngine (Rating Detail) = Geometry
+Param: Correlation (Correlation Based) = 0
+Param: DisableAutoSteam97 (Disable Auto Steam97) = 0
+Param: DisableHeavyReactions (Disable Heavy Reactions) = 0
+Param: EfficiencyType (Select Efficiency Definition) = API-Thermal
+Param: FilmFlash (Film nucleate boiling check) = 1
+Param: Fin_Metal_Type = Carbon_Steel
+Param: Fin_Type = No_Fins
+Param: Frn_CustomAlloy (Custom Alloy) = 0
+Param: Frn_Fin_Type (Fin Type) = No Fins
+(InternalVal = No_Fins)
+Param: Frn_Tube_Metal_Type (Furnace Tube Material) = Chrome_Nickel_Steel
+Param: HasA (A) = 1
+Param: HasI (I) = 1
+Param: HasN (N) = 1
+Param: HasO (O) = 1
+Param: HasP (P) = 1
+Param: HeatTransferModel (Bath Shape) = Cylindrical
+(InternalVal = X-CylindricalFurnace)
+Param: Hold = 0
+Param: Ignored = None
+Param: IncShift (Include Shift) = 0
+Param: IncludeFe (Fe) = 0
+Param: IncludeN (N) = 0
+Param: IncludeNi (Ni) = 0
+Param: IncludeO (O) = 0
+Param: IncludeS (S) = 0
+Param: IncludeV (V) = 0
+Param: MultiSegTube (Multi Segment Pipe) = 1
+Param: PIONA_Lumping_Type (Speed Up) = No
+(InternalVal = None)
+Param: PressureDropCorrelation (dP Correlation) = Colebrook
+Param: Pro_CustomAlloy (Custom Alloy) = 0
+Param: Pro_Fin_Type (Fin Type) = No Fins
+(InternalVal = No_Fins)
+Param: Pro_Tube_Metal_Type (Process Tube Material) = Chrome_Nickel_Steel
+Param: ReactionModel = 12Reaction
+Param: RemoveCokeMass (Remove Coke Mass) = 1
+Param: ShowEInputs (Display E Inputs) = 0
+Param: SolveLastConv (Solve From Last Converged) = 1
+Param: Solve_DampingFactor = 0.5
+Param: Solve_MaxNumIterations (Max Iterations) = 50
+Param: Solve_MinOutletPressure (Min Outlet P [kPa]) = 50.0
+Param: Solve_Segments (Zone Segments) = 9
+Param: Solve_SolutionMethod (Solution Method) = RungeKutta4
+Param: Solve_StiffTolerance (Stiff Tolerance) = 0.0001
+Param: Solve_Tolerance (Tolerance) = 0.0001
+Param: Solve_Zones (Solve Zones) = 3
+Param: SpecCOP (Spec Outlet P) = 0
+Param: SpecCOT (Spec Outlet T) = 0
+Param: SpecDB (Dry Basis) = 0
+Param: Speedup = 0
+Param: TubeDirection = VerticalTop
+Param: Tube_Pitch = 90Degree(SquarePitch)
+Param: VaporPhase (All Vapor Phase) = 1
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+FuelIn: sim.solver.Ports.Port_Material
+OxidantIn: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+FlueGasOut: sim.solver.Ports.Port_Material
+AmbientHeatLoss: sim.solver.Ports.Port_Energy
+CokeCond: sim.solver.Ports.Port_Signal
+CustomKPro: sim.solver.Ports.Port_Signal
+CustomKFrn: sim.solver.Ports.Port_Signal
+ShapeFactor: sim.solver.Ports.Port_Signal
+BathLength: sim.solver.Ports.Port_Signal
+MaxCokeGrowth: sim.solver.Ports.Port_Signal
+Pro_MaxCokeGrowth: sim.solver.Ports.Port_Signal
+Pro_MultHTCIn: sim.solver.Ports.Port_Signal
+Pro_MultHTCOut: sim.solver.Ports.Port_Signal
+Frn_MaxCokeGrowth: sim.solver.Ports.Port_Signal
+Frn_MultHTCIn: sim.solver.Ports.Port_Signal
+Frn_MultHTCOut: sim.solver.Ports.Port_Signal
+CokeRoughFactor: sim.solver.Ports.Port_Signal
+InitKineticDamp: sim.solver.Ports.Port_Signal
+KineticMaxC: sim.solver.Ports.Port_Signal
+CalcEngine: CalcEngine = Geometry
+Correlation: Correlation = 0
+DisableAutoSteam97: DisableAutoSteam97 = 0
+DisableHeavyReactions: DisableHeavyReactions = 0
+EfficiencyType: EfficiencyType = API-Thermal
+FilmFlash: FilmFlash = 1
+Fin_Metal_Type: Fin_Metal_Type = Carbon_Steel
+Fin_Type: Fin_Type = No_Fins
+Frn_CustomAlloy: Frn_CustomAlloy = 0
+Frn_Fin_Type: Frn_Fin_Type = No_Fins
+Frn_Tube_Metal_Type: Frn_Tube_Metal_Type = Chrome_Nickel_Steel
+HasA: HasA = 1
+HasI: HasI = 1
+HasN: HasN = 1
+HasO: HasO = 1
+HasP: HasP = 1
+HeatTransferModel: HeatTransferModel = X-CylindricalFurnace
+Hold: Hold = False
+Ignored: Ignored = None
+IncShift: IncShift = 0
+IncludeFe: IncludeFe = 0
+IncludeN: IncludeN = 0
+IncludeNi: IncludeNi = 0
+IncludeO: IncludeO = 0
+IncludeS: IncludeS = 0
+IncludeV: IncludeV = 0
+MultiSegTube: MultiSegTube = 1
+PIONA_Lumping_Type: PIONA_Lumping_Type = None
+PressureDropCorrelation: PressureDropCorrelation = Colebrook
+Pro_CustomAlloy: Pro_CustomAlloy = 0
+Pro_Fin_Type: Pro_Fin_Type = No_Fins
+Pro_Tube_Metal_Type: Pro_Tube_Metal_Type = Chrome_Nickel_Steel
+ReactionModel: ReactionModel = 12Reaction
+RemoveCokeMass: RemoveCokeMass = 1
+ShowEInputs: ShowEInputs = 0
+SolveLastConv: SolveLastConv = 1
+Solve_DampingFactor: Solve_DampingFactor = 0.5
+Solve_MaxNumIterations: Solve_MaxNumIterations = 50
+Solve_MinOutletPressure: Solve_MinOutletPressure = 50.0
+Solve_Segments: Solve_Segments = 9
+Solve_SolutionMethod: Solve_SolutionMethod = RungeKutta4
+Solve_StiffTolerance: Solve_StiffTolerance = 0.0001
+Solve_Tolerance: Solve_Tolerance = 0.0001
+Solve_Zones: Solve_Zones = 3
+SpecCOP: SpecCOP = 0
+SpecCOT: SpecCOT = 0
+SpecDB: SpecDB = 0
+Speedup: Speedup = 0
+TubeDirection: TubeDirection = VerticalTop
+Tube_Pitch: Tube_Pitch = 90Degree(SquarePitch)
+VaporPhase: VaporPhase = 1

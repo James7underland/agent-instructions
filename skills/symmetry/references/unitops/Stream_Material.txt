@@ -1,0 +1,30 @@
+# Stream_Material = Stream.Stream_Material()
+
+## /X
+Operation: X = sim.unitop.Stream.Stream_Material
+Status: Not Solved
+Port: In = MatPort
+Port: Out = MatPort
+Param: ActivateAmineDetail (Activate Amine Detail) = 0
+Param: ActivateLineSizing (Activate Line Sizing) = 0
+Param: ActivateSulfurDetail (Activate Sulfur Detail) = 0
+Param: DetailViewOpt (Detailed View) = Auto
+Param: FlInclLiqBulk (Include Bulk Liq. in Eq. Results) = 0
+Param: Ignored = None
+Param: LiquidDefinition (NGL Content Definition) = C2+
+Param: ShowNatGasData (Natural Gas Data) = 0
+Param: ShowRefineryData (Refinery Data) = 0
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+ActivateAmineDetail: ActivateAmineDetail = 0
+ActivateLineSizing: ActivateLineSizing = 0
+ActivateSulfurDetail: ActivateSulfurDetail = 0
+DetailViewOpt: DetailViewOpt = Auto
+FlInclLiqBulk: FlInclLiqBulk = 0
+Ignored: Ignored = None
+LiquidDefinition: LiquidDefinition = C2+
+ShowNatGasData: ShowNatGasData = 0
+ShowRefineryData: ShowRefineryData = 0

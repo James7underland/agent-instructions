@@ -1,0 +1,42 @@
+# ClausMixer = ClausOperations.ClausMixer()
+
+## /X
+Operation: X = vmgsim.unitop.ClausOperations.ClausMixer
+Status: Not Solved
+Port: Elev = SigPort (Elevation)
+Port: FeedScale = SigPort (Feed Scale)
+Port: In0 = MatPort
+Port: In1 = MatPort
+Port: Out = MatPort
+Port: ProdScale = SigPort (Prod Scale)
+Child: GibbsReactor = vmgsim.unitop.ClausReactors.SulfurGibbsReactor
+Child: Mix = sim.unitop.Mixer.Mixer
+Param: CalcPressureMode (Calc P Mode) = LowestPInOutlet
+Param: Duty_Damping = 0.9
+Param: Duty_LastConv = 0
+Param: Duty_MaxError = 0.0001
+Param: Duty_MaxIter = 100
+Param: Duty_MaxStep = 5.0
+Param: DynMode (Dynamic Mode) = Normal
+Param: Ignored = None
+Param: NumberStreamsIn (Inlets) = 2
+
+## dir /X
+
+GibbsReactor: GibbsReactor = vmgsim.unitop.ClausReactors.SulfurGibbsReactor
+Mix: Mix = sim.unitop.Mixer.Mixer
+In0: sim.solver.Ports.Port_Material
+In1: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+FeedScale: sim.solver.Ports.Port_Signal
+ProdScale: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+CalcPressureMode: CalcPressureMode = LowestPInOutlet
+Duty_Damping: Duty_Damping = 0.9
+Duty_LastConv: Duty_LastConv = 0
+Duty_MaxError: Duty_MaxError = 0.0001
+Duty_MaxIter: Duty_MaxIter = 100
+Duty_MaxStep: Duty_MaxStep = 5.0
+DynMode: DynMode = Normal
+Ignored: Ignored = None
+NumberStreamsIn: NumberStreamsIn = 2

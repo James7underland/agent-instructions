@@ -1,0 +1,20 @@
+# Set = Set.Set()
+
+## /X
+Operation: X = sim.unitop.Set.Set
+Status: Not Solved
+Port: Signal0 = SigPort (Input (x))
+Port: Signal1 = SigPort (Output (y))
+Port: addition = SigPort (Offset (b))
+Port: multiplier = SigPort (Multiplier (m))
+Param: Ignored = None
+Param: SignalType (Type) = Generic
+
+## dir /X
+
+Signal0: sim.solver.Ports.Port_Signal
+Signal1: sim.solver.Ports.Port_Signal
+multiplier: sim.solver.Ports.Port_Signal
+addition: sim.solver.Ports.Port_Signal
+Ignored: Ignored = None
+SignalType: SignalType = Generic

@@ -1,0 +1,12 @@
+# ProcessCalculator = ProCalc.ProCalcOp()
+
+## /X
+Operation: X = sim.unitop.ProCalc.ProCalcOp
+Status: Solved
+Param: HideConnections (Hide PFD Connections) = 0
+Param: Ignored = None
+
+## dir /X
+
+HideConnections: HideConnections = False
+Ignored: Ignored = None

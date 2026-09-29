@@ -1,0 +1,172 @@
+# UreaScrubber = VCM.UreaScrubber()
+
+## /X
+Operation: X = vmgsim.unitop.VCM.UreaScrubber
+Status: Not Solved
+Port: AmbientHeatLoss = EnePort (Ambient Heat Loss)
+Port: AvgShellVel = SigPort (Shell Velocity)
+Port: BedDiameter = SigPort (Bed Diameter)
+Port: BedHeight = SigPort (Bed Height)
+Port: Conversion = SigPort (CO2 Conversion)
+Port: ExchangeVolume = SigPort (Exchanger Volume)
+Port: FeedRatioA = SigPort (Feed Ratio a)
+Port: FeedRatioB = SigPort (Feed Ratio b)
+Port: FoulingFactor = SigPort (Fouling Factor)
+Port: FreeProductNCRatio = SigPort (Liquid Product Free N/C)
+Port: FurnaceDP = SigPort (Shell Pressure Drop)
+Port: FurnaceDiameter = SigPort (HX Shell Diameter)
+Port: FurnaceExchange = SigPort (Exchanger Duty)
+Port: GasFeed = MatPort
+Port: InnerDiameter = SigPort (Inside Diameter)
+Port: Length = SigPort (Effective Length)
+Port: LiquidFeed = MatPort
+Port: MassTransferC = SigPort
+Port: MultA0 = SigPort (RxnU A)
+Port: MultA1 = SigPort (RxnU Ar)
+Port: MultA10 = SigPort
+Port: MultA11 = SigPort
+Port: MultA2 = SigPort (RxnC A)
+Port: MultA3 = SigPort (RxnC Ar)
+Port: MultA4 = SigPort (RxnB A)
+Port: MultA5 = SigPort (Mult A5)
+Port: MultA6 = SigPort (Mult A6)
+Port: MultA7 = SigPort (Mult A7)
+Port: MultA8 = SigPort (Mult A8)
+Port: MultA9 = SigPort (Mult A9)
+Port: MultE0 = SigPort (RxnU E)
+Port: MultE1 = SigPort (RxnU Er)
+Port: MultE10 = SigPort (Mult E10)
+Port: MultE11 = SigPort (Mult E11)
+Port: MultE2 = SigPort (RxnC E)
+Port: MultE3 = SigPort (RxnC Er)
+Port: MultE4 = SigPort (RxnB E)
+Port: MultE5 = SigPort (Mult E5)
+Port: MultE6 = SigPort (Mult E6)
+Port: MultE7 = SigPort (Mult E7)
+Port: MultE8 = SigPort (Mult E8)
+Port: MultE9 = SigPort (Mult E9)
+Port: MultHTCIn = SigPort (Mult HTC Tube)
+Port: MultHTCOut = SigPort (Mult HTC Shell)
+Port: NumberTubes = SigPort (Number Of Tubes)
+Port: OuterDiameter = SigPort (Outer Diameter)
+Port: OverallU = SigPort (Overall U)
+Port: ProcessDP = SigPort (Process Pressure Drop)
+Port: Product = MatPort
+Port: ProductHCRatio = SigPort (Liquid Product H/C)
+Port: ProductNCRatio = SigPort (Liquid Product N/C)
+Port: ReactorVolume = SigPort (Reactor Volume)
+Port: Roughness = SigPort
+Port: ScrubberVolume = SigPort (Scrubber Volume)
+Port: ShellFilmCoefficient = SigPort (Shell Side HTC)
+Port: SurfaceArea = SigPort (Internal Surface Area)
+Port: TubePitch = SigPort (Tube Pitch)
+Port: UtilityIn = MatPort
+Port: UtilityOut = MatPort
+Port: Vent = MatPort
+Port: VolEffPower = SigPort (Volume Eff Power)
+Port: VolumeEfficiency = SigPort (Volume Efficiency)
+Param: CalcEfficiencyMode (Rxn Efficiency Mode) = Specified
+Param: CalcInnerHTCMode (Tube HTC Mode) = Simple
+Param: CalcPressureMode (Shell dP Mode) = Calculated
+Param: HeatTransferModel (Flow Configuration) = Parallel Cylindrical
+(InternalVal = CylindricalFurnace)
+Param: Ignored = None
+Param: InstalledProfiles = L_VolumeFlow
+Param: PressureDropCorrelation (dP Correlation) = LockhartMartinelli
+Param: ReactionModel (Reaction Model) = UreaScrubber
+Param: ReactionVersion (Reaction Version) = 2012
+(InternalVal = Version2012)
+Param: RxnSolver (Rxn Solver) = Kinetic
+Param: SolveLastConv (Solve From Last Conv) = 1
+Param: Solve_DampingFactor (Damping Factor) = 0.6
+Param: Solve_MaxNumIterations (Max Iterations) = 50
+Param: Solve_MinOutletPressure (Min Outlet P [kPa]) = 50.0
+Param: Solve_Segments (Zone Segments) = 10
+Param: Solve_SolutionMethod (Solution Method) = Adaptive
+Param: Solve_Tolerance (Tolerance) = 0.0001
+Param: Solve_Zones (Zone Segments) = 1
+Param: Tube_Metal_Type (Tube Material) = SS 316L UG
+
+## dir /X
+
+LiquidFeed: sim.solver.Ports.Port_Material
+GasFeed: sim.solver.Ports.Port_Material
+UtilityIn: sim.solver.Ports.Port_Material
+Product: sim.solver.Ports.Port_Material
+Vent: sim.solver.Ports.Port_Material
+UtilityOut: sim.solver.Ports.Port_Material
+AmbientHeatLoss: sim.solver.Ports.Port_Energy
+ProcessDP: sim.solver.Ports.Port_Signal
+Roughness: sim.solver.Ports.Port_Signal
+Conversion: sim.solver.Ports.Port_Signal
+InnerDiameter: sim.solver.Ports.Port_Signal
+OuterDiameter: sim.solver.Ports.Port_Signal
+TubePitch: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+NumberTubes: sim.solver.Ports.Port_Signal
+BedHeight: sim.solver.Ports.Port_Signal
+BedDiameter: sim.solver.Ports.Port_Signal
+FeedRatioA: sim.solver.Ports.Port_Signal
+FeedRatioB: sim.solver.Ports.Port_Signal
+ProductNCRatio: sim.solver.Ports.Port_Signal
+FreeProductNCRatio: sim.solver.Ports.Port_Signal
+ProductHCRatio: sim.solver.Ports.Port_Signal
+ReactorVolume: sim.solver.Ports.Port_Signal
+ExchangeVolume: sim.solver.Ports.Port_Signal
+ScrubberVolume: sim.solver.Ports.Port_Signal
+FurnaceDiameter: sim.solver.Ports.Port_Signal
+FurnaceDP: sim.solver.Ports.Port_Signal
+FurnaceExchange: sim.solver.Ports.Port_Signal
+FoulingFactor: sim.solver.Ports.Port_Signal
+OverallU: sim.solver.Ports.Port_Signal
+ShellFilmCoefficient: sim.solver.Ports.Port_Signal
+AvgShellVel: sim.solver.Ports.Port_Signal
+SurfaceArea: sim.solver.Ports.Port_Signal
+VolumeEfficiency: sim.solver.Ports.Port_Signal
+MassTransferC: sim.solver.Ports.Port_Signal
+VolEffPower: sim.solver.Ports.Port_Signal
+MultA0: sim.solver.Ports.Port_Signal
+MultA1: sim.solver.Ports.Port_Signal
+MultA2: sim.solver.Ports.Port_Signal
+MultA3: sim.solver.Ports.Port_Signal
+MultA4: sim.solver.Ports.Port_Signal
+MultE0: sim.solver.Ports.Port_Signal
+MultE1: sim.solver.Ports.Port_Signal
+MultE2: sim.solver.Ports.Port_Signal
+MultE3: sim.solver.Ports.Port_Signal
+MultE4: sim.solver.Ports.Port_Signal
+MultA5: sim.solver.Ports.Port_Signal
+MultA6: sim.solver.Ports.Port_Signal
+MultA7: sim.solver.Ports.Port_Signal
+MultA8: sim.solver.Ports.Port_Signal
+MultA9: sim.solver.Ports.Port_Signal
+MultA10: sim.solver.Ports.Port_Signal
+MultA11: sim.solver.Ports.Port_Signal
+MultE5: sim.solver.Ports.Port_Signal
+MultE6: sim.solver.Ports.Port_Signal
+MultE7: sim.solver.Ports.Port_Signal
+MultE8: sim.solver.Ports.Port_Signal
+MultE9: sim.solver.Ports.Port_Signal
+MultE10: sim.solver.Ports.Port_Signal
+MultE11: sim.solver.Ports.Port_Signal
+MultHTCIn: sim.solver.Ports.Port_Signal
+MultHTCOut: sim.solver.Ports.Port_Signal
+CalcEfficiencyMode: CalcEfficiencyMode = Specified
+CalcInnerHTCMode: CalcInnerHTCMode = Simple
+CalcPressureMode: CalcPressureMode = Calculated
+HeatTransferModel: HeatTransferModel = CylindricalFurnace
+Ignored: Ignored = None
+InstalledProfiles: InstalledProfiles = L_VolumeFlow
+PressureDropCorrelation: PressureDropCorrelation = LockhartMartinelli
+ReactionModel: ReactionModel = UreaScrubber
+ReactionVersion: ReactionVersion = Version2012
+RxnSolver: RxnSolver = Kinetic
+SolveLastConv: SolveLastConv = 1
+Solve_DampingFactor: Solve_DampingFactor = 0.6
+Solve_MaxNumIterations: Solve_MaxNumIterations = 50
+Solve_MinOutletPressure: Solve_MinOutletPressure = 50.0
+Solve_Segments: Solve_Segments = 10
+Solve_SolutionMethod: Solve_SolutionMethod = Adaptive
+Solve_Tolerance: Solve_Tolerance = 0.0001
+Solve_Zones: Solve_Zones = 1
+Tube_Metal_Type: Tube_Metal_Type = SS 316L UG

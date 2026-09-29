@@ -1,0 +1,60 @@
+# Hydrate = HydrateThermoBased.Hydrate()
+
+## /X
+Operation: X = sim.unitop.HydrateThermoBased.Hydrate
+Status: Not Solved
+Port: Elev = SigPort (Elevation)
+Port: EmpAppTemp = SigPort
+Port: EmpTemp = SigPort (Empirical Hydrate T)
+Port: HydrateAppT = SigPort (Hyd Formation App T)
+Port: HydrateForm = SigPort (Hyd Is Formed)
+Port: HydrateTemp = SigPort (Hyd Formation T)
+Port: In = MatPort
+Port: InhMassPerc = SigPort (Inhibitor Aq. Mass %)
+Port: Out = MatPort
+Param: CalcHydEq (Calculate Hydrate Equilibrium) = None
+Param: CalcNow (Update Calcs Now) = None
+Param: DoEmpCalc (Activate Empirical Calc) = 0
+Param: EmpMethod (Empirical Method) = Hammerschmidt
+Param: EmpStdAlone = 0
+Param: GasLiqHydrateAppP_Active (Hyd App P Active) = 0
+Param: GasLiqHydrateAppT_Active (Hyd App T Active) = 1
+Param: GasLiqHydrateForm_Active (Hyd Is Formed Active) = 1
+Param: GasLiqHydrateP_Active (Hyd P Active) = 0
+Param: GasLiqHydrateStruct_Active (Hyd Struct. Active) = 0
+Param: GasLiqHydrateT_Active (Hyd T Active) = 1
+Param: Ignored = None
+Param: Inhibitor = 
+Param: LegacyMode (Use Legacy Mode) = 0
+Param: Mode = Auto
+Param: SaturationMode (Calc Saturation) = 0
+Param: SolveDuringFlowsheetIterations (Solve During Flowsheet Iterations) = 0
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+HydrateForm: sim.solver.Ports.Port_Signal
+HydrateTemp: sim.solver.Ports.Port_Signal
+HydrateAppT: sim.solver.Ports.Port_Signal
+InhMassPerc: sim.solver.Ports.Port_Signal
+EmpTemp: sim.solver.Ports.Port_Signal
+EmpAppTemp: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+CalcHydEq: CalcHydEq = None
+CalcNow: CalcNow = None
+DoEmpCalc: DoEmpCalc = 0
+EmpMethod: EmpMethod = Hammerschmidt
+EmpStdAlone: EmpStdAlone = 0
+GasLiqHydrateAppP_Active: GasLiqHydrateAppP_Active = 0
+GasLiqHydrateAppT_Active: GasLiqHydrateAppT_Active = 1
+GasLiqHydrateForm_Active: GasLiqHydrateForm_Active = 1
+GasLiqHydrateP_Active: GasLiqHydrateP_Active = 0
+GasLiqHydrateStruct_Active: GasLiqHydrateStruct_Active = 0
+GasLiqHydrateT_Active: GasLiqHydrateT_Active = 1
+Ignored: Ignored = None
+Inhibitor: Inhibitor = 
+LegacyMode: LegacyMode = False
+Mode: Mode = Auto
+SaturationMode: SaturationMode = False
+SolveDuringFlowsheetIterations: SolveDuringFlowsheetIterations = False

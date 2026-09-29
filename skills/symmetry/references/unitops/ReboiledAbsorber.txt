@@ -1,0 +1,100 @@
+# ReboiledAbsorber = Tower.ReboiledAbsorber("Stage_0.dsc = Tower.DegSubCooling(); Stage_0.dsc.Port = 0.0; InitTowerAlgorithm = ; InitTowerAlgorithm = TowerModels.VMGInitTower(); Stage_0 + 0")
+
+## /X
+Operation: X = sim.unitop.Tower.ReboiledAbsorber
+Status: Not Solved
+Status: Info - Building Tower
+Status: Info - Not Converged
+Port: DegSubCool_0_dsc = SigPort (Deg Sub Cooling)
+Port: EnergyFeed_1_reboilerQ = EnePort (reboilerQ)
+Port: Feed_0_overheadFeed = MatPort (overheadFeed)
+Port: LiquidDraw_1_reboilerL = MatPort (reboilerL)
+Port: VapourDraw_0_overheadV = MatPort (overheadV)
+Param: ActiveTrayProf (Active Tray Profile) = Liquid To Tray
+(InternalVal = LTT_Profiles)
+Param: AddRefluxPumpCalc (Activate Reflux Pump Calculator) = None
+Param: AutoRefresh (Auto Refresh Specs Tab) = 1
+Param: ConvReportLevel (Conv. Report Detail) = Default
+(InternalVal = 0)
+Param: CreateFsNow (Create Column FS Now) = None
+Param: DampingFactor (Damping Factor) = 1.0
+Param: EffIgnDraw (Ignore Eff. in Draw Stages) = 1
+Param: EffIgnFeed (Ignore Eff. in Feed Stages) = 0
+Param: EffMultMode (Eff. Multiplier Mode) = None
+Param: Efficiencies = 1.0
+Param: EnableSmartAnchorMode (Anchor Pressure Mode) = Specify Anchor Pressure
+(InternalVal = 0)
+Param: FreqJacobianMsg (Freq Jacobian Msg) = 10
+Param: Ignored = None
+Param: InclAirSat (Air Saturated Sample) = 0
+Param: InitKPower (Init K Power) = 1.0
+Param: KeyCmpFrac_WD (Min. key cmp. frac. in Water Draw) = 0.5
+Param: KeyCmpName_WD (Key Component in Water Draw) = WATER
+Param: MaxInnerError (Max Inner Error) = 0.0001
+Param: MaxInnerLoops (Max Inner Loops) = 50
+Param: MaxOuterError (Max Outer Error) = 0.0001
+Param: MaxOuterLoops (Max Outer Loops) = 200
+Param: MinInnerStep (Min Inner Step) = 0.0001
+Param: MultiPass (Multi Pass) = Default
+(InternalVal = 0)
+Param: NumberConvention (Stage Numbering) = Top Down
+Param: ReTryOnFailure (Restart on Failure) = 1
+Param: RefluxRatioCountWater (Include Water Draw in Reflux Ratio) = 0
+Param: RefluxRatioIgnoreVapor (Ignore Vapor in Reflux Ratio) = 0
+Param: ShowDrawCol (Show draw column) = 0
+Param: ThreePhaseModel (Three Phase Model) = 0
+Param: TriggerSolve (Trigger Solve) = 0
+Param: TryLastConverged (Try Last Converged) = 0
+Param: TryToRestart (Try to Restart) = 1
+Param: TryToSolve (Try to Solve) = 0
+Param: VapFeedToStageAbove (Vap Feed To Stage Above) = 0
+
+## dir /X
+
+Feed_0_overheadFeed: sim.solver.Ports.Port_Material
+VapourDraw_0_overheadV: sim.solver.Ports.Port_Material
+LiquidDraw_1_reboilerL: sim.solver.Ports.Port_Material
+EnergyFeed_1_reboilerQ: sim.solver.Ports.Port_Energy
+DegSubCool_0_dsc: sim.solver.Ports.Port_Signal
+ActiveTrayProf: ActiveTrayProf = LTT_Profiles
+AddRefluxPumpCalc: AddRefluxPumpCalc = None
+AutoRefresh: AutoRefresh = True
+ConvReportLevel: ConvReportLevel = 0
+CreateFsNow: CreateFsNow = None
+DampingFactor: DampingFactor = 1.0
+EffIgnDraw: EffIgnDraw = True
+EffIgnFeed: EffIgnFeed = False
+EffMultMode: EffMultMode = None
+Efficiencies: Efficiencies = 1.0
+EnableSmartAnchorMode: EnableSmartAnchorMode = 0
+FreqJacobianMsg: FreqJacobianMsg = 10
+Ignored: Ignored = None
+InclAirSat: InclAirSat = 0
+InitKPower: InitKPower = 1.0
+KeyCmpFrac_WD: KeyCmpFrac_WD = 0.5
+KeyCmpName_WD: KeyCmpName_WD = WATER
+MaxInnerError: MaxInnerError = 0.0001
+MaxInnerLoops: MaxInnerLoops = 50
+MaxOuterError: MaxOuterError = 0.0001
+MaxOuterLoops: MaxOuterLoops = 200
+MinInnerStep: MinInnerStep = 0.0001
+MultiPass: MultiPass = 0
+NumberConvention: NumberConvention = Top Down
+ReTryOnFailure: ReTryOnFailure = True
+RefluxRatioCountWater: RefluxRatioCountWater = False
+RefluxRatioIgnoreVapor: RefluxRatioIgnoreVapor = False
+ShowDrawCol: ShowDrawCol = False
+ThreePhaseModel: ThreePhaseModel = 0
+TriggerSolve: TriggerSolve = 0
+TryLastConverged: TryLastConverged = 0
+TryToRestart: TryToRestart = 1
+TryToSolve: TryToSolve = 0
+VapFeedToStageAbove: VapFeedToStageAbove = 0
+Stage_0: Stage_0
+overheadFeed: Feed
+overheadV: VapourDraw
+dsc: DegSubCooling
+Stage_1: Stage_1
+reboilerQ: EnergyFeed
+reboilerL: LiquidDraw
+eff: Array[(2, 6)]

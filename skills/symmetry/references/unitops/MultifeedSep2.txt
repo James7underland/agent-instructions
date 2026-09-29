@@ -1,0 +1,108 @@
+# MultifeedSep2 = MultifeedSeparator.MultifeedSep2()
+
+## /X
+Operation: X = sim.unitop.MultifeedSeparator.MultifeedSep2
+Status: Not Solved
+Port: AspectRatio = SigPort (L/D Ratio)
+Port: BootDiameter = SigPort (Boot Diameter)
+Port: BootLength = SigPort (Boot Length)
+Port: BootLevelSP = SigPort (Boot Level SP)
+Port: BootVolume = SigPort (Boot Volume)
+Port: CrownHeight = SigPort (Crown Height)
+Port: CrownRadius = SigPort (Crown Radius)
+Port: DeltaP = SigPort (Delta P)
+Port: Diameter = SigPort
+Port: Elev = SigPort (Elevation)
+Port: ExpLiq0Level = SigPort (Expanded Level)
+Port: ExpLiq0Level% = SigPort (Expanded Percent Level)
+Port: ExpLiq1Level = SigPort (Expanded Boot/Hvy Level)
+Port: ExpLiq1Level% = SigPort (Expanded Boot/Hvy % Level)
+Port: HRat = SigPort (Head Axis Ratio)
+Port: In0 = MatPort
+Port: InQ = EnePort
+Port: IsenEff = SigPort (Isentropic Efficiency)
+Port: KnuckleHeight = SigPort (Knuckle Height)
+Port: KnuckleRadius = SigPort (Knuckle Radius)
+Port: Length = SigPort
+Port: LevelSP = SigPort (Level SP)
+Port: Liq0 = MatPort
+Port: Liq0Level = SigPort (Level)
+Port: Liq0Level% = SigPort (Percent Level)
+Port: Liq1Level = SigPort (Boot/Heavy Level)
+Port: Liq1Level% = SigPort (Boot/Heavy % Level)
+Port: OutT = SigPort (Outlet T)
+Port: SphericalLimit = SigPort (Spherical Limit)
+Port: Thickness = SigPort
+Port: Vap = MatPort
+Port: Volume = SigPort
+Child: Mixer = sim.unitop.Mixer.Mixer
+Child: Sep = sim.unitop.Flash.SimpleFlash
+Child: h = sim.unitop.Heater.Heater
+Param: AvOrientations = Horizontal Vertical
+Param: EntBasis (Entrain. Basis) = Actual Volume
+Param: EntMode (Entrainment Mode) = No Entrainment
+Param: EntSpec (Entrain. Spec) = Percent
+Param: HTCorr (Inner HT Corr) = Constant
+Param: HeadDesign (Head Design) = Ellipsoidal
+Param: HeatLossCalcType (Heat Loss Calc Type) = None
+Param: Ignored = None
+Param: LiquidPhases = 1
+Param: NumberStreamsIn (Inlets) = 1
+Param: OrderByKeyCmp (Order Liq Phases by Key Cmp) = 1
+Param: Orientation = Horizontal
+Param: OutHTCorr (Outer HT Corr) = Constant
+Param: SkipReFlash (Skip secondary flash) = 1
+Param: Void_Frac_Calc_Type (Void Frac Calc Type) = Simple
+
+## dir /X
+
+Mixer: Mixer = sim.unitop.Mixer.Mixer
+Sep: Sep = sim.unitop.Flash.SimpleFlash
+h: h = sim.unitop.Heater.Heater
+In0: sim.solver.Ports.Port_Material
+Vap: sim.solver.Ports.Port_Material
+Liq0: sim.solver.Ports.Port_Material
+InQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+Diameter: sim.solver.Ports.Port_Signal
+Liq0Level: sim.solver.Ports.Port_Signal
+Liq0Level%: sim.solver.Ports.Port_Signal
+Liq1Level: sim.solver.Ports.Port_Signal
+Liq1Level%: sim.solver.Ports.Port_Signal
+BootVolume: sim.solver.Ports.Port_Signal
+BootLength: sim.solver.Ports.Port_Signal
+BootDiameter: sim.solver.Ports.Port_Signal
+CrownRadius: sim.solver.Ports.Port_Signal
+KnuckleRadius: sim.solver.Ports.Port_Signal
+Thickness: sim.solver.Ports.Port_Signal
+SphericalLimit: sim.solver.Ports.Port_Signal
+KnuckleHeight: sim.solver.Ports.Port_Signal
+CrownHeight: sim.solver.Ports.Port_Signal
+LevelSP: sim.solver.Ports.Port_Signal
+BootLevelSP: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+IsenEff: sim.solver.Ports.Port_Signal
+OutT: sim.solver.Ports.Port_Signal
+ExpLiq0Level: sim.solver.Ports.Port_Signal
+ExpLiq1Level: sim.solver.Ports.Port_Signal
+ExpLiq0Level%: sim.solver.Ports.Port_Signal
+ExpLiq1Level%: sim.solver.Ports.Port_Signal
+HRat: sim.solver.Ports.Port_Signal
+AspectRatio: sim.solver.Ports.Port_Signal
+AvOrientations: AvOrientations = Horizontal Vertical
+EntBasis: EntBasis = Actual Volume
+EntMode: EntMode = No Entrainment
+EntSpec: EntSpec = Percent
+HTCorr: HTCorr = Constant
+HeadDesign: HeadDesign = Ellipsoidal
+HeatLossCalcType: HeatLossCalcType = None
+Ignored: Ignored = None
+LiquidPhases: LiquidPhases = 1
+NumberStreamsIn: NumberStreamsIn = 1
+OrderByKeyCmp: OrderByKeyCmp = True
+Orientation: Orientation = Horizontal
+OutHTCorr: OutHTCorr = Constant
+SkipReFlash: SkipReFlash = 1
+Void_Frac_Calc_Type: Void_Frac_Calc_Type = Simple

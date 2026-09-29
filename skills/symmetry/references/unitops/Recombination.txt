@@ -1,0 +1,16 @@
+# Recombination = Recombination.RecombinationOp()
+
+## /X
+Operation: X = sim.unitop.Recombination.RecombinationOp
+Status: Not Solved
+Port: Condensate = MatPort
+Port: Gas = MatPort
+Port: Water = MatPort
+Param: Ignored = None
+
+## dir /X
+
+Gas: sim.solver.Ports.Port_Material
+Condensate: sim.solver.Ports.Port_Material
+Water: sim.solver.Ports.Port_Material
+Ignored: Ignored = None

@@ -1,0 +1,12 @@
+# ExcelUnitOp = ComUnitOp.COMUnitOperation( ,VirtualMaterials.Sim.ExcelUnitOp.ExcelUnitOperation)
+
+## /X
+Operation: X = vmgsim.unitop.ComUnitOp.COMUnitOperation
+Status: Solved
+Param: HideConnections (Hide PFD Connections) = 0
+Param: Ignored = None
+
+## dir /X
+
+HideConnections: HideConnections = False
+Ignored: Ignored = None

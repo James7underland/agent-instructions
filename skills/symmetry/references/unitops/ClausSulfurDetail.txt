@@ -1,0 +1,48 @@
+# ClausSulfurDetail = ClausOperations.ClausSulfurDetail()
+
+## /X
+Operation: X = vmgsim.unitop.ClausOperations.ClausSulfurDetail
+Status: Not Solved
+Port: C_MoleFlow = SigPort (Total C)
+Port: DewPoint = SigPort (Dew Point)
+Port: Elev = SigPort (Elevation)
+Port: ExcessAir = SigPort (Excess Air)
+Port: H2S:SO2_Ratio = SigPort ((H2S:SO2) Ratio)
+Port: H2S_MoleFlow = SigPort (H2S MoleFlow)
+Port: HC_MoleFlow = SigPort (HC MoleFlow)
+Port: In = MatPort
+Port: Mercaptans_MoleFlow = SigPort (Mercaptan MoleFlow)
+Port: Out = MatPort
+Port: S1_Equivalence_MoleFlow = SigPort (S1 Equiv MoleFlow)
+Port: S_InCmps = SigPort (S In Cmps)
+Port: S_InCmps_Mass = SigPort (S In Cmps (Mass))
+Port: S_MassFlow = SigPort (S MassFlow)
+Port: Sx_MoleFlow = SigPort (Sx MoleFlow)
+Port: Total_S = SigPort (Total S)
+Port: Total_S_Mass = SigPort (Total S (Mass))
+Port: x = SigPort (x (Sulfur Species Number))
+Param: CalcExcessAir (Calculate Excess Air) = 0
+Param: Ignored = None
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+DewPoint: sim.solver.Ports.Port_Signal
+S_MassFlow: sim.solver.Ports.Port_Signal
+S1_Equivalence_MoleFlow: sim.solver.Ports.Port_Signal
+Sx_MoleFlow: sim.solver.Ports.Port_Signal
+x: sim.solver.Ports.Port_Signal
+H2S_MoleFlow: sim.solver.Ports.Port_Signal
+HC_MoleFlow: sim.solver.Ports.Port_Signal
+C_MoleFlow: sim.solver.Ports.Port_Signal
+Mercaptans_MoleFlow: sim.solver.Ports.Port_Signal
+H2S:SO2_Ratio: sim.solver.Ports.Port_Signal
+S_InCmps: sim.solver.Ports.Port_Signal
+Total_S: sim.solver.Ports.Port_Signal
+S_InCmps_Mass: sim.solver.Ports.Port_Signal
+Total_S_Mass: sim.solver.Ports.Port_Signal
+ExcessAir: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+CalcExcessAir: CalcExcessAir = 0
+Ignored: Ignored = None

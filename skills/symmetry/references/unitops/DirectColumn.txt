@@ -1,0 +1,67 @@
+# DirectColumn = DirectSeparator.DirectSeparator()
+
+## /X
+Operation: X = sim.unitop.DirectSeparator.DirectSeparator
+Status: Not Solved
+Port: In0 = MatPort
+Port: InQ0 = EnePort (Out Q)
+Port: Out0 = MatPort (Lights)
+Port: Out1 = MatPort (Straight Run Naphtha)
+Port: Out2 = MatPort (Naphtha)
+Port: Out3 = MatPort (Kerosene)
+Port: Out4 = MatPort (Diesel)
+Port: Out5 = MatPort (GasOil)
+Port: Out6 = MatPort (Resid)
+Port: Out_Decant = MatPort (Decant)
+Param: Basis = Volume
+Param: CalcPressureMode (Calc P Mode) = Lowest P of Inlets
+(InternalVal = 1)
+Param: CalcTemperatureMode (Calc T Mode) = Dew Point Top, Bubble Point Others
+(InternalVal = 2)
+Param: CalcTemperatureModeDecant (Water Decant T Mode) = Same as Calc T Mode
+(InternalVal = 1)
+Param: CutShifts (Cut Shifts) = 2
+Param: DisplayBasis (Display Curve Basis) = Mole
+Param: DisplayDistCrvType (Display Curve Type) = TBP
+Param: DistCrvType (Distillation Curve Type) = TBP
+Param: HasWaterDraw (Has Water Draw) = 1
+Param: HoldSolution (Hold Solution) = 0
+Param: Ignored = None
+Param: NumberOfCuts (Cuts) = 7
+Param: NumberOfFeeds (Feeds) = 1
+Param: NumberOfProducts (Products) = 0
+Param: SortCurves (Sort Curves) = 0
+Param: SplitMethod (Split Method) = End Temperatures
+(InternalVal = 0)
+Param: WaterHandlingGlobal (Water Handling) = Decant Only
+(InternalVal = 8)
+
+## dir /X
+
+In0: sim.solver.Ports.Port_Material
+Out0: sim.solver.Ports.Port_Material
+Out1: sim.solver.Ports.Port_Material
+Out2: sim.solver.Ports.Port_Material
+Out3: sim.solver.Ports.Port_Material
+Out4: sim.solver.Ports.Port_Material
+Out5: sim.solver.Ports.Port_Material
+Out6: sim.solver.Ports.Port_Material
+Out_Decant: sim.solver.Ports.Port_Material
+InQ0: sim.solver.Ports.Port_Energy
+Basis: Basis = Volume
+CalcPressureMode: CalcPressureMode = 1
+CalcTemperatureMode: CalcTemperatureMode = 2
+CalcTemperatureModeDecant: CalcTemperatureModeDecant = 1
+CutShifts: CutShifts = 2
+DisplayBasis: DisplayBasis = Mole
+DisplayDistCrvType: DisplayDistCrvType = TBP
+DistCrvType: DistCrvType = TBP
+HasWaterDraw: HasWaterDraw = 1
+HoldSolution: HoldSolution = False
+Ignored: Ignored = None
+NumberOfCuts: NumberOfCuts = 7
+NumberOfFeeds: NumberOfFeeds = 1
+NumberOfProducts: NumberOfProducts = 0
+SortCurves: SortCurves = 0
+SplitMethod: SplitMethod = 0
+WaterHandlingGlobal: WaterHandlingGlobal = 8

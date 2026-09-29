@@ -1,0 +1,20 @@
+# FractionationUnit = Plants.FractionationUnit()
+
+## /X
+Operation: X = sim.unitop.Plants.FractionationUnit
+Status: Not Solved
+Port: BtmLiq = MatPort (Btm Liq)
+Port: In0 = MatPort (Feed 1)
+Port: TopVap = MatPort (Top Vap)
+Param: Ignored = None
+Param: NuFeeds (Number of Feeds) = 1
+Param: NuSplits (Number of Splits) = 1
+
+## dir /X
+
+In0: sim.solver.Ports.Port_Material
+TopVap: sim.solver.Ports.Port_Material
+BtmLiq: sim.solver.Ports.Port_Material
+Ignored: Ignored = None
+NuFeeds: NuFeeds = 1
+NuSplits: NuSplits = 1

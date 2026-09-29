@@ -1,0 +1,20 @@
+# AminePlant = Plants.AminePlant()
+
+## /X
+Operation: X = sim.unitop.Plants.AminePlant
+Status: Not Solved
+Port: Feed = MatPort (Sour Gas)
+Port: GasAcid = MatPort (Acid Gas)
+Port: GasProd = MatPort (Sales Gas)
+Port: Makeup = MatPort
+Param: Ignored = None
+Param: NuSplits (Number of Splits) = 1
+
+## dir /X
+
+Feed: sim.solver.Ports.Port_Material
+Makeup: sim.solver.Ports.Port_Material
+GasProd: sim.solver.Ports.Port_Material
+GasAcid: sim.solver.Ports.Port_Material
+Ignored: Ignored = None
+NuSplits: NuSplits = 1

@@ -117,10 +117,15 @@ def build_archive(skill_dir: Path, files: list[Path]) -> bytes:
 
 PROGRAM_NAMES = {
     "mathcad13": "Mathcad 13",
+    "simulink": "Simulink",
+    "symmetry": "Symmetry",
     "unimod-pro-trei": "Unimod Pro 2",
     "fsa-gost": "Visio (ФСА ГОСТ)",
     "tau-labs": "ТАУ лабы",
     "tau3": "ТАУ-3",
+    "c-core": "Язык C (микроконтроллеры)",
+    "embedded-c": "Язык C (микроконтроллеры)",
+    "esp8266-pio": "Язык C (микроконтроллеры)",
 }
 
 

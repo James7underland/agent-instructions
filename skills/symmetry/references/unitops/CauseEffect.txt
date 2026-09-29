@@ -1,0 +1,30 @@
+# CauseEffect = CauseEffect.CauseEffectOp()
+
+## /X
+Operation: X = sim.unitop.CauseEffect.CauseEffectOp
+Status: Not Solved
+Port: CauseVar_0 = SigPort
+Port: CauseVar_1 = SigPort
+Port: CauseVar_2 = SigPort
+Port: MaxVal_0 = SigPort
+Port: MaxVal_1 = SigPort
+Port: MaxVal_2 = SigPort
+Port: MinVal_0 = SigPort
+Port: MinVal_1 = SigPort
+Port: MinVal_2 = SigPort
+Param: HideConnections (Hide PFD Connections) = 0
+Param: Ignored = None
+
+## dir /X
+
+CauseVar_0: sim.solver.Ports.Port_Signal
+CauseVar_1: sim.solver.Ports.Port_Signal
+CauseVar_2: sim.solver.Ports.Port_Signal
+MinVal_0: sim.solver.Ports.Port_Signal
+MinVal_1: sim.solver.Ports.Port_Signal
+MinVal_2: sim.solver.Ports.Port_Signal
+MaxVal_0: sim.solver.Ports.Port_Signal
+MaxVal_1: sim.solver.Ports.Port_Signal
+MaxVal_2: sim.solver.Ports.Port_Signal
+HideConnections: HideConnections = False
+Ignored: Ignored = None

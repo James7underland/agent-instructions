@@ -1,4 +1,4 @@
-﻿# files total=436 v20=214 parse_errors=0
+# files total=436 v20=214 parse_errors=0
 ## top-level children: ws:metadata=214, ws:settings=214, ws:regions=214, ws:binaryContent=214
 ## region kinds
 - ws:text = 6006   [qsheet\Applications\inelastic.xmcd]

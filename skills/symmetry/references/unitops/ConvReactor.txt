@@ -1,0 +1,99 @@
+# ConvReactor = ConvRxn.ConvReactor("SimultaneousRxn = 0")
+
+## /X
+Operation: X = sim.unitop.ConvRxn.ConvReactor
+Status: Not Solved
+Port: CrownHeight = SigPort (Crown Height)
+Port: CrownRadius = SigPort (Crown Radius)
+Port: DeltaP = SigPort (Delta P)
+Port: Diameter = SigPort
+Port: Elev = SigPort (Elevation)
+Port: ExpLiq0Level = SigPort (Expanded Level)
+Port: ExpLiq0Level% = SigPort (Expanded Percent Level)
+Port: ExpLiq1Level = SigPort (Heavy Liq Exp Lev)
+Port: ExpLiq1Level% = SigPort (Heavy Liq Exp % Lev)
+Port: HRat = SigPort (Head Axis Ratio)
+Port: In = MatPort
+Port: KnuckleHeight = SigPort (Knuckle Height)
+Port: KnuckleRadius = SigPort (Knuckle Radius)
+Port: Length = SigPort
+Port: LevelSP = SigPort (Level SP)
+Port: Liq0Level = SigPort (Level)
+Port: Liq0Level% = SigPort (Percent Level)
+Port: Liq1Level = SigPort (Heavy Liq Level)
+Port: Liq1Level% = SigPort (Heavy Liq % Level)
+Port: Out = MatPort
+Port: OutQ = EnePort (/X.EneStream.Out)
+Port: OutT = SigPort (Outlet T)
+Port: SphericalLimit = SigPort (Spherical Limit)
+Port: Thickness = SigPort
+Port: Volume = SigPort
+Child: BalEneSensor = sim.unitop.Sensor.EnergySensor
+Child: EneBalance = sim.unitop.Balance.BalanceOp
+Child: EneSensor = sim.unitop.Sensor.EnergySensor
+Child: EneStream = sim.unitop.Stream.Stream_Energy
+Child: IsoRxn = sim.unitop.ConvRxn.IsothermalConvReactor
+Child: RxnHeater = sim.unitop.Heater.Heater
+Param: AddSolPort (Add Solid Port) = 0
+Param: HTCorr (Inner HT Corr) = Constant
+Param: HeadDesign (Head Design) = Ellipsoidal
+Param: HeatLossCalcType (Heat Loss Calc Type) = None
+Param: Ignored = None
+Param: NuLiqPorts (Liquid Ports) = 1
+Param: NumberRxn (Number of Rxn) = 0
+Param: Orientation = Horizontal
+Param: OutHTCorr (Outer HT Corr) = Constant
+Param: QExothermicIsPositive (Q Exothermic Is Positive) = 1
+Param: ReactionPhase (Reaction Phase) = Vapour
+(InternalVal = 0)
+Param: SimultaneousRxn (Simultaneous Reactions) = 0
+Param: SplitPhases (Split Phases) = 0
+Param: Void_Frac_Calc_Type (Void Frac Calc Type) = Simple
+
+## dir /X
+
+BalEneSensor: BalEneSensor = sim.unitop.Sensor.EnergySensor
+EneBalance: EneBalance = sim.unitop.Balance.BalanceOp
+EneSensor: EneSensor = sim.unitop.Sensor.EnergySensor
+EneStream: EneStream = sim.unitop.Stream.Stream_Energy
+IsoRxn: IsoRxn = sim.unitop.ConvRxn.IsothermalConvReactor
+RxnHeater: RxnHeater = sim.unitop.Heater.Heater
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+Diameter: sim.solver.Ports.Port_Signal
+CrownRadius: sim.solver.Ports.Port_Signal
+KnuckleRadius: sim.solver.Ports.Port_Signal
+Thickness: sim.solver.Ports.Port_Signal
+SphericalLimit: sim.solver.Ports.Port_Signal
+KnuckleHeight: sim.solver.Ports.Port_Signal
+CrownHeight: sim.solver.Ports.Port_Signal
+LevelSP: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+Liq0Level: sim.solver.Ports.Port_Signal
+Liq1Level: sim.solver.Ports.Port_Signal
+Liq0Level%: sim.solver.Ports.Port_Signal
+Liq1Level%: sim.solver.Ports.Port_Signal
+ExpLiq0Level: sim.solver.Ports.Port_Signal
+ExpLiq1Level: sim.solver.Ports.Port_Signal
+ExpLiq0Level%: sim.solver.Ports.Port_Signal
+ExpLiq1Level%: sim.solver.Ports.Port_Signal
+HRat: sim.solver.Ports.Port_Signal
+OutT: sim.solver.Ports.Port_Signal
+AddSolPort: AddSolPort = 0
+HTCorr: HTCorr = Constant
+HeadDesign: HeadDesign = Ellipsoidal
+HeatLossCalcType: HeatLossCalcType = None
+Ignored: Ignored = None
+NuLiqPorts: NuLiqPorts = 1
+NumberRxn: NumberRxn = 0
+Orientation: Orientation = Horizontal
+OutHTCorr: OutHTCorr = Constant
+QExothermicIsPositive: QExothermicIsPositive = 1
+ReactionPhase: ReactionPhase = 0
+SimultaneousRxn: SimultaneousRxn = 0
+SplitPhases: SplitPhases = False
+Void_Frac_Calc_Type: Void_Frac_Calc_Type = Simple

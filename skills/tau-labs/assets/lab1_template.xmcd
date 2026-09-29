@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?validation-md5-digest 4c57e26049ddd6258e5141da09250280?>
 <worksheet version="2.0.2" xmlns="http://schemas.mathsoft.com/worksheet20" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ws="http://schemas.mathsoft.com/worksheet20" xmlns:ml="http://schemas.mathsoft.com/math20" xmlns:u="http://schemas.mathsoft.com/units10" xmlns:p="http://schemas.mathsoft.com/provenance10">
 	<metadata>
 		<generator>Mathcad Professional 13.0</generator>
 		<userData>
 			<title/>
 			<description/>
-			<author>vi121791@gmail.com</author>
+			<author/>
 			<company/>
 			<keywords/>
-			<revisedBy>Kostya1</revisedBy>
+			<revisedBy/>
 		</userData>
 		<identityInfo>
 			<revision>9</revision>
-			<documentID>5186216f-01c4-492a-aa51-1aaeb5aa8bc3</documentID>
-			<versionID>6965c2d6-0911-4dea-a0ff-8d706469df9a</versionID>
+			<documentID>d5fbcf56-51d3-4f26-b48b-b86a6390b08d</documentID>
+			<versionID>83399611-0f01-4a4c-9338-c38cba9828b7</versionID>
 			<parentVersionID>00000000-0000-0000-0000-000000000000</parentVersionID>
 			<branchID>00000000-0000-0000-0000-000000000000</branchID>
 		</identityInfo>

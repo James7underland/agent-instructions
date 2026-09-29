@@ -1,0 +1,112 @@
+# MultiSidedHeatExchanger = Heater.MultiSidedHeatExchangerOp("NumberSegments = 5; DeltaP0.DP = None; DeltaP1.DP = None")
+
+## /X
+Operation: X = sim.unitop.Heater.MultiSidedHeatExchangerOp
+Status: Not Solved
+Port: CompositeAppT_AppT = SigPort (Overall App T)
+Port: DeltaP0 = SigPort (/X.side0.DeltaP)
+Port: DeltaP1 = SigPort (/X.side1.DeltaP)
+Port: DeltaT0 = SigPort (/X.side0.DeltaT)
+Port: DeltaT0_1_In = SigPort (Delta T (In0 - Out1)) (/X.heatTransfer0_1.DeltaT_In)
+Port: DeltaT0_1_Out = SigPort (Delta T (Out0 - In1)) (/X.heatTransfer0_1.DeltaT_Out)
+Port: DeltaT1 = SigPort (/X.side1.DeltaT)
+Port: EnergyLost_0_Var = SigPort (In0-Out0 Duty)
+Port: EnergyLost_1_Var = SigPort (In1-Out1 Duty)
+Port: In0 = MatPort (/X.side0.In)
+Port: In1 = MatPort (/X.side1.In)
+Port: Out0 = MatPort (/X.side0.Out)
+Port: Out1 = MatPort (/X.side1.Out)
+Port: OverallDuty_Var = SigPort (Overall Duty)
+Port: OverallUA_Var = SigPort (Overall UA)
+Port: UA0_1 = SigPort (UA) (/X.heatTransfer0_1.UA)
+Port: UA_0_Var = SigPort (In0-Out0 UA)
+Port: UA_1_Var = SigPort (In1-Out1 UA)
+Child: heatTransfer0_1 = sim.unitop.Heater._HeatTransfer
+Child: side0 = sim.unitop.Heater._Side
+Child: side1 = sim.unitop.Heater._Side
+Param: ActProfType (Active Profile) = All
+Param: AvRatingEngines = NoRating VMGSim HTRI
+Param: AvSolutionMethods = NewtonRaphson Secant Broyden
+Param: BaseForSegments (Base For Segments) = Energy
+Param: DampingFactor (Damping Factor) = 1.0
+Param: FreqJacobianMsg (Freq Jacobian Msg) = 10
+Param: Ignored = None
+Param: IsCounterCurrent0 (CounterCurrent0) = 0
+Param: IsCounterCurrent1 (CounterCurrent1) = 1
+Param: KeepRatingResults = 1
+Param: LayerCalc (Layer Calc. Mode) = Detailed
+Param: MaxError (Max Error) = 1e-05
+Param: MaxNumIterations (Max Num Iterations) = 100
+Param: MinimizeError (Minimize Error) = 1
+Param: MonitorConvergence (Monitor Convergence) = 1
+Param: NumberSegments (Number of Segments) = 5
+Param: NumberSides (Number of Sides) = 2
+Param: RatingEngine (Rating Engine) = No Rating
+(InternalVal = NoRating)
+Param: ReTryOnFailure = 0
+Param: ReferenceName_0 = 0
+Param: ReferenceName_1 = 1
+Param: ReferenceSide (Reference Side) = In0-Out0
+(InternalVal = 0)
+Param: SolutionMethod (Solution Method) = NewtonRaphson
+Param: TrackPhaseChange (Track Phase Change) = 0
+Param: TryLastConverged (Try Last Converged) = 1
+Param: TryToRestart (Try To Restart) = 0
+Param: UseCompVars (Use Composite Vars) = 1
+Param: UseSideDuties = 1
+Param: UseSideToCompUA (Use SideToComposite UA) = 1
+Param: UseSideToSideUA = 1
+
+## dir /X
+
+heatTransfer0_1: heatTransfer0_1 = sim.unitop.Heater._HeatTransfer
+side0: side0 = sim.unitop.Heater._Side
+side1: side1 = sim.unitop.Heater._Side
+In0: sim.solver.Ports.Port_Material
+In1: sim.solver.Ports.Port_Material
+Out0: sim.solver.Ports.Port_Material
+Out1: sim.solver.Ports.Port_Material
+CompositeAppT_AppT: sim.solver.Ports.Port_Signal
+OverallUA_Var: sim.solver.Ports.Port_Signal
+OverallDuty_Var: sim.solver.Ports.Port_Signal
+DeltaP0: sim.solver.Ports.Port_Signal
+DeltaT0: sim.solver.Ports.Port_Signal
+DeltaP1: sim.solver.Ports.Port_Signal
+DeltaT1: sim.solver.Ports.Port_Signal
+UA0_1: sim.solver.Ports.Port_Signal
+DeltaT0_1_In: sim.solver.Ports.Port_Signal
+DeltaT0_1_Out: sim.solver.Ports.Port_Signal
+UA_0_Var: sim.solver.Ports.Port_Signal
+UA_1_Var: sim.solver.Ports.Port_Signal
+EnergyLost_0_Var: sim.solver.Ports.Port_Signal
+EnergyLost_1_Var: sim.solver.Ports.Port_Signal
+ActProfType: ActProfType = All
+AvRatingEngines: AvRatingEngines = NoRating VMGSim HTRI
+AvSolutionMethods: AvSolutionMethods = NewtonRaphson Secant Broyden
+BaseForSegments: BaseForSegments = Energy
+DampingFactor: DampingFactor = 1.0
+FreqJacobianMsg: FreqJacobianMsg = 10
+Ignored: Ignored = None
+IsCounterCurrent0: IsCounterCurrent0 = False
+IsCounterCurrent1: IsCounterCurrent1 = True
+KeepRatingResults: KeepRatingResults = 1
+LayerCalc: LayerCalc = Detailed
+MaxError: MaxError = 1e-05
+MaxNumIterations: MaxNumIterations = 100
+MinimizeError: MinimizeError = True
+MonitorConvergence: MonitorConvergence = 1
+NumberSegments: NumberSegments = 5
+NumberSides: NumberSides = 2
+RatingEngine: RatingEngine = NoRating
+ReTryOnFailure: ReTryOnFailure = 0
+ReferenceName_0: ReferenceName_0 = 0
+ReferenceName_1: ReferenceName_1 = 1
+ReferenceSide: ReferenceSide = 0
+SolutionMethod: SolutionMethod = NewtonRaphson
+TrackPhaseChange: TrackPhaseChange = 0
+TryLastConverged: TryLastConverged = True
+TryToRestart: TryToRestart = False
+UseCompVars: UseCompVars = 1
+UseSideDuties: UseSideDuties = 1
+UseSideToCompUA: UseSideToCompUA = 1
+UseSideToSideUA: UseSideToSideUA = 1

@@ -24,7 +24,7 @@
 
 Qt отдаёт дерево **UI Automation** (в `platforms/qwindows.dll` есть
 `QWindowsUiaMainProvider`), поэтому элементы адресуются по имени, а не по
-координатам. Скрипты — в `scripts/ui/`.
+координатам. Скрипты — в `assets/scripts/ui/`.
 
 | Скрипт | Что делает |
 |---|---|
@@ -670,7 +670,7 @@ Send-UmKeys "{ENTER}" 2000
 
 ### Как рисовать схему (проверено 2026-09-12, пересмотрено 2026-09-13)
 
-Всё, что ниже, автоматизировано в `scripts/ui/fbd_lib.ps1`
+Всё, что ниже, автоматизировано в `assets/scripts/ui/fbd_lib.ps1`
 (`Invoke-FbdPlace`, `Invoke-FbdLink`, `Set-FbdMode`, `Save-FbdProject`) и
 `fbd_do.ps1`. Геометрия, механика кликов и таблица симптомов — в
 `fbd-guide.md` → «Мышь: `fbd_lib.ps1`». Здесь — что происходит в редакторе.
@@ -1554,7 +1554,7 @@ Win32-активация окна и `{ENTER}`. Ключи в `usr.cfg`: `siemIs
 
 **Открытие защищённого проекта** — окно **«Введите учетные данные»** поверх
 заставки: «Имя пользователя», «Пароль», «Вход» (по умолчанию) / «Отмена».
-Открывать только `scripts/unimod_open_secure.ps1`:
+Открывать только `assets/scripts/unimod_open_secure.ps1`:
 
 ```powershell
 .\unimod_open_secure.ps1 -Project <каталог> -Exe <Unimod.exe>                      # только дойти до окна входа

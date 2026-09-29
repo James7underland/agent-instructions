@@ -1,0 +1,8 @@
+# HoneyCombeDehumidifier = Desiccant.DehumidifierInterface()
+# ERRORS: No valid license for unit operation 'Desiccant.DehumidifierInterface()'
+
+## /X
+None
+
+## dir /X
+

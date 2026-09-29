@@ -1,0 +1,108 @@
+# PFR = KineticReactor.PFR("NumberSections = 10; Roughness = 0.045 mm")
+
+## /X
+Operation: X = sim.unitop.KineticReactor.PFR
+Status: Not Solved
+Port: BedDensity = SigPort (Bed Density)
+Port: BedVoidFraction = SigPort (Bed Void Fraction)
+Port: CatalystActivity = SigPort (Catalyst Activity)
+Port: CatalystAspectRatio = SigPort (Aspect Ratio)
+Port: CatalystDensity = SigPort (Density)
+Port: CatalystDiameter = SigPort (Diameter)
+Port: CatalystHollowID = SigPort (Hollow ID)
+Port: CatalystThermalConductivity = SigPort (Thermal Conductivity)
+Port: DeltaP = SigPort (Delta P)
+Port: Diameter = SigPort (Inner Diameter)
+Port: Elev = SigPort (Elevation)
+Port: Elevation0 = SigPort (Elevation 0)
+Port: Elevation1 = SigPort (Elevation 1)
+Port: ExternalT = SigPort (External T)
+Port: In = MatPort
+Port: Length = SigPort
+Port: Out = MatPort
+Port: OutQ = EnePort
+Port: OuterDiameter = SigPort (Outer Diameter)
+Port: Roughness = SigPort
+Port: U = SigPort
+Port: Volume = SigPort
+Param: AvSolutionMethods = Euler EulerImplicit RungeKutta4
+Param: CalcDP (Calculate Pressure Drop) = 0
+Param: CatalystGeometry (Catalyst Shape) = Cylinder
+Param: CatalystPack (Packing) = Average
+Param: CustomEquationUnitSet = sim42
+Param: DampingFactor (Damping Factor) = 1.0
+Param: FreqJacobianMsg (Freq Jacobian Msg) = 10
+Param: HTCorr (Inner HT Corr) = Constant
+Param: HeatLossCalcTypeGbl (Heat Loss Calc Type) = Simple
+Param: Ignored = None
+Param: MaxError (Max Error) = 1e-05
+Param: MaxNumIterations (Max Num Iterations) = 20
+Param: MinOutP (Min Outlet P [kPa]) = 50.0
+Param: MinimizeError (Minimize Error) = 1
+Param: MonitorConvergence (Monitor Convergence) = 0
+Param: NumberRxn (Number of Rxn) = 0
+Param: NumberSections (Number of Sections) = 10
+Param: OutHTCorr (Outer HT Corr) = Constant
+Param: OutTempSource (Outside Data) = Specify
+Param: PressureDropCorrelation (Pressure Drop Correlation) = Colebrook
+Param: ReTryOnFailure = 0
+Param: ReactionPhase (Reaction Phase) = Overall
+(InternalVal = 6)
+Param: ReactionType = KineticReaction
+Param: SolutionMethod (Solution Method) = EulerImplicit
+Param: SystemPhase (System Phase) = Overall
+(InternalVal = 6)
+Param: TryLastConverged (Try Last Converged) = 1
+Param: TryToRestart (Try To Restart) = 0
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+Diameter: sim.solver.Ports.Port_Signal
+OuterDiameter: sim.solver.Ports.Port_Signal
+U: sim.solver.Ports.Port_Signal
+ExternalT: sim.solver.Ports.Port_Signal
+Roughness: sim.solver.Ports.Port_Signal
+Elevation0: sim.solver.Ports.Port_Signal
+Elevation1: sim.solver.Ports.Port_Signal
+CatalystHollowID: sim.solver.Ports.Port_Signal
+BedDensity: sim.solver.Ports.Port_Signal
+CatalystDiameter: sim.solver.Ports.Port_Signal
+CatalystAspectRatio: sim.solver.Ports.Port_Signal
+CatalystActivity: sim.solver.Ports.Port_Signal
+CatalystDensity: sim.solver.Ports.Port_Signal
+CatalystThermalConductivity: sim.solver.Ports.Port_Signal
+BedVoidFraction: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+AvSolutionMethods: AvSolutionMethods = Euler EulerImplicit RungeKutta4
+CalcDP: CalcDP = 0
+CatalystGeometry: CatalystGeometry = Cylinder
+CatalystPack: CatalystPack = Average
+CustomEquationUnitSet: CustomEquationUnitSet = sim42
+DampingFactor: DampingFactor = 1.0
+FreqJacobianMsg: FreqJacobianMsg = 10
+HTCorr: HTCorr = Constant
+HeatLossCalcTypeGbl: HeatLossCalcTypeGbl = Simple
+Ignored: Ignored = None
+MaxError: MaxError = 1e-05
+MaxNumIterations: MaxNumIterations = 20
+MinOutP: MinOutP = 50.0
+MinimizeError: MinimizeError = True
+MonitorConvergence: MonitorConvergence = False
+NumberRxn: NumberRxn = 0
+NumberSections: NumberSections = 10
+OutHTCorr: OutHTCorr = Constant
+OutTempSource: OutTempSource = Specify
+PressureDropCorrelation: PressureDropCorrelation = Colebrook
+ReTryOnFailure: ReTryOnFailure = 0
+ReactionPhase: ReactionPhase = 6
+ReactionType: ReactionType = KineticReaction
+SolutionMethod: SolutionMethod = EulerImplicit
+SystemPhase: SystemPhase = 6
+TryLastConverged: TryLastConverged = True
+TryToRestart: TryToRestart = False

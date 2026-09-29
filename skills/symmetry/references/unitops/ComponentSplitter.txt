@@ -1,0 +1,62 @@
+# ComponentSplitter = ComponentSplitter.ComponentSplitter(DefaultSplit = 1.0)
+
+## /X
+Operation: X = sim.unitop.ComponentSplitter.ComponentSplitter
+Status: Not Solved
+Port: Btm_T = SigPort (Bottom T)
+Port: Btm_VapFrac = SigPort (Bottom VapFrac)
+Port: DefaultSplit = SigPort (Default Split)
+Port: DeltaP = SigPort (Delta P)
+Port: ETHANE_Split = SigPort
+Port: In0 = MatPort
+Port: InQ0 = EnePort
+Port: METHANE_Split = SigPort
+Port: Out0 = MatPort
+Port: Out1 = MatPort
+Port: Ovhd_T = SigPort (Overhead T)
+Port: Ovhd_VapFrac = SigPort (Overhead VapFrac)
+Port: PROPANE_Split = SigPort
+Port: Volume = SigPort
+Port: WATER_Split = SigPort
+Port: n-BUTANE_Split = SigPort
+Port: n-PENTANE_Split = SigPort
+Child: FeedBalance = sim.unitop.Balance.BalanceOp
+Child: Splitter = sim.unitop.ComponentSplitter.SimpleComponentSplitter
+Param: AvCalcPressureModes = DontCalculate LowestPInOutlet AllPEqual
+Param: AvCalcTemperatureModes = FromBalance AllTEqual
+Param: CalcPressureMode (Calc P Mode) = Don't Calculate
+(InternalVal = DontCalculate)
+Param: CalcTemperatureMode (Calc T Mode) = From Balance
+(InternalVal = FromBalance)
+Param: Ignored = None
+Param: NumberStreamsInEne (Energy Inlets) = 1
+Param: NumberStreamsInMat (Inlets) = 1
+
+## dir /X
+
+FeedBalance: FeedBalance = sim.unitop.Balance.BalanceOp
+Splitter: Splitter = sim.unitop.ComponentSplitter.SimpleComponentSplitter
+In0: sim.solver.Ports.Port_Material
+Out0: sim.solver.Ports.Port_Material
+Out1: sim.solver.Ports.Port_Material
+InQ0: sim.solver.Ports.Port_Energy
+DefaultSplit: sim.solver.Ports.Port_Signal
+DeltaP: sim.solver.Ports.Port_Signal
+Ovhd_T: sim.solver.Ports.Port_Signal
+Btm_T: sim.solver.Ports.Port_Signal
+Ovhd_VapFrac: sim.solver.Ports.Port_Signal
+Btm_VapFrac: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+METHANE_Split: sim.solver.Ports.Port_Signal
+ETHANE_Split: sim.solver.Ports.Port_Signal
+PROPANE_Split: sim.solver.Ports.Port_Signal
+n-BUTANE_Split: sim.solver.Ports.Port_Signal
+n-PENTANE_Split: sim.solver.Ports.Port_Signal
+WATER_Split: sim.solver.Ports.Port_Signal
+AvCalcPressureModes: AvCalcPressureModes = DontCalculate LowestPInOutlet AllPEqual
+AvCalcTemperatureModes: AvCalcTemperatureModes = FromBalance AllTEqual
+CalcPressureMode: CalcPressureMode = DontCalculate
+CalcTemperatureMode: CalcTemperatureMode = FromBalance
+Ignored: Ignored = None
+NumberStreamsInEne: NumberStreamsInEne = 1
+NumberStreamsInMat: NumberStreamsInMat = 1

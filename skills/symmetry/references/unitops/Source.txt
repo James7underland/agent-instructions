@@ -1,0 +1,14 @@
+# Source = Node.Source()
+
+## /X
+Operation: X = sim.unitop.Node.Source
+Status: Not Solved
+Port: Source = MatPort
+Param: ExtTearDataSize = 0
+Param: Ignored = None
+
+## dir /X
+
+Source: sim.solver.Ports.Port_Material
+ExtTearDataSize: ExtTearDataSize = 0
+Ignored: Ignored = None

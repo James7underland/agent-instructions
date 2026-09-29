@@ -1,0 +1,22 @@
+# Burner = EthyleneCracker.Burner()
+
+## /X
+Operation: X = vmgsim.unitop.EthyleneCracker.Burner
+Status: Not Solved
+Port: FlueGasOut = MatPort (Exhaust)
+Port: FuelIn = MatPort (Fuel)
+Port: HeatLoss = EnePort (Heat Loss)
+Port: OxidantIn = MatPort (Oxidant)
+Param: Ignored = None
+Param: IncShift (Include Shift) = 0
+Param: SpecDB (Dry Basis) = 1
+
+## dir /X
+
+FuelIn: sim.solver.Ports.Port_Material
+OxidantIn: sim.solver.Ports.Port_Material
+FlueGasOut: sim.solver.Ports.Port_Material
+HeatLoss: sim.solver.Ports.Port_Energy
+Ignored: Ignored = None
+IncShift: IncShift = 0
+SpecDB: SpecDB = 1

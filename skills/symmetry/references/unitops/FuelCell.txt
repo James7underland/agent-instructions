@@ -1,0 +1,306 @@
+# FuelCell = VCM.FuelCell()
+
+## /X
+Operation: X = vmgsim.unitop.VCM.FuelCell
+Status: Not Solved
+Port: 12DichloroethaneYield = SigPort (1,2-Dichloroethane Mass Yield)
+Port: AcetyleneYield = SigPort (Acetylene Mass Yield)
+Port: AmbientHeatLoss = EnePort (Ambient Heat Loss)
+Port: AnodeCustElecResis = SigPort (Anode Resistance [Ohm-m])
+Port: AnodeCustThermCond = SigPort (Anode Conductivity)
+Port: AnodeThickness = SigPort (Anode Thickness)
+Port: AvgCurrentDens = SigPort (Avg Current Density [A/cm2])
+Port: AvgLayerT = SigPort (Layer Temperature)
+Port: BedDensity = SigPort (Bed Density)
+Port: BedVoidFraction = SigPort (Bed Void)
+Port: CatalystActivity = SigPort (Catalyst Activity)
+Port: CatalystAspectRatio = SigPort (Catalyst Aspect Ratio)
+Port: CatalystDensity = SigPort (Particle Density)
+Port: CatalystDiameter = SigPort (Catalyst Diameter)
+Port: CatalystHollowID = SigPort (Catalyst Hollow ID)
+Port: CatalystThermalConductivity = SigPort (Catalyst Thermal Cond)
+Port: CathodeCustElecResis = SigPort (Cathode Resistance [Ohm-m])
+Port: CathodeCustThermCond = SigPort (Cathode Conductivity)
+Port: CathodeThickness = SigPort (Cathode Thickness)
+Port: ChannelDepth = SigPort (Channel Depth)
+Port: ChannelWidth = SigPort (Channel Width)
+Port: Conversion = SigPort (CH4 Conversion)
+Port: CurveCurrentDens = SigPort (Current Density [A/cm2])
+Port: CurveTemperature = SigPort (Temperature)
+Port: CurveVoltAtTCur = SigPort (Resulting Voltage)
+Port: ElectrolyteCustElecResis = SigPort (Electrolyte Resistance [Ohm-m])
+Port: ElectrolyteCustThermCond = SigPort (Electrolyte Conductivity)
+Port: ElectrolyteThickness = SigPort (Electrolyte Thickness)
+Port: FinHeight = SigPort (Fin Height)
+Port: FinSpacing = SigPort (Fin Spacing)
+Port: FinThickness = SigPort (Fin Thickness)
+Port: FlueGasEmissivity = SigPort (Utility Emissivity)
+Port: FoulingFactor = SigPort (Fouling Factor)
+Port: FuelCellEff = SigPort (Fuel Cell Efficiency)
+Port: FuelCellV = SigPort (Fuel Cell Voltage)
+Port: FurnaceDP = SigPort (Utility Pressure Drop)
+Port: FurnaceDepth = SigPort (Cell Depth)
+Port: FurnaceDiameter = SigPort (Cell Diameter)
+Port: FurnaceExchange = SigPort (Cell Exchange)
+Port: FurnaceViewFactor = SigPort (View Factor)
+Port: FurnaceWidth = SigPort (Cell Width)
+Port: HydrogenChlorideYield = SigPort (Hydrogen Chloride Mass Yield)
+Port: IVcoeffA = SigPort (I vs V coeffA)
+Port: IVcoeffB1 = SigPort (I vs V coeffB1)
+Port: IVcoeffB2 = SigPort (I vs V coeffB2)
+Port: IVcoeffC = SigPort (I vs V coeffC)
+Port: IVcoeffD1 = SigPort (I vs V coeffD1)
+Port: IVcoeffD2 = SigPort (I vs V coeffD2)
+Port: IVcoeffTA = SigPort (I vs V coeffA_T)
+Port: IVcoeffTB1 = SigPort (I vs V coeffB1_T)
+Port: IVcoeffTB2 = SigPort (I vs V coeffB2_T)
+Port: IVcoeffTC = SigPort (I vs V coeffC_T)
+Port: IVcoeffTD1 = SigPort (I vs V coeffD1_T)
+Port: IVcoeffTD2 = SigPort (I vs V coeffD2_T)
+Port: In = MatPort
+Port: InnerDiameter = SigPort (Tube Inside Diameter)
+Port: Length = SigPort
+Port: MaximumTemperature = SigPort (Maximum Temperature)
+Port: MultA0 = SigPort (Mult A0)
+Port: MultA1 = SigPort (Mult A1)
+Port: MultA10 = SigPort (Mult A10)
+Port: MultA11 = SigPort (Mult A11)
+Port: MultA12 = SigPort (A Boud-Fwd)
+Port: MultA13 = SigPort (A Boud-Back)
+Port: MultA14 = SigPort (A Sooting)
+Port: MultA15 = SigPort (A Steam)
+Port: MultA16 = SigPort (A Oxidize)
+Port: MultA2 = SigPort (A Reform-Fwd)
+Port: MultA3 = SigPort (A Reform-Back)
+Port: MultA4 = SigPort (A Shift-Fwd)
+Port: MultA5 = SigPort (A Shift-Back)
+Port: MultA6 = SigPort (kMass O2)
+Port: MultA7 = SigPort (kMass H2)
+Port: MultA8 = SigPort (Mult A8)
+Port: MultA9 = SigPort (Mult A9)
+Port: MultE0 = SigPort (Mult E0)
+Port: MultE1 = SigPort (Mult E1)
+Port: MultE10 = SigPort (Mult E10)
+Port: MultE11 = SigPort (Mult E11)
+Port: MultE12 = SigPort (E Boud-Fwd)
+Port: MultE13 = SigPort (E Boud-Back)
+Port: MultE14 = SigPort (E Sooting)
+Port: MultE15 = SigPort (E Steam)
+Port: MultE16 = SigPort (E Oxidize)
+Port: MultE2 = SigPort (E Reform-Fwd)
+Port: MultE3 = SigPort (E Reform-Back)
+Port: MultE4 = SigPort (E Shift-Fwd)
+Port: MultE5 = SigPort (E Shift-Back)
+Port: MultE6 = SigPort (DC coeffA)
+Port: MultE7 = SigPort (DC coeffB)
+Port: MultE8 = SigPort (Mult E8)
+Port: MultE9 = SigPort (Mult E9)
+Port: MultHTCIn = SigPort (Conv HTC)
+Port: MultHTCOut = SigPort (Conv HTC Utility)
+Port: NumberChannels = SigPort (Total Number Of Channels)
+Port: NumberRows = SigPort (Number Of Rows)
+Port: NumberTubes = SigPort (Total Number Of Tubes)
+Port: NumberUtilityChannels = SigPort (Number Of Utility Channels)
+Port: Out = MatPort
+Port: OuterDiameter = SigPort (Tube Outer Diameter)
+Port: OutletTemperature = SigPort (Outlet Temperature)
+Port: OverallU = SigPort (Overall U)
+Port: ProcessDP = SigPort (Process Pressure Drop)
+Port: ReactorVolume = SigPort (Reactor Volume)
+Port: Roughness = SigPort (Roughness Factor)
+Port: ShellFilmCoefficient = SigPort (Utility Side HTC)
+Port: SupportCustElecResis = SigPort (Support Resistance [Ohm-m])
+Port: SupportCustThermCond = SigPort (Support Conductivity)
+Port: SupportThickness = SigPort (Support Thickness)
+Port: SurfaceArea = SigPort (Exposed Surface Area)
+Port: TubeBendRadius = SigPort (Tube Bend Radius)
+Port: TubeEmissivity = SigPort (Tube Emissivity)
+Port: TubePasses = SigPort (Passes Per Tube)
+Port: UtilityChannelDepth = SigPort (Utility Channel Depth)
+Port: UtilityChannelWidth = SigPort (Utility Channel Width)
+Port: UtilityIn = MatPort
+Port: UtilityOut = MatPort
+Port: VinylChlorideYield = SigPort (Vinyl Chloride Mass Yield)
+Port: VoltageDC = EnePort (Cell Power DC)
+Param: Anode_Material_Type (Anode Material) = Nickel
+Param: CalcPressureMode (Utility DP Mode) = Calculated
+Param: CalcVoltage (Calculate Voltage) = 0
+Param: CatalystGeometry (Catalyst Shape) = Trilobe
+Param: CatalystPack (Packing) = Average
+Param: Cathode_Material_Type (Cathode Material) = LaMnO3
+Param: Electrolyte_Material_Type (Electrolyte Material) = ZrYO2 (YSZ)
+Param: ExchangeType (Exchange Type) = Tubular
+Param: Fin_Metal_Type (Fin Material) = Carbon_Steel
+Param: Fin_Type (Cell Fin Type) = No_Fins
+Param: HeatTransferModel (Flow Configuration) = Cross Rectangular
+(InternalVal = X-RectangularFurnace)
+Param: Ignored = None
+Param: IncludeCarbon (Include Carbon) = 0
+Param: PressureDropCorrelation (Process dP Correlation) = Laminar
+Param: ReactionModel (Fuel Cell Model) = SOFC
+Param: ReactionVersion (Reaction Version) = 2013
+(InternalVal = Version2013)
+Param: RxnSolver (Rxn Solver) = Kinetic
+Param: SolveLastConv (Solve From Last Conv) = 1
+Param: Solve_DampingFactor (Damping Factor) = 0.6
+Param: Solve_MaxNumIterations (Max Iterations) = 50
+Param: Solve_MinOutletPressure (Process Min Outlet P [kPa]) = 50.0
+Param: Solve_Segments (Zone Segments) = 1
+Param: Solve_SolutionMethod (Solution Method) = Adaptive
+Param: Solve_StiffTolerance (Stiff Tolerance) = 0.0001
+Param: Solve_Tolerance (Tolerance) = 0.0001
+Param: Solve_Zones (Reaction Zones) = 25
+Param: SolverType (Solver Type) = AutoSelect
+Param: Tube_Metal_Type (Support Material) = Carbon_Steel
+Param: VaporPhase (All Vapor Phase) = 1
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+UtilityIn: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+UtilityOut: sim.solver.Ports.Port_Material
+AmbientHeatLoss: sim.solver.Ports.Port_Energy
+VoltageDC: sim.solver.Ports.Port_Energy
+InnerDiameter: sim.solver.Ports.Port_Signal
+OuterDiameter: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+Roughness: sim.solver.Ports.Port_Signal
+NumberTubes: sim.solver.Ports.Port_Signal
+NumberRows: sim.solver.Ports.Port_Signal
+TubePasses: sim.solver.Ports.Port_Signal
+FurnaceWidth: sim.solver.Ports.Port_Signal
+FurnaceDepth: sim.solver.Ports.Port_Signal
+FurnaceDiameter: sim.solver.Ports.Port_Signal
+TubeBendRadius: sim.solver.Ports.Port_Signal
+ProcessDP: sim.solver.Ports.Port_Signal
+FurnaceDP: sim.solver.Ports.Port_Signal
+FoulingFactor: sim.solver.Ports.Port_Signal
+FurnaceViewFactor: sim.solver.Ports.Port_Signal
+TubeEmissivity: sim.solver.Ports.Port_Signal
+FlueGasEmissivity: sim.solver.Ports.Port_Signal
+FurnaceExchange: sim.solver.Ports.Port_Signal
+Conversion: sim.solver.Ports.Port_Signal
+OutletTemperature: sim.solver.Ports.Port_Signal
+MaximumTemperature: sim.solver.Ports.Port_Signal
+OverallU: sim.solver.Ports.Port_Signal
+ShellFilmCoefficient: sim.solver.Ports.Port_Signal
+HydrogenChlorideYield: sim.solver.Ports.Port_Signal
+VinylChlorideYield: sim.solver.Ports.Port_Signal
+AcetyleneYield: sim.solver.Ports.Port_Signal
+12DichloroethaneYield: sim.solver.Ports.Port_Signal
+FinHeight: sim.solver.Ports.Port_Signal
+FinThickness: sim.solver.Ports.Port_Signal
+FinSpacing: sim.solver.Ports.Port_Signal
+CatalystHollowID: sim.solver.Ports.Port_Signal
+BedDensity: sim.solver.Ports.Port_Signal
+CatalystDiameter: sim.solver.Ports.Port_Signal
+CatalystAspectRatio: sim.solver.Ports.Port_Signal
+CatalystActivity: sim.solver.Ports.Port_Signal
+CatalystDensity: sim.solver.Ports.Port_Signal
+CatalystThermalConductivity: sim.solver.Ports.Port_Signal
+BedVoidFraction: sim.solver.Ports.Port_Signal
+ReactorVolume: sim.solver.Ports.Port_Signal
+MultE0: sim.solver.Ports.Port_Signal
+MultE1: sim.solver.Ports.Port_Signal
+MultE2: sim.solver.Ports.Port_Signal
+MultE3: sim.solver.Ports.Port_Signal
+MultE4: sim.solver.Ports.Port_Signal
+MultE5: sim.solver.Ports.Port_Signal
+MultE6: sim.solver.Ports.Port_Signal
+MultE7: sim.solver.Ports.Port_Signal
+MultE8: sim.solver.Ports.Port_Signal
+MultE9: sim.solver.Ports.Port_Signal
+MultE10: sim.solver.Ports.Port_Signal
+MultE11: sim.solver.Ports.Port_Signal
+MultA0: sim.solver.Ports.Port_Signal
+MultA1: sim.solver.Ports.Port_Signal
+MultA2: sim.solver.Ports.Port_Signal
+MultA3: sim.solver.Ports.Port_Signal
+MultA4: sim.solver.Ports.Port_Signal
+MultA5: sim.solver.Ports.Port_Signal
+MultA6: sim.solver.Ports.Port_Signal
+MultA7: sim.solver.Ports.Port_Signal
+MultA8: sim.solver.Ports.Port_Signal
+MultA9: sim.solver.Ports.Port_Signal
+MultA10: sim.solver.Ports.Port_Signal
+MultA11: sim.solver.Ports.Port_Signal
+MultHTCIn: sim.solver.Ports.Port_Signal
+MultHTCOut: sim.solver.Ports.Port_Signal
+SurfaceArea: sim.solver.Ports.Port_Signal
+CathodeThickness: sim.solver.Ports.Port_Signal
+AnodeThickness: sim.solver.Ports.Port_Signal
+ElectrolyteThickness: sim.solver.Ports.Port_Signal
+SupportThickness: sim.solver.Ports.Port_Signal
+ChannelWidth: sim.solver.Ports.Port_Signal
+ChannelDepth: sim.solver.Ports.Port_Signal
+UtilityChannelWidth: sim.solver.Ports.Port_Signal
+UtilityChannelDepth: sim.solver.Ports.Port_Signal
+NumberChannels: sim.solver.Ports.Port_Signal
+NumberUtilityChannels: sim.solver.Ports.Port_Signal
+FuelCellEff: sim.solver.Ports.Port_Signal
+MultA12: sim.solver.Ports.Port_Signal
+MultA13: sim.solver.Ports.Port_Signal
+MultA14: sim.solver.Ports.Port_Signal
+MultA15: sim.solver.Ports.Port_Signal
+MultA16: sim.solver.Ports.Port_Signal
+MultE12: sim.solver.Ports.Port_Signal
+MultE13: sim.solver.Ports.Port_Signal
+MultE14: sim.solver.Ports.Port_Signal
+MultE15: sim.solver.Ports.Port_Signal
+MultE16: sim.solver.Ports.Port_Signal
+FuelCellV: sim.solver.Ports.Port_Signal
+AvgCurrentDens: sim.solver.Ports.Port_Signal
+AvgLayerT: sim.solver.Ports.Port_Signal
+CathodeCustThermCond: sim.solver.Ports.Port_Signal
+AnodeCustThermCond: sim.solver.Ports.Port_Signal
+SupportCustThermCond: sim.solver.Ports.Port_Signal
+ElectrolyteCustThermCond: sim.solver.Ports.Port_Signal
+CathodeCustElecResis: sim.solver.Ports.Port_Signal
+AnodeCustElecResis: sim.solver.Ports.Port_Signal
+SupportCustElecResis: sim.solver.Ports.Port_Signal
+ElectrolyteCustElecResis: sim.solver.Ports.Port_Signal
+IVcoeffA: sim.solver.Ports.Port_Signal
+IVcoeffB1: sim.solver.Ports.Port_Signal
+IVcoeffB2: sim.solver.Ports.Port_Signal
+IVcoeffC: sim.solver.Ports.Port_Signal
+IVcoeffD1: sim.solver.Ports.Port_Signal
+IVcoeffD2: sim.solver.Ports.Port_Signal
+IVcoeffTA: sim.solver.Ports.Port_Signal
+IVcoeffTB1: sim.solver.Ports.Port_Signal
+IVcoeffTB2: sim.solver.Ports.Port_Signal
+IVcoeffTC: sim.solver.Ports.Port_Signal
+IVcoeffTD1: sim.solver.Ports.Port_Signal
+IVcoeffTD2: sim.solver.Ports.Port_Signal
+CurveTemperature: sim.solver.Ports.Port_Signal
+CurveCurrentDens: sim.solver.Ports.Port_Signal
+CurveVoltAtTCur: sim.solver.Ports.Port_Signal
+Anode_Material_Type: Anode_Material_Type = Nickel
+CalcPressureMode: CalcPressureMode = Calculated
+CalcVoltage: CalcVoltage = 0
+CatalystGeometry: CatalystGeometry = Trilobe
+CatalystPack: CatalystPack = Average
+Cathode_Material_Type: Cathode_Material_Type = LaMnO3
+Electrolyte_Material_Type: Electrolyte_Material_Type = ZrYO2 (YSZ)
+ExchangeType: ExchangeType = Tubular
+Fin_Metal_Type: Fin_Metal_Type = Carbon_Steel
+Fin_Type: Fin_Type = No_Fins
+HeatTransferModel: HeatTransferModel = X-RectangularFurnace
+Ignored: Ignored = None
+IncludeCarbon: IncludeCarbon = 0
+PressureDropCorrelation: PressureDropCorrelation = Laminar
+ReactionModel: ReactionModel = SOFC
+ReactionVersion: ReactionVersion = Version2013
+RxnSolver: RxnSolver = Kinetic
+SolveLastConv: SolveLastConv = 1
+Solve_DampingFactor: Solve_DampingFactor = 0.6
+Solve_MaxNumIterations: Solve_MaxNumIterations = 50
+Solve_MinOutletPressure: Solve_MinOutletPressure = 50.0
+Solve_Segments: Solve_Segments = 1
+Solve_SolutionMethod: Solve_SolutionMethod = Adaptive
+Solve_StiffTolerance: Solve_StiffTolerance = 0.0001
+Solve_Tolerance: Solve_Tolerance = 0.0001
+Solve_Zones: Solve_Zones = 25
+SolverType: SolverType = AutoSelect
+Tube_Metal_Type: Tube_Metal_Type = Carbon_Steel
+VaporPhase: VaporPhase = 1

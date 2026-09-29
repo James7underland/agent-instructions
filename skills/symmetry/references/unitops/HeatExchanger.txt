@@ -1,0 +1,355 @@
+# HeatExchanger = Heater.HeatExchangerUA("NumberSegments = 5; AppT = Heater.TemperatureApproachVar(0,1) ; Q0 = Heater.EnergySideVar(0,1); DeltaP0.DP = None; DeltaP1.DP = None")
+
+## /X
+Operation: X = sim.unitop.Heater.HeatExchangerUA
+Status: Not Solved
+Port: AreaOverdesign = SigPort (Area Overdesign)
+Port: AverageWallT = SigPort (Average Wall Temperature)
+Port: BaffleCut = SigPort (Baffle Cut (fraction))
+Port: BafflePitch = SigPort (Baffle Pitch)
+Port: BaffleThickness = SigPort (Baffle Thickness)
+Port: BaffleToBendSpacing = SigPort (Baffle to bend spacing)
+Port: BoilingRoughness = SigPort (Boiling Roughness)
+Port: Bundle_Shell_Radial_Clearance = SigPort (Bundle Radial Clearance)
+Port: CALC_Actual_Heat_Transfer = SigPort (U Value)
+Port: CALC_Area_Rating = SigPort (Area Rating)
+Port: CALC_Area_Ratio = SigPort (Area Ratio)
+Port: CALC_F_Corr_Factor = SigPort (F Correction Factor)
+Port: CALC_Fin_Efficiency = SigPort (Fin Efficiency)
+Port: CALC_Overall_Heat_Transfer = SigPort (Corrected U Value)
+Port: CALC_Overdesign = SigPort (Heat Reversal Area)
+Port: CALC_ShellStreamA = SigPort (Shell Stream A)
+Port: CALC_ShellStreamB = SigPort (Shell Stream B)
+Port: CALC_ShellStreamC = SigPort (Shell Stream C)
+Port: CALC_ShellStreamE = SigPort (Shell Stream E)
+Port: CALC_ShellStreamF = SigPort (Shell Stream F)
+Port: CALC_Shell_Film_Coefficient = SigPort (Shell Film Coefficient)
+Port: CALC_Shell_Pressure_Drop = SigPort (Shell Pressure Drop)
+Port: CALC_Shell_Velocity = SigPort (Shell Velocity)
+Port: CALC_Tube_Film_Coefficient = SigPort (Tube Film Coefficient)
+Port: CALC_Tube_Pressure_Drop = SigPort (Tube Pressure Drop)
+Port: CALC_Tube_Velocity = SigPort (Tube Velocity)
+Port: CondensingRoughness = SigPort (Condensing Roughness)
+Port: CriticalVelocity = SigPort (Critical Velocity)
+Port: DeltaPShell = SigPort (Shell DP) (/X.sideShell.DeltaP)
+Port: DeltaPTube = SigPort (Tube DP) (/X.sideTube.DeltaP)
+Port: DeltaTShell = SigPort (Shell Delta T) (/X.sideShell.DeltaT)
+Port: DeltaTTube = SigPort (Tube Delta T) (/X.sideTube.DeltaT)
+Port: DeltaTTube_Shell_In = SigPort (In Tube-Shell DT) (/X.heatTransferTube_Shell.DeltaT_In)
+Port: DeltaTTube_Shell_Out = SigPort (Out Tube-Shell DT) (/X.heatTransferTube_Shell.DeltaT_Out)
+Port: EProcInner = SigPort (Process Emissivity)
+Port: EProcOuter = SigPort (Process Emissivity)
+Port: EWallInner = SigPort (Wall Emissivity)
+Port: EWallOuter = SigPort (Wall Emissivity)
+Port: Elev = SigPort (Elevation)
+Port: EnergyLost_Tube_Q0 = SigPort (Duty)
+Port: ExpJointSpringRate = SigPort (Expansion Joint Spring Rate)
+Port: ExpansionJointDiam = SigPort (Expansion Joint Diameter)
+Port: FinHeight = SigPort (Fin Height)
+Port: FinOutsideDiameter = SigPort (Fin Outside Diameter)
+Port: FinPerLength = SigPort (Fins Per Length)
+Port: FinSpacing = SigPort (Fin Spacing)
+Port: FinThickness = SigPort (Fin Thickness)
+Port: FundamentalFreq = SigPort (Fundamental Natural Frequency)
+Port: HeatLoss = SigPort (Heat Loss)
+Port: InShell = MatPort (In Shell) (/X.sideShell.In)
+Port: InTube = MatPort (In Tube) (/X.sideTube.In)
+Port: MaxDesignLength = SigPort (Maximum Exchanger Length)
+Port: MaxShellDP = SigPort (Maximum Shell Pressure Drop)
+Port: MaxTubeDP = SigPort (Maximum Tube Pressure Drop)
+Port: MaxTubeVel = SigPort (Maximum Tube Velocity Drop)
+Port: MinShellDP = SigPort (Minimum Shell Pressure Drop)
+Port: MinTubeDP = SigPort (Minimum Tube Pressure Drop)
+Port: MinTubeVel = SigPort (Minimum Tube Velocity Drop)
+Port: NumberOfLongFins = SigPort (Fins)
+Port: NumberOfTubesPerPass = SigPort (Number Of Tubes Per Pass)
+Port: OutShell = MatPort (Out Shell) (/X.sideShell.Out)
+Port: OutTube = MatPort (Out Tube) (/X.sideTube.Out)
+Port: RadiantCont = SigPort (Radiant Contribution)
+Port: Sealing_Strips = SigPort (Sealing Strips)
+Port: ShellBoilingSA = SigPort (Shell Boiling Surface Area)
+Port: ShellCondensingSA = SigPort (Shell Condensing Surface Area)
+Port: ShellDesignPressure = SigPort (Shell Design Pressure)
+Port: ShellDiameter = SigPort (Shell Diameter)
+Port: ShellLevelSP = SigPort (Shell Level SP)
+Port: ShellSensibleSA = SigPort (Shell Sensible Surface Area)
+Port: ShellWallThickness = SigPort (Shell Wall Thickness)
+Port: Shell_Baffle_Radial_Clearance = SigPort (Baffle Radial Clearance)
+Port: Shell_Film_Multiplier = SigPort (Shell Film Multiplier)
+Port: Shell_Fouling_Factor = SigPort (Shell Fouling Factor)
+Port: Shell_Volume = SigPort (Shell Volume)
+Port: Shell_dP_Multiplier = SigPort (Shell dP Multiplier)
+Port: Shell_k = SigPort (Shell k)
+Port: TApproach_Tube_Shell_AppT = SigPort (Approach T)
+Port: TubeBoilingSA = SigPort (Tube Boiling Surface Area)
+Port: TubeCondensingSA = SigPort (Tube Condensing Surface Area)
+Port: TubeDesignPressure = SigPort (Tube Design Pressure)
+Port: TubeLengthPerPass = SigPort (Tube Length Per Pass)
+Port: TubeLevelSP = SigPort (Tube Level SP)
+Port: TubeOutsideDiameter = SigPort (Tube Outside Diameter)
+Port: TubePasses = SigPort (Tube Passes)
+Port: TubePitch = SigPort (Tube Pitch)
+Port: TubeSensibleSA = SigPort (Tube Sensible Surface Area)
+Port: TubeThickness = SigPort (Tube Thickness)
+Port: Tube_Baffle_Radial_Clearance = SigPort (Baffle Radial Clearance)
+Port: Tube_Film_Multiplier = SigPort (Tube Film Multiplier)
+Port: Tube_Fouling_Factor = SigPort (Tube Fouling Factor)
+Port: Tube_Volume = SigPort (Tube Volume)
+Port: Tube_dP_Multiplier = SigPort (Tube dP Multiplier)
+Port: Tube_k = SigPort (Tube k)
+Port: TubesheetThickness = SigPort (Tubesheet Thickness)
+Port: TurbulentAmp = SigPort (Turbulent Buffeting Amplitude)
+Port: UATube_Shell = SigPort (UA) (/X.heatTransferTube_Shell.UA)
+Port: VibrationalConcern = SigPort (Vibration Concerns)
+Port: ViewFactor = SigPort (Radiant View Factor)
+Port: VortexAmp = SigPort (Vortex Shedding Amplitude)
+Child: heatTransferTube_Shell = sim.unitop.Heater._HeatTransfer
+Child: sideShell = sim.unitop.Heater._Side
+Child: sideTube = sim.unitop.Heater._Side
+Param: ActivateAreaProfileMTD (Area Profile Based MTD Calculation) = 1
+Param: ActivateCriticalFluxCheck (Boiling Critical Flux Check) = 1
+Param: ActivateKTypeBundleDiameter (K-Type: Estimate Bundle Diameter) = 1
+Param: ActivateKTypeForcedConvection (K-Type: Only Forced Convection) = 0
+Param: ActivateRadiantCalc (Include Radiant Contributions) = 0
+Param: ActivateTubeCountCalc (Calculate Tubes Per Pass) = 0
+Param: ActivateVibrationalCalc (Include Vibrational Calculations) = 0
+Param: AvRatingEngines = NoRating VMGSim HTRI
+Param: AvSolutionMethods = NewtonRaphson Secant Broyden
+Param: BaffleCutBasis (Baffle Cut Basis) = Diameter
+Param: Baffle_Type (Baffle Type) = Single-Segmental
+Param: BaseForSegments (Base For Segments) = Energy
+Param: CustomTubeVelRange (Custom Tube Velocity Range) = 0
+Param: DampingFactor (Damping Factor) = 1.0
+Param: ExpansionJoints (Expansion Joints) = 0
+Param: Fin_DPipe_Type (Fin Type) = No_Fins
+Param: Fin_Metal_Type = Aluminum
+Param: Fin_Type (Fin Type) = No_Fins
+Param: FreqJacobianMsg (Freq Jacobian Msg) = 10
+Param: Front_TEMA_Type = B-Bonnet(IntegralCover)
+Param: HP_Rear_TEMA_Type = U-Bypass
+Param: HTCorr (Inner HL Corr) = Constant
+Param: HeatLossCalcType (Heat Loss Calc Type) = None
+Param: Ignored = None
+Param: Include_Corbels (Sealing Devices) = No
+Param: IsCounterCurrentShell (Counter Current) = 1
+Param: IsCounterCurrentTube = 0
+Param: IsCrossCurrentShell (Cross Current) = 0
+Param: KeepRatingResults = 1
+Param: MaxError (Max Error) = 1e-05
+Param: MaxNumIterations (Max Num Iterations) = 100
+Param: MinimizeError (Minimize Error) = 1
+Param: MonitorConvergence (Monitor Convergence) = 1
+Param: NumberSegments (Number of Segments) = 5
+Param: NumberSides (Number of Sides) = 2
+Param: Orientation = Horizontal
+Param: OutHTCorr (Outer HL Corr) = Constant
+Param: Pressure_Drop_Calc (Pressure Drop Calculation) = Colebrook
+Param: RatingEngine (Calculation Engine) = None
+(InternalVal = NoRating)
+Param: RatingType (Rating Type) = ShellAndTube
+Param: ReTryOnFailure (Retry on Failure) = 0
+Param: Rear_TEMA_Type = M-FixedTubesheet(StationaryHead)
+Param: ReferenceName_0 = Tube
+Param: ReferenceName_1 = Shell
+Param: ReferenceSide (Reference Side) = 0
+Param: ShellMaterial (Shell Material) = Carbon_Steel
+Param: ShellPFCalc (Shell Phase Frac Calc) = Simple
+Param: Shell_Pressure_Drop_Calc (Pressure Drop Calculation) = Colebrook
+Param: Shell_TEMA_Type = E-OnePass
+Param: Side0_Shell_Tube = Tube
+Param: SideModel (Side Model) = Auto
+Param: SimpleRating_ConvIterations (Forced Conv Iterations) = 480
+Param: SimpleRating_MaxIterations (Max Iterations) = 100
+Param: SimpleRating_MinSide0OutletP (Min Tube Outlet P [kPa]) = 50
+Param: SimpleRating_MinSide1OutletP (Min Shell Outlet P [kPa]) = 50
+Param: SimpleRating_RatingTolerance (Tolerance) = 0.01
+Param: SimpleRating_SolveLastConv (Solve From Last Converged) = 0
+Param: SimpleRating_Status (Status) = Not Solved
+Param: SolutionMethod (Solution Method) = NewtonRaphson
+Param: ThermalExpansion (Thermal Expansion) = 0
+Param: ThermosiphonEffect (Thermosiphon Effect) = None
+Param: TrackPhaseChange (Track Phase Change) = 0
+Param: TryLastConverged (Try Last Converged) = 1
+Param: TryToRestart (Try To Restart) = 0
+Param: TubePFCalc (Tube Phase Frac Calc) = Simple
+Param: TubeSheetIntegral (Tube Sheet Integral With) = Neither
+Param: TubeSheetMaterial (Tube Sheet Material) = Carbon_Steel
+Param: Tube_Metal_Type (Tube Material) = Carbon_Steel
+Param: Tube_Pitch (Tube Pitch) = 30Degree(TrianglePitch)
+
+## dir /X
+
+heatTransferTube_Shell: heatTransferTube_Shell = sim.unitop.Heater._HeatTransfer
+sideShell: sideShell = sim.unitop.Heater._Side
+sideTube: sideTube = sim.unitop.Heater._Side
+InTube: sim.solver.Ports.Port_Material
+InShell: sim.solver.Ports.Port_Material
+OutTube: sim.solver.Ports.Port_Material
+OutShell: sim.solver.Ports.Port_Material
+DeltaPTube: sim.solver.Ports.Port_Signal
+DeltaTTube: sim.solver.Ports.Port_Signal
+DeltaPShell: sim.solver.Ports.Port_Signal
+DeltaTShell: sim.solver.Ports.Port_Signal
+UATube_Shell: sim.solver.Ports.Port_Signal
+DeltaTTube_Shell_In: sim.solver.Ports.Port_Signal
+DeltaTTube_Shell_Out: sim.solver.Ports.Port_Signal
+Sealing_Strips: sim.solver.Ports.Port_Signal
+CALC_Overall_Heat_Transfer: sim.solver.Ports.Port_Signal
+CALC_Actual_Heat_Transfer: sim.solver.Ports.Port_Signal
+CALC_Shell_Pressure_Drop: sim.solver.Ports.Port_Signal
+CALC_Tube_Pressure_Drop: sim.solver.Ports.Port_Signal
+Shell_Baffle_Radial_Clearance: sim.solver.Ports.Port_Signal
+Tube_Baffle_Radial_Clearance: sim.solver.Ports.Port_Signal
+Bundle_Shell_Radial_Clearance: sim.solver.Ports.Port_Signal
+Shell_Film_Multiplier: sim.solver.Ports.Port_Signal
+Tube_Film_Multiplier: sim.solver.Ports.Port_Signal
+Shell_dP_Multiplier: sim.solver.Ports.Port_Signal
+Tube_dP_Multiplier: sim.solver.Ports.Port_Signal
+TubeThickness: sim.solver.Ports.Port_Signal
+CALC_Tube_Film_Coefficient: sim.solver.Ports.Port_Signal
+CALC_Shell_Film_Coefficient: sim.solver.Ports.Port_Signal
+Tube_Fouling_Factor: sim.solver.Ports.Port_Signal
+Shell_Fouling_Factor: sim.solver.Ports.Port_Signal
+CALC_Shell_Velocity: sim.solver.Ports.Port_Signal
+CALC_Tube_Velocity: sim.solver.Ports.Port_Signal
+CALC_F_Corr_Factor: sim.solver.Ports.Port_Signal
+CALC_Area_Rating: sim.solver.Ports.Port_Signal
+CALC_Overdesign: sim.solver.Ports.Port_Signal
+TubeOutsideDiameter: sim.solver.Ports.Port_Signal
+TubeLengthPerPass: sim.solver.Ports.Port_Signal
+TubePitch: sim.solver.Ports.Port_Signal
+TubePasses: sim.solver.Ports.Port_Signal
+NumberOfTubesPerPass: sim.solver.Ports.Port_Signal
+ShellDiameter: sim.solver.Ports.Port_Signal
+BaffleCut: sim.solver.Ports.Port_Signal
+BafflePitch: sim.solver.Ports.Port_Signal
+FinHeight: sim.solver.Ports.Port_Signal
+FinThickness: sim.solver.Ports.Port_Signal
+FinSpacing: sim.solver.Ports.Port_Signal
+CALC_Area_Ratio: sim.solver.Ports.Port_Signal
+CALC_Fin_Efficiency: sim.solver.Ports.Port_Signal
+BaffleThickness: sim.solver.Ports.Port_Signal
+CALC_ShellStreamA: sim.solver.Ports.Port_Signal
+CALC_ShellStreamB: sim.solver.Ports.Port_Signal
+CALC_ShellStreamC: sim.solver.Ports.Port_Signal
+CALC_ShellStreamE: sim.solver.Ports.Port_Signal
+CALC_ShellStreamF: sim.solver.Ports.Port_Signal
+Tube_k: sim.solver.Ports.Port_Signal
+Shell_k: sim.solver.Ports.Port_Signal
+Tube_Volume: sim.solver.Ports.Port_Signal
+Shell_Volume: sim.solver.Ports.Port_Signal
+HeatLoss: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+AverageWallT: sim.solver.Ports.Port_Signal
+ShellLevelSP: sim.solver.Ports.Port_Signal
+TubeLevelSP: sim.solver.Ports.Port_Signal
+TubeSensibleSA: sim.solver.Ports.Port_Signal
+TubeCondensingSA: sim.solver.Ports.Port_Signal
+TubeBoilingSA: sim.solver.Ports.Port_Signal
+ShellSensibleSA: sim.solver.Ports.Port_Signal
+ShellCondensingSA: sim.solver.Ports.Port_Signal
+ShellBoilingSA: sim.solver.Ports.Port_Signal
+FinOutsideDiameter: sim.solver.Ports.Port_Signal
+FinPerLength: sim.solver.Ports.Port_Signal
+NumberOfLongFins: sim.solver.Ports.Port_Signal
+BoilingRoughness: sim.solver.Ports.Port_Signal
+CondensingRoughness: sim.solver.Ports.Port_Signal
+EProcInner: sim.solver.Ports.Port_Signal
+EWallInner: sim.solver.Ports.Port_Signal
+EProcOuter: sim.solver.Ports.Port_Signal
+EWallOuter: sim.solver.Ports.Port_Signal
+ViewFactor: sim.solver.Ports.Port_Signal
+RadiantCont: sim.solver.Ports.Port_Signal
+AreaOverdesign: sim.solver.Ports.Port_Signal
+ExpansionJointDiam: sim.solver.Ports.Port_Signal
+FundamentalFreq: sim.solver.Ports.Port_Signal
+ShellDesignPressure: sim.solver.Ports.Port_Signal
+TubeDesignPressure: sim.solver.Ports.Port_Signal
+ExpJointSpringRate: sim.solver.Ports.Port_Signal
+BaffleToBendSpacing: sim.solver.Ports.Port_Signal
+TubesheetThickness: sim.solver.Ports.Port_Signal
+ShellWallThickness: sim.solver.Ports.Port_Signal
+CriticalVelocity: sim.solver.Ports.Port_Signal
+VibrationalConcern: sim.solver.Ports.Port_Signal
+TurbulentAmp: sim.solver.Ports.Port_Signal
+VortexAmp: sim.solver.Ports.Port_Signal
+MaxDesignLength: sim.solver.Ports.Port_Signal
+MinTubeVel: sim.solver.Ports.Port_Signal
+MaxTubeVel: sim.solver.Ports.Port_Signal
+MinTubeDP: sim.solver.Ports.Port_Signal
+MaxTubeDP: sim.solver.Ports.Port_Signal
+MinShellDP: sim.solver.Ports.Port_Signal
+MaxShellDP: sim.solver.Ports.Port_Signal
+TApproach_Tube_Shell_AppT: sim.solver.Ports.Port_Signal
+EnergyLost_Tube_Q0: sim.solver.Ports.Port_Signal
+ActivateAreaProfileMTD: ActivateAreaProfileMTD = 1
+ActivateCriticalFluxCheck: ActivateCriticalFluxCheck = 1
+ActivateKTypeBundleDiameter: ActivateKTypeBundleDiameter = 1
+ActivateKTypeForcedConvection: ActivateKTypeForcedConvection = 0
+ActivateRadiantCalc: ActivateRadiantCalc = 0
+ActivateTubeCountCalc: ActivateTubeCountCalc = 0
+ActivateVibrationalCalc: ActivateVibrationalCalc = 0
+AvRatingEngines: AvRatingEngines = NoRating VMGSim HTRI
+AvSolutionMethods: AvSolutionMethods = NewtonRaphson Secant Broyden
+BaffleCutBasis: BaffleCutBasis = Diameter
+Baffle_Type: Baffle_Type = Single-Segmental
+BaseForSegments: BaseForSegments = Energy
+CustomTubeVelRange: CustomTubeVelRange = 0
+DampingFactor: DampingFactor = 1.0
+ExpansionJoints: ExpansionJoints = 0
+Fin_DPipe_Type: Fin_DPipe_Type = No_Fins
+Fin_Metal_Type: Fin_Metal_Type = Aluminum
+Fin_Type: Fin_Type = No_Fins
+FreqJacobianMsg: FreqJacobianMsg = 10
+Front_TEMA_Type: Front_TEMA_Type = B-Bonnet(IntegralCover)
+HP_Rear_TEMA_Type: HP_Rear_TEMA_Type = U-Bypass
+HTCorr: HTCorr = Constant
+HeatLossCalcType: HeatLossCalcType = None
+Ignored: Ignored = None
+Include_Corbels: Include_Corbels = No
+IsCounterCurrentShell: IsCounterCurrentShell = True
+IsCounterCurrentTube: IsCounterCurrentTube = False
+IsCrossCurrentShell: IsCrossCurrentShell = False
+KeepRatingResults: KeepRatingResults = 1
+MaxError: MaxError = 1e-05
+MaxNumIterations: MaxNumIterations = 100
+MinimizeError: MinimizeError = True
+MonitorConvergence: MonitorConvergence = 1
+NumberSegments: NumberSegments = 5
+NumberSides: NumberSides = 2
+Orientation: Orientation = Horizontal
+OutHTCorr: OutHTCorr = Constant
+Pressure_Drop_Calc: Pressure_Drop_Calc = Colebrook
+RatingEngine: RatingEngine = NoRating
+RatingType: RatingType = ShellAndTube
+ReTryOnFailure: ReTryOnFailure = 0
+Rear_TEMA_Type: Rear_TEMA_Type = M-FixedTubesheet(StationaryHead)
+ReferenceName_0: ReferenceName_0 = Tube
+ReferenceName_1: ReferenceName_1 = Shell
+ReferenceSide: ReferenceSide = 0
+ShellMaterial: ShellMaterial = Carbon_Steel
+ShellPFCalc: ShellPFCalc = Simple
+Shell_Pressure_Drop_Calc: Shell_Pressure_Drop_Calc = Colebrook
+Shell_TEMA_Type: Shell_TEMA_Type = E-OnePass
+Side0_Shell_Tube: Side0_Shell_Tube = Tube
+SideModel: SideModel = Auto
+SimpleRating_ConvIterations: SimpleRating_ConvIterations = 480
+SimpleRating_MaxIterations: SimpleRating_MaxIterations = 100
+SimpleRating_MinSide0OutletP: SimpleRating_MinSide0OutletP = 50
+SimpleRating_MinSide1OutletP: SimpleRating_MinSide1OutletP = 50
+SimpleRating_RatingTolerance: SimpleRating_RatingTolerance = 0.01
+SimpleRating_SolveLastConv: SimpleRating_SolveLastConv = 0
+SimpleRating_Status: SimpleRating_Status = Not Solved
+SolutionMethod: SolutionMethod = NewtonRaphson
+ThermalExpansion: ThermalExpansion = 0
+ThermosiphonEffect: ThermosiphonEffect = None
+TrackPhaseChange: TrackPhaseChange = 0
+TryLastConverged: TryLastConverged = True
+TryToRestart: TryToRestart = False
+TubePFCalc: TubePFCalc = Simple
+TubeSheetIntegral: TubeSheetIntegral = Neither
+TubeSheetMaterial: TubeSheetMaterial = Carbon_Steel
+Tube_Metal_Type: Tube_Metal_Type = Carbon_Steel
+Tube_Pitch: Tube_Pitch = 30Degree(TrianglePitch)
+AppT: <sim.unitop.Heater.TemperatureApproachVar object at 0x00000238FB24AD70>
+Q0: <sim.unitop.Heater.EnergySideVar object at 0x00000238FB24AD40>

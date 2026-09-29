@@ -1,0 +1,54 @@
+# PinchUtility = CompositeCurve.PinchUtility()
+
+## /X
+Operation: X = sim.unitop.CompositeCurve.PinchUtility
+Status: Not Solved
+Port: AppT = SigPort (Approach Temperature)
+Port: ColdHeatRecovery = SigPort (Heat Recovery (Cold))
+Port: ColdTAtPinch = SigPort (Cold Temperature at Pinch)
+Port: ColdUtil = SigPort (Cold Utility (Calculated))
+Port: ColdUtilSpec = SigPort (Cold Utility (Specified))
+Port: HeatRecovery = SigPort (Heat Recovery)
+Port: HotHeatRecovery = SigPort (Heat Recovery (Hot))
+Port: HotTAtPinch = SigPort (Hot Temperature at Pinch)
+Port: HotUtil = SigPort (Hot Utility (Calculated))
+Port: HotUtilSpec = SigPort (Hot Utility (Specified))
+Port: LMTD = SigPort (Average LMTD)
+Port: QTAtPinch = SigPort (Q at Pinch)
+Port: UA = SigPort (Overall UA)
+Param: AppTTol = 0.001
+Param: Damping = 0.9
+Param: DoSolve (Do Solve) = 0
+Param: GCCProfsFromColdest (Start Grand Comp. Profiles from coldest) = 0
+Param: Ignored = None
+Param: IncludeUtilsInProfiles (Include utilities) = 0
+Param: MaxIter = 90
+Param: NumberSegments (Segments) = 5
+Param: SegmentMode (Segmentation Mode) = Global
+Param: TrackPhaseChange (Track Phase Change) = 0
+
+## dir /X
+
+UA: sim.solver.Ports.Port_Signal
+LMTD: sim.solver.Ports.Port_Signal
+AppT: sim.solver.Ports.Port_Signal
+HotTAtPinch: sim.solver.Ports.Port_Signal
+ColdTAtPinch: sim.solver.Ports.Port_Signal
+QTAtPinch: sim.solver.Ports.Port_Signal
+ColdUtilSpec: sim.solver.Ports.Port_Signal
+HotUtilSpec: sim.solver.Ports.Port_Signal
+ColdUtil: sim.solver.Ports.Port_Signal
+HotUtil: sim.solver.Ports.Port_Signal
+HeatRecovery: sim.solver.Ports.Port_Signal
+HotHeatRecovery: sim.solver.Ports.Port_Signal
+ColdHeatRecovery: sim.solver.Ports.Port_Signal
+AppTTol: AppTTol = 0.001
+Damping: Damping = 0.9
+DoSolve: DoSolve = 0
+GCCProfsFromColdest: GCCProfsFromColdest = 0
+Ignored: Ignored = None
+IncludeUtilsInProfiles: IncludeUtilsInProfiles = 0
+MaxIter: MaxIter = 90
+NumberSegments: NumberSegments = 5
+SegmentMode: SegmentMode = Global
+TrackPhaseChange: TrackPhaseChange = 0

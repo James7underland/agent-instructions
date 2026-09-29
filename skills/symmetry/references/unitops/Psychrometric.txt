@@ -1,0 +1,34 @@
+# Psychrometric = Saturation.PsychrometricOp()
+
+## /X
+Operation: X = vmgsim.unitop.Saturation.PsychrometricOp
+Status: Not Solved
+Port: DryAir = MatPort (Dry Air)
+Port: Elev = SigPort (Elevation)
+Port: ProcessAir = MatPort (Process Air)
+Port: ProcessHumidityRatio = SigPort (Process Humidity Ratio)
+Port: ProcessRelativeHumidity = SigPort (Process Relative Humidity)
+Port: ProcessWaterContent = SigPort (Process Water Content)
+Port: SaturatedAir = MatPort (Saturated Air)
+Port: SaturatedHumidityRatio = SigPort (Saturated Humidity Ratio)
+Port: SaturatedWaterContent = SigPort (Saturated Water Content)
+Port: Water = MatPort
+Param: Air = Specify
+Param: Ignored = None
+Param: SaturationVapFraction (Saturation  Vap Frac) = 1.0
+
+## dir /X
+
+DryAir: sim.solver.Ports.Port_Material
+Water: sim.solver.Ports.Port_Material
+SaturatedAir: sim.solver.Ports.Port_Material
+ProcessAir: sim.solver.Ports.Port_Material
+ProcessHumidityRatio: sim.solver.Ports.Port_Signal
+ProcessRelativeHumidity: sim.solver.Ports.Port_Signal
+ProcessWaterContent: sim.solver.Ports.Port_Signal
+SaturatedHumidityRatio: sim.solver.Ports.Port_Signal
+SaturatedWaterContent: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+Air: Air = Specify
+Ignored: Ignored = None
+SaturationVapFraction: SaturationVapFraction = 1.0

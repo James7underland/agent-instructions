@@ -1,0 +1,79 @@
+# DistSection = TowerStages.DistillationSection("Stage_0.dsc = Tower.DegSubCooling(); Stage_0.dsc.Port = 0.0; InitTowerAlgorithm = ; InitTowerAlgorithm = TowerModels.VMGInitTower(); Stage_0 + 0; TryToSolve = 1; TryLastConverged = 1; TryToRestart = 0")
+
+## /X
+Operation: X = sim.unitop.TowerStages.DistillationSection
+Status: Not Solved
+Status: Info - Feed 'Ovhd' is not fully specified
+Status: Info - Missing Pressure for a draw or stage
+Status: Info - Not Converged
+Port: DegSubCool_0_dsc = SigPort (Deg Sub Cooling)
+Port: Feed_0_Ovhd = MatPort (Liq Feed)
+Port: Feed_1_Bottom = MatPort (Vap Feed)
+Port: LiquidDraw_1_BottomL = MatPort (Liq Prod)
+Port: VapourDraw_0_OvhdV = MatPort (Vap Prod)
+Param: DampingFactor (Damping Factor) = 1.0
+Param: EffCalcType (Efficiency Calc Type) = Equilibrium
+Param: EffIgnDraw = 0
+Param: EffIgnFeed = 0
+Param: Efficiencies = 1.0
+Param: FreqJacobianMsg (Freq Jacobian Msg) = 10
+Param: HasChimneyTray (Has Chimney Tray) = None
+Param: Ignored = None
+Param: InitKPower (Init K Power) = 1.0
+Param: IsPacked (Is Packed) = None
+Param: MaxInnerError (Max Inner Error) = 0.0001
+Param: MaxInnerLoops (Max Inner Loops) = 50
+Param: MaxOuterError (Max Outer Error) = 0.0001
+Param: MaxOuterLoops (Max Outer Loops) = 200
+Param: MinInnerStep (Min Inner Step) = 0.0001
+Param: MultiPass (Multi Pass) = 0
+Param: NumberConvention (Stage Numbering) = Top Down
+Param: OperType (Operation Type) = Generic
+Param: ThreePhaseModel (Three Phase Model) = 0
+Param: TrayModel (Tray Model) = Standard
+Param: TriggerSolve (Trigger Solve) = 0
+Param: TryLastConverged (Try Last Converged) = 1
+Param: TryToRestart (Try to Restart) = 0
+Param: TryToSolve (Try to Solve) = 1
+Param: VapFeedToStageAbove = 0
+
+## dir /X
+
+Feed_0_Ovhd: sim.solver.Ports.Port_Material
+Feed_1_Bottom: sim.solver.Ports.Port_Material
+VapourDraw_0_OvhdV: sim.solver.Ports.Port_Material
+LiquidDraw_1_BottomL: sim.solver.Ports.Port_Material
+DegSubCool_0_dsc: sim.solver.Ports.Port_Signal
+DampingFactor: DampingFactor = 1.0
+EffCalcType: EffCalcType = Equilibrium
+EffIgnDraw: EffIgnDraw = 0
+EffIgnFeed: EffIgnFeed = 0
+Efficiencies: Efficiencies = 1.0
+FreqJacobianMsg: FreqJacobianMsg = 10
+HasChimneyTray: HasChimneyTray = None
+Ignored: Ignored = None
+InitKPower: InitKPower = 1.0
+IsPacked: IsPacked = None
+MaxInnerError: MaxInnerError = 0.0001
+MaxInnerLoops: MaxInnerLoops = 50
+MaxOuterError: MaxOuterError = 0.0001
+MaxOuterLoops: MaxOuterLoops = 200
+MinInnerStep: MinInnerStep = 0.0001
+MultiPass: MultiPass = 0
+NumberConvention: NumberConvention = Top Down
+OperType: OperType = Generic
+ThreePhaseModel: ThreePhaseModel = 0
+TrayModel: TrayModel = Standard
+TriggerSolve: TriggerSolve = 0
+TryLastConverged: TryLastConverged = 1
+TryToRestart: TryToRestart = 0
+TryToSolve: TryToSolve = 1
+VapFeedToStageAbove: VapFeedToStageAbove = 0
+Stage_0: Stage_0
+Ovhd: Feed
+OvhdV: VapourDraw
+dsc: DegSubCooling
+Stage_1: Stage_1
+Bottom: Feed
+BottomL: LiquidDraw
+eff: Array[(2, 6)]

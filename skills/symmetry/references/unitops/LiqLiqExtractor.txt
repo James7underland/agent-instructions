@@ -1,0 +1,64 @@
+# LiqLiqExtractor = LiqLiqExt.LiqLiqEx("NumberStages = 5")
+
+## /X
+Operation: X = sim.unitop.LiqLiqExt.LiqLiqEx
+Status: Not Solved
+Port: Extract = MatPort (/X.Stage0.innerFlash.Liq1)
+Port: Feed = MatPort (/X.Stage0.innerMixer.In0)
+Port: Raffinate = MatPort (/X.Stage4.innerFlash.Liq0)
+Port: Solvent = MatPort (/X.Stage4.innerMixer.In1)
+Child: Stage0 = sim.unitop.LiqLiqExt.LLStage
+Child: Stage1 = sim.unitop.LiqLiqExt.LLStage
+Child: Stage2 = sim.unitop.LiqLiqExt.LLStage
+Child: Stage3 = sim.unitop.LiqLiqExt.LLStage
+Child: Stage4 = sim.unitop.LiqLiqExt.LLStage
+Param: ActiveEngine = 0
+Param: ActiveEnv = 0
+Param: AvControllerMethods = Broyden Secant Bisection
+Param: AvRecycleMethods = Broyden Wegstein SuccessiveSubstitution
+Param: ControllerMethod (Controller Method) = Broyden
+Param: Ignored = None
+Param: InstalledProfiles = 
+Param: LiquidPhases (Liquid Phases) = 2
+Param: MaxControllerIter (Max Controller Iter) = 60
+Param: MaxError (Max Error) = 0.0001
+Param: MaxNumIterations (Max Num Iterations) = 40
+Param: MaxRecycleStep (Max Recycle Step) = 0.05
+Param: NumberStages (Number of Stages) = 5
+Param: RecycleMethod (Recycle Method) = Broyden
+Param: Reset = 0
+Param: SetToSolveStdAlone = 1
+Param: SolveAsNetwork = 0
+Param: SolveNetworkWithKE = 0
+Param: UseHierarchySolver (Use Hierarchy Solver) = 1
+
+## dir /X
+
+Stage0: Stage0 = sim.unitop.LiqLiqExt.LLStage
+Stage1: Stage1 = sim.unitop.LiqLiqExt.LLStage
+Stage2: Stage2 = sim.unitop.LiqLiqExt.LLStage
+Stage3: Stage3 = sim.unitop.LiqLiqExt.LLStage
+Stage4: Stage4 = sim.unitop.LiqLiqExt.LLStage
+Feed: sim.solver.Ports.Port_Material
+Solvent: sim.solver.Ports.Port_Material
+Extract: sim.solver.Ports.Port_Material
+Raffinate: sim.solver.Ports.Port_Material
+ActiveEngine: ActiveEngine = 0
+ActiveEnv: ActiveEnv = 0
+AvControllerMethods: AvControllerMethods = Broyden Secant Bisection
+AvRecycleMethods: AvRecycleMethods = Broyden Wegstein SuccessiveSubstitution
+ControllerMethod: ControllerMethod = Broyden
+Ignored: Ignored = None
+InstalledProfiles: InstalledProfiles = 
+LiquidPhases: LiquidPhases = 2
+MaxControllerIter: MaxControllerIter = 60
+MaxError: MaxError = 0.0001
+MaxNumIterations: MaxNumIterations = 40
+MaxRecycleStep: MaxRecycleStep = 0.05
+NumberStages: NumberStages = 5
+RecycleMethod: RecycleMethod = Broyden
+Reset: Reset = 0
+SetToSolveStdAlone: SetToSolveStdAlone = True
+SolveAsNetwork: SolveAsNetwork = 0
+SolveNetworkWithKE: SolveNetworkWithKE = 0
+UseHierarchySolver: UseHierarchySolver = True

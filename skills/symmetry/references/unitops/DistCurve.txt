@@ -1,0 +1,46 @@
+# DistCurve = Properties.VectorProps("BoilingCurve_TBP_Active = 1")
+
+## /X
+Operation: X = sim.unitop.Properties.VectorProps
+Status: Not Solved
+Port: In = MatPort
+Port: Out = MatPort
+Param: AvailableBoilingCurve = BoilingCurve_TBP BoilingCurve_D86 BoilingCurve_D2887 BoilingCurve_EFV BoilingCurve_D1160 BoilingCurve_PRODUCTDISTRIBUTION
+Param: BoilingCurve_D1160_Active (D1160 Curve) = 0
+Param: BoilingCurve_D2887_Active (D2887 Curve) = 0
+Param: BoilingCurve_D86_Active (D86 Curve) = 0
+Param: BoilingCurve_EFV_Active (EFV Curve) = 0
+Param: BoilingCurve_PRODUCTDISTRIBUTION_Active (Product Distribution Curve) = 1
+Param: BoilingCurve_TBP_Active (TBP Curve) = 1
+Param: CalcNow (Update Calcs Now) = None
+Param: D1160_Basis (D1160 Basis) = Volume
+Param: D2887_Basis (D2887 Basis) = Mass
+Param: D86_Basis (D86 Basis) = Volume
+Param: EFV_Basis (EFV Basis) = Volume
+Param: Ignored = None
+Param: PRODUCTDISTRIBUTION_Basis (Product Distribution Basis) = Volume
+Param: SolveDuringFlowsheetIterations = 0
+Param: TBP_Basis (TBP Basis) = Volume
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+AvailableBoilingCurve: AvailableBoilingCurve = BoilingCurve_TBP BoilingCurve_D86 BoilingCurve_D2887 BoilingCurve_EFV BoilingCurve_D1160 BoilingCurve_PRODUCTDISTRIBUTION
+BoilingCurve_D1160_Active: BoilingCurve_D1160_Active = False
+BoilingCurve_D2887_Active: BoilingCurve_D2887_Active = False
+BoilingCurve_D86_Active: BoilingCurve_D86_Active = False
+BoilingCurve_EFV_Active: BoilingCurve_EFV_Active = False
+BoilingCurve_PRODUCTDISTRIBUTION_Active: BoilingCurve_PRODUCTDISTRIBUTION_Active = True
+BoilingCurve_TBP_Active: BoilingCurve_TBP_Active = 1
+CalcNow: CalcNow = None
+D1160_Basis: D1160_Basis = Volume
+D2887_Basis: D2887_Basis = Mass
+D86_Basis: D86_Basis = Volume
+EFV_Basis: EFV_Basis = Volume
+Ignored: Ignored = None
+PRODUCTDISTRIBUTION_Basis: PRODUCTDISTRIBUTION_Basis = Volume
+SolveDuringFlowsheetIterations: SolveDuringFlowsheetIterations = 0
+TBP_Basis: TBP_Basis = Volume
+BoilingCurve_PRODUCTDISTRIBUTION: None
+BoilingCurve_TBP: None

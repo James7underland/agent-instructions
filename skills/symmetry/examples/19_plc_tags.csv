@@ -1,0 +1,7 @@
+tag;path;unit;dir;type;mb;expr;desc
+LT200.PV;/LT200.In;%;R;float;0;;Уровень в ёмкости TK, %
+FT201.PV;/FT201.In;t/h;R;float;2;;Расход на нагнетании насоса, т/ч
+PT202.PV;/S4.In.P;kPa;R;float;4;;Давление нагнетания, кПа
+P1.RUNFB;/P1.Switch;;R;bool;6;;Насос в работе (сигнал МП)
+P1.RUN;/P1.Switch;;W;bool;100;'On' if x else 'Off';Команда «пуск» насоса
+SIM.FEED_P;/Feed.In.P;kPa;W;float;110;;Давление на приёме (возмущение), кПа

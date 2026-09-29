@@ -1,0 +1,64 @@
+# ClausDirectFiredReheater = ClausReactors.ClausDirectFiredReheater("DeltaP = 0.25 psi; OutQ = 0 Btu/hr")
+
+## /X
+Operation: X = vmgsim.unitop.ClausReactors.ClausDirectFiredReheater
+Status: Not Solved
+Port: Air = MatPort
+Port: Burner_OutQ = EnePort
+Port: Burner_T = SigPort (Burner T)
+Port: DeltaP = SigPort (Delta P)
+Port: DeltaT = SigPort (Delta T)
+Port: Diameter = SigPort
+Port: Elev = SigPort (Elevation)
+Port: Fuel = MatPort
+Port: H2S_FractionToBurn = SigPort
+Port: Length = SigPort
+Port: O2_FractionExcess = SigPort (O2 Fraction Excess)
+Port: O2_OutletFrac = SigPort (O2 Outlet Fraction)
+Port: Out = MatPort
+Port: OutQ = EnePort (Out Q)
+Port: OutT = SigPort (Out T)
+Port: Process = MatPort (/X.GibbsReactor.In)
+Port: Volume = SigPort
+Port: k = SigPort
+Child: GibbsReactor = vmgsim.unitop.ClausReactors.InternalDirectFiredReheater
+Param: CalcPressureMode = AllFeedPSpec
+Param: Duty_Damping (Duty Damping) = 0.9
+Param: Duty_LastConv (Duty Last Converged) = 0
+Param: Duty_MaxError (Duty Max Error) = 0.0001
+Param: Duty_MaxIter (Duty Max Iter) = 100
+Param: Duty_MaxStep (Duty Max Step) = 0.4
+Param: Ignored = None
+Param: InitFromComb (Init From Combustion) = 1
+Param: ReactiveProc (Process is Fully Reactive) = 0
+
+## dir /X
+
+GibbsReactor: GibbsReactor = vmgsim.unitop.ClausReactors.InternalDirectFiredReheater
+Process: sim.solver.Ports.Port_Material
+Fuel: sim.solver.Ports.Port_Material
+Air: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+Burner_OutQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+DeltaT: sim.solver.Ports.Port_Signal
+OutT: sim.solver.Ports.Port_Signal
+H2S_FractionToBurn: sim.solver.Ports.Port_Signal
+O2_FractionExcess: sim.solver.Ports.Port_Signal
+O2_OutletFrac: sim.solver.Ports.Port_Signal
+Burner_T: sim.solver.Ports.Port_Signal
+k: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+Diameter: sim.solver.Ports.Port_Signal
+CalcPressureMode: CalcPressureMode = AllFeedPSpec
+Duty_Damping: Duty_Damping = 0.9
+Duty_LastConv: Duty_LastConv = 0
+Duty_MaxError: Duty_MaxError = 0.0001
+Duty_MaxIter: Duty_MaxIter = 100
+Duty_MaxStep: Duty_MaxStep = 0.4
+Ignored: Ignored = None
+InitFromComb: InitFromComb = 1
+ReactiveProc: ReactiveProc = 0

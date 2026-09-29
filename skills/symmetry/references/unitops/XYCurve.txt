@@ -1,0 +1,51 @@
+# XYCurve = Envelope.XYCurve()
+
+## /X
+Operation: X = sim.unitop.Envelope.XYCurve
+Status: Not Solved
+Port: In = MatPort
+Port: Out = MatPort
+Param: AvCurveTypes = TXY?PXY
+Param: AvFlashTypes = Bubble?Dew?Both
+Param: AvKeyComps = METHANE?ETHANE?PROPANE?n-BUTANE?n-PENTANE?WATER
+Param: CurveType = TXY
+Param: FlashType = Both
+Param: Fr0 (Key Mole Frac Lower Bound) = 0.0
+Param: Fr1 (Key Mole Frac Upper Bound) = 1.0
+Param: Ignored = None
+Param: KeyComp (Key Compound) = METHANE
+Param: KeyCompIdx = 0
+Param: NumberOfPoints (Number of Points) = 21
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+AvCurveTypes: AvCurveTypes = TXY?PXY
+AvFlashTypes: AvFlashTypes = Bubble?Dew?Both
+AvKeyComps: AvKeyComps = METHANE?ETHANE?PROPANE?n-BUTANE?n-PENTANE?WATER
+CurveType: CurveType = TXY
+FlashType: FlashType = Both
+Fr0: Fr0 = 0.0
+Fr1: Fr1 = 1.0
+Ignored: Ignored = None
+KeyComp: KeyComp = METHANE
+KeyCompIdx: KeyCompIdx = 0
+NumberOfPoints: NumberOfPoints = 21
+composition0: None
+composition1: None
+Results: [..
+(ReturnCode, -1)
+(Message, Unsolved)
+(CurveTypes, )
+(FlashTypes, )
+(ValueUnitType, None)
+(NumberPoints, 0)
+(Table:Frx,Fry,Wtx,Wty,Value, nan
+nan
+nan
+nan
+nan
+)
+..]
+

@@ -1,0 +1,370 @@
+# FiredHeater = EthyleneCracker.FiredHeater()
+
+## /X
+Operation: X = vmgsim.unitop.EthyleneCracker.FiredHeater
+Status: Not Solved
+Port: AirVel = SigPort (Air Velocity)
+Port: AmbientT = SigPort (Ambient T)
+Port: CALC_Area_Ratio = SigPort (Fin Area Ratio)
+Port: CALC_Fin_Efficiency = SigPort (Fin Efficiency)
+Port: COP_Tol = SigPort (Spec P Tolerance)
+Port: COT_Tol = SigPort (Spec T Tolerance)
+Port: CokeCond = SigPort (Coke Conductivity)
+Port: CokeRoughFactor = SigPort (Coke Roughness Factor)
+Port: CokeThickness = SigPort (Out Coke Thickness)
+Port: CokeThicknessIn = SigPort (In Coke Thickness)
+Port: ConvCALC_Fin_Efficiency = SigPort
+Port: Conv_AdditionalFurnaceLength = SigPort (Additional Length)
+Port: Conv_AmbientHeatLoss = EnePort (Convective Heat Loss)
+Port: Conv_CALC_Area_Ratio = SigPort (Area Ratio)
+Port: Conv_CokeGrowth = SigPort
+Port: Conv_CokeThickness = SigPort
+Port: Conv_FinPerLength = SigPort (Fins Per Length)
+Port: Conv_FoulingFactor = SigPort (Fouling Factor)
+Port: Conv_FurnaceDP = SigPort (Convective Zone dP)
+Port: Conv_FurnaceDepth = SigPort (Convective Zone Depth)
+Port: Conv_FurnaceDiameter = SigPort (Convective Zone Diameter)
+Port: Conv_FurnaceExchange = SigPort (Furnace Exchange)
+Port: Conv_FurnaceViewFactor = SigPort (View Factor)
+Port: Conv_FurnaceWidth = SigPort (Convective Zone Width)
+Port: Conv_InnerDiameter = SigPort (Inside Diameter)
+Port: Conv_Length = SigPort (Total Length)
+Port: Conv_MERTPitch = SigPort (MERT Pitch [degree])
+Port: Conv_MaxCokeGrowth = SigPort (Max Coke Growth)
+Port: Conv_MaxTubeT = SigPort (Max Tube Temperature)
+Port: Conv_MultHTCIn = SigPort (Conv HTC In)
+Port: Conv_MultHTCOut = SigPort (Conv HTC Out)
+Port: Conv_MultTPassAdj = SigPort (Mult T Pass Adj)
+Port: Conv_OuterDiameter = SigPort (Outer Diameter)
+Port: Conv_OutletTemperature = SigPort (Outlet Temperature)
+Port: Conv_ProcessDP = SigPort (Process Pressure Drop)
+Port: Conv_ResidenceTime = SigPort (Residence Time)
+Port: Conv_ShapeFactor = SigPort (Shape factor)
+Port: Conv_ShellFilmCoefficient = SigPort (Shell Conv HTC)
+Port: Conv_SurfaceArea = SigPort (Bare Tube Surface Area)
+Port: Conv_Tol = SigPort (Spec Conv Tolerance)
+Port: Conv_TubeEmissivity = SigPort (Tube Emissivity)
+Port: Conv_TubeMassCr = SigPort (Tube Cr wt)
+Port: Conv_TubeMassFe = SigPort (Tube Fe wt)
+Port: Conv_TubeMassNi = SigPort (Tube Ni wt)
+Port: CustomKConv = SigPort (Custom Thermal Conductivity)
+Port: CustomKRad = SigPort (Custom Thermal Conductivity)
+Port: FinCCSpacing = SigPort (Fin Spacing (C-C))
+Port: FinHeight = SigPort (Fin Height)
+Port: FinOutsideDiameter = SigPort (Fin Outside Diameter)
+Port: FinPerLength = SigPort (Fins Per Length)
+Port: FinSpacing = SigPort (Fin Spacing (gap))
+Port: FinThickness = SigPort (Fin Thickness)
+Port: FlueGasEmissivity = SigPort (Flue Gas Emissivity)
+Port: FlueGasOut = MatPort (Exhaust)
+Port: FoulingFactor = SigPort (Fouling Factor)
+Port: FuelIn = MatPort (Fuel)
+Port: FurnaceDP = SigPort (Furnace dP)
+Port: FurnaceDepth = SigPort (Radiative Zone Depth)
+Port: FurnaceDiameter = SigPort (Radiative Zone Diameter)
+Port: FurnaceExchange = SigPort (Furnace Exchange)
+Port: FurnaceWidth = SigPort (Radiative Zone Width)
+Port: In = MatPort
+Port: InitKineticDamp = SigPort (Initial Kinetic Damp)
+Port: InnerDiameter = SigPort (Inside Diameter)
+Port: KineticMaxC = SigPort (Kinetic Max C)
+Port: Length = SigPort (Total Length)
+Port: MERTPitch = SigPort (MERT Pitch [degree])
+Port: MaxCokeGrowth = SigPort (Max Coke Growth)
+Port: MaxTubeT = SigPort (Max Tube T)
+Port: NumberTubes = SigPort (Number Of Tubes)
+Port: Out = MatPort
+Port: OuterDiameter = SigPort (Outer Diameter)
+Port: OutletPressure = SigPort (Outlet P)
+Port: OutletTemperature = SigPort
+Port: OxidantIn = MatPort (Oxidant)
+Port: ProcessDP = SigPort (Process dP)
+Port: Rad_AdditionalFurnaceLength = SigPort (Additional Length)
+Port: Rad_AmbientHeatLoss = EnePort (Radiant Heat Loss)
+Port: Rad_CALC_Area_Ratio = SigPort (Area Ratio)
+Port: Rad_CALC_Fin_Efficiency = SigPort (Fin Efficiency)
+Port: Rad_CokeGrowth = SigPort
+Port: Rad_FinPerLength = SigPort (Fins Per Length)
+Port: Rad_FoulingFactor = SigPort (Fouling Factor)
+Port: Rad_FurnaceDP = SigPort (Radiative Zone dP)
+Port: Rad_FurnaceDepth = SigPort (Radiative Zone Depth)
+Port: Rad_FurnaceDiameter = SigPort (Radiative Zone Diameter)
+Port: Rad_FurnaceExchange = SigPort (Furnace Exchange)
+Port: Rad_FurnaceViewFactor = SigPort (View Factor)
+Port: Rad_FurnaceWidth = SigPort (Radiative Zone Width)
+Port: Rad_InnerDiameter = SigPort (Inside Diameter)
+Port: Rad_Length = SigPort (Total Length)
+Port: Rad_MERTPitch = SigPort (MERT Pitch [degree])
+Port: Rad_MaxCokeGrowth = SigPort (Max Coke Growth)
+Port: Rad_MaxTubeT = SigPort (Max Tube T)
+Port: Rad_MultHTCIn = SigPort (Rad HTC In)
+Port: Rad_MultHTCOut = SigPort (Rad HTC Out)
+Port: Rad_MultTPassAdj = SigPort (Mult T Pass Adj)
+Port: Rad_OuterDiameter = SigPort (Outer Diameter)
+Port: Rad_OutletTemperature = SigPort (Outlet Temperature)
+Port: Rad_ProcessDP = SigPort (Process Pressure Drop)
+Port: Rad_ResidenceTime = SigPort (Residence Time)
+Port: Rad_ShapeFactor = SigPort (Shape factor)
+Port: Rad_ShellFilmCoefficient = SigPort (Shell Conv HTC)
+Port: Rad_SurfaceArea = SigPort (Bare Tube Surface Area)
+Port: Rad_TubeEmissivity = SigPort (Tube Emissivity)
+Port: Rad_TubeMassCr = SigPort (Tube Cr wt)
+Port: Rad_TubeMassFe = SigPort (Tube Fe wt)
+Port: Rad_TubeMassNi = SigPort (Tube Ni wt)
+Port: ResidenceTime = SigPort (Residence Time)
+Port: Roughness = SigPort (Roughness Factor)
+Port: RowBendRadius = SigPort (Row Bend Radius)
+Port: ShellFilmCoefficient = SigPort (Shell Conv HTC)
+Port: SurfaceArea = SigPort (Bare Tube Surface Area)
+Port: TubeBendRadius = SigPort (Tube Bend Radius)
+Port: TubePasses = SigPort (Passes Per Tube)
+Port: TubeRows = SigPort (Tube Rows)
+Param: Conv_AutoFurnaceSplit (Auto Furnace Split) = 1
+Param: Conv_CustomAlloy (Custom Alloy) = 0
+Param: Conv_Fin_Type (Fin Type) = No Fins
+(InternalVal = No_Fins)
+Param: Conv_HeatTransferModel (Heat Transfer Model) = X-RectangularFurnace
+Param: Conv_TubeDirection (Tube Direction) = Vertical From Top
+(InternalVal = VerticalTop)
+Param: Conv_TubeLayout (Tube Row Layout) = 90Degree(SquarePitch)
+Param: Conv_TubeMaterial (Tube Material) = HK40
+Param: Conv_Tube_Metal_Type (Tube Material) = Chrome_Nickel_Steel
+Param: Correlation (Correlation Based) = 0
+Param: DisableAutoSteam97 (Disable Auto Steam97) = 0
+Param: DisableHeavyReactions (Disable Heavy Reactions) = 0
+Param: ExBurn (External Burner) = 0
+Param: Fin_Metal_Type = Carbon_Steel
+Param: Fin_Type = No_Fins
+Param: HasA (A) = 1
+Param: HasConv (Has Convection Section) = 1
+Param: HasI (I) = 1
+Param: HasN (N) = 1
+Param: HasO (O) = 1
+Param: HasP (P) = 1
+Param: HasRad (Has Radiant Section) = 1
+Param: HeatTransferModel = X-RectangularFurnace
+Param: Ignored = None
+Param: IncludeFe (Fe) = 0
+Param: IncludeN (N) = 0
+Param: IncludeNi (Ni) = 0
+Param: IncludeO (O) = 0
+Param: IncludeS (S) = 0
+Param: IncludeV (V) = 0
+Param: MultiSegTube (Multi Segment Pipe) = 1
+Param: PIONA_Lumping_Type (Speed Up) = No
+(InternalVal = None)
+Param: PressureDropCorrelation (dP Correlation) = Colebrook
+Param: RadTubeMaterial (Tube Material) = HK40
+Param: Rad_AutoFurnaceSplit (Auto Furnace Split) = 1
+Param: Rad_CustomAlloy (Custom Alloy) = 0
+Param: Rad_Fin_Type (Fin Type) = No Fins
+(InternalVal = No_Fins)
+Param: Rad_HeatTransferModel (Heat Transfer Model) = X-RectangularFurnace
+Param: Rad_TubeDirection (Tube Direction) = Vertical From Top
+(InternalVal = VerticalTop)
+Param: Rad_TubeLayout (Tube Row Layout) = 90Degree(SquarePitch)
+Param: Rad_Tube_Metal_Type (Tube Material) = Chrome_Nickel_Steel
+Param: ReactionModel = 12Reaction
+Param: RemoveCokeMass (Remove Coke Mass) = 1
+Param: ShowEInputs (Display E Inputs) = 0
+Param: SolveLastConv (Solve From Last Converged) = 1
+Param: Solve_DampingFactor (Damping Factor) = 0.5
+Param: Solve_MaxNumIterations (Max Iterations) = 50
+Param: Solve_MinOutletPressure (Min Outlet P [kPa]) = 50.0
+Param: Solve_Segments (Zone Segments) = 40
+Param: Solve_SolutionMethod (Solution Method) = RungeKutta4
+Param: Solve_StiffTolerance (Stiff Tolerance) = 0.0001
+Param: Solve_Tolerance (Tolerance) = 0.0001
+Param: Solve_Zones (Reaction Zones) = 1
+Param: SpecCOP (Spec Outlet P) = 0
+Param: SpecCOT (Spec Outlet T) = 0
+Param: SpecConv (Spec Conversion) = 0
+Param: SpecDB (Dry Basis) = 0
+Param: Speedup = 0
+Param: TubeDirection (Tube Direction) = Vertical From Top
+(InternalVal = VerticalTop)
+Param: TubeLayout (Tube Row Layout) = 90Degree(SquarePitch)
+Param: TubeMaterial (Tube Material) = HK40
+Param: Tube_Pitch = 90Degree(SquarePitch)
+Param: VaporPhase (All Vapor Phase) = 1
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+FuelIn: sim.solver.Ports.Port_Material
+OxidantIn: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+FlueGasOut: sim.solver.Ports.Port_Material
+Rad_AmbientHeatLoss: sim.solver.Ports.Port_Energy
+Conv_AmbientHeatLoss: sim.solver.Ports.Port_Energy
+InnerDiameter: sim.solver.Ports.Port_Signal
+OuterDiameter: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+NumberTubes: sim.solver.Ports.Port_Signal
+TubePasses: sim.solver.Ports.Port_Signal
+CokeThickness: sim.solver.Ports.Port_Signal
+FurnaceWidth: sim.solver.Ports.Port_Signal
+FurnaceDepth: sim.solver.Ports.Port_Signal
+FurnaceDiameter: sim.solver.Ports.Port_Signal
+TubeBendRadius: sim.solver.Ports.Port_Signal
+ProcessDP: sim.solver.Ports.Port_Signal
+FurnaceDP: sim.solver.Ports.Port_Signal
+FoulingFactor: sim.solver.Ports.Port_Signal
+FlueGasEmissivity: sim.solver.Ports.Port_Signal
+FurnaceExchange: sim.solver.Ports.Port_Signal
+OutletTemperature: sim.solver.Ports.Port_Signal
+MaxTubeT: sim.solver.Ports.Port_Signal
+FinHeight: sim.solver.Ports.Port_Signal
+FinThickness: sim.solver.Ports.Port_Signal
+FinSpacing: sim.solver.Ports.Port_Signal
+ResidenceTime: sim.solver.Ports.Port_Signal
+Roughness: sim.solver.Ports.Port_Signal
+MaxCokeGrowth: sim.solver.Ports.Port_Signal
+TubeRows: sim.solver.Ports.Port_Signal
+RowBendRadius: sim.solver.Ports.Port_Signal
+ShellFilmCoefficient: sim.solver.Ports.Port_Signal
+FinOutsideDiameter: sim.solver.Ports.Port_Signal
+FinPerLength: sim.solver.Ports.Port_Signal
+CALC_Area_Ratio: sim.solver.Ports.Port_Signal
+CALC_Fin_Efficiency: sim.solver.Ports.Port_Signal
+SurfaceArea: sim.solver.Ports.Port_Signal
+Rad_InnerDiameter: sim.solver.Ports.Port_Signal
+Rad_OuterDiameter: sim.solver.Ports.Port_Signal
+Rad_Length: sim.solver.Ports.Port_Signal
+Rad_FurnaceWidth: sim.solver.Ports.Port_Signal
+Rad_FurnaceDepth: sim.solver.Ports.Port_Signal
+Rad_FurnaceDiameter: sim.solver.Ports.Port_Signal
+Rad_ProcessDP: sim.solver.Ports.Port_Signal
+Rad_FurnaceDP: sim.solver.Ports.Port_Signal
+Rad_FoulingFactor: sim.solver.Ports.Port_Signal
+Rad_FurnaceViewFactor: sim.solver.Ports.Port_Signal
+Rad_TubeEmissivity: sim.solver.Ports.Port_Signal
+Rad_FurnaceExchange: sim.solver.Ports.Port_Signal
+Rad_OutletTemperature: sim.solver.Ports.Port_Signal
+Rad_MaxTubeT: sim.solver.Ports.Port_Signal
+Rad_ResidenceTime: sim.solver.Ports.Port_Signal
+Rad_CokeGrowth: sim.solver.Ports.Port_Signal
+Rad_AdditionalFurnaceLength: sim.solver.Ports.Port_Signal
+Rad_ShellFilmCoefficient: sim.solver.Ports.Port_Signal
+Rad_FinPerLength: sim.solver.Ports.Port_Signal
+Rad_CALC_Area_Ratio: sim.solver.Ports.Port_Signal
+Rad_CALC_Fin_Efficiency: sim.solver.Ports.Port_Signal
+Rad_SurfaceArea: sim.solver.Ports.Port_Signal
+Rad_MultTPassAdj: sim.solver.Ports.Port_Signal
+Rad_MultHTCIn: sim.solver.Ports.Port_Signal
+Rad_MultHTCOut: sim.solver.Ports.Port_Signal
+Conv_InnerDiameter: sim.solver.Ports.Port_Signal
+Conv_OuterDiameter: sim.solver.Ports.Port_Signal
+Conv_Length: sim.solver.Ports.Port_Signal
+Conv_CokeThickness: sim.solver.Ports.Port_Signal
+Conv_FurnaceWidth: sim.solver.Ports.Port_Signal
+Conv_FurnaceDepth: sim.solver.Ports.Port_Signal
+Conv_FurnaceDiameter: sim.solver.Ports.Port_Signal
+Conv_ProcessDP: sim.solver.Ports.Port_Signal
+Conv_FurnaceDP: sim.solver.Ports.Port_Signal
+Conv_FoulingFactor: sim.solver.Ports.Port_Signal
+Conv_FurnaceViewFactor: sim.solver.Ports.Port_Signal
+Conv_TubeEmissivity: sim.solver.Ports.Port_Signal
+Conv_FurnaceExchange: sim.solver.Ports.Port_Signal
+Conv_OutletTemperature: sim.solver.Ports.Port_Signal
+Conv_MaxTubeT: sim.solver.Ports.Port_Signal
+Conv_ResidenceTime: sim.solver.Ports.Port_Signal
+Conv_CokeGrowth: sim.solver.Ports.Port_Signal
+Conv_AdditionalFurnaceLength: sim.solver.Ports.Port_Signal
+Conv_ShellFilmCoefficient: sim.solver.Ports.Port_Signal
+Conv_FinPerLength: sim.solver.Ports.Port_Signal
+Conv_CALC_Area_Ratio: sim.solver.Ports.Port_Signal
+ConvCALC_Fin_Efficiency: sim.solver.Ports.Port_Signal
+Conv_SurfaceArea: sim.solver.Ports.Port_Signal
+Conv_MultTPassAdj: sim.solver.Ports.Port_Signal
+Conv_MultHTCIn: sim.solver.Ports.Port_Signal
+Conv_MultHTCOut: sim.solver.Ports.Port_Signal
+AmbientT: sim.solver.Ports.Port_Signal
+AirVel: sim.solver.Ports.Port_Signal
+CokeThicknessIn: sim.solver.Ports.Port_Signal
+FinCCSpacing: sim.solver.Ports.Port_Signal
+MERTPitch: sim.solver.Ports.Port_Signal
+CokeCond: sim.solver.Ports.Port_Signal
+CustomKRad: sim.solver.Ports.Port_Signal
+CustomKConv: sim.solver.Ports.Port_Signal
+Rad_MaxCokeGrowth: sim.solver.Ports.Port_Signal
+Rad_MERTPitch: sim.solver.Ports.Port_Signal
+Conv_MaxCokeGrowth: sim.solver.Ports.Port_Signal
+Conv_MERTPitch: sim.solver.Ports.Port_Signal
+Rad_TubeMassNi: sim.solver.Ports.Port_Signal
+Rad_TubeMassFe: sim.solver.Ports.Port_Signal
+Rad_TubeMassCr: sim.solver.Ports.Port_Signal
+Conv_TubeMassNi: sim.solver.Ports.Port_Signal
+Conv_TubeMassFe: sim.solver.Ports.Port_Signal
+Conv_TubeMassCr: sim.solver.Ports.Port_Signal
+OutletPressure: sim.solver.Ports.Port_Signal
+COT_Tol: sim.solver.Ports.Port_Signal
+COP_Tol: sim.solver.Ports.Port_Signal
+Conv_Tol: sim.solver.Ports.Port_Signal
+CokeRoughFactor: sim.solver.Ports.Port_Signal
+Rad_ShapeFactor: sim.solver.Ports.Port_Signal
+Conv_ShapeFactor: sim.solver.Ports.Port_Signal
+InitKineticDamp: sim.solver.Ports.Port_Signal
+KineticMaxC: sim.solver.Ports.Port_Signal
+Conv_AutoFurnaceSplit: Conv_AutoFurnaceSplit = 1
+Conv_CustomAlloy: Conv_CustomAlloy = 0
+Conv_Fin_Type: Conv_Fin_Type = No_Fins
+Conv_HeatTransferModel: Conv_HeatTransferModel = X-RectangularFurnace
+Conv_TubeDirection: Conv_TubeDirection = VerticalTop
+Conv_TubeLayout: Conv_TubeLayout = 90Degree(SquarePitch)
+Conv_TubeMaterial: Conv_TubeMaterial = HK40
+Conv_Tube_Metal_Type: Conv_Tube_Metal_Type = Chrome_Nickel_Steel
+Correlation: Correlation = 0
+DisableAutoSteam97: DisableAutoSteam97 = 0
+DisableHeavyReactions: DisableHeavyReactions = 0
+ExBurn: ExBurn = 0
+Fin_Metal_Type: Fin_Metal_Type = Carbon_Steel
+Fin_Type: Fin_Type = No_Fins
+HasA: HasA = 1
+HasConv: HasConv = 1
+HasI: HasI = 1
+HasN: HasN = 1
+HasO: HasO = 1
+HasP: HasP = 1
+HasRad: HasRad = 1
+HeatTransferModel: HeatTransferModel = X-RectangularFurnace
+Ignored: Ignored = None
+IncludeFe: IncludeFe = 0
+IncludeN: IncludeN = 0
+IncludeNi: IncludeNi = 0
+IncludeO: IncludeO = 0
+IncludeS: IncludeS = 0
+IncludeV: IncludeV = 0
+MultiSegTube: MultiSegTube = 1
+PIONA_Lumping_Type: PIONA_Lumping_Type = None
+PressureDropCorrelation: PressureDropCorrelation = Colebrook
+RadTubeMaterial: RadTubeMaterial = HK40
+Rad_AutoFurnaceSplit: Rad_AutoFurnaceSplit = 1
+Rad_CustomAlloy: Rad_CustomAlloy = 0
+Rad_Fin_Type: Rad_Fin_Type = No_Fins
+Rad_HeatTransferModel: Rad_HeatTransferModel = X-RectangularFurnace
+Rad_TubeDirection: Rad_TubeDirection = VerticalTop
+Rad_TubeLayout: Rad_TubeLayout = 90Degree(SquarePitch)
+Rad_Tube_Metal_Type: Rad_Tube_Metal_Type = Chrome_Nickel_Steel
+ReactionModel: ReactionModel = 12Reaction
+RemoveCokeMass: RemoveCokeMass = 1
+ShowEInputs: ShowEInputs = 0
+SolveLastConv: SolveLastConv = 1
+Solve_DampingFactor: Solve_DampingFactor = 0.5
+Solve_MaxNumIterations: Solve_MaxNumIterations = 50
+Solve_MinOutletPressure: Solve_MinOutletPressure = 50.0
+Solve_Segments: Solve_Segments = 40
+Solve_SolutionMethod: Solve_SolutionMethod = RungeKutta4
+Solve_StiffTolerance: Solve_StiffTolerance = 0.0001
+Solve_Tolerance: Solve_Tolerance = 0.0001
+Solve_Zones: Solve_Zones = 1
+SpecCOP: SpecCOP = 0
+SpecCOT: SpecCOT = 0
+SpecConv: SpecConv = 0
+SpecDB: SpecDB = 0
+Speedup: Speedup = 0
+TubeDirection: TubeDirection = VerticalTop
+TubeLayout: TubeLayout = 90Degree(SquarePitch)
+TubeMaterial: TubeMaterial = HK40
+Tube_Pitch: Tube_Pitch = 90Degree(SquarePitch)
+VaporPhase: VaporPhase = 1

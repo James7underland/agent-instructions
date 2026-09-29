@@ -1,0 +1,44 @@
+# Ejector = Ejector.EjectorOp()
+
+## /X
+Operation: X = sim.unitop.Ejector.EjectorOp
+Status: Not Solved
+Port: Discharge = MatPort
+Port: Efficiency = SigPort
+Port: Motive = MatPort
+Port: NozzleDiameter = SigPort (Nozzle Diameter)
+Port: Process = MatPort
+Port: ThroatDiameter = SigPort (Throat Diameter)
+Param: AvSolutionMethods = NewtonRaphson Secant Broyden
+Param: DampingFactor (Damping Factor) = 1.0
+Param: FreqJacobianMsg (Freq Jacobian Msg) = 10
+Param: Ignored = None
+Param: MaxError (Max Error) = 1e-05
+Param: MaxNumIterations (Max Num Iterations) = 100
+Param: MinimizeError (Minimize Error) = 1
+Param: MonitorConvergence (Monitor Convergence) = 0
+Param: ReTryOnFailure = 0
+Param: SolutionMethod (Solution Method) = NewtonRaphson
+Param: TryLastConverged (Try Last Converged) = 1
+Param: TryToRestart (Try To Restart) = 0
+
+## dir /X
+
+Process: sim.solver.Ports.Port_Material
+Motive: sim.solver.Ports.Port_Material
+Discharge: sim.solver.Ports.Port_Material
+NozzleDiameter: sim.solver.Ports.Port_Signal
+ThroatDiameter: sim.solver.Ports.Port_Signal
+Efficiency: sim.solver.Ports.Port_Signal
+AvSolutionMethods: AvSolutionMethods = NewtonRaphson Secant Broyden
+DampingFactor: DampingFactor = 1.0
+FreqJacobianMsg: FreqJacobianMsg = 10
+Ignored: Ignored = None
+MaxError: MaxError = 1e-05
+MaxNumIterations: MaxNumIterations = 100
+MinimizeError: MinimizeError = True
+MonitorConvergence: MonitorConvergence = False
+ReTryOnFailure: ReTryOnFailure = 0
+SolutionMethod: SolutionMethod = NewtonRaphson
+TryLastConverged: TryLastConverged = True
+TryToRestart: TryToRestart = False

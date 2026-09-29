@@ -1,0 +1,14 @@
+# PVTAnalysis = Oils.PVTAnalysis()
+
+## /X
+Operation: X = sim.thermo.Oils.PVTAnalysis
+Status: Not Solved
+Port: In = MatPort
+Port: Out = MatPort
+Param: Ignored = None
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+Ignored: Ignored = None

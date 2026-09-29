@@ -1,0 +1,67 @@
+# Envelope = Envelope.PTEnvelope("InitPressures = 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 11000 12000; Starting_P = 500 kPa")
+
+## /X
+Operation: X = sim.unitop.Envelope.PTEnvelope
+Status: Not Solved
+Port: Cricondenbar_P = SigPort (Cricondenbar P)
+Port: Cricondenbar_T = SigPort (Cricondenbar T)
+Port: Cricondentherm_P = SigPort (Cricondentherm P)
+Port: Cricondentherm_T = SigPort (Cricondentherm T)
+Port: Crit_P = SigPort (Critical P)
+Port: Crit_T = SigPort (Critical T)
+Port: Hyd_PMax = SigPort (Hydrate Max P)
+Port: Hyd_PMin = SigPort (Hydrate Min P)
+Port: Hyd_TMax = SigPort (Hydrate Max T)
+Port: Hyd_TMin = SigPort (Hydrate Min T)
+Port: In = MatPort
+Port: Out = MatPort
+Port: Starting_P = SigPort (Starting P)
+Param: ASol (Solid) = 0
+Param: Asph (Asphaltene) = 0
+Param: DryBasis (Dry Basis) = 1
+Param: HydNumPoints (Hydrate Points) = 10
+Param: Hyd_Saturate (Hydrate Calc Saturate) = 0
+Param: Hyd_SpecPMax (Hydrate Specify Max P) = 0
+Param: Hydrate = 0
+Param: Ignored = None
+Param: MaxNumPoints (Max Num Points) = 200
+Param: Mode = Saturated
+Param: SolveDuringFlowsheetIterations = 0
+Param: Wax = 0
+DataSeries: Pressures = sim.unitop.XYTable.DataSeries; P 1000.0 2000.0 3000.0 4000.0 5000.0 6000.0 7000.0 8000.0 9000.0 10000.0 11000.0 12000.0
+QualityCurve: Q1
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+Crit_P: sim.solver.Ports.Port_Signal
+Crit_T: sim.solver.Ports.Port_Signal
+Cricondenbar_P: sim.solver.Ports.Port_Signal
+Cricondenbar_T: sim.solver.Ports.Port_Signal
+Cricondentherm_P: sim.solver.Ports.Port_Signal
+Cricondentherm_T: sim.solver.Ports.Port_Signal
+Starting_P: sim.solver.Ports.Port_Signal
+Hyd_TMin: sim.solver.Ports.Port_Signal
+Hyd_TMax: sim.solver.Ports.Port_Signal
+Hyd_PMax: sim.solver.Ports.Port_Signal
+Hyd_PMin: sim.solver.Ports.Port_Signal
+ASol: ASol = 0
+Asph: Asph = 0
+DryBasis: DryBasis = 1
+HydNumPoints: HydNumPoints = 10
+Hyd_Saturate: Hyd_Saturate = False
+Hyd_SpecPMax: Hyd_SpecPMax = False
+Hydrate: Hydrate = 0
+Ignored: Ignored = None
+MaxNumPoints: MaxNumPoints = 200
+Mode: Mode = Saturated
+SolveDuringFlowsheetIterations: SolveDuringFlowsheetIterations = False
+Wax: Wax = 0
+OnDryBasis: 0
+Pressures: Pressures = sim.unitop.XYTable.DataSeries; P 1000.0 2000.0 3000.0 4000.0 5000.0 6000.0 7000.0 8000.0 9000.0 10000.0 11000.0 12000.0
+QualityCurves: [..
+Q1
+..]
+
+Q1: sim.unitop.Envelope.QualityCurve; Identifier = 1.000000; EnvelopeResults: Results

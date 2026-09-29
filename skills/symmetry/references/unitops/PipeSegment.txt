@@ -1,0 +1,118 @@
+# PipeSegment = PipeSegment.PipeSegment("PressureDropModel = ; PressureDropModel = PipeModels.VMGPressureDropModel(); NumberSections = 2; Elevation1 = 0.0 m; U = None; Roughness = 0.045 mm; DB_Schedule = 40; DB_NomSize = 2; Length = 10 m")
+
+## /X
+Operation: X = sim.unitop.PipeSegment.PipeSegment
+Status: Not Solved
+Status: Info - Missing Composition
+Port: DeltaP = SigPort (Delta P)
+Port: EfficFactor = SigPort (Efficiency Factor)
+Port: Elevation0 = SigPort (Elevation In)
+Port: Elevation1 = SigPort (Elevation Out)
+Port: ExternalT = SigPort (External T)
+Port: GroundT = SigPort (Ground T)
+Port: HoldupVolume = SigPort (Total Liquid Inventory)
+Port: In = MatPort
+Port: InnerDiameter = SigPort (Inner Diameter)
+Port: IsChoked = SigPort (Is Choked)
+Port: Length = SigPort (Total Length)
+Port: MachMax = SigPort (Max. Mach Number)
+Port: Out = MatPort
+Port: OutQ = EnePort
+Port: OuterDiameter = SigPort (Outer Diameter)
+Port: Roughness = SigPort
+Port: Thickness = SigPort
+Port: TotalVolume = SigPort (Total Volume)
+Port: U = SigPort
+Param: AvSolutionMethods = NewtonRaphson Secant Broyden
+Param: CalcKETermInDPAtInletDiam (Diam Chg in Kin) = 1
+Param: DampingFactor (Damping Factor) = 1.0
+Param: EnergyLossModel (Energy Loss Model) = Auto
+Param: FlashType (Flash Type) = PHFlash
+Param: FreqJacobianMsg (Freq Jacobian Msg) = 10
+Param: HTCorrGbl (Inner HT Corr) = HTube Mix
+(InternalVal = HTubeMix)
+Param: HeatLossCalcTypeGbl (Heat Transfer Calc Type) = Simple
+Param: HeatLossGblPerSegSpec (Heat Loss Spec Type) = Global
+Param: IgnoreKinetic (Ignore Kinetic) = 0
+Param: IgnorePotential (Ignore Potential) = 0
+Param: IgnoreWarnings (Ignore Warnings) = 0
+Param: Ignored = None
+Param: IsPerSeg_Diameter (Diameter Spec'd/Section) = 0
+Param: IsPerSeg_Elevation (Elevation) = 0
+Param: IsPerSeg_ExternalT (External T) = 0
+Param: IsPerSeg_Fittings (Fittings) = 0
+Param: IsPerSeg_Roughness (Roughness Spec'd/Section) = 0
+Param: LaminarTransition (Laminar Transition) = 1
+Param: MaxError (Max Error) = 1e-05
+Param: MaxNumIterations (Max Num Iterations) = 100
+Param: MinimizeError (Minimize Error) = 1
+Param: MonitorConvergence (Monitor Convergence) = 0
+Param: NumberSections (Number of Sections) = 2
+Param: OutHTCorrGbl (Outer HT Corr) = Free Conv. Air
+(InternalVal = FreeConvAir)
+Param: OutTempSource (Outside Data) = Ambient
+Param: PressureDropCorrelation (Pressure Drop Correlation) = Colebrook
+Param: ReTryOnFailure = 0
+Param: ShortcutHydrate (Shortcut Hydrate) = 0
+Param: SlugFreqMethod (Slug Freq. Method) = Gregory
+Param: SolutionMethod (Solution Method) = NewtonRaphson
+Param: SolveMethod (Solve Method) = Auto Select
+(InternalVal = AutoSelect)
+Param: TryLastConverged (Try Last Converged) = 1
+Param: TryToRestart (Try To Restart) = 0
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+U: sim.solver.Ports.Port_Signal
+ExternalT: sim.solver.Ports.Port_Signal
+GroundT: sim.solver.Ports.Port_Signal
+DeltaP: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+InnerDiameter: sim.solver.Ports.Port_Signal
+OuterDiameter: sim.solver.Ports.Port_Signal
+Thickness: sim.solver.Ports.Port_Signal
+Roughness: sim.solver.Ports.Port_Signal
+Elevation0: sim.solver.Ports.Port_Signal
+Elevation1: sim.solver.Ports.Port_Signal
+HoldupVolume: sim.solver.Ports.Port_Signal
+TotalVolume: sim.solver.Ports.Port_Signal
+EfficFactor: sim.solver.Ports.Port_Signal
+MachMax: sim.solver.Ports.Port_Signal
+IsChoked: sim.solver.Ports.Port_Signal
+AvSolutionMethods: AvSolutionMethods = NewtonRaphson Secant Broyden
+CalcKETermInDPAtInletDiam: CalcKETermInDPAtInletDiam = 1
+DampingFactor: DampingFactor = 1.0
+EnergyLossModel: EnergyLossModel = Auto
+FlashType: FlashType = PHFlash
+FreqJacobianMsg: FreqJacobianMsg = 10
+HTCorrGbl: HTCorrGbl = HTubeMix
+HeatLossCalcTypeGbl: HeatLossCalcTypeGbl = Simple
+HeatLossGblPerSegSpec: HeatLossGblPerSegSpec = Global
+IgnoreKinetic: IgnoreKinetic = 0
+IgnorePotential: IgnorePotential = 0
+IgnoreWarnings: IgnoreWarnings = 0
+Ignored: Ignored = None
+IsPerSeg_Diameter: IsPerSeg_Diameter = False
+IsPerSeg_Elevation: IsPerSeg_Elevation = False
+IsPerSeg_ExternalT: IsPerSeg_ExternalT = False
+IsPerSeg_Fittings: IsPerSeg_Fittings = False
+IsPerSeg_Roughness: IsPerSeg_Roughness = False
+LaminarTransition: LaminarTransition = 1
+MaxError: MaxError = 1e-05
+MaxNumIterations: MaxNumIterations = 100
+MinimizeError: MinimizeError = True
+MonitorConvergence: MonitorConvergence = False
+NumberSections: NumberSections = 2
+OutHTCorrGbl: OutHTCorrGbl = FreeConvAir
+OutTempSource: OutTempSource = Ambient
+PressureDropCorrelation: PressureDropCorrelation = Colebrook
+ReTryOnFailure: ReTryOnFailure = 0
+ShortcutHydrate: ShortcutHydrate = 0
+SlugFreqMethod: SlugFreqMethod = Gregory
+SolutionMethod: SolutionMethod = NewtonRaphson
+SolveMethod: SolveMethod = AutoSelect
+TryLastConverged: TryLastConverged = True
+TryToRestart: TryToRestart = False

@@ -1,0 +1,206 @@
+# DelayedCoker = Reactors.DelayedCoker()
+
+## /X
+Operation: X = vmgsim.unitop.Reactors.DelayedCoker
+Status: Not Solved
+Port: AccumIn = MatPort
+Port: AccumOut = MatPort (PitchSolidOut)
+Port: AmbientHeatLoss = EnePort (Ambient Heat Loss)
+Port: AmbientT = SigPort (Ambient Temp)
+Port: AsphPhaseDens = SigPort (Asph Phase Dens)
+Port: CokeGrowth = SigPort (Coke Growth)
+Port: CokeThickness = SigPort (Coke Thickness)
+Port: Conversion = SigPort
+Port: ETHANE_cmpSel = SigPort
+Port: EndLiqVol = SigPort (End Liquid Vol)
+Port: EndVesselT = SigPort (End Vessel Wall T)
+Port: ExpCForm = SigPort (Exp Carbon Formation)
+Port: FeedIn = MatPort
+Port: ForcedCmpCount = SigPort (Forced Component Count)
+Port: FoulingFactor = SigPort (Fouling Factor)
+Port: InitKineticDamp = SigPort (Initial Kinetic Damp)
+Port: KineticMaxC = SigPort (Kinetic Max C)
+Port: LiqLevel = SigPort (Avg Liquid Level)
+Port: METHANE_cmpSel = SigPort
+Port: MultAtmEquivT = SigPort (Mult Atm Equiv T)
+Port: MultCH3Rad = SigPort (Mult CH3+ Rad)
+Port: MultHRad = SigPort (Mult H+ Rad)
+Port: MultHTCLiq = SigPort (Conv HTC Liq)
+Port: MultHTCOut = SigPort (Conv HTC Out)
+Port: MultHTCVap = SigPort (Conv HTC Vap)
+Port: MultSolidPP = SigPort (Mult Solid Pitch PP)
+Port: MultSpdUpVapQ = SigPort (Mult SpdUp Vap Q)
+Port: MultVapRelease = SigPort (Mult Vap Release)
+Port: NozzleDiameter = SigPort (Nozzle Diameter)
+Port: PROPANE_cmpSel = SigPort
+Port: PitchHeatingValue = SigPort (Pitch HHV)
+Port: PitchMassC = SigPort (Pitch C wt)
+Port: PitchMassFe = SigPort (Pitch Fe wt)
+Port: PitchMassH = SigPort (Pitch H wt)
+Port: PitchMassN = SigPort (Pitch N wt)
+Port: PitchMassNi = SigPort (Pitch Ni wt)
+Port: PitchMassO = SigPort (Pitch O wt)
+Port: PitchMassS = SigPort (Pitch S wt)
+Port: PitchMassV = SigPort (Pitch V wt)
+Port: PitchOut = MatPort (PitchLiquidOut)
+Port: PitchPourPoint = SigPort (Pitch Pour Point)
+Port: PourPointVisc = SigPort (Pour Point Visc)
+Port: StartLiqVol = SigPort (Start Liquid Vol)
+Port: StartVesselT = SigPort (Start Vessel Wall T)
+Port: SteamIn = MatPort
+Port: SteamNozzles = SigPort (Steam Nozzles)
+Port: SteamVelocity = SigPort (Steam Velocity)
+Port: SurfaceArea = SigPort (Exposed Surface Area)
+Port: TimeStep = SigPort (Time Step)
+Port: VaporMassC = SigPort (Vapor C wt)
+Port: VaporMassFe = SigPort (Vapor Fe wt)
+Port: VaporMassH = SigPort (Vapor H wt)
+Port: VaporMassN = SigPort (Vapor N wt)
+Port: VaporMassNi = SigPort (Vapor Ni wt)
+Port: VaporMassO = SigPort (Vapor O wt)
+Port: VaporMassS = SigPort (Vapor S wt)
+Port: VaporMassV = SigPort (Vapor V wt)
+Port: VaporOut = MatPort
+Port: VesselEmissivity = SigPort (Vessel Emissivity)
+Port: VesselHeight = SigPort (Vessel Height)
+Port: VesselVolume = SigPort (Vessel Volume)
+Port: VesselWeight = SigPort (Vessel Weight)
+Port: WATER_cmpSel = SigPort
+Port: WindSpeed = SigPort (Wind Speed)
+Port: biasErefT = SigPort (Kinetic AppT)
+Port: multErefT = SigPort (Kinetic MultT)
+Port: n-BUTANE_cmpSel = SigPort
+Port: n-PENTANE_cmpSel = SigPort
+Param: ActStateSpace (Activate Reduced Order Model) = 0
+Param: AutoAddComps (Add Missing Components) = 1
+Param: BatchCycle (Batch Cycle) = Charge & Reaction
+(InternalVal = ChargeReactionCycle)
+Param: ConversionOpt (Conversion Options) = Molecular
+Param: DisableHeavyReactions (Disable Reactions) = 0
+Param: HXMode (Heat Transfer Mode) = Constant T
+Param: HasA (A) = 1
+Param: HasI (I) = 1
+Param: HasN (N) = 1
+Param: HasO (O) = 1
+Param: HasP (P) = 1
+Param: Ignored = None
+Param: IncludeFe (Fe) = 0
+Param: IncludeN (N) = 0
+Param: IncludeNi (Ni) = 0
+Param: IncludeO (O) = 0
+Param: IncludeS (S) = 1
+Param: IncludeV (V) = 0
+Param: LoggedErr = 
+Param: PIONA_Lumping_Type (Speedup) = Yes
+(InternalVal = None(spd))
+Param: ReactionModel (Reaction Model) = Atm Resid (< C200)
+(InternalVal = AtmResidReaction)
+Param: ReactionVersion (Reaction Version) = 2020+
+(InternalVal = Version2020+)
+Param: RecKineticTuning (Recommended) = 0
+Param: ShowEInputs (Display E Inputs) = 0
+Param: Solve_StiffTolerance (Stiff Tolerance) = 0.01
+Param: Solve_TimeSegments (Time Segments) = 100
+Param: Speedup = 1
+Param: StateSpace (Reduced Order Model) = 0
+Param: Tube_Metal_Type (Vessel Material) = Carbon_Steel
+
+## dir /X
+
+FeedIn: sim.solver.Ports.Port_Material
+SteamIn: sim.solver.Ports.Port_Material
+AccumIn: sim.solver.Ports.Port_Material
+VaporOut: sim.solver.Ports.Port_Material
+PitchOut: sim.solver.Ports.Port_Material
+AccumOut: sim.solver.Ports.Port_Material
+AmbientHeatLoss: sim.solver.Ports.Port_Energy
+AmbientT: sim.solver.Ports.Port_Signal
+WindSpeed: sim.solver.Ports.Port_Signal
+StartVesselT: sim.solver.Ports.Port_Signal
+EndVesselT: sim.solver.Ports.Port_Signal
+PitchPourPoint: sim.solver.Ports.Port_Signal
+PitchHeatingValue: sim.solver.Ports.Port_Signal
+VaporMassC: sim.solver.Ports.Port_Signal
+VaporMassH: sim.solver.Ports.Port_Signal
+VaporMassO: sim.solver.Ports.Port_Signal
+VaporMassS: sim.solver.Ports.Port_Signal
+VaporMassN: sim.solver.Ports.Port_Signal
+VaporMassV: sim.solver.Ports.Port_Signal
+VaporMassFe: sim.solver.Ports.Port_Signal
+VaporMassNi: sim.solver.Ports.Port_Signal
+PitchMassC: sim.solver.Ports.Port_Signal
+PitchMassH: sim.solver.Ports.Port_Signal
+PitchMassO: sim.solver.Ports.Port_Signal
+PitchMassS: sim.solver.Ports.Port_Signal
+PitchMassN: sim.solver.Ports.Port_Signal
+PitchMassV: sim.solver.Ports.Port_Signal
+PitchMassFe: sim.solver.Ports.Port_Signal
+PitchMassNi: sim.solver.Ports.Port_Signal
+SteamNozzles: sim.solver.Ports.Port_Signal
+NozzleDiameter: sim.solver.Ports.Port_Signal
+SteamVelocity: sim.solver.Ports.Port_Signal
+VesselVolume: sim.solver.Ports.Port_Signal
+VesselWeight: sim.solver.Ports.Port_Signal
+VesselHeight: sim.solver.Ports.Port_Signal
+CokeThickness: sim.solver.Ports.Port_Signal
+VesselEmissivity: sim.solver.Ports.Port_Signal
+FoulingFactor: sim.solver.Ports.Port_Signal
+Conversion: sim.solver.Ports.Port_Signal
+TimeStep: sim.solver.Ports.Port_Signal
+CokeGrowth: sim.solver.Ports.Port_Signal
+SurfaceArea: sim.solver.Ports.Port_Signal
+LiqLevel: sim.solver.Ports.Port_Signal
+StartLiqVol: sim.solver.Ports.Port_Signal
+EndLiqVol: sim.solver.Ports.Port_Signal
+MultHTCVap: sim.solver.Ports.Port_Signal
+MultHTCLiq: sim.solver.Ports.Port_Signal
+MultHTCOut: sim.solver.Ports.Port_Signal
+MultHRad: sim.solver.Ports.Port_Signal
+MultCH3Rad: sim.solver.Ports.Port_Signal
+MultSpdUpVapQ: sim.solver.Ports.Port_Signal
+MultVapRelease: sim.solver.Ports.Port_Signal
+MultAtmEquivT: sim.solver.Ports.Port_Signal
+biasErefT: sim.solver.Ports.Port_Signal
+multErefT: sim.solver.Ports.Port_Signal
+InitKineticDamp: sim.solver.Ports.Port_Signal
+PourPointVisc: sim.solver.Ports.Port_Signal
+AsphPhaseDens: sim.solver.Ports.Port_Signal
+KineticMaxC: sim.solver.Ports.Port_Signal
+MultSolidPP: sim.solver.Ports.Port_Signal
+ExpCForm: sim.solver.Ports.Port_Signal
+ForcedCmpCount: sim.solver.Ports.Port_Signal
+METHANE_cmpSel: sim.solver.Ports.Port_Signal
+ETHANE_cmpSel: sim.solver.Ports.Port_Signal
+PROPANE_cmpSel: sim.solver.Ports.Port_Signal
+n-BUTANE_cmpSel: sim.solver.Ports.Port_Signal
+n-PENTANE_cmpSel: sim.solver.Ports.Port_Signal
+WATER_cmpSel: sim.solver.Ports.Port_Signal
+ActStateSpace: ActStateSpace = 0
+AutoAddComps: AutoAddComps = 1
+BatchCycle: BatchCycle = ChargeReactionCycle
+ConversionOpt: ConversionOpt = Molecular
+DisableHeavyReactions: DisableHeavyReactions = 0
+HXMode: HXMode = Constant T
+HasA: HasA = 1
+HasI: HasI = 1
+HasN: HasN = 1
+HasO: HasO = 1
+HasP: HasP = 1
+Ignored: Ignored = None
+IncludeFe: IncludeFe = 0
+IncludeN: IncludeN = 0
+IncludeNi: IncludeNi = 0
+IncludeO: IncludeO = 0
+IncludeS: IncludeS = 1
+IncludeV: IncludeV = 0
+LoggedErr: LoggedErr = 
+PIONA_Lumping_Type: PIONA_Lumping_Type = None(spd)
+ReactionModel: ReactionModel = AtmResidReaction
+ReactionVersion: ReactionVersion = Version2020+
+RecKineticTuning: RecKineticTuning = 0
+ShowEInputs: ShowEInputs = 0
+Solve_StiffTolerance: Solve_StiffTolerance = 0.01
+Solve_TimeSegments: Solve_TimeSegments = 100
+Speedup: Speedup = 1
+StateSpace: StateSpace = 0
+Tube_Metal_Type: Tube_Metal_Type = Carbon_Steel

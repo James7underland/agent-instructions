@@ -1,0 +1,68 @@
+# ClausHeater = ClausOperations.ClausHeater("DeltaP = 0.25 psi")
+
+## /X
+Operation: X = vmgsim.unitop.ClausOperations.ClausHeater
+Status: Not Solved
+Port: DeltaP = SigPort (Delta P)
+Port: DeltaT = SigPort (Delta T)
+Port: Diameter = SigPort
+Port: Elev = SigPort (Elevation)
+Port: HeatLoss = SigPort (Heat Loss)
+Port: In = MatPort
+Port: InQ = EnePort
+Port: Length = SigPort
+Port: Liq0Level = SigPort (Level)
+Port: Liq0Level% = SigPort (Percent Level)
+Port: Liq1Level = SigPort (Heavy Liq Level)
+Port: Liq1Level% = SigPort (Heavy Liq % Level)
+Port: Out = MatPort
+Port: OutT = SigPort (Out T)
+Port: Volume = SigPort
+Port: k = SigPort
+Child: GibbsReactor = vmgsim.unitop.ClausReactors.SulfurGibbsReactor
+Param: Calculate_Flow (Solve for Flows) = 1
+Param: Duty_Damping (Duty Damping) = 0.9
+Param: Duty_LastConv (Duty Last Converged) = 0
+Param: Duty_MaxError (Duty Max Error) = 0.0001
+Param: Duty_MaxIter (Duty Max Iter) = 100
+Param: Duty_MaxStep (Duty Max Step) = 5.0
+Param: HTCorr (Inner HTC Corr.) = Constant
+Param: HeatLossCalcType (Heat Loss Calc Type) = None
+Param: Ignored = None
+Param: NumberSegments (Number of Segments) = 5
+Param: Orientation = Horizontal
+Param: OutHTCorr (Outer HT Corr) = Constant
+Param: PFCalc (Phase Fraction Calc) = Simple
+
+## dir /X
+
+GibbsReactor: GibbsReactor = vmgsim.unitop.ClausReactors.SulfurGibbsReactor
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+InQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+DeltaT: sim.solver.Ports.Port_Signal
+OutT: sim.solver.Ports.Port_Signal
+HeatLoss: sim.solver.Ports.Port_Signal
+k: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+Liq0Level: sim.solver.Ports.Port_Signal
+Liq1Level: sim.solver.Ports.Port_Signal
+Liq0Level%: sim.solver.Ports.Port_Signal
+Liq1Level%: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+Diameter: sim.solver.Ports.Port_Signal
+Calculate_Flow: Calculate_Flow = True
+Duty_Damping: Duty_Damping = 0.9
+Duty_LastConv: Duty_LastConv = 0
+Duty_MaxError: Duty_MaxError = 0.0001
+Duty_MaxIter: Duty_MaxIter = 100
+Duty_MaxStep: Duty_MaxStep = 5.0
+HTCorr: HTCorr = Constant
+HeatLossCalcType: HeatLossCalcType = None
+Ignored: Ignored = None
+NumberSegments: NumberSegments = 5
+Orientation: Orientation = Horizontal
+OutHTCorr: OutHTCorr = Constant
+PFCalc: PFCalc = Simple

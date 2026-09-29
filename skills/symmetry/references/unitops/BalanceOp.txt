@@ -1,0 +1,26 @@
+# BalanceOp = Balance.BalanceOp("BalanceType = 2; NumberStreamsInMat = 1; NumberStreamsOutMat = 1; NumberStreamsInEne = 0; NumberStreamsOutEne = 0")
+
+## /X
+Operation: X = sim.unitop.Balance.BalanceOp
+Status: Not Solved
+Port: In0 = MatPort
+Port: Out0 = MatPort
+Param: BalanceType = 2
+Param: BalanceTypeName (Calc Pressure Mode) = Mole
+Param: Ignored = None
+Param: NumberStreamsInEne (Energy Inlets) = 0
+Param: NumberStreamsInMat (Inlets) = 1
+Param: NumberStreamsOutEne (Energy Outlets) = 0
+Param: NumberStreamsOutMat (Outlets) = 1
+
+## dir /X
+
+In0: sim.solver.Ports.Port_Material
+Out0: sim.solver.Ports.Port_Material
+BalanceType: BalanceType = 2
+BalanceTypeName: BalanceTypeName = Mole
+Ignored: Ignored = None
+NumberStreamsInEne: NumberStreamsInEne = 0
+NumberStreamsInMat: NumberStreamsInMat = 1
+NumberStreamsOutEne: NumberStreamsOutEne = 0
+NumberStreamsOutMat: NumberStreamsOutMat = 1

@@ -1,0 +1,319 @@
+# PlasmaGasification = Gasification.PlasmaGasificationOp()
+
+## /X
+Operation: X = vmgsim.unitop.Gasification.PlasmaGasificationOp
+Status: Not Solved
+Port: AmbientT = SigPort (Ambient Temperature)
+Port: BedApproachT = SigPort (Bed Approach T)
+Port: BedAreaPerReactor = SigPort (Bed Area per Reactor)
+Port: BedHeatLoss = EnePort (Bed Heat Loss)
+Port: BedU = SigPort (Bed U)
+Port: BottomT = SigPort (Bottom Temperature)
+Port: CalculatedNumberOfReactors = SigPort (Calculated Number Of Reactors)
+Port: CokeIn = MatPort
+Port: Coke_To_Feed_Mass = SigPort (Coke/Feed Mass Ratio)
+Port: CtoCO2A1 = SigPort (C to CO2 A1)
+Port: CtoCO2A2 = SigPort (C to CO2 A2)
+Port: CtoCO2E1 = SigPort (C to CO2 E1)
+Port: CtoCO2E2 = SigPort (C to CO2 E2)
+Port: CtoCO2alpha1 = SigPort (C to CO2 Alpha1)
+Port: CtoCO2alpha2 = SigPort (C to CO2 Alpha2)
+Port: CtoCO2beta1 = SigPort (C to CO2 Beta1)
+Port: CtoCO2beta2 = SigPort (C to CO2 Beta2)
+Port: CtoCOA1 = SigPort (C to CO A1)
+Port: CtoCOA2 = SigPort (C to CO A2)
+Port: CtoCOA3 = SigPort (C to CO A3)
+Port: CtoCOE1 = SigPort (C to CO E1)
+Port: CtoCOE2 = SigPort (C to CO E2)
+Port: CtoCOE3 = SigPort (C to CO E3)
+Port: CtoCOalpha1 = SigPort (C to CO Alpha1)
+Port: CtoCOalpha2 = SigPort (C to CO Alpha2)
+Port: CtoCOalpha3 = SigPort (C to CO Alpha3)
+Port: CtoCObeta1 = SigPort (C to CO Beta1)
+Port: CtoCObeta2 = SigPort (C to CO Beta2)
+Port: CtoCObeta3 = SigPort (C to CO Beta3)
+Port: CtoHCA1 = SigPort (C to HC A1)
+Port: CtoHCA2 = SigPort (C to HC A2)
+Port: CtoHCE1 = SigPort (C to HC E1)
+Port: CtoHCE2 = SigPort (C to HC E2)
+Port: CtoHCalpha1 = SigPort (C to HC Alpha1)
+Port: CtoHCalpha2 = SigPort (C to HC Alpha2)
+Port: CtoHCbeta1 = SigPort (C to HC Beta1)
+Port: CtoHCbeta2 = SigPort (C to HC Beta2)
+Port: DeltaP = SigPort (Delta Pressure)
+Port: DryRawGasHHVPerReactor = SigPort (Dry Raw Gas HHV per Reactor)
+Port: FeedIn = MatPort
+Port: FluxIn = MatPort
+Port: FractionC2H4 = SigPort (Fraction C2H4)
+Port: FractionC2H6 = SigPort (Fraction C2H6)
+Port: FractionC3H8 = SigPort (Fraction C3H8)
+Port: FractionC4H10 = SigPort (Fraction C4H10)
+Port: FractionCH4 = SigPort (Fraction CH4)
+Port: FractionFeToFe2O3 = SigPort (Fraction Fe To Fe2O3)
+Port: FractionFeToFe3O4 = SigPort (Fraction Fe To Fe3O4)
+Port: FractionFeToFeO = SigPort (Fraction Fe To FeO)
+Port: FractionFeedNToCHN = SigPort (Fraction Feed N To CHN)
+Port: FractionFeedNToN0 = SigPort (Fraction Feed N To NO)
+Port: FractionFeedNToN02 = SigPort (Fraction Feed N To NO2)
+Port: FractionFeedNToNH3 = SigPort (Fraction Feed N To NH3)
+Port: FractionSToCOS = SigPort (Fraction S To COS)
+Port: FractionSToS02 = SigPort (Fraction S To SO2)
+Port: FractionSToS03 = SigPort (Fraction S To SO3)
+Port: FreeboardAreaPerReactor = SigPort (Freeboard Area per Reactor)
+Port: FreeboardHeatLoss = EnePort (Freeboard Heat Loss)
+Port: FreeboardU = SigPort (Freeboard U)
+Port: FreeboardVolumePerReactor = SigPort (Freeboard Volume per Reactor)
+Port: H2O_C_Ratio = SigPort (H2O/C Ratio)
+Port: H2_CO_Ratio = SigPort (H2/CO Mole Ratio)
+Port: LiquidMetalOut = MatPort
+Port: Max_AirBlownFlow = SigPort (Max Air Blown Flow)
+Port: Max_DryRawGasHHVPerReactor = SigPort (Max Dry Raw Gas HHV per Reactor)
+Port: Max_O2BlownHighHHVFlow = SigPort (Max O2 Blown High HHV Flow)
+Port: Max_O2BlownLowHHVFlow = SigPort (Max O2 Blown Low HHV Flow)
+Port: Max_O_C_Ratio = SigPort (Max O/C Ratio)
+Port: Max_PowerPerTorch = SigPort (Max Power per Torch)
+Port: Max_RawGasT = SigPort (Max Raw Gas Temperature)
+Port: Max_TorchesPerReactor = SigPort (Max Torches per Reactor)
+Port: Min_O_C_Ratio = SigPort (Min O/C Ratio)
+Port: NumberOfReactors = SigPort (Number Of Reactors)
+Port: O_C_Ratio = SigPort (O/C Ratio)
+Port: OxidantIn = MatPort
+Port: OxidantToReactorBed = SigPort (Oxidant To Reactor Bed)
+Port: ParticulatesOut = MatPort
+Port: PlasmaDuty = EnePort (Plasma Duty)
+Port: PreCombustionT = SigPort (PreCombustion Temperature)
+Port: PredictedParticulateC = SigPort (Predicted Particulate C)
+Port: RawGasOut = MatPort
+Port: ReductionAg = SigPort (Reduction Ag)
+Port: ReductionAl = SigPort (Reduction Al)
+Port: ReductionAr = SigPort
+Port: ReductionAs = SigPort (Reduction As)
+Port: ReductionB = SigPort (Reduction B)
+Port: ReductionBa = SigPort (Reduction Ba)
+Port: ReductionBe = SigPort (Reduction Be)
+Port: ReductionBr = SigPort
+Port: ReductionC = SigPort
+Port: ReductionCa = SigPort (Reduction Ca)
+Port: ReductionCd = SigPort (Reduction Cd)
+Port: ReductionCl = SigPort
+Port: ReductionCo = SigPort (Reduction Co)
+Port: ReductionCr = SigPort (Reduction Cr)
+Port: ReductionCu = SigPort (Reduction Cu)
+Port: ReductionF = SigPort
+Port: ReductionFe = SigPort (Reduction Fe)
+Port: ReductionGa = SigPort (Reduction Ga)
+Port: ReductionGe = SigPort (Reduction Ge)
+Port: ReductionH = SigPort
+Port: ReductionHe = SigPort
+Port: ReductionHg = SigPort (Reduction Hg)
+Port: ReductionK = SigPort (Reduction K)
+Port: ReductionKr = SigPort
+Port: ReductionLi = SigPort (Reduction Li)
+Port: ReductionMg = SigPort (Reduction Mg)
+Port: ReductionMn = SigPort (Reduction Mn)
+Port: ReductionMo = SigPort (Reduction Mo)
+Port: ReductionN = SigPort
+Port: ReductionNa = SigPort (Reduction Na)
+Port: ReductionNe = SigPort
+Port: ReductionNi = SigPort (Reduction Ni)
+Port: ReductionO = SigPort
+Port: ReductionP = SigPort
+Port: ReductionPb = SigPort (Reduction Pb)
+Port: ReductionRn = SigPort
+Port: ReductionS = SigPort
+Port: ReductionSb = SigPort (Reduction Sb)
+Port: ReductionSc = SigPort (Reduction Sc)
+Port: ReductionSe = SigPort (Reduction Se)
+Port: ReductionSi = SigPort (Reduction Si)
+Port: ReductionSn = SigPort (Reduction Sn)
+Port: ReductionTh = SigPort (Reduction Th)
+Port: ReductionTi = SigPort (Reduction Ti)
+Port: ReductionUuo = SigPort
+Port: ReductionV = SigPort (Reduction V)
+Port: ReductionXe = SigPort
+Port: ReductionZn = SigPort (Reduction Zn)
+Port: SlagOut = MatPort
+Port: SteamIn = MatPort
+Port: SteamToReactorBed = SigPort (Steam To Reactor Bed)
+Port: TheoreticalBedVolumePerReactor = SigPort (Theoretical Bed Volume per Reactor)
+Port: TopApproachT = SigPort (Top Approach T)
+Port: TopT = SigPort (Top Temperature)
+Port: TorchAirIn = MatPort
+Port: TorchAirT = SigPort (Torch Air Temperature)
+Port: TorchesPerReactor = SigPort (Torches per Reactor)
+Port: fractionBtmFeedWaterSplit = SigPort (Btm Feed Water Split)
+Port: fractionBtmTotalCarbonSplit = SigPort (Btm Carbon Total Split)
+Param: CalcPressureMode (Calc. Pressure Mode) = All Feed P Spec
+(InternalVal = AllFeedPSpec)
+Param: Duty_Damping (Duty Damping) = 0.9
+Param: Duty_LastConv (Duty Last Converged) = 0
+Param: Duty_MaxError (Duty Max Error) = 0.0001
+Param: Duty_MaxIter (Duty Max Iterations) = 100
+Param: Duty_MaxStep (Duty Max Step) = 1.0
+Param: ETHANE_Permission = 6
+Param: Ignored = None
+Param: METHANE_Permission = 6
+Param: Max_Reactor_Segmentation = 1000000.0
+Param: PROPANE_Permission = 6
+Param: ReactionModel (Reaction Model) = Kinetic
+Param: WATER_Permission = 6
+Param: n-BUTANE_Permission = 6
+Param: n-PENTANE_Permission = 6
+
+## dir /X
+
+TorchAirIn: sim.solver.Ports.Port_Material
+FluxIn: sim.solver.Ports.Port_Material
+SteamIn: sim.solver.Ports.Port_Material
+OxidantIn: sim.solver.Ports.Port_Material
+CokeIn: sim.solver.Ports.Port_Material
+FeedIn: sim.solver.Ports.Port_Material
+RawGasOut: sim.solver.Ports.Port_Material
+SlagOut: sim.solver.Ports.Port_Material
+LiquidMetalOut: sim.solver.Ports.Port_Material
+ParticulatesOut: sim.solver.Ports.Port_Material
+PlasmaDuty: sim.solver.Ports.Port_Energy
+FreeboardHeatLoss: sim.solver.Ports.Port_Energy
+BedHeatLoss: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+TheoreticalBedVolumePerReactor: sim.solver.Ports.Port_Signal
+BedAreaPerReactor: sim.solver.Ports.Port_Signal
+BottomT: sim.solver.Ports.Port_Signal
+TopT: sim.solver.Ports.Port_Signal
+PreCombustionT: sim.solver.Ports.Port_Signal
+NumberOfReactors: sim.solver.Ports.Port_Signal
+FreeboardU: sim.solver.Ports.Port_Signal
+BedU: sim.solver.Ports.Port_Signal
+FreeboardAreaPerReactor: sim.solver.Ports.Port_Signal
+FreeboardVolumePerReactor: sim.solver.Ports.Port_Signal
+AmbientT: sim.solver.Ports.Port_Signal
+OxidantToReactorBed: sim.solver.Ports.Port_Signal
+SteamToReactorBed: sim.solver.Ports.Port_Signal
+fractionBtmFeedWaterSplit: sim.solver.Ports.Port_Signal
+TopApproachT: sim.solver.Ports.Port_Signal
+BedApproachT: sim.solver.Ports.Port_Signal
+Max_DryRawGasHHVPerReactor: sim.solver.Ports.Port_Signal
+Max_PowerPerTorch: sim.solver.Ports.Port_Signal
+Max_TorchesPerReactor: sim.solver.Ports.Port_Signal
+Min_O_C_Ratio: sim.solver.Ports.Port_Signal
+Max_O_C_Ratio: sim.solver.Ports.Port_Signal
+Max_RawGasT: sim.solver.Ports.Port_Signal
+Max_AirBlownFlow: sim.solver.Ports.Port_Signal
+Max_O2BlownHighHHVFlow: sim.solver.Ports.Port_Signal
+Max_O2BlownLowHHVFlow: sim.solver.Ports.Port_Signal
+TorchAirT: sim.solver.Ports.Port_Signal
+DryRawGasHHVPerReactor: sim.solver.Ports.Port_Signal
+PredictedParticulateC: sim.solver.Ports.Port_Signal
+Coke_To_Feed_Mass: sim.solver.Ports.Port_Signal
+H2_CO_Ratio: sim.solver.Ports.Port_Signal
+O_C_Ratio: sim.solver.Ports.Port_Signal
+H2O_C_Ratio: sim.solver.Ports.Port_Signal
+CalculatedNumberOfReactors: sim.solver.Ports.Port_Signal
+TorchesPerReactor: sim.solver.Ports.Port_Signal
+CtoCOA1: sim.solver.Ports.Port_Signal
+CtoCOE1: sim.solver.Ports.Port_Signal
+CtoCOalpha1: sim.solver.Ports.Port_Signal
+CtoCObeta1: sim.solver.Ports.Port_Signal
+CtoCOA2: sim.solver.Ports.Port_Signal
+CtoCOE2: sim.solver.Ports.Port_Signal
+CtoCOalpha2: sim.solver.Ports.Port_Signal
+CtoCObeta2: sim.solver.Ports.Port_Signal
+CtoCOA3: sim.solver.Ports.Port_Signal
+CtoCOE3: sim.solver.Ports.Port_Signal
+CtoCOalpha3: sim.solver.Ports.Port_Signal
+CtoCObeta3: sim.solver.Ports.Port_Signal
+CtoCO2A1: sim.solver.Ports.Port_Signal
+CtoCO2E1: sim.solver.Ports.Port_Signal
+CtoCO2alpha1: sim.solver.Ports.Port_Signal
+CtoCO2beta1: sim.solver.Ports.Port_Signal
+CtoCO2A2: sim.solver.Ports.Port_Signal
+CtoCO2E2: sim.solver.Ports.Port_Signal
+CtoCO2alpha2: sim.solver.Ports.Port_Signal
+CtoCO2beta2: sim.solver.Ports.Port_Signal
+CtoHCA1: sim.solver.Ports.Port_Signal
+CtoHCE1: sim.solver.Ports.Port_Signal
+CtoHCalpha1: sim.solver.Ports.Port_Signal
+CtoHCbeta1: sim.solver.Ports.Port_Signal
+CtoHCA2: sim.solver.Ports.Port_Signal
+CtoHCE2: sim.solver.Ports.Port_Signal
+CtoHCalpha2: sim.solver.Ports.Port_Signal
+CtoHCbeta2: sim.solver.Ports.Port_Signal
+FractionCH4: sim.solver.Ports.Port_Signal
+FractionC2H6: sim.solver.Ports.Port_Signal
+FractionC2H4: sim.solver.Ports.Port_Signal
+FractionC3H8: sim.solver.Ports.Port_Signal
+FractionC4H10: sim.solver.Ports.Port_Signal
+FractionFeToFeO: sim.solver.Ports.Port_Signal
+FractionFeToFe2O3: sim.solver.Ports.Port_Signal
+FractionFeToFe3O4: sim.solver.Ports.Port_Signal
+FractionSToCOS: sim.solver.Ports.Port_Signal
+FractionSToS02: sim.solver.Ports.Port_Signal
+FractionSToS03: sim.solver.Ports.Port_Signal
+FractionFeedNToN0: sim.solver.Ports.Port_Signal
+FractionFeedNToN02: sim.solver.Ports.Port_Signal
+FractionFeedNToNH3: sim.solver.Ports.Port_Signal
+FractionFeedNToCHN: sim.solver.Ports.Port_Signal
+ReductionAg: sim.solver.Ports.Port_Signal
+ReductionAl: sim.solver.Ports.Port_Signal
+ReductionAs: sim.solver.Ports.Port_Signal
+ReductionB: sim.solver.Ports.Port_Signal
+ReductionBa: sim.solver.Ports.Port_Signal
+ReductionBe: sim.solver.Ports.Port_Signal
+ReductionCa: sim.solver.Ports.Port_Signal
+ReductionCd: sim.solver.Ports.Port_Signal
+ReductionCo: sim.solver.Ports.Port_Signal
+ReductionCr: sim.solver.Ports.Port_Signal
+ReductionCu: sim.solver.Ports.Port_Signal
+ReductionFe: sim.solver.Ports.Port_Signal
+ReductionGa: sim.solver.Ports.Port_Signal
+ReductionGe: sim.solver.Ports.Port_Signal
+ReductionHg: sim.solver.Ports.Port_Signal
+ReductionK: sim.solver.Ports.Port_Signal
+ReductionLi: sim.solver.Ports.Port_Signal
+ReductionMg: sim.solver.Ports.Port_Signal
+ReductionMn: sim.solver.Ports.Port_Signal
+ReductionMo: sim.solver.Ports.Port_Signal
+ReductionNa: sim.solver.Ports.Port_Signal
+ReductionNi: sim.solver.Ports.Port_Signal
+ReductionP: sim.solver.Ports.Port_Signal
+ReductionPb: sim.solver.Ports.Port_Signal
+ReductionSb: sim.solver.Ports.Port_Signal
+ReductionSc: sim.solver.Ports.Port_Signal
+ReductionSe: sim.solver.Ports.Port_Signal
+ReductionSi: sim.solver.Ports.Port_Signal
+ReductionSn: sim.solver.Ports.Port_Signal
+ReductionTh: sim.solver.Ports.Port_Signal
+ReductionTi: sim.solver.Ports.Port_Signal
+ReductionV: sim.solver.Ports.Port_Signal
+ReductionZn: sim.solver.Ports.Port_Signal
+ReductionN: sim.solver.Ports.Port_Signal
+ReductionHe: sim.solver.Ports.Port_Signal
+ReductionNe: sim.solver.Ports.Port_Signal
+ReductionAr: sim.solver.Ports.Port_Signal
+ReductionKr: sim.solver.Ports.Port_Signal
+ReductionXe: sim.solver.Ports.Port_Signal
+ReductionRn: sim.solver.Ports.Port_Signal
+ReductionUuo: sim.solver.Ports.Port_Signal
+ReductionS: sim.solver.Ports.Port_Signal
+ReductionF: sim.solver.Ports.Port_Signal
+ReductionBr: sim.solver.Ports.Port_Signal
+ReductionCl: sim.solver.Ports.Port_Signal
+ReductionC: sim.solver.Ports.Port_Signal
+ReductionO: sim.solver.Ports.Port_Signal
+ReductionH: sim.solver.Ports.Port_Signal
+fractionBtmTotalCarbonSplit: sim.solver.Ports.Port_Signal
+CalcPressureMode: CalcPressureMode = AllFeedPSpec
+Duty_Damping: Duty_Damping = 0.9
+Duty_LastConv: Duty_LastConv = 0
+Duty_MaxError: Duty_MaxError = 0.0001
+Duty_MaxIter: Duty_MaxIter = 100
+Duty_MaxStep: Duty_MaxStep = 1.0
+ETHANE_Permission: ETHANE_Permission = 6
+Ignored: Ignored = None
+METHANE_Permission: METHANE_Permission = 6
+Max_Reactor_Segmentation: Max_Reactor_Segmentation = 1000000.0
+PROPANE_Permission: PROPANE_Permission = 6
+ReactionModel: ReactionModel = Kinetic
+WATER_Permission: WATER_Permission = 6
+n-BUTANE_Permission: n-BUTANE_Permission = 6
+n-PENTANE_Permission: n-PENTANE_Permission = 6

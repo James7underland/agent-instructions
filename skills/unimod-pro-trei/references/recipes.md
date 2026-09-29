@@ -5,7 +5,7 @@
 
 Пути в примерах:
 - IDE: `C:/Program Files/UnimodPRO2/Unimod.exe`
-- скрипты управления IDE: `scripts/`
+- скрипты управления IDE: `assets/scripts/`
 
 ---
 
@@ -351,7 +351,7 @@ open('logic.import.csv', 'w', encoding='utf-8', newline='').write('\r\n'.join(ro
 ### Шаг 2. Схема (проект закрыт)
 
 ```python
-import sys; sys.path.insert(0, '<skill>/scripts')
+import sys; sys.path.insert(0, '<skill>/assets/scripts')
 from fbd_gen import Scheme
 
 s = Scheme(dict_csv='tasks/main/logic/prog.csv')
@@ -389,7 +389,7 @@ s.save('tasks/main/logic/prog.json')     # сам расставит sequence и
 Прочитать схему (свою или чужую) без IDE:
 
 ```bash
-python <skill>/scripts/fbd_dump.py tasks/main/logic/prog.json --blocks --links
+python <skill>/assets/scripts/fbd_dump.py tasks/main/logic/prog.json --blocks --links
 ```
 
 ---
@@ -452,7 +452,7 @@ scroll | clear` (примеры — в шапке скрипта). `save` сна
 ```bash
 cp -r "<проект>" "<проект>_edit"                              # 1. копия
 cp tasks/main/<прог>/prog.json prog.before.json
-python <skill>/scripts/fbd_dump.py tasks/main/<прог>/prog.json --blocks --links   # 2. разбор
+python <skill>/assets/scripts/fbd_dump.py tasks/main/<прог>/prog.json --blocks --links   # 2. разбор
 ```
 
 ```python
@@ -476,7 +476,7 @@ s.save('tasks/main/program_0001/prog.json')
 ```
 
 ```bash
-python <skill>/scripts/fbd_diff.py prog.before.json tasks/main/program_0001/prog.json   # 5. дифф
+python <skill>/assets/scripts/fbd_diff.py prog.before.json tasks/main/program_0001/prog.json   # 5. дифф
 ```
 
 6. Открыть проект → `Get-FbdStCode` → `fbd_dump.py prog.json --check-st st.txt`
@@ -534,7 +534,7 @@ Get-FbdStCode | Out-File -Encoding utf8 st.txt     # вкладка схемы �
 ```
 
 ```bash
-python <skill>/scripts/fbd_dump.py tasks/main/alarms/prog.json --check-st st.txt
+python <skill>/assets/scripts/fbd_dump.py tasks/main/alarms/prog.json --check-st st.txt
 ```
 
 «код IDE совпадает со схемой в файле (148 операторов)» — IDE прочла всё.
@@ -779,8 +779,8 @@ rows = list(csv.DictReader(open('tags/global.csv', encoding='utf-8'), delimiter=
 ### Шаг 1. Что обещает руководство
 
 ```bash
-python scripts/manual.py HYSTER          # раздел целиком
-python scripts/manual.py --example TON   # только пример вызова
+python assets/scripts/manual.py HYSTER          # раздел целиком
+python assets/scripts/manual.py --example TON   # только пример вызова
 ```
 
 В примерах руководства есть готовые числа (`SETFIELD(2024, 5, 8, 589)` →

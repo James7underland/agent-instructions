@@ -1,0 +1,10 @@
+# ProTreat = OGT.ProTreat()
+
+## /X
+Operation: X = vmgsim.unitop.OGT.ProTreat
+Status: Solved
+Param: Ignored = None
+
+## dir /X
+
+Ignored: Ignored = None

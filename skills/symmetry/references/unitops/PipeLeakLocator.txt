@@ -1,0 +1,12 @@
+# PipeLeakLocator = PipeSegment.PipeLeakLocator()
+
+## /X
+Operation: X = sim.unitop.PipeSegment.PipeLeakLocator
+Status: Solved
+Param: GLRT_Reduce (LLR Reduce Method) = Average
+Param: Ignored = None
+
+## dir /X
+
+GLRT_Reduce: GLRT_Reduce = Average
+Ignored: Ignored = None

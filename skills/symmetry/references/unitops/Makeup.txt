@@ -1,0 +1,47 @@
+# Makeup = Makeup.Makeup()
+
+## /X
+Operation: X = sim.unitop.Makeup.Makeup
+Status: Not Solved
+Port: Blowdown = MatPort (Purge)
+Port: DeltaP = SigPort (Delta P)
+Port: In = MatPort
+Port: Makeup = MatPort
+Port: Out = MatPort
+Port: OutMassFlow = SigPort (Mass Flow)
+Port: OutMoleFlow = SigPort (Mole Flow)
+Port: OutQ = EnePort (Out Q)
+Port: OutStGasFlow = SigPort (Std Gas Volume Flow)
+Port: OutStLiqFlow = SigPort (Std Liq Volume Flow)
+Param: BalMakeUpWith (Makeup Composition Mode) = Normalize From Feed
+(InternalVal = Normalize)
+Param: CompTargBasis (Outlet Concentration Basis) = Mass %
+Param: CompTargIgnCont (Is Fresh Solvent) = 1
+Param: CompTargShowSel (Show Selection Only) = 0
+Param: Ignored = None
+Param: PCalcMode (Pressure Calculation Mode) = All P Equal
+(InternalVal = AllPEqual)
+Param: SpecCompTarg (Specify Circulating Solvent) = 0
+Param: TCalcMode (Temperature Calculation Mode) = Out Equal to In
+(InternalVal = OutEqualIn)
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Makeup: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+Blowdown: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+OutMoleFlow: sim.solver.Ports.Port_Signal
+OutMassFlow: sim.solver.Ports.Port_Signal
+OutStLiqFlow: sim.solver.Ports.Port_Signal
+OutStGasFlow: sim.solver.Ports.Port_Signal
+BalMakeUpWith: BalMakeUpWith = Normalize
+CompTargBasis: CompTargBasis = Mass %
+CompTargIgnCont: CompTargIgnCont = 1
+CompTargShowSel: CompTargShowSel = 0
+Ignored: Ignored = None
+PCalcMode: PCalcMode = AllPEqual
+SpecCompTarg: SpecCompTarg = 0
+TCalcMode: TCalcMode = OutEqualIn

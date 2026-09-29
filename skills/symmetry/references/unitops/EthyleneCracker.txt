@@ -1,0 +1,591 @@
+# EthyleneCracker = EthyleneCracker.EthyleneCracker()
+
+## /X
+Operation: X = vmgsim.unitop.EthyleneCracker.EthyleneCracker
+Status: Not Solved
+Port: ADehy1 = SigPort
+Port: ADehy2 = SigPort
+Port: AcetyleneYield = SigPort (Acetylene Mass Yield)
+Port: AdditionalFurnaceLength = SigPort (Additional Length)
+Port: AirVel = SigPort (Air Velocity)
+Port: AmbientHeatLoss = EnePort (Ambient Heat Loss)
+Port: AmbientT = SigPort (Ambient T)
+Port: BCrackExpM = SigPort
+Port: BCrackMultM = SigPort
+Port: BenzeneYield = SigPort (Benzene Mass Yield)
+Port: ButeneYield = SigPort (Butene Mass Yield)
+Port: CALC_Area_Ratio = SigPort (Fin Area Ratio)
+Port: CALC_Fin_Efficiency = SigPort (Fin Efficiency)
+Port: COP_Tol = SigPort (Spec P Tolerance)
+Port: COTLength = SigPort (COT Distance from Outlet)
+Port: COT_Tol = SigPort (Spec T Tolerance)
+Port: CarbonYield = SigPort (Carbon Mass Yield)
+Port: CokeCond = SigPort (Coke Conductivity)
+Port: CokeGrowth = SigPort (Coke Growth)
+Port: CokeRoughFactor = SigPort (Coke Roughness Factor)
+Port: CokeThickness = SigPort (Out Coke Thickness)
+Port: CokeThicknessIn = SigPort (In Coke Thickness)
+Port: Coke_Tol = SigPort (Calc Coke Tolerance)
+Port: ConstraintDP = SigPort (Max Pressure Drop)
+Port: ConstraintTubeT = SigPort (Max Tube T)
+Port: Conv_Tol = SigPort (Spec Conv Tolerance)
+Port: Conversion = SigPort
+Port: CrackExpM = SigPort
+Port: CrackMultM = SigPort
+Port: CustomK = SigPort (Custom Thermal Conductivity)
+Port: CyclobuteneYield = SigPort (Butadiene Mass Yield)
+Port: EthyleneYield = SigPort (Ethylene Mass Yield)
+Port: FinCCSpacing = SigPort (Fin Spacing (C-C))
+Port: FinHeight = SigPort (Fin Height)
+Port: FinOutsideDiameter = SigPort (Fin Outside Diameter)
+Port: FinPerLength = SigPort (Fins Per Length)
+Port: FinSpacing = SigPort (Fin Spacing (gap))
+Port: FinThickness = SigPort (Fin Thickness)
+Port: FlueGasEmissivity = SigPort (Flue Gas Emissivity)
+Port: ForcedCmpCount = SigPort (Forced Component Count)
+Port: FoulingFactor = SigPort (Fouling Factor)
+Port: FurnaceDP = SigPort (Furnace Pressure Drop)
+Port: FurnaceDepth = SigPort (Furnace Depth)
+Port: FurnaceDiameter = SigPort (Furnace Diameter)
+Port: FurnaceExchange = SigPort (Furnace Exchange)
+Port: FurnaceIn = MatPort
+Port: FurnaceOut = MatPort
+Port: FurnaceViewFactor = SigPort (View Factor)
+Port: FurnaceWidth = SigPort (Furnace Width)
+Port: In = MatPort
+Port: InitKineticDamp = SigPort (Initial Kinetic Damp)
+Port: InnerDiameter = SigPort (Inside Diameter)
+Port: KineticMaxC = SigPort (Kinetic Max C)
+Port: Length = SigPort (Total Length)
+Port: MERTPitch = SigPort (MERT Pitch [degree])
+Port: MaxCokeGrowth = SigPort (Max Coke Growth)
+Port: MaxRxnT = SigPort (Max Reaction Temperature)
+Port: MaxTubeT = SigPort (Max Tube Temperature)
+Port: MethaneYield = SigPort (Methane Mass Yield)
+Port: MultA0 = SigPort (Mult A0)
+Port: MultA1 = SigPort (Mult A1)
+Port: MultA10 = SigPort (Mult A10)
+Port: MultA11 = SigPort (Mult A11)
+Port: MultA12 = SigPort (Mult A12)
+Port: MultA13 = SigPort (Mult A13)
+Port: MultA14 = SigPort (Mult A14)
+Port: MultA15 = SigPort (Mult A15)
+Port: MultA16 = SigPort (Mult A16)
+Port: MultA17 = SigPort (Mult A17)
+Port: MultA18 = SigPort (Mult A18)
+Port: MultA19 = SigPort (Mult A19)
+Port: MultA2 = SigPort (Mult A2)
+Port: MultA20 = SigPort (Mult A20)
+Port: MultA21 = SigPort (Mult A21)
+Port: MultA22 = SigPort (Mult A22)
+Port: MultA23 = SigPort (Mult A23)
+Port: MultA24 = SigPort (Mult A24)
+Port: MultA25 = SigPort (Mult A25)
+Port: MultA26 = SigPort (Mult A26)
+Port: MultA27 = SigPort (Mult A27)
+Port: MultA28 = SigPort (Mult A28)
+Port: MultA29 = SigPort (Mult A29)
+Port: MultA3 = SigPort (Mult A3)
+Port: MultA4 = SigPort (Mult A4)
+Port: MultA5 = SigPort (Mult A5)
+Port: MultA6 = SigPort (Mult A6)
+Port: MultA7 = SigPort (Mult A7)
+Port: MultA8 = SigPort (Mult A8)
+Port: MultA9 = SigPort (Mult A9)
+Port: MultAC8High = SigPort (A8 High)
+Port: MultAC8Low = SigPort (A8 Low)
+Port: MultAC8PlusHigh = SigPort (A8+ High)
+Port: MultAC8PlusLow = SigPort (A8+ Low)
+Port: MultBCLong1 = SigPort (BCrackLong1)
+Port: MultBCLong2 = SigPort (BCrackLong2)
+Port: MultCHighA = SigPort (C High A)
+Port: MultCHighAE = SigPort (E C High A)
+Port: MultCHighN = SigPort (C High N)
+Port: MultCHighNE = SigPort (E C High N)
+Port: MultCHighO = SigPort (C High 0)
+Port: MultCHighOE = SigPort (E C High 0)
+Port: MultCLowA = SigPort (C Low A)
+Port: MultCLowAE = SigPort (E C Low A)
+Port: MultCLowN = SigPort (C Low N)
+Port: MultCLowNE = SigPort (E C Low N)
+Port: MultCLowO = SigPort (C Low 0)
+Port: MultCLowOE = SigPort (E C Low 0)
+Port: MultCoatingAsym = SigPort (Mult Asymptotic)
+Port: MultCoatingCat = SigPort (Mult Catalytic)
+Port: MultE0 = SigPort (Mult E0)
+Port: MultE1 = SigPort (Mult E1)
+Port: MultE10 = SigPort (Mult E10)
+Port: MultE11 = SigPort (Mult E11)
+Port: MultE12 = SigPort (Mult E12)
+Port: MultE13 = SigPort (Mult E13)
+Port: MultE14 = SigPort (Mult E14)
+Port: MultE15 = SigPort (Mult E15)
+Port: MultE16 = SigPort (Mult E16)
+Port: MultE17 = SigPort (Mult E17)
+Port: MultE18 = SigPort (Mult E18)
+Port: MultE19 = SigPort (Mult E19)
+Port: MultE2 = SigPort (Mult E2)
+Port: MultE20 = SigPort (Mult E20)
+Port: MultE21 = SigPort (Mult E21)
+Port: MultE22 = SigPort (Mult E22)
+Port: MultE23 = SigPort (Mult E23)
+Port: MultE24 = SigPort (Mult E24)
+Port: MultE25 = SigPort (Mult E25)
+Port: MultE26 = SigPort (Mult E26)
+Port: MultE27 = SigPort (Mult E27)
+Port: MultE28 = SigPort (Mult E28)
+Port: MultE29 = SigPort (Mult E29)
+Port: MultE3 = SigPort (Mult E3)
+Port: MultE4 = SigPort (Mult E4)
+Port: MultE5 = SigPort (Mult E5)
+Port: MultE6 = SigPort (Mult E6)
+Port: MultE7 = SigPort (Mult E7)
+Port: MultE8 = SigPort (Mult E8)
+Port: MultE9 = SigPort (Mult E9)
+Port: MultHTCIn = SigPort (Conv HTC In)
+Port: MultHTCOut = SigPort (Conv HTC Out)
+Port: MultIC4High = SigPort (I4 High)
+Port: MultIC4Low = SigPort (I4 Low)
+Port: MultIC5High = SigPort (I5 High)
+Port: MultIC5Low = SigPort (I5 Low)
+Port: MultInhibitAsym = SigPort (Mult Asymptotic)
+Port: MultInhibitCat = SigPort (Mult Catalytic)
+Port: MultNC3High = SigPort (N3 High)
+Port: MultNC3Low = SigPort (N3 Low)
+Port: MultNC4High = SigPort (N4 High)
+Port: MultNC4Low = SigPort (N4 Low)
+Port: MultNC5High = SigPort (N5 High)
+Port: MultNC5Low = SigPort (N5 Low)
+Port: MultOC4High = SigPort (O4 High)
+Port: MultOC4Low = SigPort (O4 Low)
+Port: MultOC5High = SigPort (O5 High)
+Port: MultOC5Low = SigPort (O5 Low)
+Port: MultPC4High = SigPort (P4 High)
+Port: MultPC4Low = SigPort (P4 Low)
+Port: MultPC5High = SigPort (P5 High)
+Port: MultPC5Low = SigPort (P5 Low)
+Port: MultTPassAdj = SigPort (Mult T Pass Adj)
+Port: NumberTubes = SigPort (Number Of Tubes)
+Port: Out = MatPort
+Port: OuterDiameter = SigPort (Outer Diameter)
+Port: OutletPressure = SigPort (Outlet Pressure)
+Port: OutletTemperature = SigPort (Outlet Temperature)
+Port: ProcessDP = SigPort (Process Pressure Drop)
+Port: PropaneYield = SigPort (Propane Mass Yield)
+Port: PropyleneYield = SigPort (Propylene Mass Yield)
+Port: ResidenceTime = SigPort (Residence Time)
+Port: Roughness = SigPort (Roughness Factor)
+Port: RowBendRadius = SigPort (Row Bend Radius)
+Port: ServiceTime = SigPort (Service Time)
+Port: ShellFilmCoefficient = SigPort (Shell Conv HTC)
+Port: SurfaceArea = SigPort (Bare Tube Surface Area)
+Port: TotalServiceTime = SigPort (Total Service Time)
+Port: TubeBendRadius = SigPort (Tube Bend Radius)
+Port: TubeEmissivity = SigPort (Tube Emissivity)
+Port: TubeMassCr = SigPort (Tube Cr wt)
+Port: TubeMassFe = SigPort (Tube Fe wt)
+Port: TubeMassNi = SigPort (Tube Ni wt)
+Port: TubePasses = SigPort (Passes Per Tube)
+Port: TubeRows = SigPort (Tube Rows)
+Port: contentCrack2 = SigPort (ContentCrack2)
+Port: multIC4 = SigPort (IsoParaffin C4)
+Port: multNC2 = SigPort (Naphthene C2)
+Port: multNC3 = SigPort (Naphthene C3)
+Port: multNC4 = SigPort (Naphthene C4)
+Port: multOC2 = SigPort (Olefin C2)
+Port: multOC3 = SigPort (Olefin C3)
+Port: multOC4 = SigPort (Olefin C4)
+Port: multPC1 = SigPort (Paraffin C1)
+Port: multPC2 = SigPort (Paraffin C2)
+Port: multPC3 = SigPort (Paraffin C3)
+Port: multPC4 = SigPort (Paraffin C4)
+Port: shiftBCAFe = SigPort (BCrackAFe)
+Port: shiftBCAN = SigPort (BCrackAN)
+Port: shiftBCANi = SigPort (BCrackANi)
+Port: shiftBCAO = SigPort (BCrackAO)
+Port: shiftBCAS = SigPort (BCrackAS)
+Port: shiftBCAV = SigPort (BCrackAV)
+Port: shiftBackAFe1 = SigPort (BackAFe1)
+Port: shiftBackAFe2 = SigPort (BackAFe2)
+Port: shiftBackAFeE1 = SigPort (E BackAFe1)
+Port: shiftBackAFeE2 = SigPort (E BackAFe2)
+Port: shiftBackAN1 = SigPort (BackAN1)
+Port: shiftBackAN2 = SigPort (BackAN2)
+Port: shiftBackANE1 = SigPort (E BackAN1)
+Port: shiftBackANE2 = SigPort (E BackAN2)
+Port: shiftBackANi1 = SigPort (BackANi1)
+Port: shiftBackANi2 = SigPort (BackANi2)
+Port: shiftBackANiE1 = SigPort (E BackANi1)
+Port: shiftBackANiE2 = SigPort (E BackANi2)
+Port: shiftBackAO1 = SigPort (BackAO1)
+Port: shiftBackAO2 = SigPort (BackAO2)
+Port: shiftBackAOE1 = SigPort (E BackAO1)
+Port: shiftBackAOE2 = SigPort (E BackAO2)
+Port: shiftBackAS1 = SigPort (BackAS1)
+Port: shiftBackAS2 = SigPort (BackAS2)
+Port: shiftBackASE1 = SigPort (E BackAS1)
+Port: shiftBackASE2 = SigPort (E BackAS2)
+Port: shiftBackAV1 = SigPort (BackAV1)
+Port: shiftBackAV2 = SigPort (BackAV2)
+Port: shiftBackAVE1 = SigPort (E BackAV1)
+Port: shiftBackAVE2 = SigPort (E BackAV2)
+Port: shiftCAFe = SigPort (CrackAFe)
+Port: shiftCAN = SigPort (CrackAN)
+Port: shiftCANi = SigPort (CrackANi)
+Port: shiftCAO = SigPort (CrackAO)
+Port: shiftCAS = SigPort (CrackAS)
+Port: shiftCAV = SigPort (CrackAV)
+Port: shiftECAFe = SigPort (E CrackAFe)
+Port: shiftECAN = SigPort (E CrackAN)
+Port: shiftECANi = SigPort (E CrackANi)
+Port: shiftECAO = SigPort (E CrackAO)
+Port: shiftECAS = SigPort (E CrackAS)
+Port: shiftECAV = SigPort (E CrackAV)
+Param: ActStateSpace (Activate Reduced Order Model) = 0
+Param: AdvHvyHeatFlux (Advanced Heat Flux) = 0
+Param: AutoAddComps (Add Missing Components) = 1
+Param: AutoFurnaceSplit (Auto Furnace Split) = 1
+Param: CoatingType (Tube Coating Type) = None
+Param: ConversionOpt (Conversion Options) = Molecular
+Param: CustomAlloy (Custom Alloy) = 0
+Param: DisableAutoSteam97 (Disable Auto Steam97) = 0
+Param: DisableHeavyReactions (Disable Heavy Reactions) = 0
+Param: DisableInhibit (Disable Inhibitor) = 1
+Param: Fin_Metal_Type = Carbon_Steel
+Param: Fin_Type (Fin Type) = No Fins
+(InternalVal = No_Fins)
+Param: HasA (A) = 1
+Param: HasI (I) = 1
+Param: HasN (N) = 1
+Param: HasO (O) = 1
+Param: HasP (P) = 1
+Param: HeatTransferModel (Heat Transfer Model) = X-RectangularFurnace
+Param: Ignored = None
+Param: IncludeFe (Fe) = 0
+Param: IncludeN (N) = 0
+Param: IncludeNi (Ni) = 0
+Param: IncludeO (O) = 0
+Param: IncludeS (S) = 0
+Param: IncludeV (V) = 0
+Param: MultiSegTube (Multi Segment Pipe) = 1
+Param: PIONA_Lumping_Type (Speedup) = Yes
+(InternalVal = None(spd))
+Param: PressureDropCorrelation (dP Correlation) = Colebrook
+Param: ReactionModel (Reaction Model) = C2,C3 Feed
+(InternalVal = 12Reaction)
+Param: ReactionVersion (Reaction Version) = 2020+
+(InternalVal = Version2020+)
+Param: RecKineticTuning (Recommended) = 0
+Param: RemoveCokeMass (Remove Coke Mass) = 1
+Param: ShowEInputs (Display E Inputs) = 0
+Param: SolveLastConv (Solve From Last Conv) = 1
+Param: Solve_DampingFactor (Damping Factor) = 0.5
+Param: Solve_MaxNumIterations (Max Iterations) = 50
+Param: Solve_MinOutletPressure (Min Outlet P [kPa]) = 50.0
+Param: Solve_Segments (Zone Segments) = 40
+Param: Solve_SolutionMethod (Solution Method) = RungeKutta4
+Param: Solve_StiffTolerance (Stiff Tolerance) = 0.0001
+Param: Solve_Tolerance (Tolerance) = 0.001
+Param: Solve_Zones (Reaction Zones) = 1
+Param: SpecCOP (Spec Outlet Pressure) = 0
+Param: SpecCOT (Spec Outlet Temperature) = 0
+Param: SpecConv (Spec Conversion) = 0
+Param: Speedup = 0
+Param: StateSpace (Reduced Order Model) = 0
+Param: TubeDirection (Tube Direction) = Vertical From Top
+(InternalVal = VerticalTop)
+Param: Tube_Metal_Type (Tube Material) = HK40
+Param: Tube_Pitch (Tube Row Layout) = 90Degree(SquarePitch)
+Param: VaporPhase (All Vapor Phase) = 1
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+FurnaceIn: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+FurnaceOut: sim.solver.Ports.Port_Material
+AmbientHeatLoss: sim.solver.Ports.Port_Energy
+InnerDiameter: sim.solver.Ports.Port_Signal
+OuterDiameter: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+Roughness: sim.solver.Ports.Port_Signal
+NumberTubes: sim.solver.Ports.Port_Signal
+TubePasses: sim.solver.Ports.Port_Signal
+CokeThickness: sim.solver.Ports.Port_Signal
+FurnaceWidth: sim.solver.Ports.Port_Signal
+FurnaceDepth: sim.solver.Ports.Port_Signal
+FurnaceDiameter: sim.solver.Ports.Port_Signal
+TubeBendRadius: sim.solver.Ports.Port_Signal
+ProcessDP: sim.solver.Ports.Port_Signal
+FurnaceDP: sim.solver.Ports.Port_Signal
+FoulingFactor: sim.solver.Ports.Port_Signal
+FurnaceViewFactor: sim.solver.Ports.Port_Signal
+COTLength: sim.solver.Ports.Port_Signal
+TubeEmissivity: sim.solver.Ports.Port_Signal
+FlueGasEmissivity: sim.solver.Ports.Port_Signal
+FurnaceExchange: sim.solver.Ports.Port_Signal
+Conversion: sim.solver.Ports.Port_Signal
+OutletTemperature: sim.solver.Ports.Port_Signal
+EthyleneYield: sim.solver.Ports.Port_Signal
+MethaneYield: sim.solver.Ports.Port_Signal
+PropyleneYield: sim.solver.Ports.Port_Signal
+BenzeneYield: sim.solver.Ports.Port_Signal
+AcetyleneYield: sim.solver.Ports.Port_Signal
+PropaneYield: sim.solver.Ports.Port_Signal
+CyclobuteneYield: sim.solver.Ports.Port_Signal
+ButeneYield: sim.solver.Ports.Port_Signal
+CarbonYield: sim.solver.Ports.Port_Signal
+MaxTubeT: sim.solver.Ports.Port_Signal
+FinHeight: sim.solver.Ports.Port_Signal
+FinThickness: sim.solver.Ports.Port_Signal
+FinSpacing: sim.solver.Ports.Port_Signal
+MultE0: sim.solver.Ports.Port_Signal
+MultE1: sim.solver.Ports.Port_Signal
+MultE2: sim.solver.Ports.Port_Signal
+MultE3: sim.solver.Ports.Port_Signal
+MultE4: sim.solver.Ports.Port_Signal
+MultE5: sim.solver.Ports.Port_Signal
+MultE6: sim.solver.Ports.Port_Signal
+MultE7: sim.solver.Ports.Port_Signal
+MultE8: sim.solver.Ports.Port_Signal
+MultE9: sim.solver.Ports.Port_Signal
+MultE10: sim.solver.Ports.Port_Signal
+MultE11: sim.solver.Ports.Port_Signal
+MultE12: sim.solver.Ports.Port_Signal
+MultE13: sim.solver.Ports.Port_Signal
+MultE14: sim.solver.Ports.Port_Signal
+MultE15: sim.solver.Ports.Port_Signal
+MultE16: sim.solver.Ports.Port_Signal
+MultE17: sim.solver.Ports.Port_Signal
+MultE18: sim.solver.Ports.Port_Signal
+MultE19: sim.solver.Ports.Port_Signal
+MultE20: sim.solver.Ports.Port_Signal
+MultE21: sim.solver.Ports.Port_Signal
+MultE22: sim.solver.Ports.Port_Signal
+MultE23: sim.solver.Ports.Port_Signal
+MultE24: sim.solver.Ports.Port_Signal
+MultE25: sim.solver.Ports.Port_Signal
+MultE26: sim.solver.Ports.Port_Signal
+MultE27: sim.solver.Ports.Port_Signal
+MultE28: sim.solver.Ports.Port_Signal
+MultE29: sim.solver.Ports.Port_Signal
+MultA0: sim.solver.Ports.Port_Signal
+MultA1: sim.solver.Ports.Port_Signal
+MultA2: sim.solver.Ports.Port_Signal
+MultA3: sim.solver.Ports.Port_Signal
+MultA4: sim.solver.Ports.Port_Signal
+MultA5: sim.solver.Ports.Port_Signal
+MultA6: sim.solver.Ports.Port_Signal
+MultA7: sim.solver.Ports.Port_Signal
+MultA8: sim.solver.Ports.Port_Signal
+MultA9: sim.solver.Ports.Port_Signal
+MultA10: sim.solver.Ports.Port_Signal
+MultA11: sim.solver.Ports.Port_Signal
+MultA12: sim.solver.Ports.Port_Signal
+MultA13: sim.solver.Ports.Port_Signal
+MultA14: sim.solver.Ports.Port_Signal
+MultA15: sim.solver.Ports.Port_Signal
+MultA16: sim.solver.Ports.Port_Signal
+MultA17: sim.solver.Ports.Port_Signal
+MultA18: sim.solver.Ports.Port_Signal
+MultA19: sim.solver.Ports.Port_Signal
+MultA20: sim.solver.Ports.Port_Signal
+MultA21: sim.solver.Ports.Port_Signal
+MultA22: sim.solver.Ports.Port_Signal
+MultA23: sim.solver.Ports.Port_Signal
+MultA24: sim.solver.Ports.Port_Signal
+MultA25: sim.solver.Ports.Port_Signal
+MultA26: sim.solver.Ports.Port_Signal
+MultA27: sim.solver.Ports.Port_Signal
+MultA28: sim.solver.Ports.Port_Signal
+MultA29: sim.solver.Ports.Port_Signal
+MultHTCIn: sim.solver.Ports.Port_Signal
+MultHTCOut: sim.solver.Ports.Port_Signal
+MultTPassAdj: sim.solver.Ports.Port_Signal
+MultPC4Low: sim.solver.Ports.Port_Signal
+MultIC4Low: sim.solver.Ports.Port_Signal
+MultOC4Low: sim.solver.Ports.Port_Signal
+MultNC4Low: sim.solver.Ports.Port_Signal
+MultPC4High: sim.solver.Ports.Port_Signal
+MultIC4High: sim.solver.Ports.Port_Signal
+MultOC4High: sim.solver.Ports.Port_Signal
+MultNC4High: sim.solver.Ports.Port_Signal
+MultPC5Low: sim.solver.Ports.Port_Signal
+MultIC5Low: sim.solver.Ports.Port_Signal
+MultOC5Low: sim.solver.Ports.Port_Signal
+MultNC5Low: sim.solver.Ports.Port_Signal
+MultPC5High: sim.solver.Ports.Port_Signal
+MultIC5High: sim.solver.Ports.Port_Signal
+MultOC5High: sim.solver.Ports.Port_Signal
+MultNC5High: sim.solver.Ports.Port_Signal
+MultAC8Low: sim.solver.Ports.Port_Signal
+MultAC8High: sim.solver.Ports.Port_Signal
+ResidenceTime: sim.solver.Ports.Port_Signal
+CokeGrowth: sim.solver.Ports.Port_Signal
+TubeRows: sim.solver.Ports.Port_Signal
+AdditionalFurnaceLength: sim.solver.Ports.Port_Signal
+RowBendRadius: sim.solver.Ports.Port_Signal
+ShellFilmCoefficient: sim.solver.Ports.Port_Signal
+FinOutsideDiameter: sim.solver.Ports.Port_Signal
+FinPerLength: sim.solver.Ports.Port_Signal
+CALC_Area_Ratio: sim.solver.Ports.Port_Signal
+CALC_Fin_Efficiency: sim.solver.Ports.Port_Signal
+SurfaceArea: sim.solver.Ports.Port_Signal
+CokeThicknessIn: sim.solver.Ports.Port_Signal
+FinCCSpacing: sim.solver.Ports.Port_Signal
+MaxCokeGrowth: sim.solver.Ports.Port_Signal
+MERTPitch: sim.solver.Ports.Port_Signal
+CokeCond: sim.solver.Ports.Port_Signal
+CustomK: sim.solver.Ports.Port_Signal
+ConstraintDP: sim.solver.Ports.Port_Signal
+ConstraintTubeT: sim.solver.Ports.Port_Signal
+TotalServiceTime: sim.solver.Ports.Port_Signal
+AmbientT: sim.solver.Ports.Port_Signal
+AirVel: sim.solver.Ports.Port_Signal
+TubeMassNi: sim.solver.Ports.Port_Signal
+TubeMassFe: sim.solver.Ports.Port_Signal
+TubeMassCr: sim.solver.Ports.Port_Signal
+OutletPressure: sim.solver.Ports.Port_Signal
+COT_Tol: sim.solver.Ports.Port_Signal
+COP_Tol: sim.solver.Ports.Port_Signal
+Conv_Tol: sim.solver.Ports.Port_Signal
+Coke_Tol: sim.solver.Ports.Port_Signal
+ServiceTime: sim.solver.Ports.Port_Signal
+multPC1: sim.solver.Ports.Port_Signal
+multPC2: sim.solver.Ports.Port_Signal
+multPC3: sim.solver.Ports.Port_Signal
+multPC4: sim.solver.Ports.Port_Signal
+multIC4: sim.solver.Ports.Port_Signal
+multOC2: sim.solver.Ports.Port_Signal
+multOC3: sim.solver.Ports.Port_Signal
+multOC4: sim.solver.Ports.Port_Signal
+multNC2: sim.solver.Ports.Port_Signal
+multNC3: sim.solver.Ports.Port_Signal
+multNC4: sim.solver.Ports.Port_Signal
+ADehy1: sim.solver.Ports.Port_Signal
+ADehy2: sim.solver.Ports.Port_Signal
+MaxRxnT: sim.solver.Ports.Port_Signal
+MultNC3Low: sim.solver.Ports.Port_Signal
+MultNC3High: sim.solver.Ports.Port_Signal
+MultAC8PlusLow: sim.solver.Ports.Port_Signal
+MultAC8PlusHigh: sim.solver.Ports.Port_Signal
+MultCLowO: sim.solver.Ports.Port_Signal
+MultCHighO: sim.solver.Ports.Port_Signal
+MultCLowN: sim.solver.Ports.Port_Signal
+MultCHighN: sim.solver.Ports.Port_Signal
+MultCLowA: sim.solver.Ports.Port_Signal
+MultCHighA: sim.solver.Ports.Port_Signal
+MultBCLong1: sim.solver.Ports.Port_Signal
+MultBCLong2: sim.solver.Ports.Port_Signal
+CrackMultM: sim.solver.Ports.Port_Signal
+CrackExpM: sim.solver.Ports.Port_Signal
+BCrackMultM: sim.solver.Ports.Port_Signal
+BCrackExpM: sim.solver.Ports.Port_Signal
+MultCLowOE: sim.solver.Ports.Port_Signal
+MultCHighOE: sim.solver.Ports.Port_Signal
+MultCLowNE: sim.solver.Ports.Port_Signal
+MultCHighNE: sim.solver.Ports.Port_Signal
+MultCLowAE: sim.solver.Ports.Port_Signal
+MultCHighAE: sim.solver.Ports.Port_Signal
+CokeRoughFactor: sim.solver.Ports.Port_Signal
+shiftCAO: sim.solver.Ports.Port_Signal
+shiftCAN: sim.solver.Ports.Port_Signal
+shiftCAS: sim.solver.Ports.Port_Signal
+shiftCAFe: sim.solver.Ports.Port_Signal
+shiftCAV: sim.solver.Ports.Port_Signal
+shiftCANi: sim.solver.Ports.Port_Signal
+shiftBCAO: sim.solver.Ports.Port_Signal
+shiftBCAN: sim.solver.Ports.Port_Signal
+shiftBCAS: sim.solver.Ports.Port_Signal
+shiftBCAFe: sim.solver.Ports.Port_Signal
+shiftBCAV: sim.solver.Ports.Port_Signal
+shiftBCANi: sim.solver.Ports.Port_Signal
+shiftBackAO1: sim.solver.Ports.Port_Signal
+shiftBackAO2: sim.solver.Ports.Port_Signal
+shiftBackAN1: sim.solver.Ports.Port_Signal
+shiftBackAN2: sim.solver.Ports.Port_Signal
+shiftBackAS1: sim.solver.Ports.Port_Signal
+shiftBackAS2: sim.solver.Ports.Port_Signal
+shiftBackAFe1: sim.solver.Ports.Port_Signal
+shiftBackAFe2: sim.solver.Ports.Port_Signal
+shiftBackAV1: sim.solver.Ports.Port_Signal
+shiftBackAV2: sim.solver.Ports.Port_Signal
+shiftBackANi1: sim.solver.Ports.Port_Signal
+shiftBackANi2: sim.solver.Ports.Port_Signal
+shiftECAO: sim.solver.Ports.Port_Signal
+shiftECAN: sim.solver.Ports.Port_Signal
+shiftECAS: sim.solver.Ports.Port_Signal
+shiftECAFe: sim.solver.Ports.Port_Signal
+shiftECAV: sim.solver.Ports.Port_Signal
+shiftECANi: sim.solver.Ports.Port_Signal
+shiftBackAOE1: sim.solver.Ports.Port_Signal
+shiftBackAOE2: sim.solver.Ports.Port_Signal
+shiftBackANE1: sim.solver.Ports.Port_Signal
+shiftBackANE2: sim.solver.Ports.Port_Signal
+shiftBackASE1: sim.solver.Ports.Port_Signal
+shiftBackASE2: sim.solver.Ports.Port_Signal
+shiftBackAFeE1: sim.solver.Ports.Port_Signal
+shiftBackAFeE2: sim.solver.Ports.Port_Signal
+shiftBackAVE1: sim.solver.Ports.Port_Signal
+shiftBackAVE2: sim.solver.Ports.Port_Signal
+shiftBackANiE1: sim.solver.Ports.Port_Signal
+shiftBackANiE2: sim.solver.Ports.Port_Signal
+contentCrack2: sim.solver.Ports.Port_Signal
+ForcedCmpCount: sim.solver.Ports.Port_Signal
+InitKineticDamp: sim.solver.Ports.Port_Signal
+KineticMaxC: sim.solver.Ports.Port_Signal
+MultInhibitCat: sim.solver.Ports.Port_Signal
+MultInhibitAsym: sim.solver.Ports.Port_Signal
+MultCoatingCat: sim.solver.Ports.Port_Signal
+MultCoatingAsym: sim.solver.Ports.Port_Signal
+ActStateSpace: ActStateSpace = 0
+AdvHvyHeatFlux: AdvHvyHeatFlux = 0
+AutoAddComps: AutoAddComps = 1
+AutoFurnaceSplit: AutoFurnaceSplit = 1
+CoatingType: CoatingType = None
+ConversionOpt: ConversionOpt = Molecular
+CustomAlloy: CustomAlloy = 0
+DisableAutoSteam97: DisableAutoSteam97 = 0
+DisableHeavyReactions: DisableHeavyReactions = 0
+DisableInhibit: DisableInhibit = 1
+Fin_Metal_Type: Fin_Metal_Type = Carbon_Steel
+Fin_Type: Fin_Type = No_Fins
+HasA: HasA = 1
+HasI: HasI = 1
+HasN: HasN = 1
+HasO: HasO = 1
+HasP: HasP = 1
+HeatTransferModel: HeatTransferModel = X-RectangularFurnace
+Ignored: Ignored = None
+IncludeFe: IncludeFe = 0
+IncludeN: IncludeN = 0
+IncludeNi: IncludeNi = 0
+IncludeO: IncludeO = 0
+IncludeS: IncludeS = 0
+IncludeV: IncludeV = 0
+MultiSegTube: MultiSegTube = 1
+PIONA_Lumping_Type: PIONA_Lumping_Type = None(spd)
+PressureDropCorrelation: PressureDropCorrelation = Colebrook
+ReactionModel: ReactionModel = 12Reaction
+ReactionVersion: ReactionVersion = Version2020+
+RecKineticTuning: RecKineticTuning = 0
+RemoveCokeMass: RemoveCokeMass = 1
+ShowEInputs: ShowEInputs = 0
+SolveLastConv: SolveLastConv = 1
+Solve_DampingFactor: Solve_DampingFactor = 0.5
+Solve_MaxNumIterations: Solve_MaxNumIterations = 50
+Solve_MinOutletPressure: Solve_MinOutletPressure = 50.0
+Solve_Segments: Solve_Segments = 40
+Solve_SolutionMethod: Solve_SolutionMethod = RungeKutta4
+Solve_StiffTolerance: Solve_StiffTolerance = 0.0001
+Solve_Tolerance: Solve_Tolerance = 0.001
+Solve_Zones: Solve_Zones = 1
+SpecCOP: SpecCOP = 0
+SpecCOT: SpecCOT = 0
+SpecConv: SpecConv = 0
+Speedup: Speedup = 0
+StateSpace: StateSpace = 0
+TubeDirection: TubeDirection = VerticalTop
+Tube_Metal_Type: Tube_Metal_Type = HK40
+Tube_Pitch: Tube_Pitch = 90Degree(SquarePitch)
+VaporPhase: VaporPhase = 1

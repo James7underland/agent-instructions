@@ -1,0 +1,14 @@
+# Stream_Signal = Stream.Stream_Signal()
+
+## /X
+Operation: X = sim.unitop.Stream.Stream_Signal
+Status: Not Solved
+Port: In = SigPort
+Port: Out = SigPort
+Param: Ignored = None
+
+## dir /X
+
+In: sim.solver.Ports.Port_Signal
+Out: sim.solver.Ports.Port_Signal
+Ignored: Ignored = None

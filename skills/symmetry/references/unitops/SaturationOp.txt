@@ -1,0 +1,38 @@
+# SaturationOp = Saturation.SaturationOp()
+
+## /X
+Operation: X = vmgsim.unitop.Saturation.SaturationOp
+Status: Not Solved
+Port: Elev = SigPort (Elevation)
+Port: MainFeed = MatPort (Main Feed)
+Port: OutQ = EnePort
+Port: SaturateWith = MatPort (Saturate With)
+Port: Saturated = MatPort
+Param: AvSolutionMethods = NewtonRaphson RegulaFalsi
+Param: DampingFactor (Damping Factor) = 0.7
+Param: Ignored = None
+Param: MaxError (Max Error) = 0.001
+Param: MaxNumIterations (Max Num Iterations) = 110
+Param: MaxStep (Max Step) = 0.1
+Param: Mode (Saturation Mode) = Auto
+Param: SatWithCmp (Saturate With) = WATER
+Param: SaturationVapFraction (Saturation Vap Frac) = 1.0
+Param: SolutionMethod (Solution Method) = NewtonRaphson
+
+## dir /X
+
+MainFeed: sim.solver.Ports.Port_Material
+SaturateWith: sim.solver.Ports.Port_Material
+Saturated: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+Elev: sim.solver.Ports.Port_Signal
+AvSolutionMethods: AvSolutionMethods = NewtonRaphson RegulaFalsi
+DampingFactor: DampingFactor = 0.7
+Ignored: Ignored = None
+MaxError: MaxError = 0.001
+MaxNumIterations: MaxNumIterations = 110
+MaxStep: MaxStep = 0.1
+Mode: Mode = Auto
+SatWithCmp: SatWithCmp = WATER
+SaturationVapFraction: SaturationVapFraction = 1.0
+SolutionMethod: SolutionMethod = NewtonRaphson

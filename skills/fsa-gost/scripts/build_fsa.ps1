@@ -4,8 +4,8 @@
 # Файл хранить в UTF-8 с BOM (иначе PowerShell 5.1 портит кириллицу).
 param(
     [string]$LayoutFile = (Join-Path (Get-Location) 'layout.json'),
-    [string]$Frame  = (Join-Path $PSScriptRoot '..\assets\Эталоны_ФСА_А0.vsdx'),   # A3-рамка со штампом (стр. 2), исходник не меняется
-    [string]$OutDir = '.',
+    [string]$Frame  = '<work_dir>\Документ1.vsdx',   # A3-рамка со штампом (стр. 2), исходник не меняется
+    [string]$OutDir = '<work_dir>\ФСА',
     [string]$Name   = 'ФСА_новая',
     [string]$Title  = 'Установка',
     [string]$Code   = 'ФСА-01-АТХ'       # обозначение документа в штампе

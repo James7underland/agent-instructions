@@ -1,0 +1,45 @@
+# SubFlowsheet = Flowsheet.SubFlowsheet()
+
+## /X
+Operation: X = sim.solver.Flowsheet.SubFlowsheet
+Status: Solved
+Port: AirVel = SigPort (Air Velocity)
+Port: AmbTemp = SigPort (Ambient T)
+Port: WatVel = SigPort (Water Velocity)
+Param: ActiveEngine (Active Engine) = 0
+Param: ActiveEnv (Flowsheet Type) = VMGSim (Process)
+(InternalVal = 0)
+Param: AppSteadyState (Approach Steady State) = None
+Param: DoAxialCond (Calc Wall Axial Cond) = 0
+Param: FitCalcMethod (Default Method Fitting K) = Crane
+Param: Ignored = None
+Param: PresRecSimul (No Simul. Pres. Rec.) = None
+Param: ResetHLoss (Reset Heat Loss Temps) = False
+Param: RunToSS (Run To Steady State) = None
+Param: Snap_enabled (Enable Snapshots) = 0
+Param: SolveAsNetwork (Solve As St. State Network) = 0
+Param: SolveNetworkWithKE (Balance Kinetic Energy) = 0
+Param: TeeDpMethod (Default DP Method for Tees) = Crane
+Param: TeeSplitMethod (Phase Split Method) = Equal
+Param: UnitCellModel (Unit Cell Model) = 1
+
+## dir /X
+
+AmbTemp: sim.solver.Ports.Port_Signal
+AirVel: sim.solver.Ports.Port_Signal
+WatVel: sim.solver.Ports.Port_Signal
+ActiveEngine: ActiveEngine = 0
+ActiveEnv: ActiveEnv = 0
+AppSteadyState: AppSteadyState = None
+DoAxialCond: DoAxialCond = 0
+FitCalcMethod: FitCalcMethod = Crane
+Ignored: Ignored = None
+PresRecSimul: PresRecSimul = None
+ResetHLoss: ResetHLoss = False
+RunToSS: RunToSS = None
+Snap_enabled: Snap_enabled = 0
+SolveAsNetwork: SolveAsNetwork = 0
+SolveNetworkWithKE: SolveNetworkWithKE = 0
+TeeDpMethod: TeeDpMethod = Crane
+TeeSplitMethod: TeeSplitMethod = Equal
+UnitCellModel: UnitCellModel = True

@@ -156,7 +156,9 @@ def make_data(name, group="", a2=None, a1=None, K=None, Um=None, seed=None, **ex
 # ============================================================================ Mathcad
 def find_mathcad_scripts():
     cands = [os.environ.get("MATHCAD13_SKILL"), Path.home() / ".claude" / "skills" / "mathcad13",
-             SKILL.parent / "mathcad13", SKILL.parent.parent / "Mathcad 13" / "mathcad13"]
+             SKILL.parent / "mathcad13", SKILL.parent.parent / "Mathcad 13" / "mathcad13",
+             # репозиторий claude_skills: Отчёты/ТАУ лабы/tau-labs → Программы/Mathcad 13/mathcad13
+             SKILL.parent.parent.parent / "Программы" / "Mathcad 13" / "mathcad13"]
     for c in cands:
         if c and (Path(c) / "scripts" / "xmcd.py").exists():
             return Path(c) / "scripts"

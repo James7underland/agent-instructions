@@ -1,0 +1,207 @@
+# AirCooler = DetailedCoolers.DetailedAirCooler()
+
+## /X
+Operation: X = vmgsim.unitop.DetailedCoolers.DetailedAirCooler
+Status: Not Solved
+Port: AirCoolerAltitude = SigPort (Air Cooler Altitude)
+Port: AirCoolerCost = SigPort (Air Cooler Cost)
+Port: AirCoolerOverDesign = SigPort (Over Design)
+Port: AirFaceVelocity = SigPort (Air Face Velocity)
+Port: AirInletTemperature = SigPort (Air Inlet T)
+Port: AirMassRate = SigPort (Air Mass Rate)
+Port: AirOutletTemperature = SigPort (Air Outlet T)
+Port: AirRelativeHumidity = SigPort (Air Relative Humidity)
+Port: AirSideDeltaP = SigPort (Air Side Delta P)
+Port: AirStdVolumeRate = SigPort (Air Std Volume Rate)
+Port: AirVolumeRate = SigPort (Air Volume Rate)
+Port: Airk = SigPort (Air k)
+Port: Airside_Film_Multiplier = SigPort (Airside Film Multiplier)
+Port: Airside_Fouling_Factor = SigPort (Airside Fouling Factor)
+Port: Airside_dP_Multiplier = SigPort (Airside dP Multiplier)
+Port: AreaOverdesign = SigPort (Area Overdesign)
+Port: AverageTubeVel = SigPort (Average Tube Velocity)
+Port: AverageWallT = SigPort (Average Wall Temperature)
+Port: BareTransferRate = SigPort (Transfer Rate (Bare))
+Port: BareTubeArea = SigPort (Bare Tube Area)
+Port: BoilingRoughness = SigPort (Boiling Roughness)
+Port: CALC_Actual_Heat_Transfer = SigPort (U Value)
+Port: CALC_Airside_Film_Coefficient = SigPort (Airside Film Coefficient)
+Port: CALC_Airside_Pressure_Drop = SigPort (Airside Pressure Drop)
+Port: CALC_Airside_Velocity = SigPort (Airside Velocity)
+Port: CALC_Area_Rating = SigPort (Area Rating)
+Port: CALC_Area_Ratio = SigPort (Area Ratio)
+Port: CALC_F_Corr_Factor = SigPort (F Correction Factor)
+Port: CALC_Fin_Efficiency = SigPort (Fin Efficiency)
+Port: CALC_Overall_Heat_Transfer = SigPort (Corrected U Value)
+Port: CALC_Overdesign = SigPort (Heat Reversal Area)
+Port: CALC_Process_Film_Coefficient = SigPort (Process Film Coefficient)
+Port: CALC_Process_Pressure_Drop = SigPort (Process Pressure Drop)
+Port: CALC_Process_Velocity_In = SigPort (Process Velocity In)
+Port: CALC_Process_Velocity_Out = SigPort (Process Velocity Out)
+Port: CleanTransferRate = SigPort (Transfer Rate (Bare, Clean))
+Port: CondensingRoughness = SigPort (Condensing Roughness)
+Port: CorrectedMTD = SigPort (MTD (Corrected))
+Port: CrossCorr = SigPort (Cross Corr.)
+Port: DeltaP = SigPort (Delta P)
+Port: DeltaT = SigPort (Delta T)
+Port: FinHeight = SigPort (Fin Height)
+Port: FinOutsideDiameter = SigPort (Fin Outside Diameter)
+Port: FinPerLength = SigPort (Fins Per Length)
+Port: FinSpacing = SigPort (Fin Spacing)
+Port: FinThickness = SigPort (Fin Thickness)
+Port: FinnedTransferRate = SigPort (Transfer Rate (Finned))
+Port: FinnedTubeArea = SigPort (Finned Tube Area)
+Port: In = MatPort
+Port: LMTD = SigPort
+Port: Out = MatPort
+Port: OutQ = EnePort
+Port: OutT = SigPort (Out T)
+Port: Process_Film_Multiplier = SigPort (Process Film Multiplier)
+Port: Process_Fouling_Factor = SigPort (Process Fouling Factor)
+Port: Process_dP_Multiplier = SigPort (Process dP Multiplier)
+Port: QFan = EnePort (Fan Duty)
+Port: TubeBoilingSA = SigPort (Tube Boiling Surface Area)
+Port: TubeCondensingSA = SigPort (Tube Condensing Surface Area)
+Port: TubeLatentHeat = SigPort (Tube Latent Heat)
+Port: TubeLengthPerPass = SigPort (Tube Length Per Pass)
+Port: TubeOutsideDiameter = SigPort (Tube Outside Diameter)
+Port: TubePassesPerBundle = SigPort (Tube Passes Per Bundle)
+Port: TubePitch = SigPort (Tube Pitch)
+Port: TubeRowsPerBundle = SigPort (Tube Rows Per Bundle)
+Port: TubeSensibleSA = SigPort (Tube Sensible Surface Area)
+Port: TubeThickness = SigPort (Tube Thickness)
+Port: Tube_Volume = SigPort (Total Tube Volume)
+Port: Tube_k = SigPort (Tube k)
+Port: TubesPerBundle = SigPort (Tubes Per Bundle)
+Port: TubesPerTubeRow = SigPort (Tubes Per Tube Row)
+Port: UA = SigPort
+Port: Volume = SigPort (Tube Volume)
+Port: k = SigPort
+Param: ActivateCriticalFluxCheck (Boiling Critical Flux Check) = 1
+Param: Additional_Tubes (Additional Tubes) = None
+Param: AirFlowType (Air Flow Type) = Forced
+Param: AvRatingEngines = NoRating VMGSim HTRI
+Param: CondensingHTCCorr (Condensing HTC Corr. (horizontal tube)) = ChaddockChato
+Param: Fin_Metal_Type = Aluminum
+Param: Fin_Type = No_Fins
+Param: Flow_Type = Cross(SideToSide)
+Param: Ignored = None
+Param: Include_Corbels (Sealing Device) = No
+Param: KeepRatingResults = 1
+Param: NumberSegments (Number of Segments) = 5
+Param: Pressure_Drop_Calc = Colebrook
+Param: RatingEngine (Calculation Engine) = None
+(InternalVal = NoRating)
+Param: SimpleRating_ConvIterations (Forced Conv Iterations) = 480
+Param: SimpleRating_MaxIterations (Max Iterations) = 100
+Param: SimpleRating_MinSide0OutletP (Min Tube Outlet P [kPa]) = 50
+Param: SimpleRating_QStepDamping (Q Step Damping) = 1.0
+Param: SimpleRating_RatingTolerance (Tolerance) = 0.01
+Param: SimpleRating_Status (Status) = Not Solved
+Param: TrackPhaseChange = 0
+Param: Tube_Metal_Type = Carbon_Steel
+Param: Tube_Pitch = 30Degree(TrianglePitch)
+Param: UseSubCoolT (Calc Sub Cooling) = 0
+Param: UseSupHeatT (Calc Super Heating) = 0
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+QFan: sim.solver.Ports.Port_Energy
+OutQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+DeltaT: sim.solver.Ports.Port_Signal
+OutT: sim.solver.Ports.Port_Signal
+AirMassRate: sim.solver.Ports.Port_Signal
+AirVolumeRate: sim.solver.Ports.Port_Signal
+AirStdVolumeRate: sim.solver.Ports.Port_Signal
+AirFaceVelocity: sim.solver.Ports.Port_Signal
+AirInletTemperature: sim.solver.Ports.Port_Signal
+AirOutletTemperature: sim.solver.Ports.Port_Signal
+AirSideDeltaP: sim.solver.Ports.Port_Signal
+AirCoolerCost: sim.solver.Ports.Port_Signal
+AirCoolerAltitude: sim.solver.Ports.Port_Signal
+AirCoolerOverDesign: sim.solver.Ports.Port_Signal
+CALC_Overall_Heat_Transfer: sim.solver.Ports.Port_Signal
+CALC_Actual_Heat_Transfer: sim.solver.Ports.Port_Signal
+CALC_Airside_Pressure_Drop: sim.solver.Ports.Port_Signal
+CALC_Process_Pressure_Drop: sim.solver.Ports.Port_Signal
+Airside_Film_Multiplier: sim.solver.Ports.Port_Signal
+Process_Film_Multiplier: sim.solver.Ports.Port_Signal
+Airside_dP_Multiplier: sim.solver.Ports.Port_Signal
+Process_dP_Multiplier: sim.solver.Ports.Port_Signal
+TubeThickness: sim.solver.Ports.Port_Signal
+CALC_Process_Film_Coefficient: sim.solver.Ports.Port_Signal
+CALC_Airside_Film_Coefficient: sim.solver.Ports.Port_Signal
+Process_Fouling_Factor: sim.solver.Ports.Port_Signal
+Airside_Fouling_Factor: sim.solver.Ports.Port_Signal
+CALC_Process_Velocity_In: sim.solver.Ports.Port_Signal
+CALC_Process_Velocity_Out: sim.solver.Ports.Port_Signal
+CALC_Airside_Velocity: sim.solver.Ports.Port_Signal
+CALC_F_Corr_Factor: sim.solver.Ports.Port_Signal
+CALC_Area_Ratio: sim.solver.Ports.Port_Signal
+CALC_Area_Rating: sim.solver.Ports.Port_Signal
+CALC_Overdesign: sim.solver.Ports.Port_Signal
+TubeOutsideDiameter: sim.solver.Ports.Port_Signal
+TubeLengthPerPass: sim.solver.Ports.Port_Signal
+TubePitch: sim.solver.Ports.Port_Signal
+TubePassesPerBundle: sim.solver.Ports.Port_Signal
+TubeRowsPerBundle: sim.solver.Ports.Port_Signal
+TubesPerTubeRow: sim.solver.Ports.Port_Signal
+AirRelativeHumidity: sim.solver.Ports.Port_Signal
+CALC_Fin_Efficiency: sim.solver.Ports.Port_Signal
+FinHeight: sim.solver.Ports.Port_Signal
+FinThickness: sim.solver.Ports.Port_Signal
+FinSpacing: sim.solver.Ports.Port_Signal
+k: sim.solver.Ports.Port_Signal
+Airk: sim.solver.Ports.Port_Signal
+CrossCorr: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+CorrectedMTD: sim.solver.Ports.Port_Signal
+FinnedTubeArea: sim.solver.Ports.Port_Signal
+BareTubeArea: sim.solver.Ports.Port_Signal
+FinnedTransferRate: sim.solver.Ports.Port_Signal
+BareTransferRate: sim.solver.Ports.Port_Signal
+CleanTransferRate: sim.solver.Ports.Port_Signal
+FinOutsideDiameter: sim.solver.Ports.Port_Signal
+TubesPerBundle: sim.solver.Ports.Port_Signal
+TubeLatentHeat: sim.solver.Ports.Port_Signal
+AverageTubeVel: sim.solver.Ports.Port_Signal
+AverageWallT: sim.solver.Ports.Port_Signal
+Tube_Volume: sim.solver.Ports.Port_Signal
+Tube_k: sim.solver.Ports.Port_Signal
+TubeSensibleSA: sim.solver.Ports.Port_Signal
+TubeCondensingSA: sim.solver.Ports.Port_Signal
+TubeBoilingSA: sim.solver.Ports.Port_Signal
+FinPerLength: sim.solver.Ports.Port_Signal
+BoilingRoughness: sim.solver.Ports.Port_Signal
+CondensingRoughness: sim.solver.Ports.Port_Signal
+UA: sim.solver.Ports.Port_Signal
+LMTD: sim.solver.Ports.Port_Signal
+AreaOverdesign: sim.solver.Ports.Port_Signal
+ActivateCriticalFluxCheck: ActivateCriticalFluxCheck = 1
+Additional_Tubes: Additional_Tubes = None
+AirFlowType: AirFlowType = Forced
+AvRatingEngines: AvRatingEngines = NoRating VMGSim HTRI
+CondensingHTCCorr: CondensingHTCCorr = ChaddockChato
+Fin_Metal_Type: Fin_Metal_Type = Aluminum
+Fin_Type: Fin_Type = No_Fins
+Flow_Type: Flow_Type = Cross(SideToSide)
+Ignored: Ignored = None
+Include_Corbels: Include_Corbels = No
+KeepRatingResults: KeepRatingResults = 1
+NumberSegments: NumberSegments = 5
+Pressure_Drop_Calc: Pressure_Drop_Calc = Colebrook
+RatingEngine: RatingEngine = NoRating
+SimpleRating_ConvIterations: SimpleRating_ConvIterations = 480
+SimpleRating_MaxIterations: SimpleRating_MaxIterations = 100
+SimpleRating_MinSide0OutletP: SimpleRating_MinSide0OutletP = 50
+SimpleRating_QStepDamping: SimpleRating_QStepDamping = 1.0
+SimpleRating_RatingTolerance: SimpleRating_RatingTolerance = 0.01
+SimpleRating_Status: SimpleRating_Status = Not Solved
+TrackPhaseChange: TrackPhaseChange = 0
+Tube_Metal_Type: Tube_Metal_Type = Carbon_Steel
+Tube_Pitch: Tube_Pitch = 30Degree(TrianglePitch)
+UseSubCoolT: UseSubCoolT = False
+UseSupHeatT: UseSupHeatT = False

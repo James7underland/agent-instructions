@@ -1,0 +1,547 @@
+# OilSource = Oil.PIONAFeed("DistCrvCalcMode = Direct")
+
+## /X
+Operation: X = sim.unitop.Oil.PIONAFeed
+Status: Not Solved
+Port: ABulkwtPct = SigPort ('A'romatic (Mass))
+Port: ABulkwtPct_Scale = SigPort (Aromatics Composition Scale)
+Port: AROBulkFrac = SigPort ('A'romatics)
+Port: AROBulkFrac_Scale = SigPort (Aromatic Composition Scale)
+Port: AROCont = SigPort ('A'romatics (Mass))
+Port: ASPBulkFrac = SigPort ('A'sphaltenes)
+Port: ASPBulkFrac_Scale = SigPort (Asphaltene Composition Scale)
+Port: ASPCont = SigPort ('A'sphaltenes (Mass))
+Port: AdhBulkwtPct = SigPort (Dehydrogenated Aromatic)
+Port: AdhBulkwtPct_Scale = SigPort (Dehydrogenated Aromatics Composition Scale)
+Port: Alpha = SigPort
+Port: AspAlpha = SigPort (Alpha (Asp))
+Port: AspEta = SigPort (Eta (Asp))
+Port: AspMW = SigPort (MW (Asp))
+Port: AsphDfd = SigPort (Density Factor 1)
+Port: AsphYDd1 = SigPort (Density Factor 2)
+Port: AsphYR1 = SigPort (Yield Factor 1)
+Port: AsphYR2 = SigPort (Yield Factor 2)
+Port: Beta = SigPort
+Port: BulkASPCont = SigPort (Asphaltene)
+Port: BulkASPCont_Scale = SigPort (Asphaltene Scale)
+Port: BulkAroRatio = SigPort (A/Adh Ratio)
+Port: BulkAroRatio_Scale = SigPort (A/Adh Ratio Scale)
+Port: BulkCR = SigPort (Carbon Residue (Mass))
+Port: BulkCR_Scale = SigPort (Bulk Carbon Residue Scale)
+Port: BulkFlashPoint = SigPort (Flash Point)
+Port: BulkFlashPoint_Scale = SigPort (Bulk Flash Point Scale)
+Port: BulkGLR = SigPort (Gas to Liquid Ratio (GLR))
+Port: BulkGLR_Scale = SigPort (Gas to Liquid Ratio (GLR) Scale)
+Port: BulkGOR = SigPort (Gas to Oil Ratio (GOR))
+Port: BulkGOR_Scale = SigPort (Gas to Oil Ratio (GOR) Scale)
+Port: BulkLD60 = SigPort (Density @ 60 F)
+Port: BulkLD60_Scale = SigPort (Bulk LD60 Scale)
+Port: BulkMW = SigPort (MW)
+Port: BulkMW_Scale = SigPort (Bulk MW Scale)
+Port: BulkPSat = SigPort (Saturation P)
+Port: BulkPSat_Scale = SigPort (Bulk Saturation P Scale)
+Port: BulkSTODen = SigPort (Stock Tank Oil Density)
+Port: BulkSTODen_Scale = SigPort (Stock Tank Oil Density Scale)
+Port: BulkSTOMW = SigPort (Stock Tank Oil MW)
+Port: BulkSTOMW_Scale = SigPort (Stock Tank Oil MW Scale)
+Port: BulkWCut = SigPort (Water Cut (Vol.))
+Port: BulkWCut_Scale = SigPort (Water Cut Scale)
+Port: BulkWaxCont = SigPort (Total Wax Content (Mass))
+Port: BulkWaxCont_Scale = SigPort (Bulk Total Wax Content Scale)
+Port: CPlusLD60 = SigPort (Cn+ Density @ 60 F)
+Port: CPlusLD60_Scale = SigPort (Cn+ LD60 Scale)
+Port: CPlusMW = SigPort (Cn+ MW)
+Port: CPlusMW_Scale = SigPort (Cn+ MW Scale)
+Port: CurABulkwtPct = SigPort (Aromatic)
+Port: CurAROBulkFrac = SigPort (Aromatic(SARA))
+Port: CurASPBulkFrac = SigPort (Asphaltene)
+Port: CurAdhBulkwtPct = SigPort (Dehydrogenated Aromatic)
+Port: CurBulkASPCont = SigPort (Asphaltene)
+Port: CurBulkAroRatio = SigPort (A/Adh Ratio)
+Port: CurBulkCR = SigPort (Current Bulk Carbon Residue)
+Port: CurBulkFlashPoint = SigPort (Current Bulk Flash Point)
+Port: CurBulkGLR = SigPort (Gas to Liquid Ratio (GLR))
+Port: CurBulkGOR = SigPort (Gas to Oil Ratio (GOR))
+Port: CurBulkLD60 = SigPort (Density @ 60 F (Std))
+Port: CurBulkMW = SigPort (Current Bulk MW)
+Port: CurBulkPSat = SigPort (Current Bulk Saturation P)
+Port: CurBulkSTODen = SigPort (Stock Tank Oil Density)
+Port: CurBulkSTOMW = SigPort (Stock Tank Oil MW)
+Port: CurBulkWCut = SigPort (Water Cut)
+Port: CurBulkWaxCont = SigPort (Current Bulk Total Wax Content)
+Port: CurCPlusLD60 = SigPort (Current Cn+ LD60)
+Port: CurCPlusMW = SigPort (Current Cn+ MW)
+Port: CurFeCont = SigPort (Current Fe Content)
+Port: CurFeContppm = SigPort (Current Fe Content)
+Port: CurGasSG = SigPort (Gas Specific Gravity)
+Port: CurH2Cont = SigPort (Current H2 Content)
+Port: CurH2Contppm = SigPort (Current H2 Content)
+Port: CurHCRatio = SigPort (H/C Ratio (Mass))
+Port: CurIBulkwtPct = SigPort (Iso-Paraffin)
+Port: CurNBulkwtPct = SigPort (Naphthene)
+Port: CurNCont = SigPort (Current N Content)
+Port: CurNContppm = SigPort (Current N Content)
+Port: CurNiCont = SigPort (Current Ni Content)
+Port: CurNiContppm = SigPort (Current Ni Content)
+Port: CurOBulkwtPct = SigPort (Olefin)
+Port: CurOilAPI = SigPort (Oil API Gravity)
+Port: CurOilLD = SigPort (Oil Density)
+Port: CurOilSG = SigPort (Oil Specific Gravity)
+Port: CurPBulkwtPct = SigPort (Paraffin)
+Port: CurRESBulkFrac = SigPort (Resin)
+Port: CurSATBulkFrac = SigPort (Saturate)
+Port: CurSCont = SigPort (Current S Content)
+Port: CurSContppm = SigPort (Current S Content)
+Port: CurVCont = SigPort (Current V Content)
+Port: CurVContppm = SigPort (Current V Content)
+Port: CutRangesEBP = SigPort (Cut Ranges EBP)
+Port: CutRangesIBP = SigPort (Cut Ranges IBP)
+Port: CutdT = SigPort (Cut Group Delta T)
+Port: DeltaEBP = SigPort (Delta EBP)
+Port: DeltaIBP = SigPort (Delta IBP)
+Port: FeCont = SigPort (Bulk Fe Content)
+Port: FeContMult = SigPort (Bulk Fe Content Multiplier)
+Port: FeCont_Scale = SigPort (Fe Content Scale)
+Port: FeContppm = SigPort (Bulk Fe Content)
+Port: FeContppm_Scale = SigPort (Fe Content Scale)
+Port: GasSG = SigPort (Gas Specific Gravity)
+Port: GasSG_Scale = SigPort (Gas Specific Gravity Scale)
+Port: H2Cont = SigPort (Bulk H2 Content)
+Port: H2ContMult = SigPort (Bulk H2 Content Multiplier)
+Port: H2Cont_Scale = SigPort (H2 Content Scale)
+Port: H2Contppm = SigPort (Bulk H2 Content)
+Port: H2Contppm_Scale = SigPort (H2 Content Scale)
+Port: HCRatio = SigPort (H/C Ratio)
+Port: HCRatio_Scale = SigPort (H/C Ratio Scale)
+Port: IBulkwtPct = SigPort ('I'so-Paraffin (Mass))
+Port: IBulkwtPct_Scale = SigPort (Iso-Paraffins Composition Scale)
+Port: In = MatPort
+Port: LEMaxBP = SigPort (Max. BP)
+Port: LEMaxCn = SigPort (Max. Cn)
+Port: NBulkwtPct = SigPort ('N'aphthene (Mass))
+Port: NBulkwtPct_Scale = SigPort (Naphthenes Composition Scale)
+Port: NCont = SigPort (Bulk N Content)
+Port: NContMult = SigPort (Bulk N Content Multiplier)
+Port: NCont_Scale = SigPort (N Content Scale)
+Port: NContppm = SigPort (Bulk N Content)
+Port: NContppm_Scale = SigPort (N Content Scale)
+Port: NiCont = SigPort (Bulk Ni Content)
+Port: NiContMult = SigPort (Bulk Ni Content Multiplier)
+Port: NiCont_Scale = SigPort (Ni Content Scale)
+Port: NiContppm = SigPort (Bulk Ni Content)
+Port: NiContppm_Scale = SigPort (Ni Content Scale)
+Port: OBulkwtPct = SigPort ('O'lefin (Mass))
+Port: OBulkwtPct_Scale = SigPort (Olefins Composition Scale)
+Port: OilAPI = SigPort (Oil API Gravity)
+Port: OilAPI_Scale = SigPort (Oil API Gravity Scale)
+Port: OilLD = SigPort (Oil Density)
+Port: OilLD_Scale = SigPort (Oil Density Scale)
+Port: OilSG = SigPort (Oil Specific Gravity)
+Port: OilSG_Scale = SigPort (Oil Specific Gravity Scale)
+Port: Out = MatPort
+Port: PBulkwtPct = SigPort ('P'araffin (Mass))
+Port: PBulkwtPct_Scale = SigPort (Paraffins Composition Scale)
+Port: PropBpPlus = SigPort (BP for Cn+ Fraction Properties)
+Port: PropCnPlus = SigPort (Cn for Cn+ Fraction Properties)
+Port: RESBulkFrac = SigPort ('R'esins)
+Port: RESBulkFrac_Scale = SigPort (Resin Composition Scale)
+Port: RESCont = SigPort ('R'esins (Mass))
+Port: ResAlpha = SigPort (Alpha (Res))
+Port: ResEta = SigPort (Eta (Res))
+Port: ResMW = SigPort (MW (Res))
+Port: SATBulkFrac = SigPort ('S'aturates)
+Port: SATBulkFrac_Scale = SigPort (Saturate Composition Scale)
+Port: SATCont = SigPort ('S'aturates (Mass))
+Port: SCont = SigPort (Bulk S Content)
+Port: SContMult = SigPort (Bulk S Content Multiplier)
+Port: SCont_Scale = SigPort (S Content Scale)
+Port: SContppm = SigPort (Bulk S Content)
+Port: SContppm_Scale = SigPort (S Content Scale)
+Port: Scale = SigPort
+Port: Shift = SigPort
+Port: SplitA = SigPort (Split A)
+Port: SplitAdh = SigPort (Split Adh)
+Port: SplitAroRes = SigPort (Split Aro/Res)
+Port: SplitI = SigPort (Split I)
+Port: SplitN = SigPort (Split N)
+Port: SplitO = SigPort (Split O)
+Port: SplitP = SigPort (Split P)
+Port: SplitResAsp = SigPort (Split Res/Asp)
+Port: SplitSatAro = SigPort (Split Sat/Aro)
+Port: TSat = SigPort (Saturation T)
+Port: TotErr = SigPort (Total Error)
+Port: VCont = SigPort (Bulk V Content)
+Port: VContMult = SigPort (Bulk V Content Multiplier)
+Port: VCont_Scale = SigPort (V Content Scale)
+Port: VContppm = SigPort (Bulk V Content)
+Port: VContppm_Scale = SigPort (V Content Scale)
+Port: WaxContCn = SigPort (Cn+ for Tot. Wax Cont.)
+Param: CnDistBasis (Cn Analysis Basis) = Mass
+Param: CnDistDef (Cn Groups Defined by) = Cn Range
+(InternalVal = Cn)
+Param: Dens60FCrvBasis (Density @60 F Curve Basis) = Volume
+Param: DistCrvBasis (Distillation Curve Basis) = Volume
+Param: DistCrvCalcMode (Calculation Mode) = Direct
+Param: DistCrvType (Distillation Curve Type) = TBP
+Param: DoNormalizeCn (Normalize) = 0
+Param: DoNormalizePIONA (Normalize) = 0
+Param: FeContBasis (Fe Cont Basis) = Mass
+Param: FeContUnit (Fe Cont Unit) = Percent
+Param: FeDistBasis (Fe Cont Basis) = Mass
+Param: FeDistUnit (Fe Unit Basis) = Percent
+Param: FluidType (Load Parameters for) = Naphtha
+(InternalVal = NAF)
+Param: FluidTypeTSat (Saturation T based on) = User
+(InternalVal = USR)
+Param: H2ContBasis (H2 Cont Basis) = Mass
+Param: H2ContUnit (H2 Cont Unit) = Percent
+Param: H2DistBasis (H2 Cont Basis) = Mass
+Param: H2DistUnit (H2 Unit Basis) = Percent
+Param: Ignored = None
+Param: IncAllDataSARAPrecip (Include All Regression Parameters) = 0
+Param: LEInCutRanges (Incl. Light Ends in Cuts) = 1
+Param: LEinCn (Add Light Ends to Cn Distribution) = 0
+Param: MaxIterations (Max. Iterations) = 500
+Param: NContBasis (N Cont Basis) = Mass
+Param: NContUnit (N Cont Unit) = Percent
+Param: NDistBasis (N Cont Basis) = Mass
+Param: NDistUnit (N Unit Basis) = Percent
+Param: NiContBasis (Ni Cont Basis) = Mass
+Param: NiContUnit (Ni Cont Unit) = Percent
+Param: NiDistBasis (Ni Cont Basis) = Mass
+Param: NiDistUnit (Ni Unit Basis) = Percent
+Param: OilPropType (Oil Density Unit As) = Specific Gravity
+(InternalVal = SG)
+Param: PIONABasis (PIONA Basis) = Mass
+Param: ParDistDef (Paraffin Distribution) = Cn Distribution
+(InternalVal = Distribution)
+Param: RegObjFuncType (Obj. Function Type) = Least Squares
+Param: ResetParam (Reset Regressed Parameters) = 0
+Param: SARABasis (SARA Basis) = Mass
+Param: SContBasis (S Cont Basis) = Mass
+Param: SContUnit (S Cont Unit) = Percent
+Param: SDistBasis (S Dist. Basis) = Mass
+Param: SDistUnit (S Unit Basis) = Percent
+Param: UseAdvLightRangeSol (High Resolution Mode) = 1
+Param: UseDefaultBPs (Use Default BP Range) = 1
+Param: VContBasis (V Cont Basis) = Mass
+Param: VContUnit (V Cont Unit) = Percent
+Param: VDistBasis (V Cont Basis) = Mass
+Param: VDistUnit (V Unit Basis) = Percent
+Param: distribType (Cn Compositional Analysis Type) = Cn
+Param: hasA (A) = 0
+Param: hasAROBulkFrac (Aromatics (SARA) Content) = 0
+Param: hasASPBulkFrac (Asphaltenes Content) = 0
+Param: hasAro (ARO Mass) = 0
+Param: hasAsp (ASP Mass) = 0
+Param: hasAspPrecip (Asphaltene Precipitation Data) = 0
+Param: hasBulkAdhwtpct (Dehydrogenated Aromatics Content) = 0
+Param: hasBulkAroRatio (Bulk A/Adh Ratio) = 0
+Param: hasBulkAwtpct (Aromatics Content) = 0
+Param: hasBulkCR (Bulk Carbon Residue) = 0
+Param: hasBulkFeCont (Iron (Mass)) = 0
+Param: hasBulkH2Cont (Hydrogen (Mass)) = 0
+Param: hasBulkHCRatio (Bulk H/C Ratio) = 0
+Param: hasBulkIwtpct (Iso-Paraffins Content) = 0
+Param: hasBulkLD60 (Bulk LiqDensity@60F) = 0
+Param: hasBulkMW (Bulk MW) = 0
+Param: hasBulkNCont (Nitrogen (Mass)) = 0
+Param: hasBulkNiCont (Nickel (Mass)) = 0
+Param: hasBulkNwtpct (Naphthenes Content) = 0
+Param: hasBulkOwtpct (Olefins Content) = 0
+Param: hasBulkPSat (Saturation P) = 0
+Param: hasBulkPwtpct (Paraffins Content) = 0
+Param: hasBulkSCont (Sulfur (Mass)) = 0
+Param: hasBulkVCont (Vanadium (Mass)) = 0
+Param: hasCPlusLD60 (Cn+ LiqDensity@60F) = 0
+Param: hasCPlusMW (Cn+ MW) = 0
+Param: hasDensCrv (Density Curve) = 0
+Param: hasDistCrv (Distillation Curve) = 0
+Param: hasDistribData (Carbon Number (Cn) Compositional Analysis) = 0
+Param: hasI (I) = 0
+Param: hasKinVCrv (Kinematic Viscosity Curve) = 0
+Param: hasN (N) = 0
+Param: hasNonHC (NonHC) = 1
+Param: hasO (O) = 0
+Param: hasOnSetPCrv (Asphaltene Onset P (AOP) Curve) = 0
+Param: hasP (P) = 1
+Param: hasRESBulkFrac (Resins Content) = 0
+Param: hasRes (RES Mass) = 0
+Param: hasSATBulkFrac (Saturates Content) = 0
+Param: hasSat (SAT Mass) = 0
+Param: hasSatPCrv (Saturation P (Sat P) Curve) = 0
+Param: hasViscCrv (Dynamic Viscosity Curve) = 0
+Param: ld60Basis (Density @ 60 F Basis) = Standard
+Param: ratioAroBasis (A/Adh Ratio Basis) = Mass
+Param: ratioHCBasis (H/C Ratio Basis) = Mass
+Param: tol (Tolerance (tol)) = 0.1
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+TSat: sim.solver.Ports.Port_Signal
+WaxContCn: sim.solver.Ports.Port_Signal
+LEMaxCn: sim.solver.Ports.Port_Signal
+LEMaxBP: sim.solver.Ports.Port_Signal
+SATCont: sim.solver.Ports.Port_Signal
+AROCont: sim.solver.Ports.Port_Signal
+RESCont: sim.solver.Ports.Port_Signal
+ASPCont: sim.solver.Ports.Port_Signal
+PropCnPlus: sim.solver.Ports.Port_Signal
+PropBpPlus: sim.solver.Ports.Port_Signal
+CutRangesIBP: sim.solver.Ports.Port_Signal
+CutRangesEBP: sim.solver.Ports.Port_Signal
+AsphYR1: sim.solver.Ports.Port_Signal
+AsphYR2: sim.solver.Ports.Port_Signal
+AsphDfd: sim.solver.Ports.Port_Signal
+AsphYDd1: sim.solver.Ports.Port_Signal
+CutdT: sim.solver.Ports.Port_Signal
+Alpha: sim.solver.Ports.Port_Signal
+Beta: sim.solver.Ports.Port_Signal
+Shift: sim.solver.Ports.Port_Signal
+Scale: sim.solver.Ports.Port_Signal
+DeltaIBP: sim.solver.Ports.Port_Signal
+DeltaEBP: sim.solver.Ports.Port_Signal
+SplitP: sim.solver.Ports.Port_Signal
+SplitI: sim.solver.Ports.Port_Signal
+SplitO: sim.solver.Ports.Port_Signal
+SplitN: sim.solver.Ports.Port_Signal
+SplitA: sim.solver.Ports.Port_Signal
+SplitAdh: sim.solver.Ports.Port_Signal
+SplitSatAro: sim.solver.Ports.Port_Signal
+SplitAroRes: sim.solver.Ports.Port_Signal
+SplitResAsp: sim.solver.Ports.Port_Signal
+ResAlpha: sim.solver.Ports.Port_Signal
+ResEta: sim.solver.Ports.Port_Signal
+ResMW: sim.solver.Ports.Port_Signal
+AspAlpha: sim.solver.Ports.Port_Signal
+AspEta: sim.solver.Ports.Port_Signal
+AspMW: sim.solver.Ports.Port_Signal
+PBulkwtPct: sim.solver.Ports.Port_Signal
+CurPBulkwtPct: sim.solver.Ports.Port_Signal
+PBulkwtPct_Scale: sim.solver.Ports.Port_Signal
+IBulkwtPct: sim.solver.Ports.Port_Signal
+CurIBulkwtPct: sim.solver.Ports.Port_Signal
+IBulkwtPct_Scale: sim.solver.Ports.Port_Signal
+OBulkwtPct: sim.solver.Ports.Port_Signal
+CurOBulkwtPct: sim.solver.Ports.Port_Signal
+OBulkwtPct_Scale: sim.solver.Ports.Port_Signal
+NBulkwtPct: sim.solver.Ports.Port_Signal
+CurNBulkwtPct: sim.solver.Ports.Port_Signal
+NBulkwtPct_Scale: sim.solver.Ports.Port_Signal
+ABulkwtPct: sim.solver.Ports.Port_Signal
+CurABulkwtPct: sim.solver.Ports.Port_Signal
+ABulkwtPct_Scale: sim.solver.Ports.Port_Signal
+AdhBulkwtPct: sim.solver.Ports.Port_Signal
+CurAdhBulkwtPct: sim.solver.Ports.Port_Signal
+AdhBulkwtPct_Scale: sim.solver.Ports.Port_Signal
+SATBulkFrac: sim.solver.Ports.Port_Signal
+CurSATBulkFrac: sim.solver.Ports.Port_Signal
+SATBulkFrac_Scale: sim.solver.Ports.Port_Signal
+AROBulkFrac: sim.solver.Ports.Port_Signal
+CurAROBulkFrac: sim.solver.Ports.Port_Signal
+AROBulkFrac_Scale: sim.solver.Ports.Port_Signal
+RESBulkFrac: sim.solver.Ports.Port_Signal
+CurRESBulkFrac: sim.solver.Ports.Port_Signal
+RESBulkFrac_Scale: sim.solver.Ports.Port_Signal
+ASPBulkFrac: sim.solver.Ports.Port_Signal
+CurASPBulkFrac: sim.solver.Ports.Port_Signal
+ASPBulkFrac_Scale: sim.solver.Ports.Port_Signal
+HCRatio: sim.solver.Ports.Port_Signal
+CurHCRatio: sim.solver.Ports.Port_Signal
+HCRatio_Scale: sim.solver.Ports.Port_Signal
+SCont: sim.solver.Ports.Port_Signal
+CurSCont: sim.solver.Ports.Port_Signal
+SCont_Scale: sim.solver.Ports.Port_Signal
+SContMult: sim.solver.Ports.Port_Signal
+SContppm: sim.solver.Ports.Port_Signal
+CurSContppm: sim.solver.Ports.Port_Signal
+SContppm_Scale: sim.solver.Ports.Port_Signal
+NCont: sim.solver.Ports.Port_Signal
+CurNCont: sim.solver.Ports.Port_Signal
+NCont_Scale: sim.solver.Ports.Port_Signal
+NContMult: sim.solver.Ports.Port_Signal
+NContppm: sim.solver.Ports.Port_Signal
+CurNContppm: sim.solver.Ports.Port_Signal
+NContppm_Scale: sim.solver.Ports.Port_Signal
+VCont: sim.solver.Ports.Port_Signal
+CurVCont: sim.solver.Ports.Port_Signal
+VCont_Scale: sim.solver.Ports.Port_Signal
+VContMult: sim.solver.Ports.Port_Signal
+VContppm: sim.solver.Ports.Port_Signal
+CurVContppm: sim.solver.Ports.Port_Signal
+VContppm_Scale: sim.solver.Ports.Port_Signal
+NiCont: sim.solver.Ports.Port_Signal
+CurNiCont: sim.solver.Ports.Port_Signal
+NiCont_Scale: sim.solver.Ports.Port_Signal
+NiContMult: sim.solver.Ports.Port_Signal
+NiContppm: sim.solver.Ports.Port_Signal
+CurNiContppm: sim.solver.Ports.Port_Signal
+NiContppm_Scale: sim.solver.Ports.Port_Signal
+FeCont: sim.solver.Ports.Port_Signal
+CurFeCont: sim.solver.Ports.Port_Signal
+FeCont_Scale: sim.solver.Ports.Port_Signal
+FeContMult: sim.solver.Ports.Port_Signal
+FeContppm: sim.solver.Ports.Port_Signal
+CurFeContppm: sim.solver.Ports.Port_Signal
+FeContppm_Scale: sim.solver.Ports.Port_Signal
+H2Cont: sim.solver.Ports.Port_Signal
+CurH2Cont: sim.solver.Ports.Port_Signal
+H2Cont_Scale: sim.solver.Ports.Port_Signal
+H2ContMult: sim.solver.Ports.Port_Signal
+H2Contppm: sim.solver.Ports.Port_Signal
+CurH2Contppm: sim.solver.Ports.Port_Signal
+H2Contppm_Scale: sim.solver.Ports.Port_Signal
+BulkMW: sim.solver.Ports.Port_Signal
+CurBulkMW: sim.solver.Ports.Port_Signal
+BulkMW_Scale: sim.solver.Ports.Port_Signal
+BulkLD60: sim.solver.Ports.Port_Signal
+CurBulkLD60: sim.solver.Ports.Port_Signal
+BulkLD60_Scale: sim.solver.Ports.Port_Signal
+BulkCR: sim.solver.Ports.Port_Signal
+CurBulkCR: sim.solver.Ports.Port_Signal
+BulkCR_Scale: sim.solver.Ports.Port_Signal
+BulkPSat: sim.solver.Ports.Port_Signal
+CurBulkPSat: sim.solver.Ports.Port_Signal
+BulkPSat_Scale: sim.solver.Ports.Port_Signal
+BulkFlashPoint: sim.solver.Ports.Port_Signal
+CurBulkFlashPoint: sim.solver.Ports.Port_Signal
+BulkFlashPoint_Scale: sim.solver.Ports.Port_Signal
+BulkAroRatio: sim.solver.Ports.Port_Signal
+CurBulkAroRatio: sim.solver.Ports.Port_Signal
+BulkAroRatio_Scale: sim.solver.Ports.Port_Signal
+CPlusMW: sim.solver.Ports.Port_Signal
+CurCPlusMW: sim.solver.Ports.Port_Signal
+CPlusMW_Scale: sim.solver.Ports.Port_Signal
+CPlusLD60: sim.solver.Ports.Port_Signal
+CurCPlusLD60: sim.solver.Ports.Port_Signal
+CPlusLD60_Scale: sim.solver.Ports.Port_Signal
+BulkWaxCont: sim.solver.Ports.Port_Signal
+CurBulkWaxCont: sim.solver.Ports.Port_Signal
+BulkWaxCont_Scale: sim.solver.Ports.Port_Signal
+GasSG: sim.solver.Ports.Port_Signal
+CurGasSG: sim.solver.Ports.Port_Signal
+GasSG_Scale: sim.solver.Ports.Port_Signal
+OilLD: sim.solver.Ports.Port_Signal
+CurOilLD: sim.solver.Ports.Port_Signal
+OilLD_Scale: sim.solver.Ports.Port_Signal
+OilSG: sim.solver.Ports.Port_Signal
+CurOilSG: sim.solver.Ports.Port_Signal
+OilSG_Scale: sim.solver.Ports.Port_Signal
+OilAPI: sim.solver.Ports.Port_Signal
+CurOilAPI: sim.solver.Ports.Port_Signal
+OilAPI_Scale: sim.solver.Ports.Port_Signal
+BulkGOR: sim.solver.Ports.Port_Signal
+CurBulkGOR: sim.solver.Ports.Port_Signal
+BulkGOR_Scale: sim.solver.Ports.Port_Signal
+BulkGLR: sim.solver.Ports.Port_Signal
+CurBulkGLR: sim.solver.Ports.Port_Signal
+BulkGLR_Scale: sim.solver.Ports.Port_Signal
+BulkWCut: sim.solver.Ports.Port_Signal
+CurBulkWCut: sim.solver.Ports.Port_Signal
+BulkWCut_Scale: sim.solver.Ports.Port_Signal
+BulkASPCont: sim.solver.Ports.Port_Signal
+CurBulkASPCont: sim.solver.Ports.Port_Signal
+BulkASPCont_Scale: sim.solver.Ports.Port_Signal
+BulkSTOMW: sim.solver.Ports.Port_Signal
+CurBulkSTOMW: sim.solver.Ports.Port_Signal
+BulkSTOMW_Scale: sim.solver.Ports.Port_Signal
+BulkSTODen: sim.solver.Ports.Port_Signal
+CurBulkSTODen: sim.solver.Ports.Port_Signal
+BulkSTODen_Scale: sim.solver.Ports.Port_Signal
+TotErr: sim.solver.Ports.Port_Signal
+CnDistBasis: CnDistBasis = Mass
+CnDistDef: CnDistDef = Cn
+Dens60FCrvBasis: Dens60FCrvBasis = Volume
+DistCrvBasis: DistCrvBasis = Volume
+DistCrvCalcMode: DistCrvCalcMode = Direct
+DistCrvType: DistCrvType = TBP
+DoNormalizeCn: DoNormalizeCn = 0
+DoNormalizePIONA: DoNormalizePIONA = 0
+FeContBasis: FeContBasis = Mass
+FeContUnit: FeContUnit = Percent
+FeDistBasis: FeDistBasis = Mass
+FeDistUnit: FeDistUnit = Percent
+FluidType: FluidType = NAF
+FluidTypeTSat: FluidTypeTSat = USR
+H2ContBasis: H2ContBasis = Mass
+H2ContUnit: H2ContUnit = Percent
+H2DistBasis: H2DistBasis = Mass
+H2DistUnit: H2DistUnit = Percent
+Ignored: Ignored = None
+IncAllDataSARAPrecip: IncAllDataSARAPrecip = 0
+LEInCutRanges: LEInCutRanges = 1
+LEinCn: LEinCn = 0
+MaxIterations: MaxIterations = 500
+NContBasis: NContBasis = Mass
+NContUnit: NContUnit = Percent
+NDistBasis: NDistBasis = Mass
+NDistUnit: NDistUnit = Percent
+NiContBasis: NiContBasis = Mass
+NiContUnit: NiContUnit = Percent
+NiDistBasis: NiDistBasis = Mass
+NiDistUnit: NiDistUnit = Percent
+OilPropType: OilPropType = SG
+PIONABasis: PIONABasis = Mass
+ParDistDef: ParDistDef = Distribution
+RegObjFuncType: RegObjFuncType = Least Squares
+ResetParam: ResetParam = 0
+SARABasis: SARABasis = Mass
+SContBasis: SContBasis = Mass
+SContUnit: SContUnit = Percent
+SDistBasis: SDistBasis = Mass
+SDistUnit: SDistUnit = Percent
+UseAdvLightRangeSol: UseAdvLightRangeSol = 1
+UseDefaultBPs: UseDefaultBPs = 1
+VContBasis: VContBasis = Mass
+VContUnit: VContUnit = Percent
+VDistBasis: VDistBasis = Mass
+VDistUnit: VDistUnit = Percent
+distribType: distribType = Cn
+hasA: hasA = 0
+hasAROBulkFrac: hasAROBulkFrac = 0
+hasASPBulkFrac: hasASPBulkFrac = 0
+hasAro: hasAro = 0
+hasAsp: hasAsp = 0
+hasAspPrecip: hasAspPrecip = 0
+hasBulkAdhwtpct: hasBulkAdhwtpct = 0
+hasBulkAroRatio: hasBulkAroRatio = 0
+hasBulkAwtpct: hasBulkAwtpct = 0
+hasBulkCR: hasBulkCR = 0
+hasBulkFeCont: hasBulkFeCont = 0
+hasBulkH2Cont: hasBulkH2Cont = 0
+hasBulkHCRatio: hasBulkHCRatio = 0
+hasBulkIwtpct: hasBulkIwtpct = 0
+hasBulkLD60: hasBulkLD60 = 0
+hasBulkMW: hasBulkMW = 0
+hasBulkNCont: hasBulkNCont = 0
+hasBulkNiCont: hasBulkNiCont = 0
+hasBulkNwtpct: hasBulkNwtpct = 0
+hasBulkOwtpct: hasBulkOwtpct = 0
+hasBulkPSat: hasBulkPSat = 0
+hasBulkPwtpct: hasBulkPwtpct = 0
+hasBulkSCont: hasBulkSCont = 0
+hasBulkVCont: hasBulkVCont = 0
+hasCPlusLD60: hasCPlusLD60 = 0
+hasCPlusMW: hasCPlusMW = 0
+hasDensCrv: hasDensCrv = 0
+hasDistCrv: hasDistCrv = 0
+hasDistribData: hasDistribData = 0
+hasI: hasI = 0
+hasKinVCrv: hasKinVCrv = 0
+hasN: hasN = 0
+hasNonHC: hasNonHC = 1
+hasO: hasO = 0
+hasOnSetPCrv: hasOnSetPCrv = 0
+hasP: hasP = 1
+hasRESBulkFrac: hasRESBulkFrac = 0
+hasRes: hasRes = 0
+hasSATBulkFrac: hasSATBulkFrac = 0
+hasSat: hasSat = 0
+hasSatPCrv: hasSatPCrv = 0
+hasViscCrv: hasViscCrv = 0
+ld60Basis: ld60Basis = Standard
+ratioAroBasis: ratioAroBasis = Mass
+ratioHCBasis: ratioHCBasis = Mass
+tol: tol = 0.1

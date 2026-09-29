@@ -1,0 +1,30 @@
+# CrossConnector = CrossConnector.CrossConnector()
+
+## /X
+Operation: X = sim.unitop.CrossConnector.CrossConnector
+Status: Not Solved
+Port: In = MatPort (/X.InletNode.NodePort)
+Port: Out = MatPort (/X.OutletNode.NodePort)
+Child: InletNode = sim.unitop.CrossConnector.ConnectorNode
+Child: OutletNode = sim.unitop.CrossConnector.ConnectorNode
+Param: ConnectionType (Connection Type) = Generic
+Param: Ignored = None
+Param: IntensiveVar1 (Intensive Var1) = T
+Param: IntensiveVar2 (Intensive Var2) = P
+Param: OilBalType (Flow Basis) = Mass
+Param: PortType = 4
+Param: UseHRxnBasis = 0
+
+## dir /X
+
+InletNode: InletNode = sim.unitop.CrossConnector.ConnectorNode
+OutletNode: OutletNode = sim.unitop.CrossConnector.ConnectorNode
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+ConnectionType: ConnectionType = Generic
+Ignored: Ignored = None
+IntensiveVar1: IntensiveVar1 = T
+IntensiveVar2: IntensiveVar2 = P
+OilBalType: OilBalType = Mass
+PortType: PortType = 4
+UseHRxnBasis: UseHRxnBasis = False

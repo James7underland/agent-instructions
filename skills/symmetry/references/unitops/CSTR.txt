@@ -1,0 +1,114 @@
+# CSTR = KineticReactor.CSTR()
+
+## /X
+Operation: X = sim.unitop.KineticReactor.CSTR
+Status: Not Solved
+Port: CrownHeight = SigPort (Crown Height)
+Port: CrownRadius = SigPort (Crown Radius)
+Port: DeltaP = SigPort (Delta P)
+Port: Diameter = SigPort
+Port: Elev = SigPort (Elevation)
+Port: ExpLiq0Level = SigPort (Expanded Level)
+Port: ExpLiq0Level% = SigPort (Expanded Percent Level)
+Port: ExpLiq1Level = SigPort (Expanded Hvy Level)
+Port: ExpLiq1Level% = SigPort (Expanded Hvy % Level)
+Port: HRat = SigPort (Head Axis Ratio)
+Port: In = MatPort
+Port: KnuckleHeight = SigPort (Knuckle Height)
+Port: KnuckleRadius = SigPort (Knuckle Radius)
+Port: Length = SigPort
+Port: LevelSP = SigPort (Level SP)
+Port: Liq0Level = SigPort (Level)
+Port: Liq0Level% = SigPort (Percent Level)
+Port: Liq1Level = SigPort (Heavy Liq Level)
+Port: Liq1Level% = SigPort (Heavy Liq % Level)
+Port: Out = MatPort
+Port: OutQ = EnePort
+Port: OutT = SigPort (Outlet T)
+Port: SphericalLimit = SigPort (Spherical Limit)
+Port: Thickness = SigPort
+Port: Volume = SigPort
+Param: AddSolPort (Add Solid Port) = 0
+Param: AvSolutionMethods = NewtonRaphson Secant Broyden
+Param: CustomEquationUnitSet (Custom Eq Unit Set) = sim42
+Param: DampingFactor (Damping Factor) = 1.0
+Param: FreqJacobianMsg (Freq Jacobian Msg) = 10
+Param: HTCorr (Inner HT Corr) = Constant
+Param: HeadDesign (Head Design) = Ellipsoidal
+Param: HeatLossCalcType (Heat Loss Calc Type) = None
+Param: Ignored = None
+Param: MaxError (Max Error) = 1e-05
+Param: MaxNumIterations (Max Num Iterations) = 100
+Param: MinimizeError (Minimize Error) = 1
+Param: MonitorConvergence (Monitor Convergence) = 0
+Param: NuLiqPorts (Liquid Ports) = 1
+Param: NumberRxn (Number of Rxn) = 0
+Param: Orientation = Horizontal
+Param: OutHTCorr (Outer HT Corr) = Constant
+Param: ReTryOnFailure = 0
+Param: ReactionPhase (Reaction Phase) = Overall
+(InternalVal = 6)
+Param: ReactionType = KineticReaction
+Param: SolutionMethod (Solution Method) = NewtonRaphson
+Param: SplitPhases (Split Phases) = 0
+Param: SystemPhase (System Phase) = Overall
+(InternalVal = 6)
+Param: TryLastConverged (Try Last Converged) = 1
+Param: TryToRestart (Try To Restart) = 0
+Param: UseLevel (Use Level) = 1
+Param: Void_Frac_Calc_Type (Void Frac Calc Type) = Simple
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+Diameter: sim.solver.Ports.Port_Signal
+CrownRadius: sim.solver.Ports.Port_Signal
+KnuckleRadius: sim.solver.Ports.Port_Signal
+Thickness: sim.solver.Ports.Port_Signal
+SphericalLimit: sim.solver.Ports.Port_Signal
+KnuckleHeight: sim.solver.Ports.Port_Signal
+CrownHeight: sim.solver.Ports.Port_Signal
+LevelSP: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+Liq0Level: sim.solver.Ports.Port_Signal
+Liq1Level: sim.solver.Ports.Port_Signal
+Liq0Level%: sim.solver.Ports.Port_Signal
+Liq1Level%: sim.solver.Ports.Port_Signal
+ExpLiq0Level: sim.solver.Ports.Port_Signal
+ExpLiq1Level: sim.solver.Ports.Port_Signal
+ExpLiq0Level%: sim.solver.Ports.Port_Signal
+ExpLiq1Level%: sim.solver.Ports.Port_Signal
+HRat: sim.solver.Ports.Port_Signal
+OutT: sim.solver.Ports.Port_Signal
+AddSolPort: AddSolPort = 0
+AvSolutionMethods: AvSolutionMethods = NewtonRaphson Secant Broyden
+CustomEquationUnitSet: CustomEquationUnitSet = sim42
+DampingFactor: DampingFactor = 1.0
+FreqJacobianMsg: FreqJacobianMsg = 10
+HTCorr: HTCorr = Constant
+HeadDesign: HeadDesign = Ellipsoidal
+HeatLossCalcType: HeatLossCalcType = None
+Ignored: Ignored = None
+MaxError: MaxError = 1e-05
+MaxNumIterations: MaxNumIterations = 100
+MinimizeError: MinimizeError = True
+MonitorConvergence: MonitorConvergence = False
+NuLiqPorts: NuLiqPorts = 1
+NumberRxn: NumberRxn = 0
+Orientation: Orientation = Horizontal
+OutHTCorr: OutHTCorr = Constant
+ReTryOnFailure: ReTryOnFailure = 0
+ReactionPhase: ReactionPhase = 6
+ReactionType: ReactionType = KineticReaction
+SolutionMethod: SolutionMethod = NewtonRaphson
+SplitPhases: SplitPhases = False
+SystemPhase: SystemPhase = 6
+TryLastConverged: TryLastConverged = True
+TryToRestart: TryToRestart = False
+UseLevel: UseLevel = 1
+Void_Frac_Calc_Type: Void_Frac_Calc_Type = Simple

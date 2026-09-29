@@ -1,0 +1,65 @@
+# Flowsheet = Flowsheet.Flowsheet()
+
+## /X
+Operation: X = sim.solver.Flowsheet.Flowsheet
+Status: Solved
+Port: AirVel = SigPort (Air Velocity)
+Port: AmbTemp = SigPort (Ambient T)
+Port: WatVel = SigPort (Water Velocity)
+Param: ActiveEngine (Active Engine) = 0
+Param: ActiveEnv (Flowsheet Type) = VMGSim (Process)
+(InternalVal = 0)
+Param: AppSteadyState (Approach Steady State) = None
+Param: AvControllerMethods = Broyden Secant Bisection
+Param: AvRecycleMethods = Broyden Wegstein SuccessiveSubstitution
+Param: ControllerMethod (Controller Method) = Broyden
+Param: DoAxialCond (Calc Wall Axial Cond) = 0
+Param: FitCalcMethod (Default Method Fitting K) = Crane
+Param: Ignored = None
+Param: MaxControllerIter (Max Controller Iterations) = 60
+Param: MaxError (Max Error) = 0.0001
+Param: MaxNumIterations (Max Recycle Iterations) = 20
+Param: MaxRecycleStep (Max Recycle Step) = 0.05
+Param: PresRecSimul (No Simul. Pres. Rec.) = None
+Param: RecycleMethod (Recycle Method) = Broyden
+Param: ResetHLoss (Reset Heat Loss Temps) = False
+Param: RunToSS (Run To Steady State) = None
+Param: SetToSolveStdAlone (Solve Stand Alone) = 1
+Param: Snap_enabled (Enable Snapshots) = 0
+Param: SolveAsNetwork (Solve As St. State Network) = 0
+Param: SolveNetworkWithKE (Balance Kinetic Energy) = 0
+Param: TeeDpMethod (Default DP Method for Tees) = Crane
+Param: TeeSplitMethod (Phase Split Method) = Equal
+Param: UnitCellModel (Unit Cell Model) = 1
+Param: UseHierarchySolver (Use Hierarchy Solver) = 1
+
+## dir /X
+
+AmbTemp: sim.solver.Ports.Port_Signal
+AirVel: sim.solver.Ports.Port_Signal
+WatVel: sim.solver.Ports.Port_Signal
+ActiveEngine: ActiveEngine = 0
+ActiveEnv: ActiveEnv = 0
+AppSteadyState: AppSteadyState = None
+AvControllerMethods: AvControllerMethods = Broyden Secant Bisection
+AvRecycleMethods: AvRecycleMethods = Broyden Wegstein SuccessiveSubstitution
+ControllerMethod: ControllerMethod = Broyden
+DoAxialCond: DoAxialCond = 0
+FitCalcMethod: FitCalcMethod = Crane
+Ignored: Ignored = None
+MaxControllerIter: MaxControllerIter = 60
+MaxError: MaxError = 0.0001
+MaxNumIterations: MaxNumIterations = 20
+MaxRecycleStep: MaxRecycleStep = 0.05
+PresRecSimul: PresRecSimul = None
+RecycleMethod: RecycleMethod = Broyden
+ResetHLoss: ResetHLoss = False
+RunToSS: RunToSS = None
+SetToSolveStdAlone: SetToSolveStdAlone = True
+Snap_enabled: Snap_enabled = 0
+SolveAsNetwork: SolveAsNetwork = 0
+SolveNetworkWithKE: SolveNetworkWithKE = 0
+TeeDpMethod: TeeDpMethod = Crane
+TeeSplitMethod: TeeSplitMethod = Equal
+UnitCellModel: UnitCellModel = True
+UseHierarchySolver: UseHierarchySolver = True

@@ -1,0 +1,14 @@
+# OilAnalysis = Oil.OilAnalysis()
+
+## /X
+Operation: X = sim.unitop.Oil.OilAnalysis
+Status: Not Solved
+Port: In = MatPort
+Port: Out = MatPort
+Param: Ignored = None
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+Ignored: Ignored = None

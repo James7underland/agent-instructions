@@ -1,0 +1,47 @@
+# OverallBalance = OverallBalance.OverallBalance("BalanceType = Energy+Mass+Mole")
+
+## /X
+Operation: X = sim.unitop.OverallBalance.OverallBalance
+Status: Solved
+Param: BalanceType (Balance Type) = Energy + Mass + Mole
+(InternalVal = Energy+Mass+Mole)
+Param: EnergyRxnBasis (Energy in Reactive Basis) = 1
+Param: Ignored = None
+
+## dir /X
+
+BalanceType: BalanceType = Energy+Mass+Mole
+EnergyRxnBasis: EnergyRxnBasis = 1
+Ignored: Ignored = None
+Flowsheet: 
+BalanceTypeEnum: 7
+EnergyBalance: [..
+None
+None
+None
+..]
+
+MassBalance: [..
+None
+None
+None
+..]
+
+MoleBalance: [..
+None
+None
+None
+..]
+
+Energy-In: [..
+..]
+
+Energy-Out: [..
+..]
+
+Material-In: [..
+..]
+
+Material-Out: [..
+..]
+

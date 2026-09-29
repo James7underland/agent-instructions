@@ -1,0 +1,52 @@
+# Mixer = Mixer.Mixer("NumberStreamsIn = 2")
+
+## /X
+Operation: X = sim.unitop.Mixer.Mixer
+Status: Not Solved
+Port: BranchAngle = SigPort (Branch Angle)
+Port: Elev = SigPort (Elevation)
+Port: FeedScale = SigPort (Feed Scale)
+Port: FilletRadius = SigPort (Fillet Radius)
+Port: In0 = MatPort
+Port: In1 = MatPort
+Port: K13 = SigPort (K13 Loss Coef)
+Port: K23 = SigPort (K23 Loss Coef)
+Port: Out = MatPort
+Port: ProdScale = SigPort (Prod Scale)
+Port: Volume = SigPort
+Param: ActStateSpace (Activate Reduced Order Model) = 0
+Param: AllowZeroFlowHandling (Allow Zero Flow Handling) = 1
+Param: AvCalcPressureModes = DontCalculate LowestPInOutlet AllPEqual
+Param: CalcPressureMode (Calc P Mode) = LowestPInOutlet
+Param: DpMethod (DP Method) = Default
+Param: DynMode (Dynamic Mode) = Normal
+Param: Ignored = None
+Param: NumberStreamsIn (Inlets) = 2
+Param: OpposingFlow (Opposing Flow) = 0
+Param: SplitMethod (Phase Split Method) = Equal
+Param: StateSpace (Reduced Order Model) = 0
+
+## dir /X
+
+In0: sim.solver.Ports.Port_Material
+In1: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+FeedScale: sim.solver.Ports.Port_Signal
+ProdScale: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+BranchAngle: sim.solver.Ports.Port_Signal
+FilletRadius: sim.solver.Ports.Port_Signal
+K13: sim.solver.Ports.Port_Signal
+K23: sim.solver.Ports.Port_Signal
+ActStateSpace: ActStateSpace = 0
+AllowZeroFlowHandling: AllowZeroFlowHandling = 1
+AvCalcPressureModes: AvCalcPressureModes = DontCalculate LowestPInOutlet AllPEqual
+CalcPressureMode: CalcPressureMode = LowestPInOutlet
+DpMethod: DpMethod = Default
+DynMode: DynMode = Normal
+Ignored: Ignored = None
+NumberStreamsIn: NumberStreamsIn = 2
+OpposingFlow: OpposingFlow = 0
+SplitMethod: SplitMethod = Equal
+StateSpace: StateSpace = 0

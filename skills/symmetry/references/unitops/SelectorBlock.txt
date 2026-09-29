@@ -1,0 +1,80 @@
+# SelectorBlock = SelectorBlock.SelectorBlock()
+
+## /X
+Operation: X = sim.unitop.SelectorBlock.SelectorBlock
+Status: Not Solved
+Port: BiasFnMag = SigPort (Bias Fn Magnitude)
+Port: BiasFnPer = SigPort (Bias Fn Period)
+Port: BiasFnX = SigPort (Bias Fn X)
+Port: BiasFnY = SigPort (Bias Fn Y)
+Port: CycleTime = SigPort (Cycle Time)
+Port: DelayTime = SigPort (Delay Time)
+Port: DeltaTime = SigPort (Delta Time)
+Port: IPBias_0 = SigPort
+Port: IPBias_1 = SigPort
+Port: IPMax_0 = SigPort
+Port: IPMax_1 = SigPort
+Port: IPMin_0 = SigPort
+Port: IPMin_1 = SigPort
+Port: IPScale_0 = SigPort
+Port: IPScale_1 = SigPort
+Port: Input_0 = SigPort
+Port: Input_1 = SigPort
+Port: NoiseMag = SigPort (Noise Magnitude)
+Port: NoiseTime = SigPort (Noise Decay Time)
+Port: OPBias = SigPort (Output Bias)
+Port: OPMax = SigPort (Output Max)
+Port: OPMin = SigPort (Output Min)
+Port: OPScale = SigPort (Output Scale)
+Port: Output = SigPort
+Port: PVSampVal = SigPort (PV Sample Value)
+Port: SampleHoldTime = SigPort (Sample And Hold Time)
+Port: SampleTimeRem = SigPort (Sample Time Remaining)
+Port: ScaledIP_0 = SigPort
+Port: ScaledIP_1 = SigPort
+Port: UnscaledOP = SigPort (Unscaled Output)
+Param: Clip (Clip Values) = 0
+Param: EqScript (Equation Script) = 
+Param: Equation = I[0]
+Param: Ignored = None
+Param: IsAnalyzer (Is Analyzer) = False
+Param: VarType (Calc Basis) = User Units
+
+## dir /X
+
+Output: sim.solver.Ports.Port_Signal
+BiasFnMag: sim.solver.Ports.Port_Signal
+BiasFnPer: sim.solver.Ports.Port_Signal
+BiasFnX: sim.solver.Ports.Port_Signal
+BiasFnY: sim.solver.Ports.Port_Signal
+OPScale: sim.solver.Ports.Port_Signal
+OPBias: sim.solver.Ports.Port_Signal
+UnscaledOP: sim.solver.Ports.Port_Signal
+OPMin: sim.solver.Ports.Port_Signal
+OPMax: sim.solver.Ports.Port_Signal
+NoiseMag: sim.solver.Ports.Port_Signal
+NoiseTime: sim.solver.Ports.Port_Signal
+SampleHoldTime: sim.solver.Ports.Port_Signal
+SampleTimeRem: sim.solver.Ports.Port_Signal
+CycleTime: sim.solver.Ports.Port_Signal
+DeltaTime: sim.solver.Ports.Port_Signal
+PVSampVal: sim.solver.Ports.Port_Signal
+DelayTime: sim.solver.Ports.Port_Signal
+Input_0: sim.solver.Ports.Port_Signal
+Input_1: sim.solver.Ports.Port_Signal
+IPBias_0: sim.solver.Ports.Port_Signal
+IPBias_1: sim.solver.Ports.Port_Signal
+IPScale_0: sim.solver.Ports.Port_Signal
+IPScale_1: sim.solver.Ports.Port_Signal
+ScaledIP_0: sim.solver.Ports.Port_Signal
+ScaledIP_1: sim.solver.Ports.Port_Signal
+IPMax_0: sim.solver.Ports.Port_Signal
+IPMax_1: sim.solver.Ports.Port_Signal
+IPMin_0: sim.solver.Ports.Port_Signal
+IPMin_1: sim.solver.Ports.Port_Signal
+Clip: Clip = 0
+EqScript: EqScript = 
+Equation: Equation = I[0]
+Ignored: Ignored = None
+IsAnalyzer: IsAnalyzer = False
+VarType: VarType = User Units

@@ -1,0 +1,36 @@
+# PropertyRecon = DataRecon.PropertyRecon()
+
+## /X
+Operation: X = sim.unitop.DataRecon.PropertyRecon
+Status: Not Solved
+Port: CurH2 = SigPort (Current H2)
+Port: DensityBias = SigPort (Density Bias)
+Port: DensityMult = SigPort (Density Mult)
+Port: HydrogenBias = SigPort (H2 Bias)
+Port: HydrogenMassBias = SigPort (H2 Bias)
+Port: HydrogenMassMult = SigPort (H2 Mult)
+Port: HydrogenMult = SigPort (H2 Mult)
+Port: In = MatPort
+Port: MONBias = SigPort (MON Bias)
+Port: MONMult = SigPort (MON Mult)
+Port: Out = MatPort
+Port: RONBias = SigPort (RON Bias)
+Port: RONMult = SigPort (RON Mult)
+Param: Ignored = None
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+DensityBias: sim.solver.Ports.Port_Signal
+DensityMult: sim.solver.Ports.Port_Signal
+HydrogenBias: sim.solver.Ports.Port_Signal
+HydrogenMult: sim.solver.Ports.Port_Signal
+CurH2: sim.solver.Ports.Port_Signal
+HydrogenMassBias: sim.solver.Ports.Port_Signal
+HydrogenMassMult: sim.solver.Ports.Port_Signal
+RONBias: sim.solver.Ports.Port_Signal
+RONMult: sim.solver.Ports.Port_Signal
+MONBias: sim.solver.Ports.Port_Signal
+MONMult: sim.solver.Ports.Port_Signal
+Ignored: Ignored = None

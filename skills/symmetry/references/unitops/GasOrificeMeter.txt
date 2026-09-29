@@ -1,0 +1,59 @@
+# GasOrificeMeter = OrificeMetering.GasOrifice()
+
+## /X
+Operation: X = vmgsim.unitop.OrificeMetering.GasOrifice
+Status: Not Solved
+Port: Cp/Cv = SigPort
+Port: DeltaP = SigPort (Delta P)
+Port: Elev = SigPort (Elevation)
+Port: In = MatPort
+Port: MeasuredOrificeDeltaP = SigPort (Measured Orifice Delta P)
+Port: OrificeDiameter = SigPort (Orifice Diameter)
+Port: Out = MatPort
+Port: PipeDiameter = SigPort (Pipe Diameter)
+Port: PressureLossFraction = SigPort (Pressure Loss Fraction)
+Param: AvCp/Cv_Types = At_Flowing_T&P At_Standard_T&P
+Param: AvStandards = ANSI/API_2530 ISO_5167-1
+Param: AvTapTypes = Flange Corner Pipe Radius
+Param: Cp/Cv_Type (Cp/Cv Type) = At_Flowing_T&P
+Param: DampingFactor (Damping Factor) = 1.0
+Param: EqnSet (Standard) = API14/AGA3/ANSI2530
+Param: EqnType (Cd Eqn) = RG ISO/ASME
+(InternalVal = RG_ISO/ASME)
+Param: IgnoreWarnings (Ignore Warnings) = 0
+Param: Ignored = None
+Param: IsenCoefMethod (Isen Coeff Method) = Hybrid
+Param: MaxIterations (Max Iterations) = 200
+Param: MaxStepSize (Max Step Size) = 100.0
+Param: OrificeDPTolerance (Orifice DP Tolerance) = 0.0001
+Param: SolveAsNetworkSource (Is Network Source) = 0
+Param: Standard = ANSI/API_2530
+Param: TapType (Tap Type) = Flange
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+DeltaP: sim.solver.Ports.Port_Signal
+PipeDiameter: sim.solver.Ports.Port_Signal
+OrificeDiameter: sim.solver.Ports.Port_Signal
+Cp/Cv: sim.solver.Ports.Port_Signal
+PressureLossFraction: sim.solver.Ports.Port_Signal
+MeasuredOrificeDeltaP: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+AvCp/Cv_Types: AvCp/Cv_Types = At_Flowing_T&P At_Standard_T&P
+AvStandards: AvStandards = ANSI/API_2530 ISO_5167-1
+AvTapTypes: AvTapTypes = Flange Corner Pipe Radius
+Cp/Cv_Type: Cp/Cv_Type = At_Flowing_T&P
+DampingFactor: DampingFactor = 1.0
+EqnSet: EqnSet = API14/AGA3/ANSI2530
+EqnType: EqnType = RG_ISO/ASME
+IgnoreWarnings: IgnoreWarnings = 0
+Ignored: Ignored = None
+IsenCoefMethod: IsenCoefMethod = Hybrid
+MaxIterations: MaxIterations = 200
+MaxStepSize: MaxStepSize = 100.0
+OrificeDPTolerance: OrificeDPTolerance = 0.0001
+SolveAsNetworkSource: SolveAsNetworkSource = 0
+Standard: Standard = ANSI/API_2530
+TapType: TapType = Flange

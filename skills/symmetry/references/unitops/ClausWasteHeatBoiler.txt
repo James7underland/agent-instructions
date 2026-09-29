@@ -1,0 +1,75 @@
+# ClausWasteHeatBoiler = ClausOperations.ClausWasteHeatBoiler("DeltaP = 1.0 psi")
+
+## /X
+Operation: X = vmgsim.unitop.ClausOperations.ClausWasteHeatBoiler
+Status: Not Solved
+Status: Info - Process side energy or steam side flow specification must be provided
+Port: DeltaP = SigPort (Delta P)
+Port: DeltaT = SigPort (Delta T)
+Port: Diameter = SigPort
+Port: Elev = SigPort (Elevation)
+Port: HeatLoss = SigPort (Heat Loss)
+Port: In = MatPort
+Port: InVapF = SigPort (In VapFrac)
+Port: Length = SigPort
+Port: Out = MatPort
+Port: OutQ = EnePort
+Port: OutT = SigPort (Out T)
+Port: OutVapF = SigPort (Out VapFrac)
+Port: SteamF = SigPort (Mole Flow)
+Port: SteamP = SigPort (Pressure)
+Port: SteamT = SigPort (Out Temp)
+Port: Steamkg = SigPort (Mass Flow)
+Port: Volume = SigPort
+Port: WaterT = SigPort (Feed Water Temp)
+Port: k = SigPort
+Child: GibbsReactor = vmgsim.unitop.ClausReactors.SulfurGibbsReactor
+Param: AvReactionModels = NonReactive Kinetic
+Param: Calculate_Flow = 1
+Param: Duty_Damping = 0.9
+Param: Duty_LastConv = 0
+Param: Duty_MaxError = 0.0001
+Param: Duty_MaxIter = 100
+Param: Duty_MaxStep = 5.0
+Param: HTCorr (Inner HTC Corr.) = Constant
+Param: HeatLossCalcType (Heat Loss Calc Type) = None
+Param: Ignored = None
+Param: NumberSegments (Number of Segments) = 5
+Param: OutHTCorr (Outer HT Corr) = Constant
+Param: ReactionModel (Reaction Model) = NonReactive
+
+## dir /X
+
+GibbsReactor: GibbsReactor = vmgsim.unitop.ClausReactors.SulfurGibbsReactor
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+DeltaP: sim.solver.Ports.Port_Signal
+DeltaT: sim.solver.Ports.Port_Signal
+OutT: sim.solver.Ports.Port_Signal
+HeatLoss: sim.solver.Ports.Port_Signal
+k: sim.solver.Ports.Port_Signal
+Volume: sim.solver.Ports.Port_Signal
+Elev: sim.solver.Ports.Port_Signal
+Length: sim.solver.Ports.Port_Signal
+Diameter: sim.solver.Ports.Port_Signal
+WaterT: sim.solver.Ports.Port_Signal
+SteamT: sim.solver.Ports.Port_Signal
+SteamP: sim.solver.Ports.Port_Signal
+SteamF: sim.solver.Ports.Port_Signal
+Steamkg: sim.solver.Ports.Port_Signal
+InVapF: sim.solver.Ports.Port_Signal
+OutVapF: sim.solver.Ports.Port_Signal
+AvReactionModels: AvReactionModels = NonReactive Kinetic
+Calculate_Flow: Calculate_Flow = True
+Duty_Damping: Duty_Damping = 0.9
+Duty_LastConv: Duty_LastConv = 0
+Duty_MaxError: Duty_MaxError = 0.0001
+Duty_MaxIter: Duty_MaxIter = 100
+Duty_MaxStep: Duty_MaxStep = 5.0
+HTCorr: HTCorr = Constant
+HeatLossCalcType: HeatLossCalcType = None
+Ignored: Ignored = None
+NumberSegments: NumberSegments = 5
+OutHTCorr: OutHTCorr = Constant
+ReactionModel: ReactionModel = NonReactive

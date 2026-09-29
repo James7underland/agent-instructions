@@ -1,0 +1,44 @@
+# Cyclone = Solids.Cyclone()
+
+## /X
+Operation: X = sim.unitop.Solids.Cyclone
+Status: Not Solved
+Port: CycDiam = SigPort (Cyclone Diameter)
+Port: CycHeight = SigPort (Cyclone Height)
+Port: CylHeight = SigPort (Cylindrical Height)
+Port: DeltaP = SigPort (Delta P)
+Port: DustDiam = SigPort (Dust Outlet Diameter)
+Port: EffConfigFact = SigPort (Efficiency Config Factor)
+Port: Feed = MatPort
+Port: Gas = MatPort
+Port: GasOutDiam = SigPort (Gas Outlet Diameter)
+Port: GasOutLen = SigPort (Gas Outlet Length)
+Port: InHeight = SigPort (Inlet Height)
+Port: InWidth = SigPort (Inlet Width)
+Port: OutQ = EnePort (Ambient Heat Loss)
+Port: PConfigFact = SigPort (Pressure Config Factor)
+Port: Solids = MatPort
+Param: DPMethod (Pressure Drop Method) = Shepherd-Lapple
+Param: Ignored = None
+Param: PhasesSeparate (Phases to Remove) = Liq0/Liq1/Solid
+
+## dir /X
+
+Feed: sim.solver.Ports.Port_Material
+Gas: sim.solver.Ports.Port_Material
+Solids: sim.solver.Ports.Port_Material
+OutQ: sim.solver.Ports.Port_Energy
+InHeight: sim.solver.Ports.Port_Signal
+InWidth: sim.solver.Ports.Port_Signal
+DustDiam: sim.solver.Ports.Port_Signal
+GasOutDiam: sim.solver.Ports.Port_Signal
+GasOutLen: sim.solver.Ports.Port_Signal
+CycDiam: sim.solver.Ports.Port_Signal
+CylHeight: sim.solver.Ports.Port_Signal
+CycHeight: sim.solver.Ports.Port_Signal
+DeltaP: sim.solver.Ports.Port_Signal
+PConfigFact: sim.solver.Ports.Port_Signal
+EffConfigFact: sim.solver.Ports.Port_Signal
+DPMethod: DPMethod = Shepherd-Lapple
+Ignored: Ignored = None
+PhasesSeparate: PhasesSeparate = Liq0/Liq1/Solid

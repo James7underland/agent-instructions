@@ -1,0 +1,38 @@
+# GibbsCurve = Envelope.GibbsCurve()
+
+## /X
+Operation: X = sim.unitop.Envelope.GibbsCurve
+Status: Not Solved
+Port: In = MatPort
+Port: Out = MatPort
+Param: AvKeyComps = METHANE?ETHANE?PROPANE?n-BUTANE?n-PENTANE?WATER
+Param: Fr0 (Key Mole Frac Lower Bound) = 0.0
+Param: Fr1 (Key Mole Frac Upper Bound) = 1.0
+Param: Ignored = None
+Param: KeyComp (Key Compound) = METHANE
+Param: KeyCompIdx = 0
+Param: NumberOfPoints (Number of Points) = 51
+
+## dir /X
+
+In: sim.solver.Ports.Port_Material
+Out: sim.solver.Ports.Port_Material
+AvKeyComps: AvKeyComps = METHANE?ETHANE?PROPANE?n-BUTANE?n-PENTANE?WATER
+Fr0: Fr0 = 0.0
+Fr1: Fr1 = 1.0
+Ignored: Ignored = None
+KeyComp: KeyComp = METHANE
+KeyCompIdx: KeyCompIdx = 0
+NumberOfPoints: NumberOfPoints = 51
+composition0: None
+composition1: None
+Results: [..
+(ReturnCode, -1)
+(Message, Unsolved)
+(NumberPoints, 0)
+(Table:Fr,Gibbl,Gibbv, nan
+nan
+nan
+)
+..]
+
