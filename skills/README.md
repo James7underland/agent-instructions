@@ -4,6 +4,8 @@
 
 Общая версия для команды лежит в репозитории [quizyforu-team/claude_skills](https://github.com/quizyforu-team/claude_skills). Там нет картинок `fsa-gost/assets/example-k1/`: это фрагменты документации предприятия, они есть только здесь и в рабочей папке скилла.
 
+При запросе пользователя выполняется синхронизация и внедрение актуальной версии скиллов из [quizyforu-team/claude_skills](https://github.com/quizyforu-team/claude_skills) с полным сохранением функционала по регламенту из [`AGENTS.md`](../AGENTS.md).
+
 <!-- skills:start -->
 | Программа | Скилл | Файлов | О чём |
 |---|---|---|---|
