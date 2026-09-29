@@ -79,16 +79,33 @@ def skill_files(skill_dir: Path) -> list[Path]:
 
 
 def parse_frontmatter(text: str) -> dict[str, str] | None:
-    if text.startswith("﻿"):
+    if text.startswith("\ufeff") or text.startswith("﻿"):
         text = text[1:]
     m = re.match(r"^---\r?\n(.*?)\r?\n---\r?\n", text, re.S)
     if not m:
         return None
     fields = {}
+    current_key = None
+    in_block = False
     for line in m.group(1).splitlines():
-        k, sep, v = line.partition(":")
-        if sep and not line.startswith((" ", "\t")):
-            fields[k.strip()] = v.strip().strip('"').strip("'")
+        if not line.startswith((" ", "\t")):
+            in_block = False
+            k, sep, v = line.partition(":")
+            if sep:
+                current_key = k.strip()
+                val = v.strip().strip('"').strip("'")
+                if val in ("|", ">"):
+                    fields[current_key] = ""
+                    in_block = True
+                else:
+                    fields[current_key] = val
+        elif in_block and current_key:
+            continued = line.strip()
+            if continued:
+                if fields[current_key]:
+                    fields[current_key] += " " + continued
+                else:
+                    fields[current_key] = continued
     return fields
 
 
@@ -116,6 +133,7 @@ def build_archive(skill_dir: Path, files: list[Path]) -> bytes:
 
 
 PROGRAM_NAMES = {
+    "humanizer": "Humanizer (редактура текста)",
     "mathcad13": "Mathcad 13",
     "simulink": "Simulink",
     "symmetry": "Symmetry",

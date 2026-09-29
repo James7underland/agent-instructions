@@ -20,17 +20,34 @@ FRONTMATTER_PATTERN = re.compile(r"^---\r?\n(.*?)\r?\n---\r?\n", re.DOTALL)
 
 
 def parse_frontmatter(text: str) -> dict[str, str] | None:
-    """Парсит плоский YAML frontmatter блока --- name: ... description: ... ---."""
-    if text.startswith("\ufeff"):
+    """Парсит YAML frontmatter блока --- name: ... description: ... --- с поддержкой многострочных блоков."""
+    if text.startswith("\ufeff") or text.startswith("﻿"):
         text = text[1:]
     match = FRONTMATTER_PATTERN.match(text)
     if not match:
         return None
     fields = {}
+    current_key = None
+    in_block = False
     for line in match.group(1).splitlines():
-        key, sep, val = line.partition(":")
-        if sep and not line.startswith((" ", "\t")):
-            fields[key.strip()] = val.strip().strip('"').strip("'")
+        if not line.startswith((" ", "\t")):
+            in_block = False
+            key, sep, val = line.partition(":")
+            if sep:
+                current_key = key.strip()
+                v = val.strip().strip('"').strip("'")
+                if v in ("|", ">"):
+                    fields[current_key] = ""
+                    in_block = True
+                else:
+                    fields[current_key] = v
+        elif in_block and current_key:
+            continued = line.strip()
+            if continued:
+                if fields[current_key]:
+                    fields[current_key] += " " + continued
+                else:
+                    fields[current_key] = continued
     return fields
 
 

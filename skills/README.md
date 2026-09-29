@@ -18,6 +18,7 @@
 | Superpowers (методология) | [`executing-plans`](executing-plans/SKILL.md) | 3 | Use when executing an implementation plan in the current session as the implementer yourself |
 | Superpowers (методология) | [`finishing-a-development-branch`](finishing-a-development-branch/SKILL.md) | 1 | Use when implementation is complete, all tests pass, and you need to decide how to integrate the work |
 | Visio (ФСА ГОСТ) | [`fsa-gost`](fsa-gost/SKILL.md) | 60 | ФСА (функциональные схемы автоматизации, P&ID, КИПиА) по ГОСТ 21.208-2013 и 21.408-2013 в Visio. |
+| Humanizer (редактура текста) | [`humanizer`](humanizer/SKILL.md) | 10 | Rewrite AI-sounding text so it reads like the writer without changing what it says. |
 | Mathcad 13 | [`mathcad13`](mathcad13/SKILL.md) | 24 | Работа с Mathcad 13 (Mathsoft, 2005; папку установки находит scripts/find_mathcad.py) |
 | Superpowers (методология) | [`receiving-code-review`](receiving-code-review/SKILL.md) | 1 | Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable… |
 | Superpowers (методология) | [`requesting-code-review`](requesting-code-review/SKILL.md) | 2 | Use when completing tasks, implementing major features, or before merging to verify work meets requirements |

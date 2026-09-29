@@ -33,6 +33,7 @@ def test_agents_bootstrap_references_core_modules(repo_root: Path) -> None:
     assert "ai_persona_agent.md" in content, "AGENTS.md обязан ссылаться на ai_persona_agent.md"
     assert "text_humanizer_ru.md" in content, "AGENTS.md обязан ссылаться на text_humanizer_ru.md"
     assert "superpowers_agent.md" in content, "AGENTS.md обязан ссылаться на superpowers_agent.md"
+    assert "skills/humanizer/SKILL.md" in content, "AGENTS.md обязан ссылаться на skills/humanizer/SKILL.md"
 
 
 def test_readme_catalog_references_existing_modules(repo_root: Path) -> None:
