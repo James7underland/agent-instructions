@@ -90,3 +90,22 @@ def test_all_review_checklists_cataloged_in_checklists_readme(repo_root: Path) -
 
     # Assert: каждый чек-лист обязан быть внесен в каталог
     assert not uncataloged, f"В review_checklists/README.md не включены файлы: {uncataloged}"
+
+
+def test_canonical_scripts_syntax(repo_root: Path) -> None:
+    """Проверяет наличие и синтаксическую корректность канонических сборочных скриптов в scripts/."""
+    import ast
+
+    scripts_dir = repo_root / "scripts"
+    assert scripts_dir.is_dir(), "Каталог scripts/ отсутствует в корне репозитория"
+
+    expected_scripts = ["build_report_docx.py", "export_report_pdf.py"]
+    for script_name in expected_scripts:
+        script_file = scripts_dir / script_name
+        assert script_file.is_file(), f"Скрипт {script_name} не найден в {scripts_dir}"
+        source = script_file.read_text(encoding="utf-8")
+        try:
+            ast.parse(source, filename=str(script_file))
+        except SyntaxError as exc:
+            raise AssertionError(f"Синтаксическая ошибка в {script_name}: {exc}") from exc
+

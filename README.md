@@ -133,6 +133,17 @@ sequenceDiagram
 
 ---
 
+### 🛠️ Канонические сборочные скрипты библиотеки (`scripts/`)
+
+Для исключения повторного написания конвертеров с нуля и гарантирования 100 % соблюдения ГОСТ в библиотеку включены готовые исполняемые скрипты ([`scripts/README.md`](scripts/README.md)):
+
+| Скрипт | Назначение и запуск | Особенности |
+|---|---|---|
+| [`scripts/build_report_docx.py`](scripts/build_report_docx.py) | **Сквозная сборка отчета DOCX и PDF**<br/>`python scripts/build_report_docx.py -i Отчет.md` | Полный 11-стадийный конвейер: Pandoc AST, титул АТП 14 pt regular, динамический TOC, защита от US Letter, формулы OMML с номерами, таблицы 14 pt, масштабирование рисунков. |
+| [`scripts/export_report_pdf.py`](scripts/export_report_pdf.py) | **Полиграфический экспорт в PDF**<br/>`python scripts/export_report_pdf.py -i Отчет.docx` | Автоматизация Word COM API: изоляция в ASCII-каталоге Windows (защита от зависания на кириллице), автообновление полей и TOC, экспорт в PDF качества печати. |
+
+---
+
 ## 4. Матрица типовых прикладных сценариев
 
 При выборе задачи к **Базовому ядру** (`ai_persona_agent.md` + `text_humanizer_ru.md`) подключаются:
