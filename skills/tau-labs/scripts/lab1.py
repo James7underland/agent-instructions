@@ -9,19 +9,21 @@
   * вариант (a2, a1, K, Um) — от преподавателя; если не задан — случайный правдоподобный;
   * «почерк» студента — свои коэффициенты из рекомендованных диапазонов методички
     (T0 = 80…100·√a2, T1 = 12…13·√a2, Ti+1 = 0.80…0.85·Ti, 13–15 измерений, округление √a2);
-  * «измерения курсором» — теория + шум ≈0.4 % + округление как при отсчёте с экрана.
+  * «измерения курсором» — теория + шум ≈0.3 %, все величины с 3 знаками после запятой (--dec 3, по умолчанию;
+    --dec 0 — прежнее округление «как с экрана»: сотые/тысячные/3 значащие).
 Всё детерминировано: одинаковое ФИО (или --seed) → одинаковые числа.
 
 Команды:
   lab1.py make  --name "Иванов И.И." [--group АТ-23-01] [--a2 2.9 --a1 0.85 --K 2 --Um 0.8] --out DIR
-                [--seed N] [--no-mathcad] [--teacher "…"] [--title-page]
-  lab1.py batch people.csv --out DIR [--no-mathcad]
-        CSV (UTF-8, ; или ,): name;group;a2;a1;K;Um[;seed] — пустые a2…Um → случайный вариант
+                [--seed N] [--dec 3] [--lach-variants] [--no-mathcad] [--teacher "…"] [--title-page]
+  lab1.py batch people.csv --out DIR [--no-mathcad] [--lach-variants]
+        CSV (UTF-8, ; или ,): name;group;a2;a1;K;Um[;seed][;dec] — пустые a2…Um → случайный вариант
   lab1.py check DIR/<файл>.json      — пересчитать таблицу и сверить с теорией (контроль)
 
-Результат в DIR/<Фамилия>/: data.json, <Фамилия>_ЛР1.xmcd (пересчитан в Mathcad 13),
-<Фамилия>_ЛР1_графики.docx (4 рисунка, альбом), <Фамилия>_ЛР1_тетрадь.docx (что переписать в тетрадь:
-данные, цепочка периодов, расчёты, таблица 1, выводы, ответы на контрольные вопросы), plots/*.png.
+Результат в DIR/<Фамилия>/: <Фамилия>_ЛР1.xmcd (пересчитан в Mathcad 13), <Фамилия>_ЛР1_графики.docx
+(4 рисунка, альбомный А4), <Фамилия>_ЛР1_тетрадь.docx (данные, цепочка периодов, расчёты, таблица 1,
+аналитические выражения); служебное/: data.json, plots/*.png, контрольные_вопросы.docx.
+С --lach-variants ещё: _графики_разные_нули.docx, _графики_общий_ноль_дробный_шаг.docx, _ЛАФЧХ_6_вариантов.docx.
 """
 from __future__ import annotations
 
@@ -99,8 +101,11 @@ def random_variant(rng):
     return dict(a2=a2, a1=round(a1, 2), K=K, Um=Um)
 
 
-def make_data(name, group="", a2=None, a1=None, K=None, Um=None, seed=None, **extra):
+def make_data(name, group="", a2=None, a1=None, K=None, Um=None, seed=None, dec=None, **extra):
+    """dec=3 — все величины (τ, T, Xm, ΔT, ω, A, φ, L) ровно с 3 знаками после запятой, производные считаются из
+    уже округлённых (в тетради «20 lg 0,011 = −39,172» сходится при проверке на калькуляторе)."""
     seed = seed_of(name) if seed in (None, "") else int(seed)
+    dec = int(dec) if dec not in (None, "") else None
     rng = random.Random(seed)
     given = None not in (a2, a1, K, Um)
     var = dict(a2=float(a2), a1=float(a1), K=float(K), Um=float(Um)) if given else random_variant(rng)
@@ -114,10 +119,16 @@ def make_data(name, group="", a2=None, a1=None, K=None, Um=None, seed=None, **ex
         n=rng.choice([13, 14, 15, 15]),
     )
     a2, a1, K, Um = var["a2"], var["a1"], var["K"], var["Um"]
-    tau = round(math.sqrt(a2), style["tau_dec"])
-    T = [round(style["c0"] * tau, 1), round(style["c1"] * tau, 2)]
-    while len(T) < style["n"]:
-        T.append(round(style["q"] * T[-1], 2))
+    if dec:
+        tau = round(math.sqrt(a2), dec)
+        T = [round(style["c0"] * tau, dec), round(style["c1"] * tau, dec)]
+        while len(T) < style["n"]:
+            T.append(round(style["q"] * T[-1], dec))
+    else:
+        tau = round(math.sqrt(a2), style["tau_dec"])
+        T = [round(style["c0"] * tau, 1), round(style["c1"] * tau, 2)]
+        while len(T) < style["n"]:
+            T.append(round(style["q"] * T[-1], 2))
 
     rows = []
     prev = None
@@ -131,12 +142,18 @@ def make_data(name, group="", a2=None, a1=None, K=None, Um=None, seed=None, **ex
             ex, et = rng.gauss(0, 0.003), rng.gauss(0, 0.003)
             if abs(ex) >= 0.015 or abs(et) >= 0.015:
                 continue
-            Xm, dT = meas_round(Xm_t * (1 + ex), "Xm"), meas_round(dT_t * (1 + et), "dT")
-            A_i, ph_i = Xm / Um, -dT / Ti * 360
+            if dec:
+                Xm, dT = round(Xm_t * (1 + ex), dec), round(dT_t * (1 + et), dec)
+                if Xm <= 0:
+                    continue
+                A_i, ph_i = round(Xm / Um, dec), round(-dT / Ti * 360, dec)
+            else:
+                Xm, dT = meas_round(Xm_t * (1 + ex), "Xm"), meas_round(dT_t * (1 + et), "dT")
+                A_i, ph_i = Xm / Um, -dT / Ti * 360
             if prev is None or (ph_i < prev[1] and (A_i - prev[0]) * (A_t - prev[2]) > 0):
                 break
         w_i = 2 * math.pi / Ti
-        L_i = 20 * math.log10(A_i)
+        L_i = 20 * math.log10(round(A_i, dec) if dec else A_i)
         prev = (A_i, ph_i, A_t)
         rows.append(dict(T=Ti, Xm=Xm, dT=dT, w=round(w_i, 3), A=round(A_i, 3), phi=round(ph_i, 3),
                          L=round(L_i, 3), A_theory=A_t, phi_theory=ph_t))
@@ -149,7 +166,7 @@ def make_data(name, group="", a2=None, a1=None, K=None, Um=None, seed=None, **ex
         an["Amax"] = K / (2 * xi * math.sqrt(1 - xi * xi))
         an["M"] = an["Amax"] / K
     exp_max = max(rows, key=lambda r: r["A"])
-    return dict(name=name.strip(), group=group, seed=seed, variant=var, style=style, tau=tau,
+    return dict(name=name.strip(), group=group, seed=seed, dec=dec, variant=var, style=style, tau=tau,
                 rows=rows, analytic=an, exp_peak=dict(w=exp_max["w"], A=exp_max["A"]), **extra)
 
 
@@ -448,9 +465,10 @@ def title_page(doc, d, teacher):
     p(f"Москва, {d.get('year') or 2026} г.", before=150)
 
 
-def graphs_docx(d, plots, out, teacher=None, with_title=False):
+def graphs_docx(d, plots, out, teacher=None, with_title=False, items=None):
     """Графики вставляются в натуральную величину (ширина = ширине картинки в мм), чтобы клетка на распечатке
-    была ровно того размера, что заложен в tauplot (масштаб «по миллиметровке»)."""
+    была ровно того размера, что заложен в tauplot (масштаб «по миллиметровке»).
+    items — свой список [(график, полная подпись)] вместо 4 рисунков FIGS (например, все варианты ЛАФЧХ)."""
     from docx.enum.section import WD_ORIENT, WD_SECTION
     from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
     from docx.shared import Mm, Pt
@@ -464,21 +482,19 @@ def graphs_docx(d, plots, out, teacher=None, with_title=False):
         sec.left_margin, sec.right_margin, sec.top_margin, sec.bottom_margin = Mm(5), Mm(5), Mm(5), Mm(5)
     else:
         doc = _docx_base(landscape=True, author=d["name"])
-    keys = [k for k, _ in FIGS if plots.get(k)]
-    for n, (key, cap) in enumerate(FIGS, 1):
-        p = plots.get(key)
-        if not p:
-            continue
+    if items is None:
+        items = [(plots[key], f"Рисунок {n} – {cap}") for n, (key, cap) in enumerate(FIGS, 1) if plots.get(key)]
+    for k, (p, caption) in enumerate(items):
         par = doc.add_paragraph()
         par.alignment = WD_ALIGN_PARAGRAPH.CENTER
         pf = par.paragraph_format  # одинарный интервал: множитель 1,15 растягивает строку с картинкой
         pf.space_before, pf.space_after, pf.line_spacing = Pt(0), Pt(0), 1.0
-        pf.page_break_before = key != keys[0]
+        pf.page_break_before = k > 0
         par.add_run().add_picture(p["path"], width=Mm(p["width_mm"]))
         c = doc.add_paragraph()
         c.alignment = WD_ALIGN_PARAGRAPH.CENTER
         c.paragraph_format.space_before, c.paragraph_format.line_spacing = Pt(2), 1.0
-        c.add_run(f"Рисунок {n} – {cap}")
+        c.add_run(caption)
     save_docx(doc, out)
 
 
@@ -524,6 +540,10 @@ def notebook_docx(d, out):
     v, rows, st, an = d["variant"], d["rows"], d["style"], d["analytic"]
     n = len(rows)
     K, a2, a1, Um = v["K"], v["a2"], v["a1"], v["Um"]
+    dec = d.get("dec")
+
+    def x(val, nd=3):  # измеренные и рассчитанные величины: до dec знаков, незначащие нули в расчётах убраны
+        return t(val, dec) if dec else t(val, nd)  # (16,73; 0,04); в таблице 1 — ровно dec знаков
 
     def centered(text, bold=False, size=14, after=0):
         par = doc.add_paragraph()
@@ -557,26 +577,26 @@ def notebook_docx(d, out):
 
     h("Расчёт периодов входного сигнала")
     tau = d["tau"]
-    f(rf"\tau=\sqrt{{a_{{2}}}}=\sqrt{{{t(a2)}}}={t(tau)}\ \text{{с}}")
-    f(rf"T_{{0}}={t(st['c0'])}\tau={t(st['c0'])}\cdot {t(tau)}={t(rows[0]['T'], 2)}\ \text{{с}}")
-    f(rf"T_{{1}}={t(st['c1'])}\tau={t(st['c1'])}\cdot {t(tau)}={t(rows[1]['T'], 2)}\ \text{{с}}")
+    f(rf"\tau=\sqrt{{a_{{2}}}}=\sqrt{{{t(a2)}}}={x(tau)}\ \text{{с}}")
+    f(rf"T_{{0}}={t(st['c0'])}\tau={t(st['c0'])}\cdot {x(tau)}={x(rows[0]['T'], 2)}\ \text{{с}}")
+    f(rf"T_{{1}}={t(st['c1'])}\tau={t(st['c1'])}\cdot {x(tau)}={x(rows[1]['T'], 2)}\ \text{{с}}")
     q = t(st["q"], 2)
     for i in range(2, n):
-        f(rf"T_{{{i}}}={q}T_{{{i - 1}}}={q}\cdot {t(rows[i - 1]['T'], 2)}={t(rows[i]['T'], 2)}\ \text{{с}}")
+        f(rf"T_{{{i}}}={q}T_{{{i - 1}}}={q}\cdot {x(rows[i - 1]['T'], 2)}={x(rows[i]['T'], 2)}\ \text{{с}}")
 
     h("Расчёт частотных характеристик")
     f(r"\omega_{i}=\frac{2\pi}{T_{i}}", "1) Значения частоты:")
     for i, r in enumerate(rows):
-        f(rf"\omega_{{{i}}}=\frac{{2\pi}}{{{t(r['T'], 2)}}}={t(r['w'])}\ \text{{рад/с}}")
+        f(rf"\omega_{{{i}}}=\frac{{2\pi}}{{{x(r['T'], 2)}}}={x(r['w'])}\ \text{{рад/с}}")
     f(r"A(\omega_{i})=\frac{X_{m\ i}}{U_{m}}", "2) Значения АЧХ:")
     for i, r in enumerate(rows):
-        f(rf"A(\omega_{{{i}}})=\frac{{{t(r['Xm'], 4)}}}{{{t(Um)}}}={t(r['A'])}")
+        f(rf"A(\omega_{{{i}}})=\frac{{{x(r['Xm'], 4)}}}{{{t(Um)}}}={x(r['A'])}")
     f(r"\varphi(\omega_{i})=-\frac{\Delta T_{i}}{T_{i}}\cdot 360^{\circ}", "3) Значения ФЧХ:")
     for i, r in enumerate(rows):
-        f(rf"\varphi(\omega_{{{i}}})=-\frac{{{t(r['dT'])}}}{{{t(r['T'], 2)}}}\cdot 360^{{\circ}}={t(r['phi'])}^{{\circ}}")
+        f(rf"\varphi(\omega_{{{i}}})=-\frac{{{x(r['dT'])}}}{{{x(r['T'], 2)}}}\cdot 360^{{\circ}}={{{x(r['phi'])}}}^{{\circ}}")
     f(r"L(\omega_{i})=20\ \lg\ A(\omega_{i})", "4) Значения ЛАЧХ:")
     for i, r in enumerate(rows):
-        f(rf"L(\omega_{{{i}}})=20\ \lg\ {t(r['A'])}={t(r['L'])}\ \text{{дБ}}")
+        f(rf"L(\omega_{{{i}}})=20\ \lg\ {x(r['A'])}={x(r['L'])}\ \text{{дБ}}")
 
     h("Таблица 1")
     heads = [r"T_{i},\ \text{с}", r"X_{m\ i}", r"\Delta T_{i},\ \text{с}", r"\omega_{i},\ \text{рад/с}",
@@ -587,10 +607,13 @@ def notebook_docx(d, out):
         eq(tb.cell(0, j).paragraphs[0], hd)
         tb.cell(1, j).text = str(j + 1)
     for i, r in enumerate(rows):
-        vals = [fnum(r["T"], 2), fnum(r["Xm"], 4), fnum(r["dT"]), fnum(r["w"]), fnum(r["A"]), fnum(r["phi"]),
-                fnum(r["L"])]
+        if dec:
+            vals = [f"{r[k]:.{dec}f}".replace(".", ",") for k in ("T", "Xm", "dT", "w", "A", "phi", "L")]
+        else:
+            vals = [fnum(r["T"], 2), fnum(r["Xm"], 4), fnum(r["dT"]), fnum(r["w"]), fnum(r["A"]), fnum(r["phi"]),
+                    fnum(r["L"])]
         for j, val in enumerate(vals):
-            tb.cell(i + 2, j).text = val
+            tb.cell(i + 2, j).text = val.replace("-", "−")
     for row in tb.rows:
         for c in row.cells:
             for par in c.paragraphs:
@@ -619,7 +642,51 @@ def surname(name):
     return re.split(r"[\s.]+", name.strip())[0] or "student"
 
 
-def cmd_make_one(args_d, out_root, do_mathcad=True, teacher=None, with_title=False):
+LACH_VARIANTS = {  # дополнительные комплекты графиков (по просьбе): отличается только рисунок 4 — ЛАФЧХ
+    "split": "разные_нули",                 # нули на разной высоте, обе шкалы с нижней линии, шаги 1|2 дБ, 5|10°
+    "exact": "общий_ноль_дробный_шаг",      # нули совпадают, фаза ровно от −180°, шаг дБ 2,5 (дробный), 10°
+}
+
+
+def fitted(d):
+    """Копия данных, где точки ωᵢ лежат ровно на расчётных кривых: A, φ, L — теоретические на тех же ωᵢ
+    (округление как в таблице). Только для графиков-вариантов «с подогнанными точками»."""
+    import copy
+    v = d["variant"]
+    nd = d.get("dec") or 3
+    out = copy.deepcopy(d)
+    for r in out["rows"]:
+        _, A, ph = freq_resp(v["K"], v["a2"], v["a1"], r["w"])
+        r["A"], r["phi"], r["L"] = round(A, nd), round(ph, nd), round(20 * math.log10(A), nd)
+    return out
+
+
+def lach_variant_docs(d, folder, plots, teacher=None, with_title=False):
+    """Комплекты графиков с другими шкалами ЛАФЧХ рядом с основным: <Фамилия>_ЛР1_графики_<вариант>.docx,
+    и <Фамилия>_ЛР1_ЛАФЧХ_6_вариантов.docx — все шкалы (nice, split, exact) с точками измерений, затем те же три
+    с точками, подогнанными к расчётным кривым; у всех подпись «Рисунок 4 – …» (любой лист заменяет рисунок 4)."""
+    work = Path(folder) / "служебное"
+    out = []
+    lach = {("nice", False): plots["lach"]}
+    for mode, suffix in LACH_VARIANTS.items():
+        alt = draw_plots(d, work / f"plots_{mode}", lach_mode=mode)
+        lach[(mode, False)] = alt["lach"]
+        pl = dict(plots, lach=alt["lach"])
+        path = Path(folder) / f"{surname(d['name'])}_ЛР1_графики_{suffix}.docx"
+        graphs_docx(d, pl, path, teacher, with_title)
+        out.append(path)
+    df = fitted(d)
+    for mode in ("nice", *LACH_VARIANTS):
+        lach[(mode, True)] = draw_plots(df, work / f"plots_fit_{mode}", lach_mode=mode)["lach"]
+    cap = "Рисунок 4 – " + dict(FIGS)["lach"]
+    order = [(m, f) for f in (False, True) for m in ("nice", *LACH_VARIANTS)]
+    path = Path(folder) / f"{surname(d['name'])}_ЛР1_ЛАФЧХ_6_вариантов.docx"
+    graphs_docx(d, plots, path, items=[(lach[k], cap) for k in order])
+    out.append(path)
+    return out
+
+
+def cmd_make_one(args_d, out_root, do_mathcad=True, teacher=None, with_title=False, lach_variants=False):
     """В папке человека — только то, что сдаётся (.xmcd, графики, тетрадь); числа и картинки — в «служебное»."""
     d = make_data(**args_d)
     folder = Path(out_root) / surname(d["name"])
@@ -640,6 +707,8 @@ def cmd_make_one(args_d, out_root, do_mathcad=True, teacher=None, with_title=Fal
     graphs_docx(d, plots, folder / f"{base}_графики.docx", teacher, with_title)
     notebook_docx(d, folder / f"{base}_тетрадь.docx")
     questions_docx(d, work / "контрольные_вопросы.docx")
+    if lach_variants:
+        lach_variant_docs(d, folder, plots, teacher, with_title)
     return d, folder, dict(report, plots=plots)
 
 
@@ -652,10 +721,15 @@ def questions_docx(d, out):
     save_docx(doc, out)
 
 
-def draw_plots(d, outdir):
+def draw_plots(d, outdir, lach_mode="nice"):
     """4 графика с нуля (tauplot), формат Crossed: оси со стрелками и подписями у концов, числа вдоль осей,
-    рамка — целое число клеток по целым мм, АФЧХ — квадратная клетка и одинаковый шаг, разметка частот без
-    пересечений, ЛАЧХ+ЛФЧХ — нули обеих шкал на одной горизонтали. Вставлять в Word в натуральную величину."""
+    АФЧХ — квадратная клетка и одинаковый шаг, разметка частот без пересечений. Вставлять в Word в натуральную
+    величину. lach_mode — шкалы ЛАЧХ+ЛФЧХ:
+      "nice"  — нули на одной линии, шаги 1|2 дБ и 5|10° на клетку (фаза может уйти ниже −180°) — по умолчанию;
+      "exact" — нули на одной линии, фаза ровно от −180°, шаг 10° (15/20/30°) и наименьший подходящий шаг дБ
+                (1/2/2,5/4/5/10 — у образца 3 2,5);
+      "split" — нули на разной высоте: обе шкалы с нижней линии (L_min и −180°), шаги 1|2 дБ и 5|10°, деления
+                обеих шкал на линиях сетки."""
     import numpy as np
     import tauplot as tp
     from matplotlib.lines import Line2D
@@ -688,35 +762,40 @@ def draw_plots(d, outdir):
             print(f"ВНИМАНИЕ: {key}: стрелка/подпись оси не влезает в поля", need, sh.margins)
 
     # ---------- АЧХ
-    M = (16, 9, 30, 13)
+    # Рисунок строго PAGE_W × PAGE_H: сетка = всё, что осталось за вычетом узких полей под числа и короткие стрелки;
+    # клетка = место / число клеток (может быть дробной), подписи осей — у концов коротких стрелок.
+    M = (9, 12, 8, 8)  # снизу — ряд чисел ω и под ним подпись «ω, рад/с»
     wmax = we.max()
-    ax_x = tp.plan_fill(0, wmax, PAGE_W - M[0] - M[2])  # до последней точки, без запаса
+    ax_x = tp.plan_exact(0, wmax, PAGE_W - M[0] - M[2])  # до последней точки, без запаса
     wc = np.linspace(0, ax_x.hi, 4000)
     Ac = np.abs(W(wc))
-    ax_y = tp.plan_fill(0, max(Ac.max(), Ae.max()) * 1.005, PAGE_H - M[1] - M[3])  # до пика кривой
+    ax_y = tp.plan_exact(0, max(Ac.max(), Ae.max()) * 1.005, PAGE_H - M[1] - M[3])  # до пика кривой
     sh = tp.Sheet(ax_x, ax_y, M)
     sh.ax.plot(wc, Ac, color=tp.CURVE, lw=1.8, zorder=4)
     sh.ax.plot(we, Ae, "o", color=tp.POINT, ms=5, zorder=6)
-    sh.crossed_axes("ω, рад/с", "A(ω)")
+    sh.crossed_axes("ω, рад/с", "A(ω)", arrow=6, xarrow=7, obstacles=[sh.curve_mm(wc, Ac)],
+                    markers=np.column_stack(sh.to_mm(we, Ae)), all_numbers=True)
     legend(sh, [("line", tp.CURVE, "A(ω)"), ("o", tp.POINT, "A(ωᵢ)")], "upper right")
     check(sh, "ach")
     res["ach"] = sh.save(outdir / "ach.png")
 
     # ---------- ФЧХ (ось ω — сверху, на уровне φ = 0)
-    M = (16, 4, 30, 18)
-    ax_x = tp.plan_fill(0, wmax, PAGE_W - M[0] - M[2])
-    ax_y = tp.plan_fill(-180, 0, PAGE_H - M[1] - M[3])  # ровно −180…0°
+    M = (11, 3, 8, 12)
+    ax_x = tp.plan_exact(0, wmax, PAGE_W - M[0] - M[2])
+    ax_y = tp.plan_exact(-180, 0, PAGE_H - M[1] - M[3])  # ровно −180…0°
     sh = tp.Sheet(ax_x, ax_y, M)
     phc = np.degrees(np.unwrap(np.angle(W(wc))))
     sh.ax.plot(wc, phc, color=tp.CURVE, lw=1.8, zorder=4)
     sh.ax.plot(we, pe, "o", color=tp.POINT, ms=5, zorder=6)
-    sh.crossed_axes("ω, рад/с", "φ(ω), град", xnum="above", arrow=12)
-    legend(sh, [("line", tp.CURVE, "φ(ω)"), ("o", tp.POINT, "φ(ωᵢ)")], "upper right")
+    sh.crossed_axes("ω, рад/с", "φ(ω), град", xnum="above", arrow=10, xarrow=7,
+                    obstacles=[sh.curve_mm(wc, phc)], markers=np.column_stack(sh.to_mm(we, pe)), all_numbers=True)
+    legend(sh, [("line", tp.CURVE, "φ(ω)"), ("o", tp.POINT, "φ(ωᵢ)")], "center right")
     check(sh, "fch")
     res["fch"] = sh.save(outdir / "fch.png")
 
     # ---------- АФЧХ: квадратная клетка, один шаг по Re и Im, разметка частот, без легенды
-    M = (7, 4, 28, 13)  # слева 7 мм: крайнее число оси Re не должно упираться в край картинки
+    # не на весь лист (просьба пользователя): 1–2 свободные клетки вокруг кривой, масштаб — максимальный
+    M = (4, 3, 8, 8)
     wf = np.concatenate([[0.0], np.logspace(-4, 3, 20000)])
     Wf = W(wf)
     Ue, Ve = Ae * np.cos(np.radians(pe)), Ae * np.sin(np.radians(pe))
@@ -727,8 +806,8 @@ def draw_plots(d, outdir):
     # если подписи частот не помещаются (точки слиплись у начала координат) — больше запаса клеток вокруг кривой
     tries = ((1, 1, 1, 2), (2, 1, 2, 3), (3, 1, 3, 5), (4, 2, 4, 7), (5, 2, 5, 9))
     for mc in tries:  # сначала минимальный запас клеток вокруг кривой, больше — только если подписи не влезли
-        ax_x, ax_y = tp.plan_square_fill(xlo, xhi, ylo, 0, PAGE_W - M[0] - M[2], PAGE_H - M[1] - M[3],
-                                         margin_cells=mc)
+        ax_x, ax_y, _ = tp.plan_square_exact(xlo, xhi, ylo, 0, PAGE_W - M[0] - M[2], PAGE_H - M[1] - M[3],
+                                             margin_cells=mc, fill=False)
         sh = tp.Sheet(ax_x, ax_y, M)
         sh.ax.plot(Wf.real, Wf.imag, color=tp.CURVE, lw=1.8, zorder=4)
         sh.ax.plot(Ue, Ve, "o", color=tp.POINT, ms=5, zorder=6)
@@ -736,58 +815,103 @@ def draw_plots(d, outdir):
         pts = np.column_stack(sh.to_mm(Ue, Ve))
         Xk, Yk = sh.to_mm(K, 0)
         pts_all = np.vstack([pts, [[float(Xk), float(Yk)]]])
-        placed = sh.place_labels(pts_all, labels, [curve], markers_mm=pts, size=9)
-        unplaced = [labels[i] for i, r in enumerate(placed) if r is None]
+        sh.reserve_numbers(xnum="above")  # все деления осей остаются, подписи частот их обходят
+        # «гроздь» точек у начала координат (ω → ∞) — столбиком внутри петли, остальные — обычной раскладкой
+        O = np.array([float(v) for v in sh.to_mm(0, 0)])
+        near = [i for i in range(len(pts)) if np.hypot(*(pts[i] - O)) < 8]
+        leaders = sh.stack_labels(pts[near], [labels[i] for i in near], O, curves=curve) if len(near) >= 3 else None
+        if leaders is None:
+            near, leaders = [], []
+        rest = [i for i in range(len(labels)) if i not in near]
+        placed = sh.place_labels(pts_all[rest], [labels[i] for i in rest], [curve] + leaders, markers_mm=pts, size=9)
+        unplaced = [labels[rest[k]] for k, r in enumerate(placed) if r is None]
         if not unplaced or mc == tries[-1]:
             break
         import matplotlib.pyplot as plt
         plt.close(sh.fig)
-    sh.crossed_axes("Re W(jω)", "Im W(jω)", xnum="above", obstacles=[curve], markers=pts)
+    sh.crossed_axes("Re W(jω)", "Im W(jω)", xnum="above", obstacles=[curve], markers=pts, arrow=6, xarrow=7,
+                    all_numbers=True)
     check(sh, "afch")
     res["afch"] = sh.save(outdir / "afch.png")
     res["afch"]["unplaced"] = unplaced
 
-    # ---------- ЛАЧХ + ЛФЧХ: общая ось ω (декада = 10 клеток), нули левой и правой шкал на одной линии
-    M = (13, 9, 33, 13)
-    k0 = math.floor(math.log10(we.min() * 0.9))
-    k1 = math.ceil(math.log10(we.max() * 1.1))
+    # ---------- ЛАЧХ + ЛФЧХ: общая ось ω, нули левой и правой шкал на одной линии
+    # ось ω обрезана по точкам: от линии сетки перед первой точкой до линии после последней (0,03 … 0,1 … 1 … 6)
+    M = (12, 7, 13, 8)
+    wlo, whi = tp.log_nice(we.min()), tp.log_nice(we.max(), up=True)
+    k0, k1 = math.log10(wlo), math.log10(whi)
     wl = np.logspace(k0, k1, 4000)
     Wl = W(wl)
     Lc = 20 * np.log10(np.abs(Wl))
     phl = np.degrees(np.unwrap(np.angle(Wl)))
     Lmax = max(Lc.max(), Le.max()) + 0.3  # верх шкалы — до пика ЛАЧХ, без пустых клеток
-    Lneed = min(Le.min(), float(np.interp(math.log10(we.max() * 1.3), np.log10(wl), Lc))) - 0.3
+    Lneed = min(Le.min(), float(Lc.min())) - 0.3  # кривая до правого края не уходит под сетку
     AH = PAGE_H - M[1] - M[3]
-    best = None
-    for sp in (10, 15, 20, 30):              # шаг фазы; z делений ниже нуля: z·sp = 180°
-        z = int(180 / sp)
-        for sl in (1, 2, 2.5, 4, 5, 10):     # шаг L, те же z делений ниже нуля
-            if z * sl < -Lneed:
-                continue
-            m = max(1, math.ceil(Lmax / sl))
-            n = z + m
-            if AH / n >= 5:
-                best = (sp, sl, z, m, n)
+    # Шкалы (все деления обеих шкал — на линиях сетки, подписана каждая линия):
+    #  nice  — шаг на клетку 1|2 дБ и 5|10° (просьба пользователя 03.10.2026), нули на одной линии; z клеток ниже
+    #          нуля: z·шаг_L ≥ |L_min| и z·шаг_φ ≥ 180° (фаза может уйти ниже −180°); из пар — с наименьшей долей
+    #          пустых клеток (уход фазы ниже −180° — вдвое дороже), клетка ≥ 4,5 мм; при равенстве — мельче шаг;
+    #  exact — нули на одной линии, фаза ровно от −180° (z·шаг_φ = 180°, шаг_φ 10/15/20/30°), шаг L — наименьший
+    #          из 1/2/2,5/4/5/10 дБ, при котором точки помещаются (у образца 3 2,5 дБ / 10°, −45…+7,5 дБ);
+    #  split — нули на разной высоте: обе шкалы начинаются с нижней линии (L_min по шагу и −180°), шаг 1|2 дБ и
+    #          5|10°, клеток — сколько нужно большей из шкал (меньше пустых клеток), фаза выше 0° — сколько осталось.
+    cands = []
+    if lach_mode == "exact":
+        for sp in (10, 15, 20, 30):
+            z = int(180 / sp)
+            for sl in (1, 2, 2.5, 4, 5, 10):
+                if z * sl < -Lneed:
+                    continue
+                m = max(1, math.ceil(Lmax / sl - 1e-9))
+                if AH / (z + m) >= 4.5:
+                    cands.append((0, sl, sp, z, m, z + m, AH / (z + m)))
+                    break
+            if cands:
                 break
-        if best:
-            break
-    sp, sl, z, m, n = best
-    cell = float(min(15, math.floor(AH / n)))
-    dec = k1 - k0
-    cx = float(min(15, math.floor((PAGE_W - M[0] - M[2]) / (10 * dec))))  # декада = 10 клеток по ширине
+    else:
+        for sl in (1, 2):
+            for sp in (5, 10):
+                zL = math.ceil(-Lneed / sl - 1e-9)
+                m = max(1, math.ceil(Lmax / sl - 1e-9))
+                if lach_mode == "split":
+                    n = max(zL + m, math.ceil(180 / sp - 1e-9))
+                    z = zL
+                    m = n - z
+                    empty = (n - (Lmax - Lneed) / sl) / n + (n - 180 / sp) / n
+                else:
+                    z = max(math.ceil(180 / sp - 1e-9), zL)
+                    n = z + m
+                    # пустые клетки шкалы фазы ниже −180° смотрятся хуже пустого низа шкалы дБ — вдвое дороже
+                    empty = (z - (-Lneed) / sl) / z + 2 * (z - 180 / sp) / z
+                cell = AH / n
+                if cell < 4.5:
+                    continue
+                cands.append((round(empty, 6), sl, sp, z, m, n, cell))
+    if not cands:  # очень глубокая ЛАЧХ: крупный шаг, лишь бы влезло
+        sl, sp = 5, 10
+        z = max(18, math.ceil(-Lneed / sl)); m = max(1, math.ceil(Lmax / sl)); n = z + m; cell = AH / n
+    else:
+        _, sl, sp, z, m, n, cell = min(cands)
+    P = sp
+    ylabel_k = 1
+    dec = k1 - k0                             # число декад (дробное при обрезке)
     ax_y = tp.Axis(-z * sl, m * sl, sl, n, cell)
-    logx = dict(lo=10.0 ** k0, hi=10.0 ** k1, mm=dec * 10 * cx)
-    sh = tp.Sheet(tp.Axis(0, 1, 1, 1, 1), ax_y, M, logx=logx)
+    logx = dict(lo=wlo, hi=whi, mm=PAGE_W - M[0] - M[2])  # сетка на всю ширину листа
+    sh = tp.Sheet(tp.Axis(0, 1, 1, 1, 1), ax_y, M, logx=logx, ylabel_k=ylabel_k)
     sh.ax.plot(wl, Lc, color=tp.CURVE2, lw=1.8, zorder=4)
     sh.ax.plot(we, Le, "o", color=tp.POINT2, ms=4.5, zorder=6)
     ax2 = sh.ax.twinx()
-    ax2.set_ylim(-z * sp, m * sp)
+    if lach_mode == "split":
+        ph_lo, ph_hi = -180, -180 + n * sp    # фаза с нижней линии, её ноль — на своей линии сетки
+    else:
+        ph_lo, ph_hi = -z * sp, m * sp
+    ax2.set_ylim(ph_lo, ph_hi)
     ax2.set_yticks([])
     for spn in ax2.spines.values():
         spn.set_visible(False)
     ax2.plot(wl, phl, color=tp.CURVE, lw=1.8, zorder=4)
     ax2.plot(we, pe, "s", color=tp.POINT, ms=4, zorder=6)
-    phi_mm = lambda p: (np.asarray(p, float) + z * sp) / (n * sp) * sh.ph
+    phi_mm = lambda p: (np.asarray(p, float) - ph_lo) / (ph_hi - ph_lo) * sh.ph
     cL = sh.curve_mm(wl, Lc)
     cP = np.column_stack([sh.to_mm(wl, 0)[0], phi_mm(phl)])
     cP = cP[(cP[:, 1] >= 0) & (cP[:, 1] <= sh.ph)]
@@ -797,15 +921,17 @@ def draw_plots(d, outdir):
     aL = [xa, float(sh.to_mm(wa, 20 * math.log10(abs(W(wa))))[1])]
     aP = [xa, float(phi_mm(math.degrees(np.angle(W(wa)))))]
     sh.place_labels([aL, aP], ["L(ω)", "φ(ω)"], [cL, cP], markers_mm=marks, size=12, prefer=lambda i: (0, 1))
-    right = dict(label="φ(ω), град", ticks=list(range(-z * sp, m * sp + 1, sp)), dec=0, skip=[0],
-                 to_mm=lambda val: phi_mm(val))
+    rticks = [ph_lo + k * sp for k in range(n + 1)]      # деления фазы — на каждой линии сетки
+    # подписаны все деления; число фазы на линии L = 0 (при общем нуле — 0°) стоит над стрелкой оси ω
+    right = dict(label="φ(ω), град", ticks=rticks, dec=0, skip=[], to_mm=lambda val: phi_mm(val))
     sh.crossed_axes("ω, рад/с", "L(ω), дБ", x_at=0, xnum="bottom", obstacles=[cL, cP], markers=marks,
-                    right=right)
+                    right=right, arrow=6, xarrow=6, all_numbers=True)
     legend(sh, [("line", tp.CURVE2, "L(ω)"), ("o", tp.POINT2, "L(ωᵢ)"),
                 ("line", tp.CURVE, "φ(ω)"), ("s", tp.POINT, "φ(ωᵢ)")], "lower left")
     check(sh, "lach")
     res["lach"] = sh.save(outdir / "lach.png")
-    res["lach"]["scales"] = dict(L_step=sl, phi_step=sp, below_zero=z, above_zero=m)
+    res["lach"]["scales"] = dict(mode=lach_mode, L_step=sl, L_label=ylabel_k * sl, phi_per_cell=round(sp, 4),
+                                 phi_label=P, below_zero=z, above_zero=m, phi_range=[ph_lo, ph_hi])
     return res
 
 
@@ -816,7 +942,7 @@ def cmd_check(path):
         eA = abs(r["A"] / r["A_theory"] - 1) * 100
         eP = abs(r["phi"] - r["phi_theory"])
         worst = max(worst, eA)
-        print(f"T={r['T']:8.2f} w={r['w']:6.3f}  A={r['A']:7.3f} (теор {r['A_theory']:7.3f}, {eA:4.1f}%)  "
+        print(f"T={r['T']:8.3f} w={r['w']:6.3f}  A={r['A']:7.3f} (теор {r['A_theory']:7.3f}, {eA:4.1f}%)  "
               f"φ={r['phi']:8.2f} (теор {r['phi_theory']:8.2f}, Δ{eP:4.1f}°)")
     print(f"макс. отклонение A: {worst:.2f}%")
 
@@ -831,16 +957,21 @@ def main():
     for k in ("a2", "a1", "K", "Um"):
         m.add_argument("--" + k, type=float)
     m.add_argument("--seed", type=int)
+    m.add_argument("--dec", type=int, default=3,
+                   help="знаков после запятой у всех величин (по умолчанию 3; 0 — прежнее округление «с экрана»)")
     m.add_argument("--out", required=True)
     m.add_argument("--teacher")
     m.add_argument("--title-page", action="store_true")
     m.add_argument("--no-mathcad", action="store_true")
+    m.add_argument("--lach-variants", action="store_true",
+                   help="ещё 2 комплекта графиков: ЛАФЧХ с разными нулями / с общим нулём и дробным шагом фазы")
     b = sub.add_parser("batch")
     b.add_argument("csv")
     b.add_argument("--out", required=True)
     b.add_argument("--teacher")
     b.add_argument("--title-page", action="store_true")
     b.add_argument("--no-mathcad", action="store_true")
+    b.add_argument("--lach-variants", action="store_true")
     c = sub.add_parser("check")
     c.add_argument("json")
     a = ap.parse_args()
@@ -849,7 +980,7 @@ def main():
         return cmd_check(a.json)
     people = []
     if a.cmd == "make":
-        people.append(dict(name=a.name, group=a.group, a2=a.a2, a1=a.a1, K=a.K, Um=a.Um, seed=a.seed))
+        people.append(dict(name=a.name, group=a.group, a2=a.a2, a1=a.a1, K=a.K, Um=a.Um, seed=a.seed, dec=a.dec))
     else:
         txt = Path(a.csv).read_text(encoding="utf-8-sig")
         dialect = csv.Sniffer().sniff(txt.splitlines()[0], delimiters=";,\t")
@@ -859,10 +990,12 @@ def main():
                 continue
             num = lambda k: float(row[k].replace(",", ".")) if row.get(k) else None
             people.append(dict(name=row["name"], group=row.get("group", ""), a2=num("a2"), a1=num("a1"),
-                               K=num("K"), Um=num("Um"), seed=row.get("seed") or None))
+                               K=num("K"), Um=num("Um"), seed=row.get("seed") or None,
+                               dec=row.get("dec") or 3))
     summary = []
     for pd in people:
-        d, folder, rep = cmd_make_one(pd, a.out, not a.no_mathcad, a.teacher, a.title_page)
+        d, folder, rep = cmd_make_one(pd, a.out, not a.no_mathcad, a.teacher, a.title_page,
+                                      getattr(a, "lach_variants", False))
         v = d["variant"]
         line = (f"{d['name']}: a2={v['a2']} a1={v['a1']} K={v['K']} Um={v['Um']} | T0={d['rows'][0]['T']} "
                 f"q={d['style']['q']} n={len(d['rows'])} | {folder}")

@@ -43,6 +43,7 @@ plt.rcParams.update({
 })
 
 STEPS = [1, 2, 2.5, 5]
+NUM_PAD = (0.6, 0.35)  # мм: запас вокруг зарезервированных чисел осей (reserve_numbers) по X и Y
 
 
 def nice_steps(lo=1e-4, hi=1e5):
@@ -148,6 +149,60 @@ def plan_square_fill(xlo, xhi, ylo, yhi, avail_w, avail_h, min_cell=5, max_cell=
     return Axis(a, b, st, nx0, float(cell)), Axis(c0, d0, st, ny0, float(cell))
 
 
+def plan_exact(lo, hi, avail_mm, min_cell=7.0, max_cell=20.0):
+    """Сетка ровно на avail_mm (рисунок «строго на весь лист»): диапазон — данные, округлённые до шага (пустого места
+    не больше одной клетки), клетка = avail_mm / n — может быть дробной (9,6 мм), масштаб «1 клетка = шаг».
+    Берётся самый мелкий «круглый» шаг, при котором клетка не меньше min_cell."""
+    span = max(hi - lo, 1e-9)
+    last = None
+    for st in nice_steps(span / 400, span * 2):
+        a = math.floor(lo / st + 1e-9) * st
+        b = math.ceil(hi / st - 1e-9) * st
+        n = int(round((b - a) / st))
+        if n < 1:
+            continue
+        c = avail_mm / n
+        last = Axis(a, a + n * st, st, n, c)
+        if min_cell <= c <= max_cell:
+            return last
+        if c > max_cell:
+            break
+    return last
+
+
+def plan_square_exact(xlo, xhi, ylo, yhi, avail_w, avail_h, min_cell=6.0, margin_cells=(1, 1, 1, 1), fill=True):
+    """Квадратная клетка и один шаг по Re и Im, масштаб — максимальный, при котором данные + margin_cells влезают;
+    затем сетка добивается целыми клетками до avail_w × avail_h (поровну с двух сторон). Клетка может быть дробной.
+    Возвращает (Axis x, Axis y, (остаток_w, остаток_h)) — остаток (< 1 клетки) отдать в поля рисунка.
+    fill=False — сетку не добивать: вокруг кривой только margin_cells (+ округление до шага), рисунок в «лишнем»
+    направлении уже листа (так просил пользователь для АФЧХ: 1–2 свободные клетки от кривой)."""
+    ml, mb, mr, mt = margin_cells
+    best = None
+    span = max(xhi - xlo, yhi - ylo, 1e-9)
+    for st in nice_steps(span / 400, span * 2):
+        a = math.floor(xlo / st + 1e-9) * st - ml * st
+        b = math.ceil(xhi / st - 1e-9) * st + mr * st
+        c0 = math.floor(ylo / st + 1e-9) * st - mb * st
+        d0 = math.ceil(yhi / st - 1e-9) * st + mt * st
+        nx0, ny0 = int(round((b - a) / st)), int(round((d0 - c0) / st))
+        cell = min(avail_w / nx0, avail_h / ny0)
+        if cell < min_cell:
+            continue
+        key = (round(cell / st, 6), -st)
+        if best is None or key > best[0]:
+            best = (key, st, cell, a, c0, nx0, ny0)
+    _, st, cell, a, c0, nx0, ny0 = best
+    if fill:
+        nx, ny = int(math.floor(avail_w / cell + 1e-6)), int(math.floor(avail_h / cell + 1e-6))
+    else:
+        nx, ny = nx0, ny0
+    ex, ey = nx - nx0, ny - ny0
+    a -= (ex // 2) * st
+    c0 -= (ey // 2) * st
+    ax_x, ax_y = Axis(a, a + nx * st, st, nx, cell), Axis(c0, c0 + ny * st, st, ny, cell)
+    return ax_x, ax_y, (avail_w - nx * cell, avail_h - ny * cell)
+
+
 def plan_square(xlo, xhi, ylo, yhi, avail_w, avail_h, min_cell=5, max_cell=15, margin_cells=(1, 1, 1, 1)):
     """Общий шаг и квадратная клетка. margin_cells = (слева, снизу, справа, сверху) — запас под подписи."""
     ml, mb, mr, mt = margin_cells
@@ -161,6 +216,34 @@ def plan_square(xlo, xhi, ylo, yhi, avail_w, avail_h, min_cell=5, max_cell=15, m
         if cell >= min_cell:
             return Axis(a, b, s, nx, float(cell)), Axis(c, d, s, ny, float(cell))
     raise ValueError("не удалось подобрать шаг")
+
+
+def log_nice(x, up=False):
+    """Ближайшая линия логарифмической сетки m·10^k (m = 1…9) строго ниже x (up=True — строго выше)."""
+    k = math.floor(math.log10(x) + 1e-12)
+    m = x / 10 ** k
+    m = (math.floor(m * (1 + 1e-9)) + 1) if up else (math.ceil(m * (1 - 1e-9)) - 1)
+    if m < 1:
+        k, m = k - 1, 9
+    return m * 10.0 ** k
+
+
+def log_lines(lo, hi):
+    """Все линии сетки m·10^k (m = 1…9) в [lo, hi]."""
+    out = []
+    for k in range(math.floor(math.log10(lo)) - 1, math.ceil(math.log10(hi)) + 1):
+        for m in range(1, 10):
+            v = m * 10.0 ** k
+            if lo * (1 - 1e-9) <= v <= hi * (1 + 1e-9):
+                out.append(v)
+    return out
+
+
+def log_labels(lo, hi):
+    """Подписи оси ω: декады внутри диапазона, затем края (0,03 … 0,1 … 1 … 6)."""
+    dec = [10.0 ** k for k in range(math.ceil(math.log10(lo) - 1e-9), math.floor(math.log10(hi) + 1e-9) + 1)]
+    ends = [v for v in (lo, hi) if all(abs(v / d - 1) > 1e-6 for d in dec)]
+    return dec + ends
 
 
 def labeled_ticks(axis, k):
@@ -179,7 +262,10 @@ def label_every(axis, text_mm):
 class Sheet:
     """Фигура с рамкой ровно ax_x.mm × ax_y.mm миллиметров. margins — поля вокруг рамки (мм) под числа и подписи."""
 
-    def __init__(self, ax_x: Axis, ax_y: Axis, margins=(17, 13, 6, 5), logx=None, font=9.5, crossed=True):
+    def __init__(self, ax_x: Axis, ax_y: Axis, margins=(17, 13, 6, 5), logx=None, font=9.5, crossed=True,
+                 ylabel_k=None):
+        """ylabel_k — подписывать каждую k-ю линию шкалы Y (по умолчанию — label_every по высоте шрифта)."""
+        self.ylabel_k = ylabel_k
         l, b, r, t = margins
         self.ax_x, self.ax_y, self.logx = ax_x, ax_y, logx
         self.pw, self.ph = (logx["mm"] if logx else ax_x.mm), ax_y.mm
@@ -207,7 +293,7 @@ class Sheet:
     def _grid(self):
         ax, font = self.ax, self.font
         ay = self.ax_y
-        ky = label_every(ay, font * 0.45)
+        ky = self.ylabel_k or label_every(ay, font * 0.45)
         ay_d = decimals(ay.step)
         ay_d = decimals(ay.step * ky)
         ax.yaxis.set_major_locator(FixedLocator(labeled_ticks(ay, ky)))
@@ -215,13 +301,9 @@ class Sheet:
         ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: fmt(v, ay_d)))
         if self.logx:
             lo, hi = self.logx["lo"], self.logx["hi"]
-            k0, k1 = round(math.log10(lo)), round(math.log10(hi))
-            major = [10.0 ** k for k in range(k0, k1 + 1)]
-            minor = [m * 10.0 ** k for k in range(k0, k1) for m in range(1, 10)] + [10.0 ** k1]
-            ax.xaxis.set_major_locator(FixedLocator(major))
-            ax.xaxis.set_minor_locator(FixedLocator(minor))
-            labeled = set(major + [m * 10.0 ** k for k in range(k0, k1) for m in (2, 5)])
-            ax.xaxis.set_major_locator(FixedLocator(sorted(labeled)))
+            # диапазон может начинаться/кончаться не на декаде (0,03…6): линии m·10^k внутри него
+            ax.xaxis.set_minor_locator(FixedLocator(log_lines(lo, hi)))
+            ax.xaxis.set_major_locator(FixedLocator(sorted(log_labels(lo, hi))))
             ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: fmt(v, max(0, -math.floor(math.log10(v) + 1e-9)))))
         else:
             axx = self.ax_x
@@ -272,59 +354,54 @@ class Sheet:
                 return False
         return True
 
-    def crossed_axes(self, xlabel, ylabel, x_at=None, y_at=None, xnum="below", obstacles=(), markers=(),
-                     right=None, arrow=8, lsize=12):
-        """Оси формата Crossed: горизонтальная — на уровне y = x_at (по умолчанию 0, если он в диапазоне, иначе низ),
-        вертикальная — x = y_at (0 или левый край); стрелки выходят за сетку, подписи осей — у концов стрелок.
-        Числа — вдоль осей; число, которое легло бы на кривую/точку/подпись частоты, не ставится.
-        Вызывать ПОСЛЕ place_labels (подписи частот важнее чисел осей).
-        xnum: "below" | "above" | "bottom" (числа по нижнему краю сетки — для ЛАЧХ, где у оси тесно).
-        right: вторая шкала справа dict(label, ticks=[значения], to_mm=функция(v)->Y, dec, skip=[значения])."""
-        curves = np.vstack([o for o in obstacles if len(o)]) if obstacles else np.zeros((0, 2))
-        marks = np.asarray(markers, float).reshape(-1, 2)
-        font = self.font
+    def _axes_origin(self, x_at, y_at):
         if x_at is None:
             x_at = 0 if self.ax_y.lo <= 0 <= self.ax_y.hi else self.ax_y.lo
         if y_at is None:
             y_at = self.logx["lo"] if self.logx else (0 if self.ax_x.lo <= 0 <= self.ax_x.hi else self.ax_x.lo)
-        Xl = float(self.to_mm(y_at, x_at)[0])
-        Yl = float(self.to_mm(y_at, x_at)[1])
+        return x_at, y_at
+
+    def _axis_numbers(self, xnum, x_at, y_at, put):
+        """Числа шкал X и Y (и «0» в начале координат) через put(X, Y, текст, ha) → box | None.
+        Возвращает, на сколько мм последнее число X выходит за правый край сетки."""
+        font = self.font
+        Xl, Yl = (float(v) for v in self.to_mm(y_at, x_at))
         inner = 0.5 < Xl < self.pw - 0.5 and 0.5 < Yl < self.ph - 0.5  # оси пересекаются внутри сетки
         th = self.text_size_mm("0", font)[1]
-
-        def put(X, Y, text, ha="center", force=False):
-            w, h = self.text_size_mm(text, font)
-            cx = X if ha == "center" else (X - w / 2 if ha == "right" else X + w / 2)
-            box = (cx - w / 2 - 0.3, cx + w / 2 + 0.3, Y - h / 2 - 0.2, Y + h / 2 + 0.2)
-            if not force and not self._free(box, curves, marks):
-                return None
-            self._txt(cx, Y, text, font)
-            self.labels_placed.append(box)
-            return box
-
+        xsize = font
         # числа по X
         if self.logx:
+            # логарифмическая ось ω: только декады (0,1; 1) и края диапазона (0,03; 6) — так просил пользователь
+            # (05.10.2026: «на ЛАФЧХ по оси X все деления не подписывать»); промежуточные линии 2…9 без чисел
             lo, hi = self.logx["lo"], self.logx["hi"]
-            k0, k1 = round(math.log10(lo)), round(math.log10(hi))
-            xt = [10.0 ** k for k in range(k0, k1 + 1)]  # только декады: 0,01 0,1 1 10
+            xt = log_labels(lo, hi)
             xtxt = [fmt(v, max(0, -math.floor(math.log10(v) + 1e-9))) for v in xt]
         else:
+            # подписана КАЖДАЯ линия (правило пользователя 05.10.2026); широкие числа (−2,4) — мельче шрифтом,
+            # через линию — только если не влезает и 7,5 pt
             axx = self.ax_x
-            kx = label_every(axx, len(fmt(axx.hi, decimals(axx.step))) * 0.5 * font * 0.353 + 3)
-            xt = labeled_ticks(axx, kx)
-            xtxt = [fmt(v, decimals(axx.step * kx)) for v in xt]
+            xt = axx.ticks()
+            xtxt = [fmt(v, decimals(axx.step)) for v in xt]
+            for f in (font, 9.0, 8.5, 8.0, 7.5, 7.0):  # зазор ≥ 1,5 мм: иначе «−0,2» слипается с «0» у начала
+                if max(self.text_size_mm(t, f)[0] for t in xtxt) + 1.5 <= axx.cell:
+                    xsize = f
+                    break
+            else:
+                kx = label_every(axx, len(fmt(axx.hi, decimals(axx.step))) * 0.5 * font * 0.353 + 3)
+                xt = labeled_ticks(axx, kx)
+                xtxt = [fmt(v, decimals(axx.step * kx)) for v in xt]
         Ynum = {"below": Yl - 1.3 - th / 2, "above": Yl + 1.3 + th / 2, "bottom": -2.8 - th / 2}[xnum]  # ниже, чтобы не задевать нижние числа шкал Y
         last_half = 0.0
         for v, t in zip(xt, xtxt):
             if abs(v - y_at) < 1e-12 and (inner or not self.logx):
                 continue  # ноль в начале координат ставится один раз ниже
             X = float(self.to_mm(v, x_at)[0])
-            b = put(X, Ynum, t)
+            b = put(X, Ynum, t, size=xsize)
             if b and X > self.pw - 1:
                 last_half = b[1] - self.pw
         # числа по Y
         ay = self.ax_y
-        ky = label_every(ay, font * 0.45)
+        ky = self.ylabel_k or label_every(ay, font * 0.45)
         for v in labeled_ticks(ay, ky):
             if abs(v - x_at) < 1e-12 and not self.logx:
                 continue
@@ -333,13 +410,93 @@ class Sheet:
         if not self.logx:  # «0» в начале координат (снизу слева от пересечения осей)
             oy = Yl - 1.3 - th / 2 if xnum != "above" else Yl + 1.3 + th / 2
             put(Xl - 1.3, oy, "0", ha="right")
+        return last_half
+
+    def reserve_numbers(self, xnum="below", x_at=None, y_at=None):
+        """Занять места под ВСЕ числа шкал до place_labels: подписи частот обходят их, а crossed_axes(...,
+        all_numbers=True) потом ставит все числа (без пропусков). Так у АФЧХ не пропадают деления осей."""
+        x_at, y_at = self._axes_origin(x_at, y_at)
+
+        def put(X, Y, text, ha="center", size=None):
+            w, h = self.text_size_mm(text, size or self.font)
+            cx = X if ha == "center" else (X - w / 2 if ha == "right" else X + w / 2)
+            # запас вокруг числа: подписи частот не встают вплотную к нему (у варианта 0,15/0,19 касались «0,2»);
+            # больше — подписи у начала координат не влезают и масштаб АФЧХ падает
+            px, py = NUM_PAD
+            box = (cx - w / 2 - px, cx + w / 2 + px, Y - h / 2 - py, Y + h / 2 + py)
+            self.labels_placed.append(box)
+            return box
+        self._axis_numbers(xnum, x_at, y_at, put)
+
+    def crossed_axes(self, xlabel, ylabel, x_at=None, y_at=None, xnum="below", obstacles=(), markers=(),
+                     right=None, arrow=8, lsize=12, xarrow=None, all_numbers=False):
+        """Оси формата Crossed: горизонтальная — на уровне y = x_at (по умолчанию 0, если он в диапазоне, иначе низ),
+        вертикальная — x = y_at (0 или левый край); стрелки выходят за сетку, подписи осей — у концов стрелок.
+        Числа — вдоль осей. Правило пользователя: подписаны все деления — all_numbers=True (без пропусков);
+        без него число, которое легло бы на кривую/точку/подпись частоты, не ставится (старое поведение).
+        Вызывать ПОСЛЕ place_labels (подписи частот важнее чисел осей).
+        xnum: "below" | "above" | "bottom" (числа по нижнему краю сетки — для ЛАЧХ, где у оси тесно).
+        right: вторая шкала справа dict(label, ticks=[значения], to_mm=функция(v)->Y, dec, skip=[значения]).
+        xarrow: компактная горизонтальная ось (рисунок на весь лист) — стрелка выходит за сетку на xarrow мм, подпись
+        оси стоит под/над концом стрелки (при второй шкале — у правого края сетки), числа под ней не ставятся.
+        all_numbers: ставить все числа шкал без проверки (места заняты заранее reserve_numbers)."""
+        curves = np.vstack([o for o in obstacles if len(o)]) if obstacles else np.zeros((0, 2))
+        marks = np.asarray(markers, float).reshape(-1, 2)
+        font = self.font
+        x_at, y_at = self._axes_origin(x_at, y_at)
+        Xl = float(self.to_mm(y_at, x_at)[0])
+        Yl = float(self.to_mm(y_at, x_at)[1])
+        inner = 0.5 < Xl < self.pw - 0.5 and 0.5 < Yl < self.ph - 0.5  # оси пересекаются внутри сетки
+        th = self.text_size_mm("0", font)[1]
+
+        def put(X, Y, text, ha="center", force=False, size=None):
+            w, h = self.text_size_mm(text, size or font)
+            cx = X if ha == "center" else (X - w / 2 if ha == "right" else X + w / 2)
+            box = (cx - w / 2 - 0.3, cx + w / 2 + 0.3, Y - h / 2 - 0.2, Y + h / 2 + 0.2)
+            if not (force or all_numbers) and not self._free(box, curves, marks):
+                return None
+            self._txt(cx, Y, text, size or font)
+            self.labels_placed.append(box)
+            return box
+
+        xlab = None
+        if xarrow is not None:  # подпись оси ставится раньше чисел: числа, на которые она легла бы, пропускаются
+            wl, hl = self.text_size_mm(xlabel, lsize)
+            if right:
+                rw = max(self.text_size_mm(fmt(v, right.get("dec", 0)), font)[0] for v in right["ticks"]) + 1.6
+                tip = self.pw + max(rw + 1.5, xarrow)
+                xr = self.pw - 1.5
+            else:
+                tip = self.pw + xarrow
+                xr = tip
+            pref = -1 if xnum in ("above", "bottom") else 1
+            num_side = {"below": -1, "above": 1}.get(xnum, 0)
+
+            def lab_y(side):
+                if all_numbers and side == num_side:  # числа остаются, подпись — за рядом чисел
+                    return Yl + side * (1.3 + th + 0.8 + hl / 2)
+                return Yl + side * (1.5 + hl / 2)
+            for k, side in enumerate((pref, -pref)):
+                Yc = lab_y(side)
+                box = (xr - wl - 0.3, xr + 0.3, Yc - hl / 2 - 0.2, Yc + hl / 2 + 0.2)
+                if self._free(box, curves, marks) or k == 1:
+                    if not self._free(box, curves, marks):
+                        Yc = lab_y(pref)
+                        box = (xr - wl - 0.3, xr + 0.3, Yc - hl / 2 - 0.2, Yc + hl / 2 + 0.2)
+                    self.labels_placed.append(box)
+                    xlab = (xr - wl / 2, Yc, tip)
+                    break
+        last_half = self._axis_numbers(xnum, x_at, y_at, put)
         # вторая шкала справа (у ЛАЧХ — ЛФЧХ)
         right_w = 0.0
         if right:
             for v in right["ticks"]:
                 if v in right.get("skip", ()):
                     continue
-                b = put(self.pw + 1.3, float(right["to_mm"](v)), fmt(v, right.get("dec", 0)), ha="left")
+                Yv = float(right["to_mm"](v))
+                if abs(Yv - Yl) < 0.6:  # через это число идёт стрелка оси ω — ставим его над стрелкой
+                    Yv = Yl + 0.5 + th / 2
+                b = put(self.pw + 1.3, Yv, fmt(v, right.get("dec", 0)), ha="left")
                 if b:
                     right_w = max(right_w, b[1] - self.pw)
             self._line(self.pw, 0, self.pw, self.ph)
@@ -347,16 +504,22 @@ class Sheet:
             w, h = self.text_size_mm(right["label"], lsize)
             self._txt(self.pw - 1.8, self.ph + arrow - h / 2, right["label"], lsize, ha="right")
         # горизонтальная ось: линия через всю сетку + стрелка, подпись рядом с концом стрелки
-        wl, hl = self.text_size_mm(xlabel, lsize)
-        start = self.pw + max(last_half, right_w) + 2
-        tip = start + wl + 1
-        self._line(0, Yl, self.pw, Yl)
-        self._arrow(self.pw - 0.01, Yl, tip, Yl)
-        side = -1 if xnum == "above" or Yl > self.ph - 1 else 1   # подпись с той стороны, где нет чисел
-        if xnum == "bottom":
-            side = -1
-        ylab = Yl + side * (1.5 + hl / 2)
-        self._txt(start + wl / 2, ylab, xlabel, lsize)
+        if xlab:
+            Xc, Yc, tip = xlab
+            self._line(0, Yl, self.pw, Yl)
+            self._arrow(self.pw - 0.01, Yl, tip, Yl)
+            self._txt(Xc, Yc, xlabel, lsize)
+        else:
+            wl, hl = self.text_size_mm(xlabel, lsize)
+            start = self.pw + max(last_half, right_w) + 2
+            tip = start + wl + 1
+            self._line(0, Yl, self.pw, Yl)
+            self._arrow(self.pw - 0.01, Yl, tip, Yl)
+            side = -1 if xnum == "above" or Yl > self.ph - 1 else 1   # подпись с той стороны, где нет чисел
+            if xnum == "bottom":
+                side = -1
+            ylab = Yl + side * (1.5 + hl / 2)
+            self._txt(start + wl / 2, ylab, xlabel, lsize)
         # вертикальная ось со стрелкой, подпись справа от конца стрелки
         self._line(Xl, 0, Xl, self.ph)
         self._arrow(Xl, self.ph - 0.01, Xl, self.ph + arrow)
@@ -565,6 +728,82 @@ class Sheet:
                 self.ax.plot([x1, x2], [y1, y2], color="black", lw=0.45, zorder=6)
             result[i] = (texts[i], c, end)
         return result
+
+    def stack_labels(self, pts_mm, texts, origin_mm, curves=None, dx=10.0, size=9, gap=0.7):
+        """Подписи «грозди» точек у начала координат (хвост АФЧХ, ω → ∞) — столбиком правее и ниже начала координат
+        (внутри петли АФЧХ пусто), выноски веером: ближняя к началу точка → верхняя подпись, выноски не пересекаются.
+        Перебор place_labels здесь медленный и не всегда находит места между числами осей.
+        Возвращает ломаные выносок (мм) — передать в place_labels как препятствия для остальных подписей;
+        None (ничего не нарисовано), если столбик задевает кривую, чужие подписи/числа или выходит за сетку."""
+        X0, Y0 = float(origin_mm[0]), float(origin_mm[1])
+        order = sorted(range(len(texts)), key=lambda i: math.hypot(pts_mm[i][0] - X0, pts_mm[i][1] - Y0))
+        sizes = {i: self.text_size_mm(texts[i], size) for i in order}
+
+        def hits(path):
+            """Ломаная выноски проходит через число оси или чужую подпись?"""
+            for k in range(len(path) - 1):
+                S = path[k] + (path[k + 1] - path[k]) * np.linspace(0, 1, 80)[:, None]
+                for a0, a1, b0, b1 in self.labels_placed:
+                    if np.any((S[:, 0] > a0) & (S[:, 0] < a1) & (S[:, 1] > b0) & (S[:, 1] < b1)):
+                        return True
+            return False
+
+        def plan_at(dxx, elbows):
+            """Столбик на расстоянии dxx правее нуля: [(i, w, cy, x_left, box, путь выноски)] или None.
+            Выноска прямая; если она задевает число оси (числа Im стоят левее оси, точки — тоже левее), то с изломом:
+            сначала полого под осью Re до точки правее оси Im (изломы — лесенкой, в порядке подписей), потом к подписи."""
+            y = Y0 - 2.0
+            out = []
+            for j, i in enumerate(order):
+                w, h = sizes[i]
+                cy = y - h / 2 - gap
+                x_left = X0 + dxx
+                box = (x_left - gap, x_left + w + gap, cy - h / 2 - gap, cy + h / 2 + gap)
+                if box[0] < 0 or box[1] > self.pw or box[2] < 0 or box[3] > self.ph:
+                    return None
+                if curves is not None and len(curves) and np.any(
+                        (curves[:, 0] > box[0] - 1) & (curves[:, 0] < box[1] + 1)
+                        & (curves[:, 1] > box[2] - 1) & (curves[:, 1] < box[3] + 1)):
+                    return None
+                if any(not (box[1] < a0 or box[0] > a1 or box[3] < b0 or box[2] > b1)
+                       for a0, a1, b0, b1 in self.labels_placed):
+                    return None
+                P = np.asarray(pts_mm[i], float)
+                end = np.array([x_left - 0.8, cy])
+                u = (end - P) / (np.linalg.norm(end - P) or 1)
+                if elbows:  # изломы лесенкой: нижняя подпись — излом левее и ниже, выноски вложены, не пересекаются
+                    elbow = np.array([X0 + 1.5 + 0.5 * (len(order) - 1 - j), Y0 - 1.0 - 0.6 * j])
+                    u = (elbow - P) / (np.linalg.norm(elbow - P) or 1)
+                    path = [P + u * 1.3, elbow, end]
+                else:
+                    path = [P + u * 1.3, end]
+                if hits(path):
+                    return None
+                out.append((i, w, cy, x_left, box, path))
+                y = cy - h / 2 - gap - 0.6
+            return out
+
+        plan = None
+        for elbows in (False, True):  # излом — у всех выносок сразу, если хоть одна прямая задевает число оси
+            for dxx in (dx, dx + 4, dx + 8, dx + 14, dx + 20, dx + 28, dx + 38):
+                plan = plan_at(dxx, elbows)
+                if plan:
+                    break
+            if plan:
+                break
+        if not plan:
+            return None
+        leaders = []
+        for i, w, cy, x_left, box, path in plan:
+            self.labels_placed.append(box)
+            xd, yd = self.from_mm(x_left + w / 2, cy)
+            self.ax.text(xd, yd, texts[i], fontsize=size, ha="center", va="center", zorder=7,
+                         bbox=dict(facecolor="white", edgecolor="none", pad=0.4, alpha=0.9))
+            xs, ys = zip(*[self.from_mm(q[0], q[1]) for q in path])
+            self.ax.plot(xs, ys, color="black", lw=0.45, zorder=6, solid_joinstyle="miter")
+            leaders.append(np.vstack([path[k] + (path[k + 1] - path[k]) * np.linspace(0, 1, 40)[:, None]
+                                      for k in range(len(path) - 1)]))
+        return leaders
 
     def save(self, path, dpi=300):
         self.fig.savefig(path, dpi=dpi, metadata={"Software": None})
