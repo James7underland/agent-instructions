@@ -175,6 +175,10 @@ def prepare_markdown(md_text: str) -> str:
     md_text = re.sub(r"^\s*---+\s*$", "", md_text, flags=re.M)
     md_text = re.sub(r'<a\s+id="[^"]*"></a>', "", md_text)
 
+    # 2.1. Нормализация знаков неравенства в LaTeX формулах для Pandoc AST
+    md_text = re.sub(r"\\gt\b", ">", md_text)
+    md_text = re.sub(r"\\lt\b", "<", md_text)
+
     # 3. Маркерный механизм нумерации формул
     def eq_repl(m: re.Match[str]) -> str:
         body = re.sub(r"</?p[^>]*>", "", m.group(1).strip())
@@ -254,6 +258,7 @@ def prepare_markdown(md_text: str) -> str:
         md_text,
         flags=re.M | re.I,
     )
+    md_text = re.sub(r"^##\s+(\d+\.\d+)\.?\s+(.*)$", r"## \1. \2", md_text, flags=re.M)
     md_text = re.sub(r"^###\s+(\d+\.\d+)\.?\s+(.*)$", r"## \1. \2", md_text, flags=re.M)
     md_text = re.sub(r"^####\s+(\d+\.\d+\.\d+)\.?\s+(.*)$", r"### \1. \2", md_text, flags=re.M)
 
@@ -272,8 +277,63 @@ def _title_para(doc: Document, text: str, *, align, space_before=0, space_after=
     pf.space_after = Pt(space_after)
 
 
+def extract_title_metadata(md_raw: str) -> dict[str, str]:
+    """Извлекает реквизиты титульного листа из HTML-блоков Markdown, если они присутствуют."""
+    meta: dict[str, str] = {}
+    tb_m = re.search(r'<div class="title-block">(.*?)</div>', md_raw, flags=re.DOTALL)
+    if tb_m:
+        tb_content = tb_m.group(1)
+        paras = [re.sub(r'<[^>]+>', '', p).strip() for p in re.findall(r'<p>(.*?)</p>', tb_content, flags=re.DOTALL)]
+        paras = [
+            p for p in paras
+            if p and not p.lower().startswith("минобр")
+            and not p.lower().startswith("ргу")
+            and not p.lower().startswith("факультет")
+            and not p.lower().startswith("кафедра")
+        ]
+        i = 0
+        while i < len(paras):
+            text = paras[i]
+            if text.upper() in {"ОТЧЁТ", "ТЕХНИЧЕСКОЕ ЗАДАНИЕ", "ПОЯСНИТЕЛЬНАЯ ЗАПИСКА"}:
+                meta["doc_title"] = text
+                if i + 1 < len(paras) and paras[i + 1].upper() != "ДИСЦИПЛИНА":
+                    meta["work_type"] = paras[i + 1]
+                    i += 1
+            elif text.upper() == "ДИСЦИПЛИНА":
+                if i + 1 < len(paras):
+                    meta["discipline"] = paras[i + 1]
+                    i += 1
+            elif text.startswith("«") or text.startswith("Тема"):
+                meta["theme"] = text
+            i += 1
+
+    tr_m = re.search(r'<div class="title-right">(.*?)</div>', md_raw, flags=re.DOTALL)
+    if tr_m:
+        tr_paras = [re.sub(r'<[^>]+>', '', p).strip() for p in re.findall(r'<p>(.*?)</p>', tr_m.group(1), flags=re.DOTALL)]
+        tr_paras = [p for p in tr_paras if p]
+        try:
+            v_idx = tr_paras.index("Выполнил:")
+            meta["author_group"] = tr_paras[v_idx + 1]
+            meta["author_name"] = tr_paras[v_idx + 2]
+        except (ValueError, IndexError):
+            pass
+        try:
+            p_idx = tr_paras.index("Проверил:")
+            meta["supervisor_role"] = tr_paras[p_idx + 1]
+            meta["supervisor_name"] = tr_paras[p_idx + 2]
+        except (ValueError, IndexError):
+            pass
+
+    tc_m = re.search(r'<div class="title-city">\s*<p>(.*?)</p>', md_raw, flags=re.DOTALL)
+    if tc_m:
+        meta["city_year"] = re.sub(r'<[^>]+>', '', tc_m.group(1)).strip()
+
+    return meta
+
+
 def build_title_doc(
     *,
+    doc_title: str = "ОТЧЁТ",
     work_type: str = "по лабораторной работе",
     discipline: str = "«Оптимизация и оптимальное управление»",
     theme: str = "Тема работы",
@@ -307,13 +367,22 @@ def build_title_doc(
         _title_para(doc, line, align=C)
 
     _title_para(doc, "", align=C, space_before=24)
-    _title_para(doc, "ОТЧЁТ", align=C, bold=True)
-    _title_para(doc, work_type, align=C)
+    _title_para(doc, doc_title, align=C, bold=False)
+    if work_type:
+        _title_para(doc, work_type, align=C, bold=False)
     _title_para(doc, "", align=C)
-    _title_para(doc, "ДИСЦИПЛИНА", align=C)
-    _title_para(doc, discipline, align=C)
+    _title_para(doc, "ДИСЦИПЛИНА", align=C, bold=False)
+    _title_para(doc, discipline, align=C, bold=False)
     _title_para(doc, "", align=C)
-    _title_para(doc, f"Тема: «{theme.strip('«»')}»", align=C, bold=True)
+    theme_clean = theme.strip()
+    if not theme_clean.startswith("«") and not theme_clean.startswith("\""):
+        theme_str = f"«{theme_clean.strip('«»')}»"
+    else:
+        theme_str = theme_clean
+    if doc_title.upper() == "ОТЧЁТ":
+        _title_para(doc, f"Тема: {theme_str}", align=C, bold=False)
+    else:
+        _title_para(doc, theme_str, align=C, bold=False)
     _title_para(doc, "", align=C, space_before=24)
 
     for line in (
@@ -591,18 +660,16 @@ def style_body_paragraphs(doc: Document) -> None:
         style_name = p.style.name if p.style else ""
 
         if in_title:
-            for r in p.runs:
-                set_run_rfonts(r)
-                r.bold = False
-                if r.font.size is None:
-                    r.font.size = Pt(14)
-            p.paragraph_format.first_line_indent = Cm(0)
-            p.paragraph_format.line_spacing = 1.5
-            if "Тараканов" in text or text.upper() == "СОДЕРЖАНИЕ" or "Проверил:" in text:
+            if text.upper() == "СОДЕРЖАНИЕ":
                 in_title = False
-                if text.upper() != "СОДЕРЖАНИЕ":
-                    continue
             else:
+                for r in p.runs:
+                    set_run_rfonts(r)
+                    r.bold = False
+                    if r.font.size is None:
+                        r.font.size = Pt(14)
+                p.paragraph_format.first_line_indent = Cm(0)
+                p.paragraph_format.line_spacing = 1.5
                 continue
 
         for r in p.runs:
@@ -634,6 +701,12 @@ def style_body_paragraphs(doc: Document) -> None:
         if text.upper() in {"ЦЕЛЬ РАБОТЫ", "ВЫВОДЫ", "ЗАКЛЮЧЕНИЕ", "СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ", "СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ"}:
             hdr_text = "СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ" if "СПИСОК" in text.upper() else text.upper()
             _set_structural_heading(p, hdr_text, page_break=True)
+            continue
+
+        # Основные нумерованные разделы (1 ОБЩИЕ ПОЛОЖЕНИЯ, 2 ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ...)
+        m_sec = re.match(r"^(\d+)\s+([^\n\r]+)$", text)
+        if (m_sec and not re.match(r"^\d+\.\d+", text)) or (style_name == "Heading 1" and not text.startswith("СОДЕРЖАНИЕ")):
+            _set_structural_heading(p, text, page_break=True)
             continue
 
         # Подразделы: 1.1., 2.3., и т.д.
@@ -1165,14 +1238,15 @@ def build_report(
     output_docx: str | Path | None = None,
     output_pdf: str | Path | None = None,
     *,
-    work_type: str = "по лабораторной работе",
-    discipline: str = "«Оптимизация и оптимальное управление»",
-    theme: str = "Тема работы",
-    author_group: str = "студент группы АТ-23-01",
-    author_name: str = "Гимранов Э. А.",
-    supervisor_role: str = "профессор кафедры АТП",
-    supervisor_name: str = "Тараканов Д. В.",
-    city_year: str = "Москва, 2026",
+    doc_title: str | None = None,
+    work_type: str | None = None,
+    discipline: str | None = None,
+    theme: str | None = None,
+    author_group: str | None = None,
+    author_name: str | None = None,
+    supervisor_role: str | None = None,
+    supervisor_name: str | None = None,
+    city_year: str | None = None,
     col_widths_map: dict[int, list[float]] | None = None,
     export_pdf: bool = True,
 ) -> Path:
@@ -1197,9 +1271,21 @@ def build_report(
     print(f"КАНОНИЧЕСКАЯ СБОРКА ОТЧЕТА ПО ГОСТ 7.32: {input_path.name}")
     print("=" * 70)
 
-    # 1. Подготовка Markdown
+    # 1. Подготовка Markdown и автоизвлечение реквизитов
     print("1. Подготовка и очистка Markdown...")
     md_raw = input_path.read_text(encoding="utf-8")
+    meta = extract_title_metadata(md_raw)
+
+    final_doc_title = doc_title or meta.get("doc_title", "ОТЧЁТ")
+    final_work_type = work_type or meta.get("work_type", "по лабораторной работе")
+    final_discipline = discipline or meta.get("discipline", "«Оптимизация и оптимальное управление»")
+    final_theme = theme or meta.get("theme", "Тема работы")
+    final_group = author_group or meta.get("author_group", "студент группы АТ-23-01")
+    final_author = author_name or meta.get("author_name", "Гимранов Э. А.")
+    final_sup_role = supervisor_role or meta.get("supervisor_role", "профессор кафедры АТП")
+    final_sup_name = supervisor_name or meta.get("supervisor_name", "Тараканов Д. В.")
+    final_city_year = city_year or meta.get("city_year", "Москва, 2026")
+
     md_prep = prepare_markdown(md_raw)
 
     tmp_md = root_dir / f"_{input_path.stem}_prep.md"
@@ -1225,16 +1311,17 @@ def build_report(
     # 3. Титульный лист и слияние
     print("3. Формирование титульного листа кафедры АТП и слияние секций...")
     title_doc = build_title_doc(
-        work_type=work_type,
-        discipline=discipline,
-        theme=theme,
-        author_group=author_group,
-        author_name=author_name,
-        supervisor_role=supervisor_role,
-        supervisor_name=supervisor_name,
-        city_year=city_year,
+        doc_title=final_doc_title,
+        work_type=final_work_type,
+        discipline=final_discipline,
+        theme=final_theme,
+        author_group=final_group,
+        author_name=final_author,
+        supervisor_role=final_sup_role,
+        supervisor_name=final_sup_name,
+        city_year=final_city_year,
     )
-    doc = merge_title_then_body(title_doc, tmp_body, out_docx_path, city_year)
+    doc = merge_title_then_body(title_doc, tmp_body, out_docx_path, final_city_year)
     tmp_body.unlink(missing_ok=True)
 
     # 4-10. Стилизация, формулы, таблицы, рисунки, типографика
@@ -1273,14 +1360,15 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("-i", "--input", required=True, help="Путь к исходному файлу Markdown (*.md)")
     parser.add_argument("-o", "--output-docx", help="Путь к результирующему файлу Word (*.docx)")
     parser.add_argument("-p", "--output-pdf", help="Путь к результирующему файлу PDF (*.pdf)")
-    parser.add_argument("--work-type", default="по лабораторной работе", help="Тип работы (например, 'по домашнему заданию № 3')")
-    parser.add_argument("--discipline", default="«Оптимизация и оптимальное управление»", help="Название дисциплины")
-    parser.add_argument("--theme", default="Тема работы", help="Тема отчета")
-    parser.add_argument("--group", default="студент группы АТ-23-01", help="Группа студента")
-    parser.add_argument("--author", default="Гимранов Э. А.", help="ФИО автора")
-    parser.add_argument("--supervisor-role", default="профессор кафедры АТП", help="Должность преподавателя")
-    parser.add_argument("--supervisor-name", default="Тараканов Д. В.", help="ФИО преподавателя")
-    parser.add_argument("--city-year", default="Москва, 2026", help="Город и год для титульного листа")
+    parser.add_argument("--doc-title", default=None, help="Заголовок документа (например, 'ОТЧЁТ' или 'ТЕХНИЧЕСКОЕ ЗАДАНИЕ')")
+    parser.add_argument("--work-type", default=None, help="Тип работы (например, 'по домашнему заданию № 3')")
+    parser.add_argument("--discipline", default=None, help="Название дисциплины")
+    parser.add_argument("--theme", default=None, help="Тема отчета")
+    parser.add_argument("--group", default=None, help="Группа студента")
+    parser.add_argument("--author", default=None, help="ФИО автора")
+    parser.add_argument("--supervisor-role", default=None, help="Должность преподавателя")
+    parser.add_argument("--supervisor-name", default=None, help="ФИО преподавателя")
+    parser.add_argument("--city-year", default=None, help="Город и год для титульного листа")
     parser.add_argument("--no-pdf", action="store_true", help="Не выполнять экспорт в PDF")
 
     args = parser.parse_args(argv)
@@ -1290,6 +1378,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             input_md=args.input,
             output_docx=args.output_docx,
             output_pdf=args.output_pdf,
+            doc_title=args.doc_title,
             work_type=args.work_type,
             discipline=args.discipline,
             theme=args.theme,
