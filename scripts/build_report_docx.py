@@ -336,10 +336,10 @@ def extract_title_metadata(md_raw: str) -> dict[str, str]:
         paras = [re.sub(r'<[^>]+>', '', p).strip() for p in re.findall(r'<p>(.*?)</p>', tb_content, flags=re.DOTALL)]
         paras = [
             p for p in paras
-            if p and not p.lower().startswith("минобр")
-            and not p.lower().startswith("ргу")
-            and not p.lower().startswith("факультет")
-            and not p.lower().startswith("кафедра")
+            if p and not any(w in p.lower() for w in (
+                "минобр", "федеральн", "высшего образования", "российский государственн",
+                "губкин", "национальный исследовательск", "ргу", "факультет", "кафедра"
+            ))
         ]
         has_otchet = any(w in p.upper() for p in paras for w in ("ОТЧЁТ", "ТЕХНИЧЕСКОЕ ЗАДАНИЕ", "ПОЯСНИТЕЛЬНАЯ ЗАПИСКА"))
         if has_otchet:
@@ -355,6 +355,9 @@ def extract_title_metadata(md_raw: str) -> dict[str, str]:
                     if i + 1 < len(paras):
                         meta["discipline"] = paras[i + 1]
                         i += 1
+                        if i + 1 < len(paras):
+                            meta["theme"] = paras[i + 1]
+                            i += 1
                 elif text.startswith("«") or text.startswith("Тема"):
                     meta["theme"] = text
                 elif "theme" not in meta and text and text.upper() not in {"ОТЧЁТ", "ДИСЦИПЛИНА"}:
@@ -388,12 +391,17 @@ def extract_title_metadata(md_raw: str) -> dict[str, str]:
             meta["author_name"] = tr_paras[v_idx + 2]
         except (ValueError, IndexError):
             pass
-        try:
-            p_idx = tr_paras.index("Проверил:")
+        p_idx = -1
+        sup_label = "Проверил:"
+        for cand in ("Проверил:", "Проверила:"):
+            if cand in tr_paras:
+                p_idx = tr_paras.index(cand)
+                sup_label = cand
+                break
+        if p_idx != -1 and p_idx + 2 < len(tr_paras):
+            meta["supervisor_label"] = sup_label
             meta["supervisor_role"] = tr_paras[p_idx + 1]
             meta["supervisor_name"] = tr_paras[p_idx + 2]
-        except (ValueError, IndexError):
-            pass
 
     tc_m = re.search(r'<div class="title-city">\s*<p>(.*?)</p>', md_raw, flags=re.DOTALL)
     if tc_m:
@@ -410,6 +418,7 @@ def build_title_doc(
     theme: str = "Тема работы",
     author_group: str = "студент группы АТ-23-01",
     author_name: str = "Гимранов Э. А.",
+    supervisor_label: str = "Проверил:",
     supervisor_role: str = "профессор кафедры АТП",
     supervisor_name: str = "Тараканов Д. В.",
     city_year: str = "Москва, 2026",
@@ -488,9 +497,9 @@ def build_title_doc(
             author_group,
             author_name,
             "",
-            "Проверил:",
-            supervisor_role,
-            supervisor_name,
+            supervisor_label if supervisor_name else "",
+            supervisor_role if supervisor_name else "",
+            supervisor_name if supervisor_name else "",
         ):
             if line:
                 _title_para(doc, line, align=R)
@@ -1432,6 +1441,8 @@ def build_report(
     final_sup_name = supervisor_name if supervisor_name is not None else _meta_or_default("supervisor_name", "Тараканов Д. В.")
     final_city_year = city_year if city_year is not None else _meta_or_default("city_year", "Москва, 2026")
 
+    final_sup_label = meta.get("supervisor_label", "Проверил:")
+
     md_prep = prepare_markdown(md_raw)
 
     tmp_md = root_dir / f"_{input_path.stem}_prep.md"
@@ -1463,6 +1474,7 @@ def build_report(
         theme=final_theme,
         author_group=final_group,
         author_name=final_author,
+        supervisor_label=final_sup_label,
         supervisor_role=final_sup_role,
         supervisor_name=final_sup_name,
         city_year=final_city_year,
