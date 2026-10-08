@@ -128,7 +128,30 @@ def setup_styles(doc: Document) -> None:
         st.font.size = Pt(14)
         st.font.bold = True
         st.font.color.rgb = None
-        st._element.rPr.rFonts.set(qn("w:eastAsia"), "Times New Roman")
+        rPr = st._element.get_or_add_rPr()
+        rFonts = rPr.get_or_add_rFonts()
+        for attr in ("asciiTheme", "hAnsiTheme", "eastAsiaTheme", "cstheme"):
+            if qn(f"w:{attr}") in rFonts.attrib:
+                del rFonts.attrib[qn(f"w:{attr}")]
+        for attr in ("ascii", "hAnsi", "eastAsia", "cs"):
+            rFonts.set(qn(f"w:{attr}"), "Times New Roman")
+        sz = rPr.find(qn("w:sz"))
+        if sz is None:
+            sz = OxmlElement("w:sz")
+            rPr.append(sz)
+        sz.set(qn("w:val"), "28")
+        szCs = rPr.find(qn("w:szCs"))
+        if szCs is None:
+            szCs = OxmlElement("w:szCs")
+            rPr.append(szCs)
+        szCs.set(qn("w:val"), "28")
+        color = rPr.find(qn("w:color"))
+        if color is None:
+            color = OxmlElement("w:color")
+            rPr.append(color)
+        color.set(qn("w:val"), "000000")
+        if rPr.find(qn("w:b")) is None:
+            rPr.append(OxmlElement("w:b"))
         pf = st.paragraph_format
         pf.alignment = WD_ALIGN_PARAGRAPH.CENTER
         pf.first_line_indent = Cm(0)
@@ -144,6 +167,23 @@ def setup_styles(doc: Document) -> None:
             st.font.name = "Times New Roman"
             st.font.size = Pt(14)
             st.font.bold = False
+            rPr = st._element.get_or_add_rPr()
+            rFonts = rPr.get_or_add_rFonts()
+            for attr in ("asciiTheme", "hAnsiTheme", "eastAsiaTheme", "cstheme"):
+                if qn(f"w:{attr}") in rFonts.attrib:
+                    del rFonts.attrib[qn(f"w:{attr}")]
+            for attr in ("ascii", "hAnsi", "eastAsia", "cs"):
+                rFonts.set(qn(f"w:{attr}"), "Times New Roman")
+            sz = rPr.find(qn("w:sz"))
+            if sz is None:
+                sz = OxmlElement("w:sz")
+                rPr.append(sz)
+            sz.set(qn("w:val"), "28")
+            szCs = rPr.find(qn("w:szCs"))
+            if szCs is None:
+                szCs = OxmlElement("w:szCs")
+                rPr.append(szCs)
+            szCs.set(qn("w:val"), "28")
             st.paragraph_format.line_spacing = 1.0
             st.paragraph_format.space_before = Pt(0)
             st.paragraph_format.space_after = Pt(0)
@@ -243,6 +283,7 @@ def prepare_markdown(md_text: str) -> str:
         md_text,
         flags=re.M | re.I,
     )
+    md_text = re.sub(r"^##\s+(ВВЕДЕНИЕ.*)$", r"# \1", md_text, flags=re.M | re.I)
     md_text = re.sub(r"^##\s+ЦЕЛЬ РАБОТЫ\s*$", r"# ЦЕЛЬ РАБОТЫ", md_text, flags=re.M)
     md_text = re.sub(r"^##\s+ВЫВОДЫ\s*$", r"# ВЫВОДЫ", md_text, flags=re.M)
     md_text = re.sub(r"^##\s+ЗАКЛЮЧЕНИЕ\s*$", r"# ЗАКЛЮЧЕНИЕ", md_text, flags=re.M)
@@ -304,6 +345,8 @@ def extract_title_metadata(md_raw: str) -> dict[str, str]:
                     meta["discipline"] = paras[i + 1]
                     i += 1
             elif text.startswith("«") or text.startswith("Тема"):
+                meta["theme"] = text
+            elif "theme" not in meta and text and text.upper() not in {"ОТЧЁТ", "ДИСЦИПЛИНА"}:
                 meta["theme"] = text
             i += 1
 
@@ -697,8 +740,8 @@ def style_body_paragraphs(doc: Document) -> None:
             _set_chapter_heading(p, app.group(1).upper(), app.group(3).upper(), page_break=True)
             continue
 
-        # Структурные разделы (ЦЕЛЬ РАБОТЫ, ВЫВОДЫ, СПИСОК...)
-        if text.upper() in {"ЦЕЛЬ РАБОТЫ", "ВЫВОДЫ", "ЗАКЛЮЧЕНИЕ", "СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ", "СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ"}:
+        # Структурные разделы (ВВЕДЕНИЕ, ЦЕЛЬ РАБОТЫ, ВЫВОДЫ, СПИСОК...)
+        if text.upper().startswith("ВВЕДЕНИЕ") or text.upper() in {"ЦЕЛЬ РАБОТЫ", "ВЫВОДЫ", "ЗАКЛЮЧЕНИЕ", "СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ", "СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ"}:
             hdr_text = "СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ" if "СПИСОК" in text.upper() else text.upper()
             _set_structural_heading(p, hdr_text, page_break=True)
             continue
@@ -901,6 +944,17 @@ def format_tables(doc: Document, col_widths_map: dict[int, list[float]] | None =
                             continue
                         set_run_rfonts(r)
                         r.font.size = Pt(14)
+                        rPr = r._element.get_or_add_rPr()
+                        sz = rPr.find(qn("w:sz"))
+                        if sz is None:
+                            sz = OxmlElement("w:sz")
+                            rPr.append(sz)
+                        sz.set(qn("w:val"), "28")
+                        szCs = rPr.find(qn("w:szCs"))
+                        if szCs is None:
+                            szCs = OxmlElement("w:szCs")
+                            rPr.append(szCs)
+                        szCs.set(qn("w:val"), "28")
                         if r_idx == 0:
                             r.bold = True
 
