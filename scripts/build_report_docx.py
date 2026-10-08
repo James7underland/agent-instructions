@@ -704,14 +704,12 @@ def style_body_paragraphs(doc: Document) -> None:
             continue
 
         # Основные нумерованные разделы (1 ОБЩИЕ ПОЛОЖЕНИЯ, 2 ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ...)
-        m_sec = re.match(r"^(\d+)\s+([^\n\r]+)$", text)
-        if (m_sec and not re.match(r"^\d+\.\d+", text)) or (style_name == "Heading 1" and not text.startswith("СОДЕРЖАНИЕ")):
+        if style_name == "Heading 1" and not text.startswith("СОДЕРЖАНИЕ"):
             _set_structural_heading(p, text, page_break=True)
             continue
 
         # Подразделы: 1.1., 2.3., и т.д.
-        sub = bool(re.match(r"^\d+\.\d+", text)) or style_name in {"Heading 2", "Heading 3"}
-        if sub or style_name.startswith("Heading"):
+        if style_name in {"Heading 2", "Heading 3"}:
             p.style = doc.styles["Heading 2"]
             pf.alignment = WD_ALIGN_PARAGRAPH.CENTER
             pf.first_line_indent = Cm(0)
