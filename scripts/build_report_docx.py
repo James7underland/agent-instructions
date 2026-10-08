@@ -1195,9 +1195,16 @@ def word_finalize(docx_path: Path) -> None:
 
         doc.Save()
         doc.Close(False)
+        del doc
         print("[OK] Word COM: стили TOC, таблицы, поля и формулы успешно обновлены")
     finally:
-        word.Quit()
+        try:
+            word.Quit()
+        except Exception:
+            pass
+        del word
+        import gc
+        gc.collect()
 
 
 def export_to_pdf(docx_path: Path, pdf_path: Path) -> None:
@@ -1226,9 +1233,16 @@ def export_to_pdf(docx_path: Path, pdf_path: Path) -> None:
         )
         pages = doc.ComputeStatistics(2)
         doc.Close(False)
+        del doc
         print(f"[OK] Экспорт в PDF завершен! Страниц: {pages}, файл: {pdf_path.name}")
     finally:
-        word.Quit()
+        try:
+            word.Quit()
+        except Exception:
+            pass
+        del word
+        import gc
+        gc.collect()
 
 
 def build_report(
