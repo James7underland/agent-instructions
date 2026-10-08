@@ -201,16 +201,23 @@ def prepare_markdown(md_text: str) -> str:
     md_text = re.sub(r"^#\s+Отчёт[^\n]*\n+", "", md_text, count=1, flags=re.M)
     md_text = re.sub(
         r'<div class="title-block">.*?</div>\s*'
-        r'<div class="title-right">.*?</div>\s*'
+        r'(?:<div class="title-right">.*?</div>\s*)?'
         r'<div class="title-city">.*?</div>\s*'
-        r"-{3,}\s*",
+        r'(?:-{3,}\s*)?',
         "",
         md_text,
         flags=re.DOTALL,
     )
 
-    # 2. Удаление статического веб-оглавления и колонтитулов
-    md_text = re.sub(r'<p class="toc-title">.*?</p>\s*<ul class="toc-list">.*?</ul>\s*', "", md_text, flags=re.DOTALL)
+    # 2. Обработка оглавления (замена статического веб-оглавления на динамический маркер in-place)
+    has_static_toc = bool(re.search(r'<p class="toc-title">', md_text))
+    if has_static_toc:
+        md_text = re.sub(
+            r'<p class="toc-title">.*?</p>\s*<ul class="toc-list">.*?</ul>\s*(?:---+)?\s*',
+            "\n\n# СОДЕРЖАНИЕ\n\nZZZTOCZZZ\n\n",
+            md_text,
+            flags=re.DOTALL,
+        )
     md_text = re.sub(r'<div class="page-footer">.*?</div>\s*', "", md_text, flags=re.DOTALL)
     md_text = re.sub(r"^\s*---+\s*$", "", md_text, flags=re.M)
     md_text = re.sub(r'<a\s+id="[^"]*"></a>', "", md_text)
@@ -227,7 +234,7 @@ def prepare_markdown(md_text: str) -> str:
 
     md_text = re.sub(
         r'<div class="eq">\s*<div class="eq-body">\s*(.*?)\s*</div>\s*'
-        r'<div class="eq-num">\s*\(?(\d+[а-яА-Яa-zA-Z]*)\)?\s*</div>\s*</div>',
+        r'<div class="eq-num">\s*\(?([\d.]+[а-яА-Яa-zA-Z]*)\)?\s*</div>\s*</div>',
         eq_repl,
         md_text,
         flags=re.DOTALL,
@@ -240,7 +247,7 @@ def prepare_markdown(md_text: str) -> str:
         return f"\n\n![]({img_src})\n\n{cap}\n\n"
 
     md_text = re.sub(
-        r'<figure[^>]*>\s*<img\s+src="([^"]+)"[^>]*>\s*<figcaption>(.*?)</figcaption>\s*</figure>',
+        r'<figure[^>]*>\s*<img\s+[^>]*?src="([^"]+)"[^>]*>\s*<figcaption>(.*?)</figcaption>\s*</figure>',
         fig_repl,
         md_text,
         flags=re.DOTALL,
@@ -304,7 +311,9 @@ def prepare_markdown(md_text: str) -> str:
     md_text = re.sub(r"^####\s+(\d+\.\d+\.\d+)\.?\s+(.*)$", r"### \1. \2", md_text, flags=re.M)
 
     # Инъекция динамического маркера оглавления
-    return "# СОДЕРЖАНИЕ\n\nZZZTOCZZZ\n\n" + md_text.strip() + "\n"
+    if "ZZZTOCZZZ" not in md_text:
+        return "# СОДЕРЖАНИЕ\n\nZZZTOCZZZ\n\n" + md_text.strip() + "\n"
+    return md_text.strip() + "\n"
 
 
 def _title_para(doc: Document, text: str, *, align, space_before=0, space_after=0, bold=False) -> None:
@@ -332,23 +341,42 @@ def extract_title_metadata(md_raw: str) -> dict[str, str]:
             and not p.lower().startswith("факультет")
             and not p.lower().startswith("кафедра")
         ]
-        i = 0
-        while i < len(paras):
-            text = paras[i]
-            if text.upper() in {"ОТЧЁТ", "ТЕХНИЧЕСКОЕ ЗАДАНИЕ", "ПОЯСНИТЕЛЬНАЯ ЗАПИСКА"}:
-                meta["doc_title"] = text
-                if i + 1 < len(paras) and paras[i + 1].upper() != "ДИСЦИПЛИНА":
-                    meta["work_type"] = paras[i + 1]
-                    i += 1
-            elif text.upper() == "ДИСЦИПЛИНА":
-                if i + 1 < len(paras):
-                    meta["discipline"] = paras[i + 1]
-                    i += 1
-            elif text.startswith("«") or text.startswith("Тема"):
-                meta["theme"] = text
-            elif "theme" not in meta and text and text.upper() not in {"ОТЧЁТ", "ДИСЦИПЛИНА"}:
-                meta["theme"] = text
-            i += 1
+        has_otchet = any(w in p.upper() for p in paras for w in ("ОТЧЁТ", "ТЕХНИЧЕСКОЕ ЗАДАНИЕ", "ПОЯСНИТЕЛЬНАЯ ЗАПИСКА"))
+        if has_otchet:
+            i = 0
+            while i < len(paras):
+                text = paras[i]
+                if text.upper() in {"ОТЧЁТ", "ТЕХНИЧЕСКОЕ ЗАДАНИЕ", "ПОЯСНИТЕЛЬНАЯ ЗАПИСКА"}:
+                    meta["doc_title"] = text
+                    if i + 1 < len(paras) and paras[i + 1].upper() != "ДИСЦИПЛИНА":
+                        meta["work_type"] = paras[i + 1]
+                        i += 1
+                elif text.upper() == "ДИСЦИПЛИНА":
+                    if i + 1 < len(paras):
+                        meta["discipline"] = paras[i + 1]
+                        i += 1
+                elif text.startswith("«") or text.startswith("Тема"):
+                    meta["theme"] = text
+                elif "theme" not in meta and text and text.upper() not in {"ОТЧЁТ", "ДИСЦИПЛИНА"}:
+                    meta["theme"] = text
+                i += 1
+        else:
+            # Учебно-методическое пособие / книга
+            meta["doc_title"] = ""
+            if paras:
+                meta["discipline"] = paras[0]
+            theme_lines = []
+            work_lines = []
+            is_work_type = False
+            for p in paras[1:]:
+                if any(w in p.lower() for w in ("пособие", "учебн", "методическ", "руководство")):
+                    is_work_type = True
+                if is_work_type:
+                    work_lines.append(p)
+                else:
+                    theme_lines.append(p)
+            meta["theme"] = "\n".join(theme_lines)
+            meta["work_type"] = "\n".join(work_lines)
 
     tr_m = re.search(r'<div class="title-right">(.*?)</div>', md_raw, flags=re.DOTALL)
     if tr_m:
@@ -409,35 +437,65 @@ def build_title_doc(
     ):
         _title_para(doc, line, align=C)
 
-    _title_para(doc, "", align=C, space_before=24)
-    _title_para(doc, doc_title, align=C, bold=False)
-    if work_type:
-        _title_para(doc, work_type, align=C, bold=False)
-    _title_para(doc, "", align=C)
-    _title_para(doc, "ДИСЦИПЛИНА", align=C, bold=False)
-    _title_para(doc, discipline, align=C, bold=False)
-    _title_para(doc, "", align=C)
-    theme_clean = theme.strip()
-    if not theme_clean.startswith("«") and not theme_clean.startswith("\""):
-        theme_str = f"«{theme_clean.strip('«»')}»"
-    else:
-        theme_str = theme_clean
-    if doc_title.upper() == "ОТЧЁТ":
+    if doc_title and doc_title.upper() == "ОТЧЁТ":
+        _title_para(doc, "", align=C, space_before=24)
+        _title_para(doc, doc_title, align=C, bold=False)
+        if work_type:
+            _title_para(doc, work_type, align=C, bold=False)
+        _title_para(doc, "", align=C)
+        _title_para(doc, "ДИСЦИПЛИНА", align=C, bold=False)
+        _title_para(doc, discipline, align=C, bold=False)
+        _title_para(doc, "", align=C)
+        theme_clean = theme.strip()
+        if not theme_clean.startswith("«") and not theme_clean.startswith("\""):
+            theme_str = f"«{theme_clean.strip('«»')}»"
+        else:
+            theme_str = theme_clean
         _title_para(doc, f"Тема: {theme_str}", align=C, bold=False)
+        _title_para(doc, "", align=C, space_before=24)
+    elif doc_title:
+        _title_para(doc, "", align=C, space_before=24)
+        _title_para(doc, doc_title, align=C, bold=False)
+        if work_type:
+            _title_para(doc, work_type, align=C, bold=False)
+        _title_para(doc, "", align=C)
+        if discipline:
+            _title_para(doc, discipline, align=C, bold=False)
+            _title_para(doc, "", align=C)
+        for t_line in theme.splitlines():
+            if t_line.strip():
+                _title_para(doc, t_line.strip(), align=C, bold=False)
+        _title_para(doc, "", align=C, space_before=24)
     else:
-        _title_para(doc, theme_str, align=C, bold=False)
-    _title_para(doc, "", align=C, space_before=24)
+        # Учебно-методическое пособие / книга
+        _title_para(doc, "", align=C, space_before=36)
+        if discipline:
+            _title_para(doc, discipline, align=C, bold=False)
+            _title_para(doc, "", align=C, space_before=18)
+        for t_line in theme.splitlines():
+            if t_line.strip():
+                _title_para(doc, t_line.strip(), align=C, bold=False)
+        _title_para(doc, "", align=C, space_before=24)
+        if work_type:
+            for w_line in work_type.splitlines():
+                if w_line.strip():
+                    _title_para(doc, w_line.strip(), align=C, bold=False)
+        _title_para(doc, "", align=C, space_before=24)
 
-    for line in (
-        "Выполнил:",
-        author_group,
-        author_name,
-        "",
-        "Проверил:",
-        supervisor_role,
-        supervisor_name,
-    ):
-        _title_para(doc, line, align=R)
+    if author_name:
+        for line in (
+            "Выполнил:",
+            author_group,
+            author_name,
+            "",
+            "Проверил:",
+            supervisor_role,
+            supervisor_name,
+        ):
+            if line:
+                _title_para(doc, line, align=R)
+            else:
+                _title_para(doc, "", align=R)
 
     return doc
 
@@ -691,7 +749,20 @@ def insert_toc_placeholder(doc: Document) -> None:
             p.paragraph_format.first_line_indent = Cm(0)
             p.paragraph_format.line_spacing = 1.5
             p.paragraph_format.space_after = Pt(12)
-            p.paragraph_format.page_break_before = False
+            # Если перед СОДЕРЖАНИЕМ есть предшествующий текст (например, Аннотация),
+            # оглавление обязательно начинается с нового листа.
+            prev_p = p._p.getprevious()
+            has_prev_content = False
+            while prev_p is not None:
+                if prev_p.tag == qn("w:p"):
+                    txt = "".join(prev_p.itertext()).strip()
+                    if txt:
+                        has_prev_content = True
+                        break
+                elif prev_p.tag == qn("w:sectPr"):
+                    break
+                prev_p = prev_p.getprevious()
+            p.paragraph_format.page_break_before = has_prev_content
             break
 
 
@@ -703,8 +774,10 @@ def style_body_paragraphs(doc: Document) -> None:
         style_name = p.style.name if p.style else ""
 
         if in_title:
-            if text.upper() == "СОДЕРЖАНИЕ":
+            if p._p.xpath("./w:pPr/w:sectPr") or text.upper() == "СОДЕРЖАНИЕ":
                 in_title = False
+                if p._p.xpath("./w:pPr/w:sectPr"):
+                    continue
             else:
                 for r in p.runs:
                     set_run_rfonts(r)
@@ -753,7 +826,7 @@ def style_body_paragraphs(doc: Document) -> None:
 
         # Подразделы: 1.1., 2.3., и т.д.
         if style_name in {"Heading 2", "Heading 3"}:
-            p.style = doc.styles["Heading 2"]
+            p.style = doc.styles[style_name]
             pf.alignment = WD_ALIGN_PARAGRAPH.CENTER
             pf.first_line_indent = Cm(0)
             pf.line_spacing = 1.5
@@ -794,8 +867,8 @@ def style_body_paragraphs(doc: Document) -> None:
             pf.keep_together = True
             continue
 
-        # Маркер формулы [1]
-        if re.fullmatch(r"\[\d+[а-яА-Яa-zA-Z]*\]", text):
+        # Маркер формулы [1] или [1.1]
+        if re.fullmatch(r"\[[\d.]+[а-яА-Яa-zA-Z]*\]", text):
             continue
 
         # Листинги кода
@@ -1048,7 +1121,7 @@ def layout_formulas(doc: Document) -> None:
         if node.tag != qn("w:p"):
             continue
         txt = _paragraph_plain_text(node)
-        m = re.fullmatch(r"\[(\d+[а-яА-Яa-zA-Z]*)\]", txt)
+        m = re.fullmatch(r"\[([\d.]+[а-яА-Яa-zA-Z]*)\]", txt)
         if not m:
             continue
         prev = None
@@ -1164,8 +1237,8 @@ def replace_dashes_and_quotes(doc: Document) -> None:
     def _fix_text(s: str) -> str:
         s = s.replace("\u2014", "\u2013").replace("\u2015", "\u2013").replace("\u2012", "\u2013")
         s = s.replace(" - ", " \u2013 ")
-        s = re.sub(r"(Рисунок\s+\d+)\s+-+\s+", r"\1 – ", s)
-        s = re.sub(r"(Таблица\s+\d+)\s+-+\s+", r"\1 – ", s)
+        s = re.sub(r"(Рисунок\s+[\d.]+)\s+-+\s+", r"\1 – ", s)
+        s = re.sub(r"(Таблица\s+[\d.]+)\s+-+\s+", r"\1 – ", s)
         s = re.sub(r"(\d+)\s*[\u2013\u2014]\s*(\d+)", r"\1-\2", s)
         return s
 
@@ -1342,15 +1415,22 @@ def build_report(
     md_raw = input_path.read_text(encoding="utf-8")
     meta = extract_title_metadata(md_raw)
 
-    final_doc_title = doc_title or meta.get("doc_title", "ОТЧЁТ")
-    final_work_type = work_type or meta.get("work_type", "по лабораторной работе")
-    final_discipline = discipline or meta.get("discipline", "«Оптимизация и оптимальное управление»")
-    final_theme = theme or meta.get("theme", "Тема работы")
-    final_group = author_group or meta.get("author_group", "студент группы АТ-23-01")
-    final_author = author_name or meta.get("author_name", "Гимранов Э. А.")
-    final_sup_role = supervisor_role or meta.get("supervisor_role", "профессор кафедры АТП")
-    final_sup_name = supervisor_name or meta.get("supervisor_name", "Тараканов Д. В.")
-    final_city_year = city_year or meta.get("city_year", "Москва, 2026")
+    has_meta_block = bool(meta)
+
+    def _meta_or_default(key: str, default: str) -> str:
+        if key in meta:
+            return meta[key]
+        return "" if has_meta_block and key in ("author_name", "author_group", "supervisor_name", "supervisor_role") else default
+
+    final_doc_title = doc_title if doc_title is not None else _meta_or_default("doc_title", "ОТЧЁТ")
+    final_work_type = work_type if work_type is not None else _meta_or_default("work_type", "по лабораторной работе")
+    final_discipline = discipline if discipline is not None else _meta_or_default("discipline", "«Оптимизация и оптимальное управление»")
+    final_theme = theme if theme is not None else _meta_or_default("theme", "Тема работы")
+    final_group = author_group if author_group is not None else _meta_or_default("author_group", "студент группы АТ-23-01")
+    final_author = author_name if author_name is not None else _meta_or_default("author_name", "Гимранов Э. А.")
+    final_sup_role = supervisor_role if supervisor_role is not None else _meta_or_default("supervisor_role", "профессор кафедры АТП")
+    final_sup_name = supervisor_name if supervisor_name is not None else _meta_or_default("supervisor_name", "Тараканов Д. В.")
+    final_city_year = city_year if city_year is not None else _meta_or_default("city_year", "Москва, 2026")
 
     md_prep = prepare_markdown(md_raw)
 
